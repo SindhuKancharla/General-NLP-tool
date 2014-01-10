@@ -1,0 +1,66 @@
+Date : 2014
+
+
+Date : Thursday
+
+
+Date : Tuesday
+
+
+JobTitle : queen
+
+
+Location : BERLIN
+
+
+Location : Germany
+
+
+Location : Hamburg
+
+
+Location : Munster
+
+
+Location : Russia
+
+
+Location : Syria
+
+
+Organization : By Associated Press
+
+
+Out_Of_Dictionary : Chavez
+
+
+Out_Of_Dictionary : Killing
+
+
+Out_Of_Dictionary : Latakia
+
+
+Out_Of_Dictionary : Prohibition
+
+
+Person : Defense Minister Ursula von der Leyen
+
+
+Person : Kathy Lally
+
+
+Person : Miss Venezuela
+
+
+Person : Nick Miroff
+
+
+Russia
+
+
+miscellaneous : Chemical Weapons
+
+
+miscellaneous : Kathy Lally
+
+

@@ -1,0 +1,1498 @@
+
+/********************** custom style ***********************/
+
+
+body {
+    margin:0;
+    padding:0;
+    font-family:'MuseoSlab500Regular', helvetica, arial;
+    font-size:100%;
+    line-height: 130%;
+}
+div{
+      font-size:.9rem;
+}
+a {color:#000;text-decoration:none;}
+a img {
+    border:none;
+    outline:none;
+}
+
+img {
+    max-width:100%;
+}
+
+@font-face {
+    font-family: 'MuseoSlab500Regular';
+    src: url('http://static.dnaindia.com/fonts/museo-slab-500.eot');
+    src: url('http://static.dnaindia.com/fonts/museo-slab-500.eot?#iefix') format('embedded-opentype'),
+         url('http://static.dnaindia.com/fonts/museo-slab-500.woff') format('woff'),
+         url('http://static.dnaindia.com/fonts/museo-slab-500.ttf') format('truetype'),
+         url('http://static.dnaindia.com/fonts/museo-slab-500.svg#MuseoSlab500Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+ul, ol, li {
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'MuseoSlab500Regular';
+    font-weight: normal;
+    margin: .5rem;
+    line-height: 130%;
+}
+hr {
+    display:block;
+    clear: both;
+    margin: 1rem 0;
+    height: 0.5rem;
+    background:url(http://static.dnaindia.com/images/2013/pattern.jpg) repeat-x center center;
+    border:none;
+}
+.clear {
+    display:block;
+    clear: both;
+    margin:0;
+    padding:0;
+    height:0;
+    border:none;
+}
+
+.lead-pod-hr,.cat2-topnews-hr {display:none;}
+
+.header-row{
+    width:100%;
+    height:10em;
+    margin:0;
+    margin-bottom:1em;
+    position:relative;top:0;
+    background:#fff;
+    z-index:100;
+}
+
+#header {
+    width:100%;
+    background:#fff;
+    z-index1:99;
+}
+
+.header {
+    height:6.5rem;
+    border-bottom1:1px solid #000;
+    margin-bottom1:.5rem;
+    z-index1: 111;
+}
+
+.logo img{
+    min-width:70%;
+    margin-top:1.5rem;
+}
+        
+.social-links{
+    text-align: center;
+}        
+
+.social-links ul{
+    float:right;
+}        
+
+.social-links ul li{
+    float:left;
+    margin-right:1rem;
+}        
+
+ .search{margin-top:2rem;}
+ .search-q{
+    border:1px solid #ddd;
+    border-right: 0 none;
+    float: right;
+    display:block;
+    margin:0;
+    padding:0;
+    height:1.95rem;
+    width: 80%;
+    font1:0.9375rem 'MuseoSlab500Regular';
+    color:#000000;
+    margin:0;
+    box-shadow:inset 0 0 .5rem #ddd;
+ }
+ .search-submit{
+    background:url(http://static.dnaindia.com/images/2013/search-icon.png) no-repeat center center #000;
+    float: right;
+    width:1.8rem;
+    height:2rem;
+    margin-bottom:0;
+    margin-right:1rem;
+    border:0;     
+ }
+ .topnews,.leadnews,.pod {}
+ .blog,.gallery,.cartoon,.special{}
+ .blog img,.gallery img,.cartoon img,.special img{border:1px solid #eee;}
+ .cat-img,.cat-links{}
+ .leadnews img{border:1px solid #eee;}
+
+ .more_link {margin:0.5rem 0 0 0;text-align:right;}
+ 
+ .cat-links ul li {
+    padding:8px 0;
+    border-bottom:1px solid #ddd;
+}
+.cat-links>ul>li:last-child {
+    padding:8px 0 0;
+    border-bottom:none;
+}
+
+.cat2-more-news {font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;color:#666;}
+.cat2-more-news ul li div:first-child {font-family:MuseoSlab500Regular;font-size: 1rem;float:left;}
+.cat2-more-news ul li {font-size: .9rem;line-height: 150%;padding-bottom1:0;}
+.cat2-topnews ul li:last-child {display:none;}
+
+/*
+.r1,.r23{
+height:100%;
+max-height:380px;
+}
+.r1>div>a>img{
+min-height:100%;
+}
+
+.cat-videos>ul>li>a>img{
+min-height:100%;
+}
+*/
+
+.h2-red,.cat-links h2,.trends h2,.writers h2,.popular h2,.epaper h2 {
+    margin:0;
+    font-size:1rem;
+    font-family: 'arial';
+    color:#ce0000;
+    text-transform:uppercase;
+    margin-bottom:0;.5rem;
+}
+
+.section-title {
+    font-size:.8rem;
+    color:#f88;
+}
+
+.square-box{
+    position: relative;
+    width: 100%;
+}
+
+.square-box > img.square-img{
+    display: block;
+    visibility: hidden;
+    width: 100%;
+    height: auto;
+}
+
+.square-box > .square-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing:border-box;
+    background-color: red;
+    color: white;
+}
+
+                            .square-div {position:relative;}
+                            .square-div-img {display:block;}
+                            .square-div-text {position:absolute;top:0;left:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;font-size1:1rem;line-height:130%;color:#fff;box-sizing:border-box;overflow:hidden;}
+                            .square-div-text div{box-sizing:border-box;margin:.5rem;}
+                            .blog .square-div-text {color:#fff;}
+                            .special .square-div-text {color:#000;}
+
+.square-box > .square-content > div {margin:.5rem;}
+
+.blog .square-content{
+    background-color: red;
+    color: #fff;
+    overflow:hidden;
+}
+
+.special .square-content{
+    background-color: #ffc600;
+    color: #000;
+    overflow:hidden;
+}
+
+.prevnext {
+    width:100%;
+    margin:0 0 2rem 0;
+    border:1px solid #eee;
+}
+
+.prevnext tr td{
+    box-sizing:border-box;
+    width1:50%;
+    margin:0;
+    text-align:center;
+}
+.prevnext tr td>a>div{
+    box-sizing:border-box;
+    padding:1em 4em 1em 4em;
+}
+
+.prevnext tr td a{
+    color:#666;#000;
+    text-decoration:none;
+    font-size:1.4em;
+    outline:none;
+}
+
+.prevnext tr td .title{
+    color:#000;
+    text-transform:uppercase;
+    font-family:arial;
+    font-weight:bold;
+    text-decoration:none;
+    text-align:center;
+    font-size:.7em;
+}
+
+.prevnext tr .new-story{
+    background:url('http://static.dnaindia.com/images/2013/leftarr.png') no-repeat 4% 50%;
+    text-align1:left;
+    padding-left1:5em;
+    border-right:1px solid #eee;
+}
+.prevnext tr .old-story{
+    background:url('http://static.dnaindia.com/images/2013/rightarr.png') no-repeat 96% 50%;
+    text-align1:right;
+    padding-right1:5em;
+}
+.prevnext tr td:hover{
+    background-color:#f3f3f3;
+    cursor:pointer;
+}
+
+                      .article-top-slider .slider{
+                          display: none;
+                      }
+                      .article-top-slider .bx-wrapper{
+                          box-sizing:border-box;
+                          padding:0 30px 0 30px;
+                          margin-bottom:1.5rem;
+                      }
+                      .article-top-slider .bx-wrapper .bx-pager{
+                          display:none;
+                      }
+                      .article-top-slider .slider li:hover {
+                        overflow:auto;
+                        background:#ddd;
+                        }
+                      .article-top-slider .slider li span {
+                        display:block;
+                        font-family: 'MuseoSlab500Regular', helvetica, arial;
+                        font-size: 100%;
+                        line-height: 130%;
+                        padding-top:.5rem;
+                      }
+                      .article-top-slider .bx-wrapper .bx-viewport {
+                        background-color:#f0f0f0;
+                      }
+
+                      .article-top-slider .slider li img {
+                        float:left;
+                        margin: 0.2rem .5rem 0.2rem 0.1rem;
+                        box-shadow: 0px 0px 5px 0px #888;
+                      }
+
+                      .article-top-slider .bx-wrapper .bx-prev {
+                          background: url(http://static.dnaindia.com/images/2013/arrow_left.png) no-repeat;
+                          left:0px;
+                      }
+                      .article-top-slider .bx-wrapper .bx-next{
+                          background: url(http://static.dnaindia.com/images/2013/arrow_right.png) no-repeat;
+                          right:0px;
+                      }
+                      .article-top-slider .bx-wrapper .bx-next,
+                      .article-top-slider .bx-wrapper .bx-prev{
+                          background-size: 100%;
+                          background-position: 0% 0%;
+                          opacity:.2;
+                      }
+                      .article-top-slider .bx-wrapper .bx-next:hover,
+                      .article-top-slider .bx-wrapper .bx-prev:hover{
+                          background-size: 95%;
+                          background-position: 50% 50%;
+                          opacity:.25;
+                      }
+                      .article-top-slider .bx-wrapper .bx-controls-direction a,
+                      .article-top-slider .bx-wrapper .bx-controls-direction a:hover{
+                          width:20px;
+                      }
+
+    @media screen and (max-width: 1023px) {
+                      .article-top-slider .slider li>span {
+                        display:none;
+                        }
+                      .article-top-slider .slider li img {
+                        float:none;
+                        margin:0;
+                        width:100%;
+                      }
+
+    }
+
+
+
+/*********** india.com ribbon ****************/
+.indiarib-row{
+    width:100%;
+    height:2.5em;
+    margin:0;
+    position:relative;top:0;
+    background:#fff;
+    z-index:100;
+}
+.topheader {
+    height:1.8rem;
+    background-color:#000;
+    padding:0 10px;
+}
+.menu, .close a, .clos {
+    display:none;
+}
+.thumblogo {
+    width:92px;
+    float:left;
+    margin-top:1px;
+}
+#modal .feed, #modal .searchbx {
+    display:none;
+}
+.navs {
+    float: left;
+    margin: 0 2%;
+}
+.hsubnav li {
+    float:left;
+    line-height:0px;
+    margin:0;
+}
+.freemail {
+    float: left;
+    padding: 14px 0 0;
+    width: 10%;
+}
+.hsubnav li a {
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-family: 'arial';
+    font-size: 0.75rem;
+    margin: 0;
+    padding:15px 5px;
+    text-decoration: none;
+}
+.hsubnav li a:hover {
+    color:#FF6600;
+}
+.freemail {
+    background: url("http://static.dnaindia.com/images/2013/mailicon.png") no-repeat scroll 0 60% transparent;
+    font-family: 'arial';
+    font-size: 0.8rem;
+    padding: .3rem 0 0 2rem;
+}
+.freemail a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/********************** india.com ribbon ends ***********/
+
+
+/******************** navigation menu ****************/
+           .nav-dna {display:block;z-index1:99;}
+           .nav-dna2 {display:none;z-index1:99;}
+
+            .nav-dna{
+                position:relative;
+                top:0;
+            }
+
+            .nav-india,.nav-dna {
+                    position: relative;
+                    display:block;
+                    margin: 20px 0;
+                    margin: 0 0;
+                    padding-top1: 2px;
+                    
+            }
+            .nav-india ul,.nav-dna ul {
+                    margin: 0;
+                    padding: 0;
+            }
+            .nav-india li,.nav-dna li {
+                    margin: 0 5px 10px 0;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    display: inline-block;
+            }
+            .nav-india a,.nav-dna a {
+                    padding: 3px 12px;
+                    padding: 0px 8px;
+                    text-decoration: none;
+                    color: #999;
+                    color: #fff;
+                    line-height: 100%;
+            }
+            .nav-india a:hover,.nav-dna a:hover {
+                    color: #000;
+                    color: #fff;
+            }
+            .nav-india .current a,.nav-dna .current a {
+                    background: #5c0e67;#a02eb2;#999;
+                    color: #fff;
+                    border-radius: 5px;
+                    border-radius: 3px;
+            }
+            .nav-dna .current a {
+                    background: #000;
+            }
+            /* right nav-india */
+            .nav-india.right ul,.nav-dna.right ul {
+                    text-align: right;
+            }
+            /* center nav-india */
+            .nav-india.center ul,.nav-dna.center ul {
+                    text-align: center;
+            }  
+
+            
+            
+/****************************** new nav start **********************************/            
+            
+            
+                        .nav-dna-share{
+                            float:right;
+                            width:18em;
+                            min-width:18em;
+                        }
+                        .nav-dna-share ul{
+                            margin:0 0 0 1.5em;
+                            padding:0;
+                        }        
+
+                        .nav-dna-share ul li{
+                            float:left;
+                            margin-right:1rem;
+                        }        
+                        .nav-dna-share ul li:last-child{
+                            float:left;
+                            margin-right:0rem;
+                        }        
+                        .nav-dna-share ul li img{
+                            display: block;
+                        }
+                        .nav-dna-share ul li form{
+                            display:inline;
+                            margin:0;
+                            padding: 0;
+                        }
+                        #search {
+                            position: absolute;
+                        }
+                        #search .search-q {
+                            background:url(http://static.dnaindia.com/images/2013/search.png) no-repeat 100% 0%;
+                            background-size:2rem 2rem;
+                            border:0px solid #fff;
+                            box-sizing:border-box;
+                            width: 2rem;
+                            height: 2rem;
+                            box-shadow: none;
+                            font-size: 1.2em;
+                            -moz-transition: width 0.25s ease-out;
+                            -webkit-transition: width 0.25s ease-out;
+                            transition: width 0.25s ease-out;
+                            cursor: pointer;
+                        }
+
+                        #search .search-q:focus,#search .search-q:hover {
+                            box-sizing:border-box;
+                            width: 12rem;
+                            height: 2rem;
+                            padding:0 2rem 0 .7rem;
+                            -moz-transition: width 0.25s ease-out;
+                            -webkit-transition: width 0.25s ease-out;
+                            transition: width 0.25s ease-out;
+                            background:#fff url(http://static.dnaindia.com/images/2013/search.png) no-repeat 98% 45%;
+                            background-size:1.6rem 1.6rem;
+                            border:1px solid #ccc;
+                            border-radius: 1rem;
+                        }
+                        #search .search-q:focus {
+                            padding:0 2rem 0 .7rem;
+                            outline: none;
+                            border: none;
+                            box-shadow: 0px 0px 4px 1px #ffc20e;
+                        }
+                        
+                        #search .search-submit{
+                            display:none;
+                            position: relative;
+                            border: 0;
+                            background-color: none;
+                        }            
+            
+/****************************** new nav end **********************************/            
+            
+            
+/****************************** new min-nav end **********************************/            
+
+            .nav-table {display: table;width:100%;border-collapse:collapse;border1:1px solid #ccc;}
+            .nav-table-row {display: table-row;}
+            .nav-table-cell {display: table-cell;vertical-align: bottom;border1:1px solid red;}
+
+            .nav-dna-min-row{
+                position:fixed;
+                width:100%;
+                background:#fff;
+                z-index:99;
+            }
+            
+                        .nav-dna-min{
+                            padding-bottom: 1em;.5em;
+                            border-bottom:2px solid #ccc;
+                            box-shadow: 2px 2px 5px #ccc;
+                            width: 100%;
+                            position: fixed;
+                            top: 0;
+                            opacity1: 0.1;
+                            background: #fff;
+                            border-bottom: 1px solid #ccc;
+                            height1: 65px;
+                        }
+
+
+                    .nav-dna-logo {
+                        width:5em;
+                        min-width:120px;
+                    }
+                    .nav-dna-logo img {
+                        width:7.2em;
+                        min-width:100px;
+                        display:block;
+                        margin-right:1em;
+                        margin-top:.2em;
+                    }
+
+                    .nav-dna-list{
+                        width:100%;
+                        display: table;
+                        background-color: #fff;
+                    }
+                    .nav-dna-list ul {
+                        display: table-row;
+                        list-style: none;
+                        margin:0;
+                        padding:0;
+                    }
+                    .nav-dna-list>ul>li{
+                        margin: 0;
+                        padding:0;
+                        display: table-cell;
+                        text-align: center;
+                        border: 1px solid #fff;
+                        cursor: pointer;
+			font-family: 'MuseoSlab500Regular';font-weight: normal;
+                        font-size: 1rem;
+                        line-height:100%;
+                        text-transform: uppercase;
+                    }
+                    .nav-dna-list>ul>li:hover{
+                        background-color: #000;
+                    }
+                    .nav-dna-list>ul>li>a{
+                        margin:0;
+                        padding:0;
+			font-family: arial,'MuseoSlab500Regular';font-weight: normal;
+                        display: block;
+                        padding: .4em;
+                        color: #fff;
+                    }
+                    .nav-dna-list>ul>li>a:hover{
+                        background-color: #000;
+                        color: #ffc20e;
+                        box-shadow: 2px 2px 5px #ffc20e;
+                    }
+
+                    .nav-dna-list>ul>li>ul {
+                        display: none;
+                    }
+                    .nav-dna-list>ul>li>ul>li {
+                        margin:0;
+                        padding:0;
+			font-family: arial,'MuseoSlab500Regular';font-weight: normal;
+                        display: block;
+                        padding: .4em;
+                        color: #fff;
+                    }
+                    .nav-dna-list>ul>li>ul>li>a {
+			font-family: arial,'MuseoSlab500Regular';font-weight: normal;
+                        color: #fff;
+                    }
+                    .nav-dna-list>ul>li>ul>li>a:hover {
+                        background-color: #000;
+                        display: block;
+                        color: #ffc20e;
+                        box-shadow: 2px 2px 5px #ffc20e;
+                    }
+
+                    .nav-dna-list li ul {
+                        display:none;
+                        position:absolute;
+                        width:150px;
+                    }
+                    .nav-dna-list li:hover ul {
+                        display:block;
+                        -moz-transition:display 2s ease-in;
+                        -webkit-transition:display 2s ease-in;
+                    }
+
+                    .nav-dna-list ul li ul li{
+                        border:1px solid #ccc;
+                        background:#fff;
+                        color:#000;
+                        width:150px;
+                    }
+                    
+
+                        .nav-dna-share{
+                            width:19em;
+                            min-width:19em;
+                            margin-top:1.5em;
+                        }
+                        .nav-dna-share ul{
+                            width1:17em;
+                            margin:0 0 0 1.5em;
+                            padding:0;
+                        }        
+
+                        .nav-dna-share ul li{
+                            float:left;
+                            margin-right:1rem;
+                        }        
+                        .nav-dna-share ul li img{
+                            display: block;
+                        }
+                        .nav-dna-share ul li form{
+                            display:inline;
+                            margin:0;
+                            padding: 0;
+                        }
+                        #search {
+                            position: absolute;
+                        }
+                        #search .search-q {
+                            background:url(http://static.dnaindia.com/images/2013/search.png) no-repeat 100% 0%;
+                            background-size:2rem 2rem;
+                            border:0px solid #fff;
+                            box-sizing:border-box;
+                            width: 2rem;
+                            height: 2rem;
+                            box-shadow: none;
+                            font-size: 1.2em;
+                            -moz-transition: width 0.25s ease-out;
+                            -webkit-transition: width 0.25s ease-out;
+                            transition: width 0.25s ease-out;
+                            cursor: pointer;
+                        }
+
+                        #search .search-q:focus,#search .search-q:hover {
+                            box-sizing:border-box;
+                            width: 12rem;
+                            height: 2rem;
+                            padding:0 2rem 0 .7rem;
+                            -moz-transition: width 0.25s ease-out;
+                            -webkit-transition: width 0.25s ease-out;
+                            transition: width 0.25s ease-out;
+                            background:#fff url(http://static.dnaindia.com/images/2013/search.png) no-repeat 98% 45%;
+                            background-size:1.6rem 1.6rem;
+                            border:1px solid #ccc;
+                            border-radius: 1rem;
+                        }
+                        #search .search-q:focus {
+                            padding:0 2rem 0 .7rem;
+                            outline: none;
+                            border: none;
+                            box-shadow: 0px 0px 4px 1px #ffc20e;
+                        }
+                        
+                        #search .search-submit{
+                            display:none;
+                            position: relative;
+                            border: 0;
+                            background-color: none;
+                        }
+                        .nav-dna-min{
+                            z-index1: 100;
+                        }
+                        .nav-india{
+                            z-index1: 101;
+                            position:relative;
+                            background:#000;
+                            height1:100px;
+                        }
+                        .nav-dna{
+                            z-index1: 101;
+                            position:relative;
+                            background:#ccc;
+                            height1:100px;
+                        }
+                        .content{
+                            z-index1: 99;
+                            background1: #aaa;
+                            height:1600px;
+                        }
+                        .nav-dna-min table{
+                            width: 100%;
+                        }
+
+                        @media screen and (max-width: 1200px) {
+                            .nav-dna-list>ul>li{font-size:.9rem;}
+
+                            .nav-dna-share img{
+                            width:90%;
+                            
+                        }        
+
+                        #search .search-q {
+                            background:url(http://static.dnaindia.com/images/2013/search.png) no-repeat 100% 0%;
+                            background-size:100% 90%;
+                            width: 1.8rem;
+                            height: 1.8rem;
+                            font-size: 1rem;
+                        }
+
+                        #search .search-q:focus,#search .search-q:hover {
+                            width: 10rem;
+                            height: 1.8rem;
+                            background:#fff url(http://static.dnaindia.com/images/2013/search.png) no-repeat 98% 45%;
+                            background-size:1.3rem 1.3rem;
+                            border-radius: .8rem;
+                        }
+
+                        .nav-dna-share{
+                            width:16em;
+                            min-width:16em;
+                        }
+
+                        .nav-dna-share ul{
+                            margin:0 0 0 1.2em;
+                        }        
+                        
+                        .nav-dna-share ul li{
+                            margin-right:.5em;
+                        }
+                        
+                        }
+
+                        @media screen and (max-width: 1080px) {
+                            .nav-dna-logo img {
+                                width:5em;
+                                min-width:90px;
+                            }
+                            .nav-dna-list>ul>li{font-size:.8rem;}
+                            
+                        }
+
+
+/****************************** new min-nav end **********************************/            
+            
+            
+            
+            
+            @media screen and (max-width: 1023px) {
+                    .nav-india,.nav-dna {
+                            position: relative;
+                            min-height: 40px;
+                            min-height: 20px;
+                    }	
+                    .nav-india ul,.nav-dna ul {
+                            width: 180px;
+                            width: 150px;
+                            height1:22px;
+                            padding: 5px 0;
+                            padding: 0;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            left1: 90px;
+                            border: solid 1px #aaa;
+                            border: solid 0px #aaa;
+                            background: #fff url(http://static.dnaindia.com/images/2013/icon-menu-white.png) no-repeat 10px 11px;
+                            background: #000 url(http://static.dnaindia.com/images/2013/icon-menu-white.png) no-repeat 5px 5px;
+                            border-radius: 5px;
+                            border-radius: 0px;
+                            box-shadow: 0 1px 2px rgba(0,0,0,.3);
+                            box-shadow: none;
+                    }
+                    .nav-india li,.nav-dna li {
+                            display: none; /* hide all <li> items */
+                            margin: 0;
+                    }
+                    .nav-india .current,.nav-dna .current {
+                            display: block; /* show only current <li> item */
+                    }
+                    .nav-india a,.nav-dna a {
+                            display: block;
+                            padding: 5px 5px 5px 32px;
+                            text-align: left;
+                    }
+                    .nav-india .current a,.nav-dna .current a {
+                            background: none;
+                            color: #fff;#666;
+                    }
+
+                    /* on nav-india hover */
+                    .nav-india ul:hover,.nav-dna ul:hover {
+                            background-image: none;
+                            border-radius: 5px;
+                            box-shadow: 0 1px 2px rgba(0,0,0,.3);
+                    }
+                    .nav-india ul:hover li,.nav-dna ul:hover li {
+                            display: block;
+                            margin: 0 0 5px;
+                    }
+                    .nav-india ul:hover .current,.nav-dna ul:hover .current {
+                            background: url(http://static.dnaindia.com/images/2013/icon-check-white.png) no-repeat 10px 7px;
+                    }
+
+                    /* right nav-india */
+                    .nav-india.right ul,.nav-dna.right ul {
+                            left: auto;
+                            right: 0;
+                    }
+
+                    /* center nav-india */
+                    .nav-india.center ul,.nav-dna.center ul {
+                            left: 50%;
+                            margin-left: -90px;
+                    }
+
+            }            
+            .topheader {margin:0;padding:0;height:24px;}
+            .thumblogo {height:22px;}
+            .navigation li a {padding:5px 17px;border-left:2px solid #fff;}
+            .nav-dna ul li {color:#fff;}
+        .nav-dna ul li a{color:#fff;}
+
+/******************** navigation india.com menu ends ****************/
+
+/******************** navigation dna menu starts****************/
+            .nav-dna2{
+                position:relative;
+                top:0;
+            }
+
+            .nav-dna2 {
+                    position: relative;
+                    display1:block;
+                    margin: 20px 0;
+                    margin: 0 0;
+            }
+            .nav-dna2 ul {
+                    margin: 0;
+                    padding: 0;
+            }
+            .nav-dna2 li {
+                    margin: 0 5px 10px 0;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    display: inline-block;
+            }
+            .nav-dna2 a {
+                    padding: 3px 12px;
+                    padding: 0px 8px;
+                    text-decoration: none;
+                    color: #999;
+                    color: #fff;
+                    line-height: 100%;
+            }
+            .nav-dna2 a:hover {
+                    color: #000;
+                    color: #fff;
+            }
+            .nav-dna2 .current a {
+                    background: #5c0e67;#a02eb2;#999;
+                    color: #fff;
+                    border-radius: 5px;
+                    border-radius: 3px;
+            }
+            /* right nav-india */
+            .nav-dna2.right ul {
+                    text-align: right;
+            }
+            /* center nav-india */
+            .nav-dna2.center ul {
+                    text-align: center;
+            }  
+            
+            @media screen and (max-width: 1023px) {
+                    .nav-dna2 {
+                            position: relative;
+                            min-height: 40px;
+                            min-height: 20px;
+                    }	
+                    .nav-dna2 ul {
+                            width: 180px;
+                            width: 150px;
+                            height1:22px;
+                            padding: 5px 0;
+                            padding: 0;
+                            position: absolute;
+                            top: 25px;
+                            left: 0;
+                            left: 90px;
+                            border: solid 1px #aaa;
+                            border: solid 0px #aaa;
+                            background: #fff url(http://static.dnaindia.com/images/2013/icon-menu-white.png) no-repeat 10px 11px;
+                            background: #000 url(http://static.dnaindia.com/images/2013/icon-menu-white.png) no-repeat 5px 5px;
+                            border-radius: 5px;
+                            border-radius: 0px;
+                            box-shadow: 0 1px 2px rgba(0,0,0,.3);
+                            box-shadow: none;
+                    }
+                    .nav-dna2 li {
+                            display: none; /* hide all <li> items */
+                            margin: 0;
+                    }
+                    .nav-dna2 .current {
+                            display: block; /* show only current <li> item */
+                    }
+                    .nav-dna2 a {
+                            display: block;
+                            padding: 5px 5px 5px 32px;
+                            text-align: left;
+                    }
+                    .nav-dna2 .current a {
+                            background: none;
+                            color: #fff;#666;
+                    }
+
+                    /* on nav-india hover */
+                    .nav-dna2 ul:hover {
+                            background-image: none;
+                            border-radius: 5px;
+                            box-shadow: 0 1px 2px rgba(0,0,0,.3);
+                    }
+                    .nav-dna2 ul:hover li {
+                            display: block;
+                            margin: 0 0 5px;
+                    }
+                    .nav-dna2 ul:hover .current {
+                            background: url(http://static.dnaindia.com/images/2013/icon-check-white.png) no-repeat 10px 7px;
+                    }
+
+                    /* right nav-india */
+                    .nav-dna2.right ul {
+                            left: auto;
+                            right: 0;
+                    }
+
+                    /* center nav-india */
+                    .nav-dna2.center ul {
+                            left: 50%;
+                            margin-left: -90px;
+                    }
+
+            }            
+            .nav-dna2 ul li {color:#fff;}
+        .nav-dna2 ul li a{color:#fff;}
+
+/******************** navigation dna menu ends ****************/
+
+
+/*
+.navigation {}
+.navigation ul {margin-bottom:.2em;padding-bottom:0;}
+.navigation ul li {float:left;}
+.navigation li a {margin-bottom:.2em;padding-bottom:0;}
+.navigation .active {border-bottom:3px solid #A02EB2;}
+*/
+
+.navigation {
+    height1:2rem;
+    margin-bottom:1rem;
+    border-bottom:1px solid #ddd;
+}
+.navigation ul {
+    margin:0;
+    height:30px;
+    background:#ccc;
+}
+.navigation li {
+    line-height: 0;
+    margin: 0;
+    float:left;
+}
+/*	.navigation li:first-child a{
+        padding-left:0;
+        }
+
+        .navigation li:last-child a{
+        padding-right:0;
+        }
+*/
+.navigation li a {
+    font-size:1.125em;
+    text-transform:uppercase;
+    padding:7px 10px;
+    display:block;
+    color:#000000;
+    text-decoration:none;
+}
+.navigation li a span {
+    background: url("http://static.dnaindia.com/images/2013/arrow.jpg") no-repeat scroll right center transparent;
+    display: inline-block;
+    height: 9px;
+    width: 7px;
+}
+.navigation li a:hover {
+    background-color:#000000;
+    color:#fff;
+}
+.navigation li a:hover span {
+    background:url(http://static.dnaindia.com/images/2013/marrow.png) no-repeat right center;
+}
+.navigation li ul {
+    display:none;
+    position:absolute;
+    width:150px;
+}
+.navigation li:hover ul {
+    display:block;
+    -moz-transition:display 2s ease-in;
+    -webkit-transition:display 2s ease-in;
+}
+
+.navigation ul li ul>li{
+    border:1px solid #ccc;
+    background:#fff;
+    color:#000;
+    width:150px;
+}
+
+ .auth {height:4em;border:solid #444;}
+/*
+ .topnews ul li {clear:both;border-top:1px solid #ccc;padding:.8rem 0 .5rem 0;}
+ .topnews ul {}
+ .topnews ul li:first-child{border-top:none;}
+ .topnewsthumb {width:30%;margin:0 1rem .5rem 0;float:left;clear:left;}
+ .topnews ul li:first-child {padding-top:0;}
+ .topnewssection {color:red;}
+ .topnewsheadline {}
+ .topnewsdescription {display:none;}
+ */
+ .pod img{display:block;width:100%;}
+
+ .pod-caption {
+  position1:absolute;
+  max-width1:100%;
+  z-index1:10;
+  background:#777;
+  opacity1: 1;0.6;
+  color:#fff;
+  padding: .5rem;
+}
+ .pod-watermark, .pod-watermark-text {
+    display:none;
+    width:10em;
+    padding:.2em .5em .2em .5em;
+    font-weight:100;
+    text-transform:uppercase;
+    font-family:arial;
+    position: absolute;
+    opacity: 0.6;
+    color:#fff;
+    background:#b84a3d;
+    font-size: 1.5em;
+    text-align: center;
+    z-index: 10;
+}
+
+.pod-watermark-text {
+    display:none;
+    opacity: 1;
+    color:#fff;
+    background:none;
+    z-index: 11;
+}
+
+ .video-watermark {
+     position: absolute;
+     width: 39px;
+     height: 39px;
+     margin-top: 80px;
+     margin-left: 120px;
+     opacity: 0.7;
+     background-image:url('http://static.dnaindia.com/images/2013/play.png');
+     background-repeat: no-repeat;
+     background-position: 50% 50%;
+     z-index: 10;
+   }
+
+.font11 {
+    font-size:0.9rem;
+    color:#777;
+    white-space:nowrap;
+}
+
+.list-thumbs>ul>li{
+    clear:both;border-top:1px solid #ccc;padding:.8rem 0 .5rem 0;
+}
+
+.list-thumbs>ul>li:first-child{
+    border:none;
+}
+
+.list-thumbs img {width:30%;margin:0 1rem .5rem 0;float:left;clear:left;}
+
+#popular{
+    clear:both;display:both;height:3rem;
+}
+
+.popular>ul>li a,.cat-popular>ul>li a {
+    background-color:#f8f8f8;
+    display:block;
+    float:left;
+    padding:5%;
+    text-align:center;
+    text-transform:uppercase;
+    text-decoration:none;
+    font-family:'arial';
+	font-size:.7rem;
+    text-transform:uppercase;
+    border:1px solid #ddd;
+    border-bottom:0;
+    color:#000;
+}
+.popular>ul>li.active a,.cat-popular>ul>li.active a {
+    background-color:#fff;
+    margin-top:1px;
+}
+.popular-content {
+    padding:1%;10% 5%;
+    border:1px solid #ddd;
+	font:15px 'MuseoSlab500Regular';
+}
+.list li, .popular-content li {
+    margin:0;
+    padding:.5em;
+    border-top:1px solid #ddd;
+	font:15px 'MuseoSlab500Regular';
+    color:#000000;
+}
+
+.reportleft {
+padding:0 5px;
+    float:left;
+border-right:0px solid #999;
+margin-right:20px;
+}
+
+.share, .zoomin, .zoomouts, .coment, .print {
+    background1: url("http://static.dnaindia.com/images/2013/iconlist.gif") no-repeat scroll 0 0 transparent;
+    height: 22px;
+    width: 26px;
+}
+.zoomin {
+    background1: url("http://static.dnaindia.com/images/2013/iconlist.gif") no-repeat scroll 0 -22px transparent;
+    height: 15px;
+}
+.zoomouts {
+    background1: url("http://static.dnaindia.com/images/2013/iconlist.gif") no-repeat scroll 0 -40px transparent;
+    height: 13px;
+}
+.coment {
+    background1: url("http://static.dnaindia.com/images/2013/iconlist.gif") no-repeat scroll 0 -51px transparent;
+    height: 20px;
+}
+.print {
+    background1: url("http://static.dnaindia.com/images/2013/iconlist.png") no-repeat scroll 0 -78px transparent;
+}
+.reportright {
+width:68%;
+    float:left;
+padding-right:20px;
+}
+
+.social-float {
+display:block;
+float1:left;
+margin:0;
+position1:fixed;
+border:0px solid #eee;
+width:70px;
+padding-left:0.5em;
+}
+
+.social-float ul li{
+  padding-bottom:1em;display:inline;float:left;
+}
+
+.reportad {
+display:block;
+}
+
+#story a {text-decoration: underline;}
+#story iframe, #story img {max-width:100%;}
+#story img {height:auto;}
+#story-deleted ul,#story-deleted ol {margin:1rem 0 1rem 2rem;} 
+#story-deleted ul>li,#story-deleted ol>li {list-style-type:disc;}
+
+.related{
+    box-sizing:border-box;
+    border-left: 1px solid #ddd;
+    padding-left: .5em;
+}
+
+.related ul li{
+    margin: 0px;
+    padding: .5em 0 .5em;
+    list-style: none outside none;
+    border-bottom: 1px solid #ccc;
+}
+
+/*################### header style ###############*/
+
+
+
+.archive-link-title{font-family:'MuseoSlab500Regular';margin-top:.5rem;}
+.archive-link-desc{padding-bottom:.5rem;border-bottom:1px solid #ddd;}
+
+
+.epaper a img{
+    box-shadow: 1px 4px 5px 0px #888;
+    border-top-left-radius:1px;
+    border-top-right-radius:1px;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+}
+
+
+/*************** mobile header ****************/
+
+        #menu-mobile-buttons,#menu-mobile-dna,#menu-mobile-ind{display:none}
+
+        @media screen and (max-width: 800px) {
+                .indiarib-row, .header-row{display:none;}
+            .mobile-menu-spacer { height:4rem;}
+            #menu-mobile-buttons {
+                display:block;
+                position:fixed;
+                          box-sizing:border-box;
+                top: 0;
+                background:#fff;
+                width:100%;
+                height:2.7rem;3rem;3.2rem;
+                border-bottom:0px solid #ccc;
+                box-shadow: 0px 0px 5px 0px #666;
+                color: #fff;
+                padding: 3px;
+            }
+            #menu-mobile-button-dna{
+                float:left;
+            }
+            #menu-mobile-button-ind{
+                float:right;
+            }
+            #menu-mobile-button-dna,#menu-mobile-button-ind {
+                cursor:pointer;
+            }
+            #menu-mobile-button-dna img{
+                margin:5px 0 0 3px;
+                width: 1.7rem;
+                height: 1.5rem;
+            }
+            #menu-mobile-button-ind img{
+                margin:3px 0;
+                height: 2rem;
+            }
+            .menu-mobile{
+                display:none;
+            }
+            .menu-mobile ul{
+                margin:0;padding:0;
+            }
+            #menu-mobile-dna li a,#menu-mobile-ind li a {
+                padding: 8px;
+                display: block;
+                color: #ccc;
+                text-align: left;
+                text-decoration: none;
+            }
+            #content {
+              position: relative;absolute;
+                background-color: #fff;
+                left: 0px;
+                            overflow:hidden;
+                box-shadow:  0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+            }
+            #content p {
+                padding: 10px;
+            }
+
+            #menu-mobile-dna {
+                display:none;
+                position:absolute;left:0;
+                width: 12rem;80%;150px;
+                height: 100%;
+            }
+            #menu-mobile-ind {
+                display:none;
+                position:absolute;right:0;
+                text-align:right;
+                width: 10rem;80%;150px;
+                height: 100%;
+            }
+
+            #menu-mobile-dna li,#menu-mobile-ind li {
+                font-family: arial;
+                font-size: 1rem;
+                padding: auto;
+                padding-left: .5rem;
+                background-color:#444;
+                border-bottom: 1px solid #555;
+            }
+            #menu-mobile-ind li:first-child {
+                background: #ccc;
+                height: 2.7rem;
+                padding: 0;
+                text-align: center;
+            }
+                        #search, .menu-mobile .search-q{
+                            box-sizing:border-box;
+                            width: 10rem;
+                            height: 1.9rem;
+                            margin: .4rem 1rem;
+                            padding: .5rem;
+                            transition: width 0.25s ease-out;
+                            background:#aaa url(http://static.dnaindia.com/images/2013/search.png) no-repeat 98.5% 50%;
+                            background-size:1.6rem 1.6rem;
+                            border:1px solid #ccc;
+                            border-radius: 1rem;
+                            font-size: 1rem;
+                            outline:none;
+                        }
+                        #search:focus,.menu-mobile .search-q:focus{
+                        background: #fff;
+                        }
+                        .search-submit{
+                          display:none;
+                        }
+                        .search-div{
+                          font-size: 1.5rem;
+                          padding: 0;
+                          text-align: center;
+                          height:2.7rem;3.2rem;
+                          background:#000;border:0px solid #fff;
+                        }
+        }
+
+
+    #quiz-main-div {width:85%;background-color1:#f0fff0;padding:10px;}
+    .item {margin-top:20px;}
+    .item input {margin-right:5px;}
+    .question-div {font-weight:bold;margin-bottom:10px;}
+    .ans-div {display:block;padding:0.5em;}
+    .res {float:left;font-weight:bold;}
+    .info {display:none;background:#eaeaea;padding:.5em;}
+
+/*************** headline share buttons *********/
+
+  .headline-social-shares {height:1.5rem;margin-top:.2rem;overflow:hidden;}
+  .headline-social-total {position: relative; display: block;}
+  .headline-social-total-count {font-family:arial,sans-serif;color:#999;font-size:.9rem;}
+  .headline-social-total-count img {width:16px;margin:0;padding:0;float:none;}
+  .headline-social-total-time {font-family:arial,sans-serif;font-size:.8rem;color:#999;}
+  .headline-social-links {position: relative; display: none;}
+
+  .headline-social-links ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+  }
+  .headline-social-links ul li {
+    display:inline;
+    border:1px solid #ccc;
+    border-radius: 3px;
+    padding-right:.3rem;
+    padding-left:1.5rem;
+    margin-left:12%;
+    width:1rem;
+    font-family: arial,sans-serif;
+    font-size: .8rem;
+    color:#666;
+    opacity: .7;
+    cursor:pointer;
+  }
+  .headline-social-links ul li:hover {
+    opacity: 1;
+  }
+  .headline-social-links ul a:nth-child(1) li {
+    background:url(http://static.dnaindia.com/images/2013/facebook-square-icon.png) no-repeat;
+    background-size: 1.2rem 100%;
+    margin-left:0%;
+  }
+  .headline-social-links ul a:nth-child(2) li {
+    background:url(http://static.dnaindia.com/images/2013/twitter-square-icon.png) no-repeat;
+    background-size: 1.2rem 100%;
+  }
+  .headline-social-links ul a:nth-child(3) li {
+    background:url(http://static.dnaindia.com/images/2013/google-plus-square-icon.png) no-repeat;
+    background-size: 1.2rem 100%;
+  }
+
+
+/*************** footer style *******************/
+
+.footer {
+    border-top:1px solid #ddd;
+    padding:20px 0;
+    clear:both;
+    width1:100%;
+    text-align: center;
+}
+.footer .container {
+    width1:70%;
+    margin:0 auto;
+}
+.footer ul {
+    padding: 0 9%;
+    margin-bottom:0.5rem;
+}
+.footer li {
+    margin:0;
+    display:inline;
+    color:#777;
+}
+.footer li.last a {
+    border-right:0;
+}
+.footer li a {
+    padding:0 0.5rem;
+    border-right:1px dotted #ccc;
+    text-decoration:none;
+    font-size:.8rem;
+    color:#777;
+    text-align:center;
+}
+.footer div {
+    color:#777;
+}
+
+.footer .about a,.footer .contact a,.footer .careers a,.footer .reprint a {color:#5d0f67;}
+.footer .advertise a {color:#ffc20e;}
+ 
+
+/*************** footer style ends *******************/

@@ -1,0 +1,11 @@
+MultiPhase: SentenceExtraction
+Phases:
+
+sentence
+sentence1
+sentence2
+sentence3
+sentence3_1
+sentence3_2
+sentence3_3
+sentence4

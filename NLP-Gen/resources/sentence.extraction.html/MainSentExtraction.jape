@@ -1,0 +1,5 @@
+MultiPhase: SentenceExtraction
+Phases:
+sentencePatterns
+getSentences
+getLeftOutSentences

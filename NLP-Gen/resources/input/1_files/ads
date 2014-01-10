@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=CBdWbDsLGUuXfOuK-iget9oCgCo_9g6kG35WZsWOkpMaNKRABIKih1AlQ2JO_pf______AWDlyuWDtA6gAcnsp80DyAEBqQKkkNBKQkNRPqgDAaoEtAFP0Es4Ma-o1H1Xw-x5Ro_tF9c7f_2qK07IwKpaVpwstTEgmbekQhXEpmECTGzrSPktIaUZuY2nQLrvtrHXI_arvb35181NoTa3ghtRHH4CCxJJMUvHQC-_d_V1IY45qxOGi_xIrbH2UGUG35XkZATh0fod3GEFwUEH5vZLH2vOzlaF3xT7e6lCorB29U3IkMiZT33yBYqF0XIOkKzSEPBf5F8WNY5yF4DauBfijTDXI2G7bxeAB5-T2DI&amp;num=1&amp;sig=AOD64_1riktCESlaj2R5V0bT3gT9mJM-_A&amp;client=ca-ibnlive_site_js&amp;adurl=https://www.cibil.com/online/cibilscore-form-scsltd.do"; 
+google_ad.visible_url = "www.cibil.com/creditcard"; 
+google_ad.line1 = "Score 750 \x3d Card approved"; 
+google_ad.line2 = "Check your credit score before you"; 
+google_ad.line3 = "apply. Check it online for Rs. 470."; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://ibnlive.in.com/news/my-eyes-my-eyes-is-that-a-huge-diamond-on-priyanka-chopras-finger/442343-8.html%26gl%3DIN%26hl%3Den%26client%3Dca-ibnlive_site_js%26hideleadgen%3D1%26ai0%3DCBdWbDsLGUuXfOuK-iget9oCgCo_9g6kG35WZsWOkpMaNKRABIKih1AlQ2JO_pf______AWDlyuWDtA6gAcnsp80DyAEBqQKkkNBKQkNRPqgDAaoEtAFP0Es4Ma-o1H1Xw-x5Ro_tF9c7f_2qK07IwKpaVpwstTEgmbekQhXEpmECTGzrSPktIaUZuY2nQLrvtrHXI_arvb35181NoTa3ghtRHH4CCxJJMUvHQC-_d_V1IY45qxOGi_xIrbH2UGUG35XkZATh0fod3GEFwUEH5vZLH2vOzlaF3xT7e6lCorB29U3IkMiZT33yBYqF0XIOkKzSEPBf5F8WNY5yF4DauBfijTDXI2G7bxeAB5-T2DI\x26usg\x3dAFQjCNEqLnceIc1lLsYhuG5N-ghovenyJQ";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

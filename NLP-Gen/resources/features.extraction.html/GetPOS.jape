@@ -1,0 +1,33 @@
+Phase: getConcepts
+Input: SENTENCE1 Token SpaceToken FEATURE_SENTENCE
+Options: control = appelt
+ 
+
+Rule: Noun
+(
+   {Token.category==NN,Token within{FEATURE_SENTENCE}}|{Token.category==NNS,Token within{FEATURE_SENTENCE}}|
+   {Token.category==NNP,Token within{FEATURE_SENTENCE}}|{Token.category==NNPS,Token within{FEATURE_SENTENCE}}
+)
+:rule
+-->
+:rule.Noun={rule="1",string=:Token@string}
+
+
+Rule: Verb
+(
+   {Token.category==VBN,Token within{FEATURE_SENTENCE}}|{Token.category==VBG,Token within{FEATURE_SENTENCE}}|
+   {Token.category==VB,Token within{FEATURE_SENTENCE}}|{Token.category==VBZ,Token within{FEATURE_SENTENCE}}
+)
+:rule
+-->
+:rule.Verb={rule="1",string=:Token@string}
+
+Rule: Adjective
+(
+   {Token.category==JJ,Token within{FEATURE_SENTENCE}}|{Token.category==JJS,Token within{FEATURE_SENTENCE}}|
+   {Token.category==JJR,Token within{FEATURE_SENTENCE}}|{Token.category==RB,Token within{FEATURE_SENTENCE}}
+)
+:rule
+-->
+:rule.Adjective={rule="1",string=:Token@string}
+

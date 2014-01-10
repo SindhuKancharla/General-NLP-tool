@@ -1,0 +1,36 @@
+Phase: GetActualSentences
+Input:  Headers Bullets data formData Sentence 
+Options: control = appelt
+
+Rule: div
+(  
+{Headers}
+)
+:form
+-->  
+:form.keySentence={tag="Heading",string=:form@string}
+
+Rule: div2
+(  
+{Bullets}//|{formData within {Bullets}}|{Bullets within {formData}}
+)
+:form2
+-->  
+:form2.keySentence={tag="Bullets",string=:form2@string}
+
+Rule: new2
+(
+{data,data notContains {Headers},data notContains {Bullets}}
+)
+:l
+-->
+:l.keySentence={tag="data",string=:l@string}
+
+Rule: new
+(
+{Sentence,Sentence notContains {Headers},Sentence notContains {data},Sentence notContains {Bullets}}|
+{Sentence,Sentence notContains {Bullets},Sentence notContains {data},Sentence notContains {Headers}}
+)
+:l2
+-->
+:l2.keySentence={tag="others",string=:l2@string}

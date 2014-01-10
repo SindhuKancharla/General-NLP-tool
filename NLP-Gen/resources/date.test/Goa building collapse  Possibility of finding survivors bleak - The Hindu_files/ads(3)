@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "image"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CHzHb5rDKUuSQC4TckwXd8oC4AvWzzeQEjdT1_n-JycqzBhABIL2DvxNQ26adlfn_____AWDlyuWDtA6gAbvIs90DyAECqQK495sRRjhRPqgDAaoE3gFP0Ds8u9LHYICg2piR1qwWNa-KjJM3MhB0QVq38WyGyIST_nSexC9Rrk3jzE__CKHqZ8JthKQFXXQpHN5HeH8LEYNpsS27h6f5YuAboatucuhvWxOTIaIH47ns-thKjBlGHrBKf7PFAnhhKmwSxzPKfsWPI_EO1t1bGbgRYurlG9B9likYCO-OOJ5tGEhRQEFippAUAFD4J1ti8tohbUCpqH1-ePJ4Mdc2oM1TabD8XxXkYh5c2wA2tOsZah9aEr418ZURrPRidwt1DQ1lAz-swvs5mPVTz0ZzgeLuD_2IBgGgBgKAB623zCI&amp;num=1&amp;cid=5GiwHoh658bi6Osc-0YEmdyG&amp;sig=AOD64_1iTSyuc00Cc1DYTr0j3RR_kIKwJw&amp;client=ca-hindu_site_html&amp;adurl=http://www.pepperfry.com/furniture-tables-coffee-centre-tables.html"; 
+google_ad.visible_url = "www.pepperfry.com"; 
+google_ad.image_url = "http://pagead2.googlesyndication.com/simgad/10693389557564545071";
+google_ad.image_width = "300";
+google_ad.image_height = "250";
+google_ad.image_alt_text = "";
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.thehindu.com/news/national/other-states/goa-building-collapse-possibility-of-finding-survivors-bleak/article5541086.ece%26gl%3DIN%26hl%3Den%26client%3Dca-hindu_site_html%26hideleadgen%3D1%26ai0%3DCHzHb5rDKUuSQC4TckwXd8oC4AvWzzeQEjdT1_n-JycqzBhABIL2DvxNQ26adlfn_____AWDlyuWDtA6gAbvIs90DyAECqQK495sRRjhRPqgDAaoE3gFP0Ds8u9LHYICg2piR1qwWNa-KjJM3MhB0QVq38WyGyIST_nSexC9Rrk3jzE__CKHqZ8JthKQFXXQpHN5HeH8LEYNpsS27h6f5YuAboatucuhvWxOTIaIH47ns-thKjBlGHrBKf7PFAnhhKmwSxzPKfsWPI_EO1t1bGbgRYurlG9B9likYCO-OOJ5tGEhRQEFippAUAFD4J1ti8tohbUCpqH1-ePJ4Mdc2oM1TabD8XxXkYh5c2wA2tOsZah9aEr418ZURrPRidwt1DQ1lAz-swvs5mPVTz0ZzgeLuD_2IBgGgBgKAB623zCI\x26usg\x3dAFQjCNHp9M-clbbRw48EYXb2B7FgdoYZag";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

@@ -1,0 +1,10 @@
+zzhasAd=undefined;document.write("<span id=\"Zedo-Ad=1228029_81_0_728_90;Domain=.zedo.com\"></span>"); var zz_tmp_dmn = 'http://d2.zedo.com/'; if (typeof zflag_vals != 'undefined') {  zflag_vals.n = 767;  zflag_vals.c = 81;  zflag_vals.s = 0;  zflag_vals.dmn = zz_tmp_dmn;  }  var zflag_nid=767; var zflag_cid=81; var zflag_sid =0; var zflag_dmn = zz_tmp_dmn;function getZZPageUrl(){var val='';try{val =(typeof(location.href)=='undefined'?"":escape(location.href));}catch(e){}return val;}function getZZPageRef(){var val='';try{val =(typeof(document.referrer)=='undefined'?"":escape(document.referrer));}catch(e){}return val;}document.write('<script type="text/javascript">'); 
+document.write('google_ad_client = "ca-pub-8609501543919728";'); 
+document.write('google_ad_slot = "7192164700";'); 
+document.write('google_ad_width = 728;'); 
+document.write('google_ad_height = 90;'); 
+document.write('google_page_url = "http://profit.ndtv.com";'); 
+document.write('<\/script>'); 
+document.write('<script type="text/javascript"'); 
+document.write('src="http://pagead2.googlesyndication.com/pagead/show_ads.js">'); 
+document.write('<\/script>'); 

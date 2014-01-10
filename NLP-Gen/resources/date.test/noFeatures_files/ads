@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CrqAJNeDLUsnsJIzKigfU8oGgCpGPj-0Duc76_4cBwI23ARABIOybiQZQ9o622wRg5crlg7QOoAGv0KfdA8gBAakCx_DPOxg1UT6oAwGqBNQBT9DMD3bLnJjUoxlz2KMZLOB799vz2fxN_neDxd3KUe6-jChrUFwoEK5-JMgQYmk0NiL2WR3riBUnwLIGEbIQBTKYYhCh9_cYbANiVa_3HhXeIAfZ0w4Dq7nJwS7VJNyfm3x_peGe81UTeArT0CruM0bodpGGTNzUvR9ECR1Ycms70-Cui855I49GeK4gPhy3DXuXvogQdUWMcY2aG4dmjU2ehCNVvPIFNIwLe7XVbDN53zImCLkljIxivPOJQ9sOxNvAbLDbP9xtVQrZ22rm1GwmJJiIBgGAB7mv2CI&amp;num=1&amp;cid=5GhGhJ_6Q1pkf84Rmg9IY0BO&amp;sig=AOD64_0z4soG40-mGd53zXDD1-6m1RYdgw&amp;client=ca-pub-7641565019577886&amp;adurl=http://www.hdfcred.com/faith-inc-faith-eco-space-in-bengaluru-p-4764%3Frefcode%3Dcogoogle_bengalaru"; 
+google_ad.visible_url = "www.hdfcred.com/Faith-Inc"; 
+google_ad.line1 = "2 BHK @ Rs 20.3 Lacs"; 
+google_ad.line2 = "2/3 BHK in Sarjapur-Attibele Road"; 
+google_ad.line3 = "Faith Eco Space. Know more Now!"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ndtv.com/article/india/priyanka-gandhi-attends-congress-meet-amid-reports-of-party-rejig-rahul-not-present-468004%26gl%3DIN%26hl%3Den%26client%3Dca-pub-7641565019577886%26ai0%3DCrqAJNeDLUsnsJIzKigfU8oGgCpGPj-0Duc76_4cBwI23ARABIOybiQZQ9o622wRg5crlg7QOoAGv0KfdA8gBAakCx_DPOxg1UT6oAwGqBNQBT9DMD3bLnJjUoxlz2KMZLOB799vz2fxN_neDxd3KUe6-jChrUFwoEK5-JMgQYmk0NiL2WR3riBUnwLIGEbIQBTKYYhCh9_cYbANiVa_3HhXeIAfZ0w4Dq7nJwS7VJNyfm3x_peGe81UTeArT0CruM0bodpGGTNzUvR9ECR1Ycms70-Cui855I49GeK4gPhy3DXuXvogQdUWMcY2aG4dmjU2ehCNVvPIFNIwLe7XVbDN53zImCLkljIxivPOJQ9sOxNvAbLDbP9xtVQrZ22rm1GwmJJiIBgGAB7mv2CI\x26usg\x3dAFQjCNFlulPQz5orkLO54M2lhOYvKZtuCw";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

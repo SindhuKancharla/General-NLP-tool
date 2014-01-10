@@ -1,0 +1,17 @@
+Phase: Phase7
+Input: keySent Token body INTER ADDRESS p
+Options: control = first
+
+Rule:Sentence_extraction
+(
+{keySent, keySent contains{INTER}}
+):catName
+-->
+:catName.INTER1 = {string = :catName@string, length = :catName.keySent@length}
+
+Rule:Sentence_extraction
+(
+{keySent, keySent contains{Token.string == "•"}}
+):catName
+-->
+:catName.INTER2 = {string = :catName@string, length = :catName.keySent@length}

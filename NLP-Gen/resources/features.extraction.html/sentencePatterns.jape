@@ -1,0 +1,51 @@
+Phase: GetSentences
+Input: li Sentence p i strong style pre em b center dd dt font h1 h2 h3 td u h4 h5 h6 ul form span SpaceToken Token title div 
+Options: control = appelt
+
+Macro: head
+(
+{strong}|{h1}|{h2}|{h3}|{h4}|{h5}|{h6}|{b}
+)
+
+Rule: strong
+(  
+ head|{title}
+)  
+:s
+-->  
+:s.Headers={tag="heading",string=:s@string}
+
+Rule: bullet
+(  
+{li}
+)  
+:b
+-->  
+:b.Bullets={tag="li",string=:b@string}
+
+Rule: i
+(  
+{i}|{em}
+)  
+:i
+-->  
+:i.data={tag="italic",string=:i@string}
+
+Rule: ta
+(  
+{td,!td contains {li},td within {Sentence}}|{dd,!dd contains {li},dd within {Sentence}}|
+{dt,!dt contains {li},dt within {Sentence}}|{div within{Sentence}}|
+{Sentence,!Sentence contains {li},Sentence within {td}}|
+{Sentence,!Sentence contains {li},Sentence within {dd}}|{Sentence,!Sentence contains {li},Sentence within {dt}}
+)  
+:ta
+-->  
+:ta.data={tag="table",string=:ta@string}
+
+Rule: p
+(  
+ {p,!p contains {li},!p contains head,p within {Sentence}}|{Sentence,!Sentence contains {li},!Sentence contains head,Sentence within {p}}
+)  
+:p
+-->  
+:p.data={tag="p",string=:p@string}

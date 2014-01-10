@@ -1,0 +1,12 @@
+Phase:GetSentences2
+Input: Sentence p div Lookup Token SpaceToken keySent abbr
+Options: control = first
+
+Rule: splits4
+(
+	(({Token,Token notWithin{keySent}}({SpaceToken})*)+
+	{Token notContains abbr}{Token.string=="."}{SpaceToken})+
+):s
+-->
+:s.keySent={type=2,string=:s@string}
+

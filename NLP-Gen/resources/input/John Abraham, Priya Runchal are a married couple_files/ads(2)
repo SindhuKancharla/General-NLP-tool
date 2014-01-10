@@ -1,0 +1,27 @@
+{
+var viewReq = new Array();function vu(u) {var i=new Image();i.src=u.replace("&amp;","&");viewReq.push(i);}
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "html"; 
+google_ad.bidtype = "CPM"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://adclick.g.doubleclick.net/aclk?sa=L&amp;ai=Cr7KSyHLGUuuLEMSliAeHyoCwAbqJ8qAE0sLL3JEBwI23ARABIABQgMfhxARg5crlg7QOggESY2EtaWJubGl2ZV9zaXRlX2pzyAEJqQJcBg_66DhRPqgDAaoErgFP0KT4doPkpX_gqwR99vL5aJqRm287zYbnRLCTqGhwRFAVOwPdRGDKNwOBg_NLZ9BA1yuVckDY-9rTwK6MYJoff223yNkKTn0mJ_XCb1FW9UQBE113zhvzsyUIQ3F6c63aYdc40f-Wods34Zu_4LJ_ytVmet5rJ49E1eI-Tmsv-xMDuOrKMG7l0kFToW4PfdosAQI--T5dvUYnaO0C92C6Jmz44DIXlNaanpIdhdmABqWQmuOZwduWAqAGIQ&amp;num=1&amp;sig=AOD64_3Kj2aQZ7L-Gb3NspbfTrTPKx2JHQ&amp;client=ca-ibnlive_site_js&amp;adurl="; 
+google_ad.visible_url = "http://ignore_this_destination.com"; 
+google_ad.snippet = "\x3cscript type\x3d\x27text/javascript\x27\x3evar m_u \x3d \x27http://www.vizury.com/campaign/showad.php\x27;document.write (\x22\x3cscr\x22+\x22ipt type\x3d\x27text/javascript\x27 src\x3d\x27\x22+m_u); document.write (\x22?width\x3d300\x22); document.write (\x22\x26amp;height\x3d250\x22); document.write (\x22\x26amp;publisher_client_id\x3d5591\x22); document.write (\x22\x26amp;rid\x3d755f2dfaf42e4b598ba65755c355c501GG\x22); document.write (\x22\x26amp;ec\x3dUsZyyAAEBesK4hLEAAAlByhRZImSC6cLKxwfDA,Q0pQVQ%3D%3D\x22); document.write(\x22\x26amp;force_adv_id\x3dVIZVRM309\x22);document.write (\x22\x26amp;clicktrack\x3dhttp://adclick.g.doubleclick.net/aclk%3Fsa%3DL%26ai%3DCr7KSyHLGUuuLEMSliAeHyoCwAbqJ8qAE0sLL3JEBwI23ARABIABQgMfhxARg5crlg7QOggESY2EtaWJubGl2ZV9zaXRlX2pzyAEJqQJcBg_66DhRPqgDAaoErgFP0KT4doPkpX_gqwR99vL5aJqRm287zYbnRLCTqGhwRFAVOwPdRGDKNwOBg_NLZ9BA1yuVckDY-9rTwK6MYJoff223yNkKTn0mJ_XCb1FW9UQBE113zhvzsyUIQ3F6c63aYdc40f-Wods34Zu_4LJ_ytVmet5rJ49E1eI-Tmsv-xMDuOrKMG7l0kFToW4PfdosAQI--T5dvUYnaO0C92C6Jmz44DIXlNaanpIdhdmABqWQmuOZwduWAqAGIQ%26num%3D1%26sig%3DAOD64_3Kj2aQZ7L-Gb3NspbfTrTPKx2JHQ%26client%3Dca-ibnlive_site_js%26adurl%3D\x22);document.write (\x22\x26amp;google_gid\x3dCAESEEyLGOBQr1Bi-N3Y1USDavI\x22);document.write (\x22\x26amp;loc\x3d\x22 + escape(window.location)); if (document.referrer) document.write (\x22\x26amp;rfr\x3d\x22 + escape(document.referrer)); document.write (\x22\x27\x3e\x3c\\/scr\x22+\x22ipt\x3e\x22);\x3c/script\x3e"; 
+google_ad.snippet ="\x3cscript\x3evu(\x22http://googleads.g.doubleclick.net/pagead/adview?ai\x3dCcBWnyHLGUuuLEMSliAeHyoCwAbqJ8qAE0sLL3JEBwI23ARABIABQgMfhxARg5crlg7QOggESY2EtaWJubGl2ZV9zaXRlX2pzyAEJqQJcBg_66DhRPqgDAaoErgFP0KT4doPkpX_gqwR99vL5aJqRm287zYbnRLCTqGhwRFAVOwPdRGDKNwOBg_NLZ9BA1yuVckDY-9rTwK6MYJoff223yNkKTn0mJ_XCb1FW9UQBE113zhvzsyUIQ3F6c63aYdc40f-Wods34Zu_4LJ_ytVmet5rJ49E1eI-Tmsv-xMDuOrKMG7l0kFToW4PfdosAQI--T5dvUYnaO0C92C6Jmz44DIXlNaanpIdhdmIBeq0gy2SBQYIAxABGAGABqWQmuOZwduWAqAGIQ\x26sigh\x3dE_vMyogjhUw\x22);\x3c/script\x3e" +google_ad.snippet;
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://ibnlive.in.com/news/john-abraham-priya-runchal-are-a-married-couple/443039-8-66.html%26gl%3DIN%26hl%3Den%26client%3Dca-ibnlive_site_js%26hideleadgen%3D1%26ai0%3DCr7KSyHLGUuuLEMSliAeHyoCwAbqJ8qAE0sLL3JEBwI23ARABIABQgMfhxARg5crlg7QOggESY2EtaWJubGl2ZV9zaXRlX2pzyAEJqQJcBg_66DhRPqgDAaoErgFP0KT4doPkpX_gqwR99vL5aJqRm287zYbnRLCTqGhwRFAVOwPdRGDKNwOBg_NLZ9BA1yuVckDY-9rTwK6MYJoff223yNkKTn0mJ_XCb1FW9UQBE113zhvzsyUIQ3F6c63aYdc40f-Wods34Zu_4LJ_ytVmet5rJ49E1eI-Tmsv-xMDuOrKMG7l0kFToW4PfdosAQI--T5dvUYnaO0C92C6Jmz44DIXlNaanpIdhdmABqWQmuOZwduWAqAGIQ\x26usg\x3dAFQjCNHO-9oqIavDQLa6-2wsoqV58Y2VSw";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

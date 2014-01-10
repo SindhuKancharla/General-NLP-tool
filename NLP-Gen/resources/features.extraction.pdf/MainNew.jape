@@ -1,0 +1,17 @@
+MultiPhase: SentenceExtraction
+Phases:
+sentencePatterns
+getSentences
+getLeftOutSentences
+LupediaTags
+getEntities
+2
+3
+getNouns
+getUpperInitials
+getNounsAndAdj
+getConcepts
+getPreciseConcepts
+getConceptsInFeatures
+getImp
+GetConcepts1

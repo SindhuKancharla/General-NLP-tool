@@ -1,0 +1,13 @@
+Phase: getConcepts
+Input: Concepts1 SENTENCE1 ValidConcepts ENTITY FEATURE CN
+Options: control = appelt
+ 
+Rule: rule1
+(
+{ValidConcepts,ValidConcepts.length>15, ValidConcepts contains{ENTITY}} |
+{ValidConcepts,ValidConcepts.length>15, ValidConcepts contains{FEATURE}} |
+{CN notWithin{ValidConcepts}}
+):rule
+-->
+:rule.Concepts={rule="3",string=:rule@string}
+ 

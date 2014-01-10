@@ -1,0 +1,18 @@
+Phase: Phase1
+Input: ENTITY FEATURE
+Options: control = appelt
+
+Rule:imp
+(
+({ENTITY.tag==Person}|{ENTITY.tag==Organization}|{ENTITY.tag==Company}|{ENTITY.tag==title}
+|{ENTITY.tag==Date}|{ENTITY.tag==Location})
+):catName
+-->
+:catName.ENTITY1 = {string = :catName@string,type=:catName.ENTITY.tag}
+
+Rule:imp
+(
+({FEATURE.type==Money}|{FEATURE.type==feature}|{FEATURE.type==feature_values}|{FEATURE.type==Version})
+):catName
+-->
+:catName.FEATURE1 = {string = :catName@string,type=:catName.FEATURE.type}

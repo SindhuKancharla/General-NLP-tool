@@ -1,0 +1,538 @@
+.bfrtitle{float:left; background-color:red; padding:5px; color:#FFF; font-weight: bold;}
+#subSectionNav{border-bottom:1px solid #CCC}
+#marketWatch{box-shadow: 0 2px 5px #EEE inset, 0 -2px 5px #EEE inset}
+#mystocks a.button{background-color: #FFC709;display: block;padding: 5px 10px;border-radius: 5px;font-weight: 700;text-decoration: none;cursor: pointer;text-align: center;/* IE10 Consumer Preview */background-image: -ms-linear-gradient(top, #FFF461 0%, #FFC709 100%);/* Mozilla Firefox */background-image: -moz-linear-gradient(top, #FFF461 0%, #FFC709 100%);/* Opera */background-image: -o-linear-gradient(top, #FFF461 0%, #FFC709 100%);/* Webkit (Safari/Chrome 10) */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF461), color-stop(1, #FFC709));/* Webkit (Chrome 11+) */background-image: -webkit-linear-gradient(top, #FFF461 0%, #FFC709 100%);/* W3C Markup, IE10 Release Preview */background-image: linear-gradient(to bottom, #FFF461 0%, #FFC709 100%);/* MSIE */filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#FFF461', EndColorStr='#FFC709', GradientType=0);}
+
+/* SideBar */
+aside#sideBar{float:left; padding:0 10px; width:320px}
+aside#sideBar .adCode, aside#sideBar .adcodetop{background:#F4F4F4; color:#AAA; font-size:20px; margin:20px 0 10px; padding:10px; text-align:center; width:300px}
+aside#sideBar .adcodetop{margin-top:0}
+
+section#pageContent{border-left:1px solid #d2d2d2; float:right; margin-right:10px; padding-left:15px; position:relative; width:635px}
+#pageContent h1.title{color:#353535; font-size:36px; font-weight:100; line-height:36px; margin-bottom:10px}
+#pageContent .byline{float:left}
+#pageContent .byline span{font-style:italic}
+#pageContent .cmtLinks{background-position:0 -75px; float:right; font-size:11px; padding-left:22px}
+#pageContent .cmtLinks a{font-weight:700; padding:0 3px}
+
+.sharingBox, .bylineFull{background:url(/photo/17954381.cms); margin:10px 0; padding:5px 12px}
+.sharingBox{padding:12px}
+.sharingBox .shareBtnFB{float:left; max-width:140px}
+.sharingBox .shareBtnTW{float:left; margin-left:5px; width:90px}
+.sharingBox .twitterShareBtn .share{background-position:-275px -100px; display:block; height:20px; width:63px}
+.sharingBox .twitterShareBtn .commentCountBtn{margin-top:0 !important}
+.sharingBox .twitterShareBtn .counthorz{background-position:-350px -100px; float:left; font:11px/20px Arial; height:20px; padding:0 1px 0 5px; text-align:center; width:20px}
+.sharingBox .shareBtnG{float:left; margin-left:5px; width:65px}
+.sharingBox .shareBtnLi{float:left; margin-left:5px}
+.sharingBox .shareMore{background:#FFF; color:#024D99; cursor:pointer; float:left; border:1px solid #CCC; border-radius:5px; font-size:11px; font-weight:700; padding:2px 16px 2px 6px; position:relative}
+.sharingBox .shareMore span{border-left:3px solid transparent; border-right:3px solid transparent; border-top:5px solid black; padding:0; height:0; position:absolute; top:7px; right:6px; width:0}
+.sharingBox .articleBtns{border-left:2px solid #CCC; float:right; padding:0 0 4px 10px}
+.sharingBox .articleBtns ul li{float:left; height:16px; list-style:none; width:17px}
+.sharingBox .articleBtns ul li.email{background-position:-150px -297px; width:20px}
+.sharingBox .articleBtns ul li.save{background-position:-150px -325px}
+.sharingBox .articleBtns ul li.fontSmall{background-position:-150px -400px}
+.sharingBox .articleBtns ul li.fontLarge{background-position:-150px -425px}
+.sharingBox .articleBtns ul li.print{background-position:-150px -350px}
+.sharingBox .articleBtns ul li a{color:#333; cursor:pointer; display:block; font-weight:700; height:100%; width:100%}
+.sharingBox .articleBtns ul li + li{margin-left:5px}
+.sharingBox .singlePageFormater{background:#FFF; display:block; font-size:11px; margin:0 -5px; padding:5px 3px; text-align:center}
+
+#shareVertHolder{position:relative; z-index:10; *z-index:0}
+#shareVert{margin-left:1004px; padding:5px; position:absolute; top:-225px; width:65px}
+#shareVert .shareMore{background:#FFF; border:1px solid #CCC; border-radius:5px; color:#024D99; cursor:pointer; float:left; font-weight:100; font-size:11px; padding:4px 2px}
+#shareVert .box{overflow:visible; padding-bottom:10px;text-align: center}
+#shareVert .shareMore{float:none; margin-bottom:10px}
+#shareVert .articleBtns{border:0; float:none; overflow:hidden; padding:0 0 10px 5px}
+#shareVert .articleBtns li{margin-bottom:10px}
+#shareVert .articleBtns li.fontSmall{clear:left; margin-left:0; padding-right:3px}
+#shareVert .articleBtns li.print{clear:left; margin-left:0}
+#shareVert .commentCountBtn{background-position:-325px -175px; cursor:pointer; font:bold 11px/30px Arial; height:36px; margin:7px auto 0; text-align:center; width:59px}
+#shareVert .commentLink{background:#004652; border-radius:4px; color:#FFF; cursor:pointer; display:block; font-size:11px; margin-top:2px; padding:5px 3px; text-align:center}
+#shareVert .commentLink:hover{background:#000; text-decoration:none}
+
+.refreshable #cmpnytitle{width:100%;}
+.popup{background:#FFF; border:10px solid #CCC; border-radius:4px; box-shadow:3px 3px 10px #444; padding:20px; position:fixed; top:150px; left:50%; margin-left:-260px; width:500px; z-index:10001}
+.popup .close{background-position:-150px -375px; cursor:pointer; height:24px; position:absolute; top:5px; right:5px; width:24px}
+#shareIcons li{color:#666; cursor:pointer; float:left; line-height:20px; list-style:none; margin:5px 0; padding-left:30px; width:200px}
+#shareIcons li:hover{color:#024E97}
+#shareIcons li.hotlix{background-position:-175px -300px}
+#shareIcons li.digg{background-position:-175px -325px}
+#shareIcons li.google{background-position:-175px -350px}
+#shareIcons li.stumble{background-position:-175px -375px}
+#shareIcons li.reddit{background-position:-175px -400px}
+#shareIcons li.newsvine{background-position:-175px -525px}
+#shareIcons li.live{background-position:-175px -450px}
+#shareIcons li.tech{background-position:-175px -425px}
+#shareIcons li.yahoo{background-position:-175px -500px}
+#shareIcons li.blog{background-position:-175px -475px}
+#shareIcons li.del{background-position:-175px -550px}
+#shareIcons li.ac{background-position:-175px -575px}
+
+#shareEmail h3{font-size:18px; padding:0 0 10px 47px}
+
+#pageContent .raltedTopics{margin:13px 0 15px}
+#pageContent .raltedTopics2{border-top:1px solid #b2b2b2; padding-top:20px}
+
+#pageContent article > .artText{font-size:16px; line-height:24px; margin-bottom:10px}
+/*#pageContent article > .artText table{text-align:center; width:100%}*/
+#pageContent article .articleImg{clear:right; float:right; margin:0 0 15px 15px; overflow:hidden; width:310px}
+#pageContent article .articleImg figure figcaption{border-bottom:4px solid #9a9a9a; color:#757575; font-size:11px; font-style:italic; line-height:18px; padding:5px 0 10px}
+#pageContent article .artAd{background:#EEE; padding:5px; width:300px}
+#pageContent article .editorsPick{background:#F7F6F1}
+#pageContent article .editorsPick h3{border-bottom:2px solid #D2D2D2; font-size:18px; line-height:36px; padding-left:10px}
+#pageContent article .editorsPick ul li{color:#e70001; font-size:14px; list-style:square; margin-left:25px; padding:8px 8px 8px 0}
+#pageContent article .editorsPick ul li + li{border-top:1px solid #E5E5E5}
+#pageContent article .etSpecial{background:#fff2e2; border:1px solid #d2d2d2; margin-top:2px; padding:10px}
+#pageContent article .etSpecial .flt{color:#e70001; font-size:14px; font-weight:700; padding-right:6px}
+#pageContent article .etSpecial .flt  + .flt{color:#353535; font-size:12px; font-weight:100; line-height:18px; width:190px}
+
+#pageContent article .artVideo{overflow:visible; position:relative}
+#pageContent article .artVideo h3{background:url(/photo/17954381.cms); border-top:3px solid #a4b6c0; color:#004652; font-size:14px; padding:11px}
+#pageContent article .artVideo a{cursor:pointer; display:block}
+#pageContent article .artVideo .icon-play{height:85px; position:absolute; left:112px; top:98px; width:85px}
+#pageContent article .artVideo .videoHolder{background:#FFF; border:3px solid #a4b6c0; box-shadow:3px 3px 8px #DDD; display:none; padding:15px; position:absolute; right:0; top:0; width:630px}
+#pageContent article .artVideo .videoHolder .close{background-position:-150px -375px; cursor:pointer; height:24px; position:absolute; top:5px; right:5px; width:24px}
+#pageContent article .artVideo .videoHolder h4{color:#024D99; font-size:14px; padding-bottom:15px}
+#pageContent article .artVideo .videoHolder #player{background:#000; height:250px; margin-right:10px; width:320px}
+#pageContent article .artVideo .videoHolder .adDiv{height:250px; width:300px}
+
+#pageContent article #relatedstock{border:1px solid #CCC; display:none}
+#pageContent article #relatedstock .sensexhead a{border-bottom:1px solid #CCC; display:block; font-weight:700; padding:5px}
+
+#pageContent article #stockInfo{border:1px solid #CCC; box-shadow:3px 3px 5px #EEE; display:none}
+#pageContent article #stockInfo h3{background:#F8F8F8; font-size:13px; border-bottom:1px solid #CCC; padding:8px}
+#pageContent article #stockInfo .bseInfo, #pageContent article #stockInfo .nseInfo{display:none; margin:8px 0; padding-left:8px; width:140px}
+#pageContent article #stockInfo .nseInfo{border-left:1px solid #CCC}
+#pageContent article #stockInfo p.links{padding:8px; text-align:center}
+#pageContent article #stockInfo p.links a{padding:0 3px}
+#pageContent article #stockInfo p.stockType{color:#6D7F86}
+#pageContent article #stockInfo p.currentPrice{font:bold 18px Arial; margin:3px 0 8px}
+#pageContent article #stockInfo p.currentPrice b{display:block; float:left; font-weight:700}
+#pageContent article #stockInfo p.currentPrice b.green{background:#0C8F2B; color:#FFF}
+#pageContent article #stockInfo p.currentPrice b.red{background:#C00; color:#FFF}
+#pageContent article #stockInfo p.currentPrice span{display:block}
+#pageContent article #stockInfo p.currentPrice .arrow{border-left:9px solid transparent; border-right:9px solid transparent; height:0; margin:2px 0 0 5px; padding:0; width:0}
+#pageContent article #stockInfo p.currentPrice .up{border-bottom:15px solid #00B300}
+#pageContent article #stockInfo p.currentPrice .down{border-top:15px solid #C00}
+#pageContent article #stockInfo p.change{padding-bottom:3px}
+#pageContent article #stockInfo p.change span.up{color:#0C8F2B}
+#pageContent article #stockInfo p.change span.down{color:#C00}
+#pageContent article #stockInfo p.vol{color:#777; font-size:11px}
+
+#pageContent .pagination{float:right; font-size:16px; font-weight:700;padding-top:20px}
+#pageContent .pagination > .flt{color:#024e99; padding:6px}
+#pageContent .pagination  .btns{border:1px solid #d2d2d2; float:left; padding:6px 3px}
+#pageContent .pagination .btns .arrowL, #pageContent .pagination .btns .arrowR{margin:5px}
+#pageContent .pagination .btns span{display:block}
+#pageContent .pagination .btns .disabled{color:#999}
+#pageContent .pagination .btns .prev{padding-right:12px}
+#pageContent .pagination .btns .next{border-left:1px solid #000; padding-left:12px}
+
+#pageContent .storyPrev, #pageContent .storyNext{background-position:0 -81px; border:1px solid #CCC; padding:17px; width:275px}
+#pageContent .storyPrev{float:left}
+#pageContent .storyNext{float:right}
+#pageContent .storyPrev  span, #pageContent .storyNext span{color:#999; display:block; font-size:10px}
+#pageContent .storyPrev  a, #pageContent .storyNext a{display:block; height:48px; overflow:hidden; text-decoration:none}
+#pageContent .storyPrev  b, #pageContent .storyNext b{font-size:14px; font-weight:700}
+#pageContent .storyPrev a.prevArrow{background-position:0 -221px;width:20px}
+#pageContent .storyPrev a{background-position: -50px -50px; padding-left:0px;float: left}
+#pageContent .storyNext a.nextArrow{background-position:right -221px;width:20px}
+#pageContent .storyNext a{background-position:-50px -221px; padding-right:0px;float: right}
+#pageContent .storyPrev a:hover b, #pageContent .storyNext a:hover b{color:#000}
+
+#pageContent #mf_follow{background:#f1f1f1; margin:20px 0; padding:15px 20px}
+#pageContent #mf_follow .title2{font-weight:100; margin:0 0 6px}
+#pageContent #mf_follow .btn{float:left}
+#pageContent #mf_follow .btn + .btn{margin-left:10px}
+#pageContent #mf_follow .btn span{visibility:hidden}
+#pageContent #mf_follow .email{background-position:-175px -25px; display:block; height:21px; width:61px}
+#pageContent #mf_follow .rss{background-position:-100px -25px; display:block; height:21px; width:54px}
+
+#outbrainWidget{border:1px solid #CCC; margin:10px 0; padding:15px 0}
+
+#similarNews{background:#FFF; border-top:3px solid #054356; box-shadow:-3px -3px 10px #BBB; bottom:0; height:100px; padding:15px; position:fixed; right:-450px; width:410px; z-index:999999}
+#similarNews h2{font-size:18px; width:390px}
+#similarNews h2 + p{padding-bottom:100px}
+#similarNews .close{background-position:-150px -375px; cursor:pointer; height:24px; position:absolute; top:5px; right:5px; width:24px}
+
+#inFocus{background-color:#fbfaf8; border-top:3px solid #4a4845; display:none; margin-top:50px; padding-bottom:10px}
+#inFocus h3{border-top:1px solid #ece9e3; color:#4a4845; font-size:48px; letter-spacing:-4px; line-height:85px; text-align:center; text-shadow:4px 4px 0 #FFF}
+#inFocus h4{margin-left:-4px}
+#inFocus h4 b{display:block; float:left}
+#inFocus h4 .side{background-position:-350px -50px; height:50px; width:18px}
+#inFocus h4 .text{background:#30b1db; color:#FFF; font-size:22px; line-height:35px; margin-top:7px; padding-right:15px; text-align:center}
+#inFocus h4 .arrow{background-position:-375px -50px; height:50px; width:9px}
+#inFocus h4 .clr{float:none}
+
+#inFocus .topStories{margin:10px 0 15px 15px}
+#inFocus .topStories .lead{float:left; width:290px}
+#inFocus .topStories .lead h5{font-size:24px; line-height:24px; margin-bottom:10px}
+#inFocus .topStories .lead p{color:#393939; font-size:14px; line-height:18px}
+#inFocus .topStories .subLeads{float:left; width:325px}
+#inFocus .topStories .subLeads .story{float:left; height:174px; margin-left:10px; width:150px}
+#inFocus .topStories .subLeads .story{font-size:14px; font-weight:700}
+
+#inFocus .etSlider{background-position:0 -512px; border-top:1px solid #CFCDC9; margin-top:35px; position:relative}
+#inFocus .etSlider h4{margin-top:-25px}
+#inFocus .etSlider .pagination{background:#FFF; border:1px solid #CFCDC9; border-radius:12px; padding:5px 8px; *padding-bottom:0; position:absolute; top:-12px; *top:12px; right:5px}
+#inFocus .etSlider .pagination li{background:#6f6e6c; border-radius:5px; cursor:pointer; float:left; height:10px; list-style:none; width:10px}
+#inFocus .etSlider .pagination li + li{margin-left:5px}
+#inFocus .etSlider .pagination li:hover{background:#000}
+#inFocus .etSlider .pagination li.active{background:#258fb0}
+#inFocus .etSlider .pagination li span{display:none}
+#inFocus .etSlider .slides{margin-left:15px; *padding-top:15px; overflow:hidden; width:605px}
+#inFocus .etSlider .slides ul{width:10000px}
+#inFocus .etSlider .slides li{float:left; list-style:none; width:195px}
+#inFocus .etSlider .slides li + li{margin-left:10px}
+#inFocus .etSlider .slides li img{margin:10px 0}
+#inFocus .etSlider .slides li p{font-size:14px; font-weight:700}
+
+/* endof Articleshow */
+
+/* Comments Sections */
+.cmtGray{background:#F2F2F2}
+.cmtTitle{border-bottom:1px solid #CCC; margin:15px 0; padding-right:2px}
+.cmtTitle h4{font-size:14px; margin-bottom:15px}
+.cmtTitle ul{padding-left:5px}
+.cmtTitle ul li{float:left; height:21px; list-style:none}
+.cmtTitle ul li a{background:#F2F2F2; border:1px solid #D5D5D5; border-bottom:0; display:block; font-size:10px; font-weight:700; height:12px; margin:0 1px; padding:4px 6px; text-decoration:none; text-transform:uppercase}
+.cmtTitle ul li a sup{color:#F00; font-size:8px; font-weight:100; margin-top:-4px; padding-left:2px}
+.cmtTitle ul li a:hover{background:#EEE}
+.cmtTitle ul li a.active{background:#FFF; color:#000; cursor:default; height:13px}
+
+.cmtBox{border-bottom:1px dotted #CCC; margin-bottom:5px; padding:15px 0 5px}
+.cmtBox .cmtUser{float:left}
+.cmtBox .userImg{float:left; margin-right:10px}
+.cmtBox .userDetails{float:left; position:relative}
+.cmtBox .userDetails p{color:#666; font-size:11px; text-transform:capitalize}
+.cmtBox .userDetails p a{font-weight:700}
+.cmtBox .userDetails p span{padding-left:2px}
+.cmtBox .loginfollowbox{background:#FFF; border:1px solid #999; border-radius:6px; box-shadow:3px 3px 10px #CCC; color:#666; line-height:150%; padding:10px; position:absolute; top:31px; width:180px; z-index:100}
+.cmtBox .loginfollowbox img{margin-top:10px}
+
+.cmtBox .cmtText{float:left; width:480px}
+.cmtBox .cmtText p{color:#666; line-height:18px; word-wrap:break-word}
+.cmtBox .cmtText img{cursor:pointer; margin-top:10px}
+.cmtBox .cmtUserInputs{float:right; font-size:11px; padding-left:15px; width:110px}
+.cmtBox .cmtUserInputs a{display:block; padding:0 0 5px 20px}
+.cmtBox .cmtUserInputs a.agree{background-position:0 -300px}
+.cmtBox .cmtUserInputs a.agree:hover, .cmtBox .cmtUserInputs a.agreedone{background-position:0 -325px}
+.cmtBox .cmtUserInputs a.disagree{background-position:0 -350px}
+.cmtBox .cmtUserInputs a.disagree:hover, .cmtBox .cmtUserInputs a.disagreedone{background-position:0 -375px}
+.cmtBox .cmtUserInputs a.recommend{background-position:0 -400px}
+.cmtBox .cmtUserInputs a.recommend:hover, .cmtBox .cmtUserInputs a.recommenddone{background-position:0 -425px}
+.cmtBox .cmtUserInputs a.offensive{background-position:0 -450px}
+.cmtBox .cmtUserInputs a.offensive:hover, .cmtBox .cmtUserInputs a.offensivedone{background-position:0 -475px}
+
+.cmtBox .userBadges{float:right; margin-bottom:10px}
+.cmtBox .userBadges .badgepoint, .cmtBox .badgemor > a .badgemore .hoverblock .badgepoint_one{background:black; border-radius:8px; color:#FFF; font-size:10px; height:16px; line-height:15px; position:absolute; top:9px; right:7px; text-align:center; width:16px}
+
+.cmtBox .userBadges .badge_new{display:none; position:absolute; left:-138px; top:56px; display:none; width:320px}
+.cmtBox .userBadges > div > a:hover .badge_new{display:block}
+.cmtBox .userBadges .full_cont .left_badge{color:#FFF; float:left; font-size:16px; font-weight:bold; margin:22px 0 0 20px}
+.cmtBox .userBadges .full_cont .right_badge{color:#FFF; float:right; font-size:11px; font-weight:bold; margin:24px 20px 0 0}
+.cmtBox .userBadges .hoverblock_new{background:url(/photo/12353743.cms) center repeat-y; padding:10px 16px}
+.cmtBox .userBadges .hoverblock_new .cont_left{float:left; margin-right:15px}
+.cmtBox .userBadges .hoverblock_new .cont_right{color:#666; line-height:18px; overflow:hidden}
+.cmtBox .userBadges .hoverblock_new .cont_right .badgesyn_two{margin-bottom:8px}
+.cmtBox .userBadges .full_cont_one{border-top:1px solid #CCC; font-size:11px; margin-top:10px; padding:5px 0 0; text-align:center}
+
+.cmtBox .badgemor > a .badgemore{display:none; position:absolute; left:-170px; top:42px; display:none; width:299px}
+.cmtBox .badgemor > a .badgemore div{display:table !important; padding:0 !important}
+.cmtBox .badgemor > a .badgemore .hoverblock{background:url(/photo/11805786.cms) center repeat-y; padding:10px 16px}
+.cmtBox .badgemor > a .badgemore .hoverblock .badgepoint_one{right: 17px;}
+.cmtBox .badgemor > a:hover .badgemore{display:block}
+
+.cmtBox .followbtn {background: url("/photo/12716000.cms") no-repeat scroll left top transparent; height:15px; width:55px}
+.cmtBox .badgepointnw{background: url(/photo/12951245.cms) no-repeat; color:black; display:none; font:700 11px bold Arial, Helvetica, sans-serif; height:41px; padding-top:11px; position:absolute; left:115px; top:-5px; text-align:center; width:85px; z-index:100}
+
+.cmtReplier{position:relative; z-index:500}
+.cmtReplier form{background:#FFF; border:5px solid #CCC; box-shadow:3px 3px 10px #DDD; padding:20px; position:absolute; top:25px; left:-10px; width:595px; z-index:300}
+.cmtReplier form .replyBtn{position:absolute; top:-31px; left:5px}
+.cmtReplier form .closeBtn{background-position:-150px -375px; cursor:pointer; height:24px; position:absolute; top:-10px; right:-14px; width:24px}
+.cmtReplier form .sharing{overflow:hidden; margin-left:40px; width:300px; *width:310px}
+.cmtReplier form textarea{height:80px; max-height:125px; max-width:590px; overflow:auto; width:590px}
+.cmtReplier form h5{font-size:14px; padding:15px 0 5px}
+.cmtReplier form .sharing p{padding:15px 0 5px}
+.cmtReplier form .sharing > img{margin:0 0 0 10px; vertical-align:middle}
+.cmtReplier form .sharing label{border:1px solid #CCC; color:#666; display:block; float:left; padding:5px 7px}
+.cmtReplier form .sharing label + label{margin-left:5px; *width:125px}
+.cmtReplier form .sharing label input{vertical-align:middle}
+.cmtReplier form .sharing label img{margin:0; vertical-align:middle}
+.cmtReplier form .sharing label span{padding:0 5px}
+
+.cmtReplier form .info{width:255px}
+.cmtReplier form .info{display:block}
+.cmtReplier form .info label.flt{width:120px}
+.cmtReplier form .info label.flt + label.flt{margin-left:10px}
+.cmtReplier form .info label span{color:#666; display:block; font-size:11px; padding:2px 0 10px}
+.cmtReplier form .info input{width:220px}
+.cmtReplier form .info label.flt input{width:110px}
+.cmtReplier form .thankText{text-align:center}
+.cmtReplier form h6.thankText{font-size:16px; padding:100px 0 10px}
+.cmtReplier form p.thankText{font-size:14px; padding:5px 0}
+.cmtReplier form p.thankText + p.thankText{padding-bottom:100px}
+
+#mathuserans2{width:30px}
+#mathq2{float:left; padding:6px 6px 0 0}
+#mathans2{display:none !important}
+#populatecomment .loading{background:url(/photo/16753788.cms) center center no-repeat; color:#666; display:none; font-size:16px; padding:160px 0 100px; text-align:center}
+#postCmtIn1 h5{font-size:14px; font-weight:100; margin-bottom:5px}
+
+#abuseForm .head, #abuseForm .des{color:#C00; padding-bottom:15px}
+#abuseForm .head{font-size:18px}
+#abuseForm label{display:block; padding-bottom:6px}
+#abuseForm label b, #abuseForm .headGrey{font-size:14px; font-weight:700}
+#abuseForm .headGrey{padding:15px 0 6px}
+#abuseForm label.flt{color:#666; width:60%}
+#abuseForm label.flt input{margin-right:6px; vertical-align:middle}
+#abuseForm textarea{margin:10px 0; width:490px}
+#abuseForm input[type="button"]{border:1px solid #CCC; border-radius:20px; box-shadow:2px 2px 5px #EEE; cursor:pointer; font-weight: 700; margin-top:10px; padding:4px 20px;}
+#abuseForm input[type="button"] + input[type="button"]{margin-left:15px}
+#abuseForm .msg{display:none; text-align:center}
+#abuseForm .msg p{font-size:14px; font-style:italic; padding:50px 0 10px}
+/* endof Comments Sections */
+
+/* New Comment Box */
+#postCmtBox{background:url(/photo/17954381.cms); border:1px solid #bab5af; bottom:100px; box-shadow:3px 3px 10px #EEE; display:none; margin-left:-10px; padding:7px; position:fixed; width:630px; z-index:550}
+.cmtForm, .cmtMsg{background:#FFF; padding:15px}
+.cmtForm h3{font-size:14px; padding-bottom:10px}
+.cmtForm h4{font-size:16px; margin-bottom:5px}
+.cmtForm h5{font-size:14px; font-weight:100; margin-bottom:5px}
+.cmtForm h6{color:#444; font-size:14px; font-weight:100; padding-bottom:10px}
+.cmtForm .cmtInfo{color:#666; font-size:11px}
+.cmtForm textarea{height:60px; min-height:40px; max-height:160px; max-width:590px; margin-top:10px; width:590px;overflow: hidden}
+.cmtForm textarea  + .cmtInfo{margin-bottom:15px}
+#postCmtBox .close{background-position:-150px -375px; cursor:pointer; height:24px; position:absolute; top:12px; right:12px; width:21px}
+.cmtForm .loginBtns{*padding-bottom:1px}
+.cmtForm .loginBtns p{font-size:14px; line-height:22px}
+.cmtForm .loginBtns a{cursor:pointer; display:block; margin-left:10px}
+.cmtForm .loginBtns a.moreLoginOpt{background-position:0 -414px; border:1px solid #CCC; border-radius:6px; color:#666; display:block; font-size:11px; padding:3px 8px; text-align:center; text-decoration:none}
+.cmtForm .uInfo{background:#f2f2f2; border-top:1px solid #d7d7d7; margin:30px -13px -13px; padding:13px 13px 20px}
+.cmtForm .uInfo .or{position:relative}
+.cmtForm .uInfo .or b{background:#000; border-radius:15px; color:#FFF; display:block; font-size:14px; height:30px; line-height:30px; position:absolute; top:-30px; left:50%; margin-left:-15px; text-align:center; width:30px}
+.cmtForm label{display:block; width:194px}
+.cmtForm label + label{margin-left:10px}
+.cmtForm label input[type=text]{width:180px}
+.cmtForm label p{color:#999; font-size:11px; padding-top:5px}
+.cmtForm .shareCmt{padding-top:15px}
+.cmtForm .shareCmt label{background:#FFF; border:1px solid #CCC; color:#666; float:left; font-size:11px; padding:5px 7px; width:141px; *width:143px}
+.cmtForm .shareCmt label + label{margin-left:10px; width:128px; *width:129px}
+.cmtForm .shareCmt label input{margin-right:10px; vertical-align:middle}
+.cmtForm .shareCmt label img{margin-left:5px; vertical-align:middle}
+.cmtForm .shareCmt > div.flr{width:280px}
+.cmtForm .shareCmt div.flt  span{line-height:28px; color:#666; font-size:16px; padding-right:10px}
+.cmtForm .shareCmt div.flt  img{cursor:pointer; margin-left:10px}
+.cmtForm .shareCmt input[type=text]{width:30px}
+.cmtMsg{padding-bottom:30px; text-align:center}
+.cmtMsg h6{color:#11b200; font-weight:700}
+.cmtMsg p{line-height:24px}
+.cmtForm  h3, .cmtForm  h4, .cmtForm  h5, .cmtForm .cmtInfo{position:relative} /* FIX for IE 7*/
+#defaultCommentForm{border:3px solid #DDD; margin-bottom:20px; width:628px}
+#defaultCommentForm form{padding:13px}
+/* endof : New Comment Box */
+
+/******** Company Hover Cart : By Ranveer **********/
+.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";}
+.clearfix:after{clear:both;}
+.word-wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}
+#hovercartObj{position:absolute;width:335px;z-index:9999999999}
+#hovercartObj .wait{background: transparent url(/photo/16363140.cms) no-repeat scroll center center;height:360px}
+#hovercart{text-decoration:none;outline:0;display:none;}
+.artText a:hover #hovercart{display:block;}
+#hovercart a{text-decoration:none;outline:0;}
+#hovercart a:hover{text-decoration:underline !important;}
+.wid{width:335px;position:absolute;left:0;z-index:9999;text-decoration:none;}
+.arrow{height:12px; padding-left:10px;}
+.arrowbottom{display:none;height:12px; padding-left:50px; margin-top:-2px;}
+/*.hoverdivbox{border:2px solid #313031;width:325px;-moz-box-shadow:3px 3px 2px #000;-webkit-box-shadow:3px 3px 4px #000;box-shadow: 3px 3px 4px #000;background:#fff}*/
+.refreshable{display:none;min-height:385px}
+.cmpnyname{padding:10px 10px 0 10px;border-bottom:1px dotted #D6D3D6;background-color:#eff7fa;text-align:left}
+.cmpnyname1{padding:4px 10px 3px 10px;border-bottom:2px solid #D6D3D6;background-color:#ffffff}
+.cmpnyname2{padding:0 10px;height:133px;border-bottom:1px solid #D6D3D6;background-color: #f0f0f0}
+.cmpnyname3{padding:10px;min-height:45px;}
+.cmpnyname4{padding:10px;height:25px;color:black; font-weight:bold;border-bottom:1px solid #D6D3D6}
+.cmpnyname5{padding:10px;height:55px;color:black;border-bottom:1px solid #D6D3D6;background-color:#fff1e4}
+.cmpnyname5 #input [text]{height:28px width:230px}
+#cmpnytitle{display:block;float:left;font-size:18px;font-weight:bold;font-family;arial;color:#296DAD;text-decoration:none;}
+#cmpnytitle a:hover{text-decoration:underline;}
+.adportfol{width:88px;margin-right:0px;float:left;}
+.adportfol1{width:93px;margin-right:0px;float:left;padding-left:8px;}
+#follow{display:block;float:right;margin: 5px 0 0 8px;width:106px}
+.portfolimg{width:23px;height:23px;float:left;}
+.portfoltxt{font-size:12px;font-weight:bold;float:left;line-height:13px; padding-top:0px;width:69px;padding-left:2px;}
+.bsense{width:140px;float:left;}
+.bsense1{width:153px;margin-right:10px;border-right:1px solid #9C9A9C;float:left;}
+.bse{width:140px;font-size:12px;color:#666666;float:left;padding-right:7px;}
+.nse{width:140px;font-size:12px;color:#666666;float:left;font-weight:bold;}
+.bsepoint{font-size:25px;font-weight:bold;margin-right:5px;float:left;color:#030303;}
+.bseimg{width:25px;float:left;margin-top:5px;}
+.bsepercent{clear:both; font-size:12px;font-weight:bold;float:left;color:#a63f54;width:140px;margin-top:5px;}
+.bsevol{clear:both; display:none; font-size:11px;float:left;color:#000000;width:142px;margin-top:5px;}
+.bsegraph{font-size:14px;font-weight:bold;float:left;margin-right:20px;}
+.nsegraph{font-size:14px;font-weight:bold;color:#393939;float:left;}
+.morecmpnytitle{font-size:13px;font-weight:bold;font-family;arial;color:#000;float:left;width:300px;}
+.morecmpnytitle a{font-size:13px;}
+.morecmpnyname{clear:both; font-size:12px;font-family:arial;padding-right:5px;margin-top:5px;text-align:left;text-decoration:none;word-wrap:break-word !important;}
+.morecmpnyname a{text-decoration:none;font-size:13px;}
+.morecmpnyname a:hover{text-decoration:underline;}
+.morecmpnyname span{color:#000000;text-decoration:none;}
+#hovercartObj input[type="text"]{color:#333;padding-left:8px;width:230px;}
+.livetime{line-height:15px !important;color: #999;font-size: 10px;clear:both;text-align:right;}
+.active-graph{color: #000;}
+.bse, .nse, .morecmpnytitle{text-align:left}
+
+a.pos, a.neg{border:1px solid;display:-moz-inline-stack;display:inline-block;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;text-decoration: none !important;display:inline-block; line-height:16px; height:16px; padding:0 3px;font-size:11px;*display:inline;*zoom:1;}
+a.neg{background:#ffcccc; color:#9b1305 !important; border-color:#9b1305;}
+a.neg:hover{background:#9b1305; color:#fff !important; border-color:#9b1305;}
+a.pos{background:#eafaea; color:#0c8f2b !important; border-color:#0c8f2b;}
+a.pos:hover{background:#0c8f2b; color:#fff !important; border-color:#0c8f2b;}
+.closePop{background:#FFF;border:2px solid #313031;-webkit-border-radius:23px;-moz-border-radius:23px;border-radius:23px;color:#313031;font-size:11px;font-weight:bold;height:15px;line-height:16px;padding:2px;position:absolute;right:-14px;text-decoration:none;top:2px;width:15px}
+.closePop:hover{-webkit-box-shadow:0 1px 6px #666;-moz-box-shadow:0 1px 6px #666;box-shadow:0 1px 6px #666;text-decoration:none}
+#hovercartObj.skinned, #hovercartObj.skinned .wid{width:260px}
+.skinned .arrow{display:none}
+.skinned .closePop{font-size:10px;line-height:14px;padding:0;right:-2px;top:3px; text-align:center}
+.skinned .refreshable{min-height:350px}
+.skinned #cmpnytitle{font-size:14px}
+.skinned .top{background:url("/photo/17614008.cms") no-repeat scroll 0 0 transparent;height:23px}
+.skinned .skin-body{background:url("/photo/17614008.cms") repeat-y scroll -263px 0 transparent;margin:0 auto;padding:0 23px 0 16px;width:223px}
+.skinned .bottom{background:url("/photo/17614008.cms") no-repeat scroll 0 -26px transparent;height:50px}
+.skinned #hovergraph{max-width:100%}
+.skinned .bsepoint{font-size:16px}
+.skinned .bseimg,.skinned #bseimg,.skinned #nseimg{width:16px}
+.skinned .bsense1, .skinned .bsense{width:48%}
+.skinned .bsense1{margin-right:3%}
+.skinned .bsepercent, .skinned .bsevol{width:100%}
+.skinned .cmpnyname2{height:auto;padding:0}
+.skinned .cmpnyname3{padding:5px}
+.skinned .morecmpnytitle,.skinned .morecmpnytitle a, .skinned .morecmpnyname a{font-size:12px}
+.skinned .morecmpnytitle{width:100%}
+
+#hovercartObj .tabs{background:#d5edf7; border-bottom:1px solid #cfcfcf; height:27px; overflow:visible; padding-top:2px}
+#hovercartObj .tabs li{background:none; float:left; list-style:none; margin-left:4px; padding:0;}
+#hovercartObj .tabs li a{background:#FFF; border:1px solid #cfcfcf; border-bottom:0; display:block; font:10px/11px Arial; height:22px; line-height:20px; padding:2px 8px;}
+#hovercartObj .tabs li a:hover{background:url(photo/13031719.cms) 0 -81px repeat-x; text-decoration:none}
+#hovercartObj .tabs li.active{width:auto}
+#hovercartObj .tabs li.active a{color:#000; font-weight:700; height:23px}
+#hovercartObj .tabs li.active a:hover{background:#FFF}
+#hovercartObj .tabsContent{background:#FFF}
+#hovercartObj .tabData{background:url(/photo/16753788.cms) center center no-repeat; display:none; min-height:80px; text-align:left; width:auto}
+#hovercartObj .tabsContent > .active{display:block}
+#hovercartObj .tabsContent .tabData .nBox{background:#eff7fa; border:1px solid #d4d2d3; color:#000; padding:5px; margin:2px;}
+#hovercartObj .tabsContent .tabData .nBox span{color:#888; font-size:9px}
+#hovercartObj .tabsContent .tabData .nBox a{}
+#hovercartObj .newsTab ul{margin:10px}
+#hovercartObj .newsTab ul li{border-bottom:1px dotted #DDD; line-height:14px; list-style:none; margin-bottom:2px; padding:2px 0 5px 8px}
+#hovercartObj .newsTab ul li a{font-size:11px; font-weight:100}
+/******** End of Company Hover Cart **********/
+
+#fbReader{background:#ebebeb; margin-bottom:15px; padding:8px}
+#fbReader #fbReaderImg{float:left; height:50px; position:relative; width:50px}
+#fbReader #fbReaderImg .fbIcon{display:none; position:absolute; bottom:0; right:0}
+#fbReader #fbReaderAction{float:right; font-size:11px; width:240px}
+#fbReader #fbReaderAction .name{font-weight:700}
+#fbReader #fbReaderAction .msg{color:#666}
+
+#fbReader #fbReaderAction .actionBtns{position:relative; z-index:100}
+#fbReader #fbReaderAction .actionBtns > a{cursor:pointer; font-size:10px; padding-right:4px}
+#fbReader #fbReaderAction .actionBtns > a b, #fbReader #fbReaderAction .actionBtns .dialogbox .button b{border-top:5px solid #000; border-right:4px solid transparent; border-left:4px solid transparent; display:inline-block; *display:inline; height:0; margin-left:3px; width:0; zoom:1}
+#fbReader #fbReaderAction .actionBtns > a .on{color:#00B300; font-weight:700}
+#fbReader #fbReaderAction .actionBtns > a .off{color:#BF1100; font-weight:700}
+#fbReader #fbReaderAction .actionBtns .dialogbox{background:#FFF; border:2px solid rgba(0, 0, 0, 0.2); box-shadow:2px 2px 5px #666; display:none; padding:10px; position:absolute; top:18px}
+#fbReader #fbReaderAction .actionBtns .dialogbox .loading{background:url(/photo/12414393.cms) center center no-repeat; height:30px}
+#fbReader #fbReaderAction .actionBtns .dialogbox .button{background:#FFF; border:2px solid rgba(0, 0, 0, 0.2); border-bottom:0; color:#024D99; cursor:pointer; margin:-36px 0 10px; padding:5px 10px;}
+#fbReader #fbReaderAction .actionBtns .dialogbox a{cursor:pointer}
+#fbReader #fbReaderAction .actionBtns .bxAct{left:-72px; width:400px}
+#fbReader #fbReaderAction .actionBtns .bxAct .button{margin-left:51px; width:78px}
+#fbReader #fbReaderAction .actionBtns .bxAct .profile{border-bottom:1px solid #CCC; font-size:14px; margin-bottom:10px; padding-bottom:10px}
+#fbReader #fbReaderAction .actionBtns .bxAct .profile img{margin-right:10px}
+#fbReader #fbReaderAction .actionBtns .bxAct .profile a{font-weight:700}
+#fbReader #fbReaderAction .actionBtns .bxAct .profile p{color:#666; padding-top:5px}
+
+#fbReader #activityList .nav{padding-bottom:10px; text-align:right}
+#fbReader #activityList .nav img{margin-left:1px}
+#fbReader #activityList .nav img.active{cursor:pointer}
+#fbReader #activityList .actList{border-bottom:1px dotted #CCC; margin-bottom:5px; line-height:18px; padding-bottom:5px}
+#fbReader #activityList .actList:last-child{border:0; margin:0; padding:0}
+#fbReader #activityList .actList a{font-weight:700}
+#fbReader #activityList .actList span{color:#999; display:block}
+#fbReader #activityList .actList img{cursor:pointer; margin:10px 0 0 5px}
+#fbReader #fbReaderAction .actionBtns .bxSoc{left:62px}
+#fbReader #fbReaderAction .actionBtns .bxOpt{left:66px; width:150px}
+#fbReader #fbReaderAction .actionBtns .bxOpt .button{margin-left:68px; width:52px}
+
+#fbReaderContent{border-bottom:1px solid #999; border-top:1px solid #999; margin-top:10px; padding:5px 0}
+#fbReaderContent.notLogged{background:url(/photo/12505235.cms) 0 5px no-repeat; height:70px}
+#fbReaderContent .logger{cursor:pointer; margin:28px 0 0 80px}
+#fbReaderContent .barhead{background:#373737; color:#FFF; display:none; font-weight:700; padding:6px}
+#fbReaderContent .barhead .navs{float:right}
+#fbReaderContent .barhead .navs img{cursor:pointer; vertical-align:bottom}
+#fbReaderContent .barhead .navs span{padding:0 8px}
+#fbReaderContent .activityDataList{border-top:1px dotted #AAA; color:#666; font-weight:700; margin:2px 0; padding:5px 0;}
+#fbReaderContent .activityDataList:first-child{border:0}
+#fbReaderContent .activityDataList .flt{border:1px solid #888; border-radius:3px; box-shadow:1px 1px 0 #999; height:40px; margin-right:8px; padding:3px}
+#fbReaderContent .activityDataList span{color:#000}
+
+.imgshow{display:none;}
+.Normal tr{border-bottom:solid 1px #000;border-right:solid 1px #000}
+.Normal table th{background-color:#F0EFE4;border-bottom:solid 1px #000;border-right:solid 1px #000; vertical-align:middle}
+.Normal table{border:solid 1px #000;border-left:solid 1px #000; border-collapse:collapse; font-size:11px; text-align:center;width:100%}
+.Normal ul{padding-left:20px}
+
+
+/*leap_head css starts*/
+.leap_head{width:270px;border:5px solid #e65409;padding: 10px;}
+.leap_head h2 {margin: 0;font-size: 18px;float:left;}
+.himg {float: left;margin: -1px 3px;}
+.clear{clear:both;}
+.bcont {text-align: left;}
+.phead {color: #03455b;margin: 0;text-align: left;}
+.hblock {margin: 5px 0px;}
+.hblock .bimg {width: 100px;margin-right: 10px;}
+.hblock .bimg {width: 100px;float: left;margin-right: 10px;}
+.bcont h3 {color: #e65409;margin: 0px;}
+.bcont p {font-size: 14px;margin: 0px;line-height: 17px;}
+.bcont .clikhere {margin-top: 10px;font-size: 13px;}
+.bcont span a{font-size: 17px;color: #e65409;margin-right: 5px;font-weight: bold;
+}
+/*leap_head css ends*/
+
+/* Scoll Top Button*/
+#scrollTop{left:0;width: 100px}
+
+#header {position: relative}
+/* for Politics and Nation in side bar */
+#sideBar #polNation {border: 2px solid #E17707;padding: 10px 0;margin: 20px 0 10px 0;background-color: #E3E3E3}
+#sideBar #polNation .news{padding:0 10px 15px}
+#sideBar #polNation .news h2{font-size:18px}
+#sideBar #polNation .news h3{font-size:16px;margin:5px 0}
+#sideBar #polNation .news img{margin-right:10px}
+#sideBar #polNation .news ul{margin-top:10px}
+#sideBar #polNation .news ul li{list-style-position: inside;padding-bottom: 5px;font-size: 14px}					
+#sideBar .mostTalked{padding:10px 0 0}
+#sideBar .mostTalked h3{background : url("/photo/26514891.cms") repeat-x 0 3px;font-size: 15px;margin: 0 10px}
+#sideBar .mostTalked span {background-color: #E3E3E3}
+#sideBar .mostTalked span.red {color:red;padding:0 5px}
+#sideBar .mostTalked ul.parties{padding:10px;background-color:#D7D7D7;margin: 10px 0}
+#sideBar .mostTalked ul.parties li{list-style:none;display:none}
+#sideBar .mostTalked ul.parties li:first-child{display:list-item}
+#sideBar .mostTalked ul.parties li > div{margin:0 0 0 8px;text-align:center}
+#sideBar .mostTalked ul.parties li > div b{font-size: 18px;line-height: 34px}
+#sideBar .mostTalked ul.parties li span{margin-left:8px;width:44px;height:44px;background-color:#313332;text-align: center;font: 700 12px/44px Arial;color: #fff}
+#sideBar .mostTalked ul.politicians{padding:10px;}
+#sideBar .mostTalked ul.politicians li{list-style:none;display: inline-block}
+#polNation .mtPol{background-color:#fff}
+#polNation .mtPol span {background-color: #fff}
+ul.politicians li > img{border-radius: 25px}
+ul.politicians li > div.grayBar{width:150px;background-color: #313332;height: 10px;margin: 20px 10px;border-radius: 5px}
+ul.politicians li > div.grayBar > div{height: 10px;border-radius: 5px}
+ul.politicians li > div.grayVal{background-image: url("/photo/26737583.cms");height: 37px;margin: 7px 2px 0 0;width: 64px;color: #fff;text-align: center;line-height: 37px;font-weight: 700}
+.mostTalked #mtParties {height:270px}
+.mostTalked .mtPLegend .mtpLCont {border-bottom: 1px solid #fff;border-right: 1px solid #fff;float: left;width: 78px;border-top: 4px solid}
+.mostTalked .mtPLegend .mtpLCont .mtplP {display: block;font-size: 16px;padding: 5px;text-align: center}
+
+.twflw{position:relative;left:10px}
+.twflw .dmiss{color:red;font-size:12px;font-weight:700;padding-right:4px}
+.twflw .ftext{font-size:11px}
+
+

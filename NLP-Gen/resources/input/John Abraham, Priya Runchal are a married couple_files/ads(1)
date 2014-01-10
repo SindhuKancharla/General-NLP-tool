@@ -1,0 +1,65 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=Cwrh_wHLGUpjeKozLigfuo4CgBYDVwpME6PWn5mDAjbcBEAEgqKHUCSgEUOKo5Hlg5crlg7QOoAGW-oT5A8gBAakCXAYP-ug4UT6oAwGqBKgBT9CLQCCjAGNXEEaRwTL0YJAztGcvoEWgij2SOpET8s-Q9TqMFCr5o6LYvhCbJYAW0Jjx7rBJT59lkD2rLDHpyqmZv0omhI5J3g5mvdsneiCloj9sjh8E0ROGxqdODiOpLWRA3yEaWbDJx7SQG9twRAMIlVCd21Kbf-Vj6lv9btXEF_zvv58GhCvDsLnxx94VNzT8R4E6C2CDgAWTbiIbH8XQ5UZ_DTT2iAYBgAfShfsG&amp;num=2&amp;cid=5Gi_tpoQggp2pKPzJg_3j9li&amp;sig=AOD64_0Vb_OAc6YIrL7NC4shCGFQ95YqQg&amp;client=ca-ibnlive_site_js&amp;adurl=http://www.healthcare-tataaig.com%3Fse%3DGE%26cl%3DTata-AIG-Health%26cp%3DContent_Familyinsurance%26ag%3DFamily_Insurance%26st%3DMT%26kd%3D"; 
+google_ad.visible_url = "healthcare-tataaig.com/Health-Cover"; 
+google_ad.line1 = "Tata AIG Health Insurance"; 
+google_ad.line2 = "Cover UpTo Rs. 27.25L. Benefits On"; 
+google_ad.line3 = "Health Insurance Renewal. Apply Now"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_ad = {}; 
+google_ad.n = 2; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CkPOMwHLGUpjeKozLigfuo4CgBZziq6ME1MGdonjAjbcBEAIgqKHUCSgEUPn35sv5_____wFg5crlg7QOoAH0ma_kA8gBAakCXAYP-ug4UT6oAwGqBKQBT9DbXr68GVlvovWepjn4YpUspyxopwXthj8l4csg7s-Uvy-MUiH1oafHrVvcIsBb3Jqzr7tbS8MglTqtb33q2rqQtkZm2YxSzhYq4tw8dyusr34gnQhMnV_GyrROFS-oZCpMxSQGUPrSx7OTGNFkURYTlUjbx0uakx9jI9krpq_lHzeImJ8Gb8EoC7vsx2YcwjMJTKE-_mNWgwXTmyH7WQk3l1yIBgGAB_Tl0Bs&amp;num=1&amp;cid=5Gi_tpoQggp2pKPzJg_3j9li&amp;sig=AOD64_2PLcXRN4_2XATPhEk8FvaxWlvo7g&amp;client=ca-ibnlive_site_js&amp;adurl=http://www.cartrade.com/new-cars/Honda-City"; 
+google_ad.visible_url = "cartrade.com/Honda_City"; 
+google_ad.line1 = "Honda City Diesel"; 
+google_ad.line2 = "Read Specs, Features \x26amp; Reviews."; 
+google_ad.line3 = "Get Free Price Quote Online Now!"; 
+google_ad.regionname = ""; 
+google_ads[1] = google_ad; 
+google_ad = {}; 
+google_ad.n = 3; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=Ccw5pwHLGUpjeKozLigfuo4CgBfbkl6UErq2FnokBwI23ARADIKih1AkoBFDL_ee2_f____8BYOXK5YO0DqABktGN4gPIAQGpAlwGD_roOFE-qAMBqgSoAU_QmxkTpgBlVxBGkcEy9GCQM7RnL6BFoIo9kjqRE_LPkPU6jBQq-aOi2L4QmyWAFtCY8e6wSU-fZZA9qywx6cqpmb9KJoSOSd4OZr3bJ3ogpaI_bI4fBNEThsanTg4jqS1kQN8hGlmwyce0kBvbcEQDCJVQndtSm3_lY-pb_W7VxBnEo6OfBoQrw7C58cfeFTc0_EeBOgtgg4AFk24iGx_F0OVGA34b4IgGAYAH1q7yHQ&amp;num=4&amp;cid=5Gi_tpoQggp2pKPzJg_3j9li&amp;sig=AOD64_1w6z8a6R29eciP6_Mqie5QzV4DQw&amp;client=ca-ibnlive_site_js&amp;adurl=http://dna2.mookie1.com/n/155493/155494/www.ideacellular.com/1amfgkn%3B11%3B4%3B%3B8%3B%3Bdmi4md%3B%3B%3B18rkhu%3Bcak%3B1%3B/i/c%3F0%26pq%3D%252fbuffet-plans%26247cr%3D36761931158%26247subproduct%3DCONTENT"; 
+google_ad.visible_url = "ideacellular.com/Postpaid_Plans"; 
+google_ad.line1 = "Idea Postpaid Plan"; 
+google_ad.line2 = "Pick \x26amp; choose Plans that Suit Your"; 
+google_ad.line3 = "Requirements. Know More Now!"; 
+google_ad.regionname = ""; 
+google_ads[2] = google_ad; 
+google_ad = {}; 
+google_ad.n = 4; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CpS1IwHLGUpjeKozLigfuo4CgBZaPjNUFxsiyoIIB2tkeEAQgqKHUCSgEUJ6puo8DYOXK5YO0DqABkuq41gPIAQGpAlwGD_roOFE-qAMBqgSlAU_QqwMjpwBiVxBGkcEy9GCQM7RnL6BFoIo9kjqRE_LPkPU6jBQq-aOi2L4QmyWAFtCY8e6wSU-fZZA9qywx6cqpmb9KJoSOSd4OZr3bJ3ogpaI_bI4fBNEThsanTg4jqS1kQN8hGlmwyce0kBvbcEQDCJVQndtSm3-dYOoT_dHbYsncY3J17W8qw7ACGDFlFMo3-LqCHv5jo3UGk9shG7_DLoXjt4gGAYAH1pXHKQ&amp;num=3&amp;cid=5Gi_tpoQggp2pKPzJg_3j9li&amp;sig=AOD64_3iYGalloRkbrUp7ntVVbGZs8dfgw&amp;client=ca-ibnlive_site_js&amp;adurl=http://www.himalaiiasclasses.com/"; 
+google_ad.visible_url = "www.himalaiiasclasses.com"; 
+google_ad.line1 = "IAS-IPS classes Bangalore"; 
+google_ad.line2 = "We will help U2 Become IAS IPS KAS,"; 
+google_ad.line3 = "officer Since 1998 No.1 Results cal"; 
+google_ad.regionname = ""; 
+google_ads[3] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://ibnlive.in.com/news/john-abraham-priya-runchal-are-a-married-couple/443039-8-66.html%26gl%3DIN%26hl%3Den%26client%3Dca-ibnlive_site_js%26hideleadgen%3D1%26ai0%3DCwrh_wHLGUpjeKozLigfuo4CgBYDVwpME6PWn5mDAjbcBEAEgqKHUCSgEUOKo5Hlg5crlg7QOoAGW-oT5A8gBAakCXAYP-ug4UT6oAwGqBKgBT9CLQCCjAGNXEEaRwTL0YJAztGcvoEWgij2SOpET8s-Q9TqMFCr5o6LYvhCbJYAW0Jjx7rBJT59lkD2rLDHpyqmZv0omhI5J3g5mvdsneiCloj9sjh8E0ROGxqdODiOpLWRA3yEaWbDJx7SQG9twRAMIlVCd21Kbf-Vj6lv9btXEF_zvv58GhCvDsLnxx94VNzT8R4E6C2CDgAWTbiIbH8XQ5UZ_DTT2iAYBgAfShfsG%26ai1%3DCkPOMwHLGUpjeKozLigfuo4CgBZziq6ME1MGdonjAjbcBEAIgqKHUCSgEUPn35sv5_____wFg5crlg7QOoAH0ma_kA8gBAakCXAYP-ug4UT6oAwGqBKQBT9DbXr68GVlvovWepjn4YpUspyxopwXthj8l4csg7s-Uvy-MUiH1oafHrVvcIsBb3Jqzr7tbS8MglTqtb33q2rqQtkZm2YxSzhYq4tw8dyusr34gnQhMnV_GyrROFS-oZCpMxSQGUPrSx7OTGNFkURYTlUjbx0uakx9jI9krpq_lHzeImJ8Gb8EoC7vsx2YcwjMJTKE-_mNWgwXTmyH7WQk3l1yIBgGAB_Tl0Bs%26ai2%3DCcw5pwHLGUpjeKozLigfuo4CgBfbkl6UErq2FnokBwI23ARADIKih1AkoBFDL_ee2_f____8BYOXK5YO0DqABktGN4gPIAQGpAlwGD_roOFE-qAMBqgSoAU_QmxkTpgBlVxBGkcEy9GCQM7RnL6BFoIo9kjqRE_LPkPU6jBQq-aOi2L4QmyWAFtCY8e6wSU-fZZA9qywx6cqpmb9KJoSOSd4OZr3bJ3ogpaI_bI4fBNEThsanTg4jqS1kQN8hGlmwyce0kBvbcEQDCJVQndtSm3_lY-pb_W7VxBnEo6OfBoQrw7C58cfeFTc0_EeBOgtgg4AFk24iGx_F0OVGA34b4IgGAYAH1q7yHQ%26ai3%3DCpS1IwHLGUpjeKozLigfuo4CgBZaPjNUFxsiyoIIB2tkeEAQgqKHUCSgEUJ6puo8DYOXK5YO0DqABkuq41gPIAQGpAlwGD_roOFE-qAMBqgSlAU_QqwMjpwBiVxBGkcEy9GCQM7RnL6BFoIo9kjqRE_LPkPU6jBQq-aOi2L4QmyWAFtCY8e6wSU-fZZA9qywx6cqpmb9KJoSOSd4OZr3bJ3ogpaI_bI4fBNEThsanTg4jqS1kQN8hGlmwyce0kBvbcEQDCJVQndtSm3-dYOoT_dHbYsncY3J17W8qw7ACGDFlFMo3-LqCHv5jo3UGk9shG7_DLoXjt4gGAYAH1pXHKQ\x26usg\x3dAFQjCNE45DmZy70MmI_0doTayGJ3zPegwQ";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

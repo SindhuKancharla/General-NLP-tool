@@ -1,0 +1,6 @@
+var domain = MSTAC.d;
+mstac_cookie = 'mstac=desktop; path=/; max-age=31536000';
+if (domain) {
+    mstac_cookie +='; domain=' + domain;
+}
+document.cookie = mstac_cookie;

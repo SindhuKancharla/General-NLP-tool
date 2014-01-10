@@ -1,0 +1,14 @@
+Phase: getNouns
+Input: FEATURE_SENTENCE NounChunk Token SpaceToken
+Options: control = appelt
+ 
+ Rule: rule1
+(
+   {NounChunk,NounChunk within{FEATURE_SENTENCE}}|{NounChunk,NounChunk contains{FEATURE_SENTENCE}}|
+   (({Token.kind==number})?({SpaceToken})?({Token.kind==symbol})?
+   ({SpaceToken})?({Token.kind==number})?
+   {Token.string=="."}{NounChunk, NounChunk within{FEATURE_SENTENCE}})+
+):rule
+-->
+:rule.Chunks = {text = :rule.NounChunk@string}
+ 

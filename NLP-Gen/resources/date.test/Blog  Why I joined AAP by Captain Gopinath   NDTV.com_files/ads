@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CqCgOSRXNUuu-FqS0mgWZlIGoB-WCsfgD_feq0V7AjbcBEAEg7JuJBlDzkKm7BWDlyuWDtA6gAdvEkusDyAEBqQKkkNBKQkNRPqgDAaoEtAFP0Jcq0-u32gQ9edSukoT1r1NcVAzEw3mKFM2WgtPecNY6Ua28w9XJEE3J3GDrToHm3PgoEvPFxquf0s-DZ8-AlaV6a15DR2dSX1fqraY40uUSCSoNMIPG292aAWGL5Rn2ahVQ7O6ckEbSKLpvlGPWIwXVDrytmnSP3ojH-bDdIkO7VEPKmdAHMg4raQF-Ud-SmEz561TJU9JoRywYRNlDEoB8D8DD2ZHaT0_qg7rG7RnvhuOIBgGAB4277RQ&amp;num=1&amp;cid=5GhDDSMVT6gjtPMrEMZ1QPNU&amp;sig=AOD64_2KTdvFvxKodkGzMHgmcUTHq_uCWg&amp;client=ca-pub-7641565019577886&amp;adurl=http://www.commonfloor.com/sem%3Fcity%3DBangalore%26listings_type%3Dproperty%26search_intent%3Dsale%26house_type%5B%5D%3DApartment%26f%3Dsem_Bangalore-PD-Apartments-03%26hk%3D1/2/3/4%252B%2520Apartments%2520for%2520Sale%2520in%2520Bangalore%2520%7C%2520Starting%2520%40%2520Rs%252020%2520Lacs%2520Only!%26srtby%3Dlowtohigh"; 
+google_ad.visible_url = "commonfloor.com/Bangalore/Apartment"; 
+google_ad.line1 = "Buy Apartment @ Bangalore"; 
+google_ad.line2 = "New/ReSale 1/2/3/4+ BHKs For Sale."; 
+google_ad.line3 = "Starting @ Rs 20 Lacs- Explore Now!"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ndtv.com/article/blog/blog-why-i-joined-aap-by-captain-gopinath-467453%253Fndtv_rhs%26gl%3DIN%26hl%3Den%26client%3Dca-pub-7641565019577886%26ai0%3DCqCgOSRXNUuu-FqS0mgWZlIGoB-WCsfgD_feq0V7AjbcBEAEg7JuJBlDzkKm7BWDlyuWDtA6gAdvEkusDyAEBqQKkkNBKQkNRPqgDAaoEtAFP0Jcq0-u32gQ9edSukoT1r1NcVAzEw3mKFM2WgtPecNY6Ua28w9XJEE3J3GDrToHm3PgoEvPFxquf0s-DZ8-AlaV6a15DR2dSX1fqraY40uUSCSoNMIPG292aAWGL5Rn2ahVQ7O6ckEbSKLpvlGPWIwXVDrytmnSP3ojH-bDdIkO7VEPKmdAHMg4raQF-Ud-SmEz561TJU9JoRywYRNlDEoB8D8DD2ZHaT0_qg7rG7RnvhuOIBgGAB4277RQ\x26usg\x3dAFQjCNGPK2IxMFQEkWRhUXMghLRXo0bPQw";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

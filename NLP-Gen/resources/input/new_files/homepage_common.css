@@ -1,0 +1,790 @@
+/*mastheader.css*/
+body{margin-left:0;margin-right:0;margin-top:0;background-image:url(http://www.ndtv.com/news/images/main_cont_bg.gif);background-repeat:repeat-y;background-position:center center;}a:hover{text-decoration:underline;color:#hm_cc0000;}#masthead{background-image:url(http://www.ndtv.com/news/images/mast_bg.jpg);background-repeat:repeat-x;border-bottom-width:0;border-bottom-style:solid;border-bottom-color:#a80329;width:100%;height:95px;float:left;padding-bottom:10px;padding-top:5px;}#topnavigation{width:100%;margin-right:auto;margin-left:auto;float:left;padding-top:10px;}.topnavnewsbg{background-image:url(http://www.ndtv.com/news/images/topnav_news_bg.png);background-repeat:no-repeat;background-position:left center;height:27px;width:985px;float:left;}.topnavnewsbg_ie6{background-image:url(http://www.ndtv.com/news/images/topnav_news_bg.gif);background-repeat:no-repeat;background-position:left center;height:27px;width:985px;float:left;}.topnavmore{float:left;width:60px;margin-top:5px;text-decoration:none;}.navcategory{margin-right:30px;float:left;width:95px;font-family:Arial, Helvetica, sans-serif;font-size:14px;font-weight:700;color:#ffbb5d;margin-top:4px;margin-left:15px;}#topnavnews{width:780px;float:left;}#topnavnews ul{list-style-type:none;padding-right:0;padding-bottom:0;padding-left:5px;margin:0;}#topnavnews a{font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:700;color:#FFF;text-decoration:none;}#topnavnews li{display:inline;margin-right:22px;}#topnavnews .navcategory{margin-right:80px;}#topnavnews .navcategory a{color:#ffbb5d;font-size:16px;}.topnavleisurebg{background-image:url(http://www.ndtv.com/news/images/topnav_leisure_bg.png);background-repeat:no-repeat;background-position:left top;height:28px;width:985px;float:left;}.topnavutilitiesbg{background-image:url(http://www.ndtv.com/news/images/topnav_utilities_bg.png);background-repeat:no-repeat;background-position:left top;height:28px;width:985px;float:left;}#topnavsublink{float:left;width:985px;background-color:#7b7b7b;}#topnavtext{width:100%;float:left;background-image:url(http://www.ndtv.com/news/images/topnavtxt_bg.gif);background-repeat:repeat-x;background-position:left bottom;padding-top:3px;padding-bottom:5px;}#topnavtext ul{list-style-type:none;margin:0;padding:0 0 0 15px;}#topnavtext li{display:block;float:left;width:130px;height:25px;}#topnavtext a{font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#FFF;text-decoration:none;font-weight:700;padding:4px;}#topnavtext a:hover{background-color:#333;font-weight:700;padding:4px;}#globalnav{width:100%;background-image:url(http://www.ndtv.com/news/images/global_nav_bg.gif);background-repeat:repeat-x;margin-bottom:5px;float:left;}#globalnav #cont{margin-right:auto;margin-left:auto;width:985px;height:55px;}#cont a:hover{color:#FFF;text-decoration:none;}.globalnav_more_bg{background-image:url(http://www.ndtv.com/news/images/global_icon/all_home_bg.gif);background-repeat:no-repeat;height:53px;width:94px;padding-left:10px;}#allexand{float:left;width:985px;padding-top:10px;padding-bottom:10px;}#allexand ul{list-style-type:none;margin:0 0 0 20px;padding:0;}#allexand li{display:block;float:left;width:120px;height:25px;}#allexand a{font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#FFF;text-decoration:none;font-weight:700;padding:4px;}#allexand a:hover{text-decoration:none;background-color:#333;font-weight:700;padding:4px;}#topsearch{width:100%;height:35px;float:left;}#topsearch #cont{width:985px;margin-right:auto;margin-left:auto;height:35px;background-repeat:repeat-x;background-image:url(http://www.ndtv.com/news/images/topsearch_bg1.gif);padding-top:7px;}.topsearchdiv a{font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#03c;text-decoration:none;}.topsearchcontent{width:570px;float:left;padding-left:10px;}.topsearchcontent1{float:left;width:330px;font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#000;}.topsearchdiv{float:left;width:170px;margin-right:5px;padding-left:10px;border-right-width:1px;border-right-style:dotted;border-right-color:#333;height:23px;padding-top:3px;}.topnavmore_new{float:left;width:50px;margin-top:5px;text-decoration:none;}.marrgt5{margin-right:5px;}.clr{clear:both;}.main_footer_bg2{background-image:url(http://www.ndtv.com/news/images/mainbg2.jpg);height:69px;background-repeat:repeat-x;width:100%;}div#globalbar{width:100%;color:#fff;font-family:"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;font-size:90%;line-height:normal;font-weight:400;}div#globalbar_wrap{width:960px;overflow:hidden;margin:0 auto;padding:.4em 0;}#globalbar_nav{float:left;}#globalbar_nav ul{text-align:left;list-style:none;margin:0;padding:2px 0 0;}#globalbar_nav ul li{list-style:none;display:inline;margin:0 .5em 0 0;padding:0;}#globalbar_nav ul li.last{margin-right:0;}#globalbar_nav ul li a{color:#fbfbfb;text-decoration:none;font-family:"Trebuchet MS","Lucida Sans Unicode","Lucida Grande","Lucida Sans",Arial,sans-serif;font-size:80%;padding:.2em .5em;}#globalbar_nav ul li a:focus,#globalbar_nav ul li a:hover{background:#fbfbfb;border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px;-khtml-border-radius:10px;color:#444;}#globalbar_nav ul li.current a{background:#fff;border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px;-khtml-border-radius:10px;color:#444;}div#search_global{display:block;float:right;width:385px;}.wdth983{width:983px;margin-right:auto;margin-left:auto;padding-top:7px;}#updates_btns{float:left;width:100%;}#updates_btns p{float:left;margin-right:30px;margin-top:10px;margin-bottom:0;font-family:Georgia, "Times New Roman", Times, serif;font-size:22px;color:#666;}#updates_btns ul{list-style-type:none;background-image:url(http://www.ndtv.com/news/images/vertical_arrow.png);background-repeat:no-repeat;background-position:left 5px;float:left;margin:0;padding:0 0 0 20px;}#updates_btns li{float:left;font-family:Georgia, "Times New Roman", Times, serif;color:#666;font-weight:700;text-align:center;margin-right:10px;margin-left:10px;padding:7px;}#updates_btns li:hover{background-color:#dfdfdf;-moz-border-radius:5px;-webkit-border-radius:5px;}#updates_btns img{margin-right:5px;margin-top:-1px;margin-left:5px;}#updates_btns a{font-family:Georgia, "Times New Roman", Times, serif;font-size:12px;color:#666;text-decoration:none;}.main_bg2{background-image:url(http://www.ndtv.com/news/images/mainbg2.jpg);float:left;height:100px;background-repeat:repeat-x;width:100%;}.fs32{font-size:32px;}.watermarkOn{color:#CCC;}.ad_common{visibility:hidden;}.ad_hide_show{display:none;}a:link,a:visited,a:active{text-decoration:none;}.topnavlinks,.globalallcont,#masthead #cont{width:985px;margin-right:auto;margin-left:auto;}.topnavmore a,.topnavmore_new a{font-family:Arial, Helvetica, sans-serif;font-size:12px;font-weight:700;color:#ffbb5d;text-decoration:none;}#globalall,#globalallF{background-color:#666;width:100%;float:left;}
+/*new_common.css*/
+.fg{font-family:Georgia, "Times New Roman", Times, serif;}.fa{font-family:Arial, Helvetica, sans-serif;}.fbld{font-weight:bold;}.fn{text-decoration:none;}.fl{color:#03c;}.fb{color:#000;}.fcg{color:#222;}.fcgl{color:#333;}.fcw{color:#fff;}.fcp{color:#b6005e;}.fr{color:#c00;}.fu{text-transform:uppercase;}.fccap{color:#666;}.lh16{line-height:16px;}.lh18{line-height:18px;}.lh20{line-height:20px;}.lh22{line-height:22px;}.lh24{line-height:24px;}.fs10{font-size:10px;}.fs11{font-size:11px;}.fs12{font-size:12px;}.fs14{font-size:14px;}.fs16{font-size:16px;}.fs20{font-size:20px;}.fs24{font-size:24px;}.fs30{font-size:30px;}.pdt5{padding-top:5px;}.pdt8{padding-top:8px;}.pdt10{padding-top:10px;}.pdt15{padding-top:15px;}.pdt20{padding-top:20px;}.pdr5{padding-right:5px;}.pdr8{padding-right:8px;}.pdr12{padding-right:12px;}.pdr15{padding-right:15px;}.pdb5{padding-bottom:5px;}.pdb8{padding-bottom:8px;}.pdb15{padding-bottom:15px;}.pdl5{padding-left:5px;}.pdl8{padding-left:8px;}.pdl10{padding-left:10px;}.pdl15{padding-left:15px;}.mart10{margin-top:10px;}.marb10{margin-bottom:10px;}.mart5{margin-top:5px;}.mart3{margin-top:3px;}.marb5{margin-bottom:5px;}.marr10{margin-right:10px;}.marr15{margin-right:15px;}.marl15{margin-left:15px;}.marl10{margin-left:10px;}.marr5{margin-right:5px;}.mart20{margin-top:20px;}.mart15{margin-top:15px;}.mart8{margin-top:8px;}.marb15{margin-bottom:15px;}.float_l{float:left;}.float_r{float:right;}.algl{text-align:left;}.algr{text-align:right;}.algc{text-align:center;}.imgwrapper{position:relative;float:left;}.videoplay{position:absolute;width:85px;top:68px;right:666px;}.bigpictureplay{position:absolute;width:85px;top:420px;right:825px;}#bottom{width:100%;margin-right:auto;margin-left:auto;border-top-width:1px;border-top-style:solid;border-top-color:#bdbdbd;background-color:#f0f0f0;}h1,h2,h3,h4,h5,h6{font:inherit;font-size:inherit!important;font-weight:normal!important;margin:0;padding:0;}#bottom #botlinks,#bottom #search{width:985px;margin-right:auto;margin-left:auto;text-align:center;height:40px;}
+/*services.css*/
+div#r_services{overflow:hidden;width:300px;margin:0 0 .5em;padding:0;}.box_300{border:#dedede 1px solid;}.round_5{-moz-border-radius:5px;}.padding_top_5{padding-top:5px;}.clr{clear:both;}#r_services .header{font-family:Georgia, "Times New Roman", Times, serif;font-size:16px;color:#000;font-weight:700;background-color:#f1f1f1;padding:10px;}#r_coursal .coursal_l{float:left;margin:0 2px;}#r_coursal .coursal_r{float:right;margin:0 2px;}#r_coursal ul{list-style-type:none;float:left;margin:0;padding:0;}#r_coursal a{text-decoration:none;}#r_coursal span{font-family:Arial, Helvetica, sans-serif;font-size:11px;}#r_coursal li{zoom:1;display:inline;width:85px;margin-right:2px;margin-left:2px;}#r_coursal img{border:1px solid #CCC;margin-bottom:5px;padding:4px;}.hm_tab_bg{background-image:url(http://www.ndtv.com/news/images/tabs_gradient_new.gif);background-repeat:repeat-x;height:30px;margin-bottom:5px;}#hm_subtab_315{height:24px;width:100%;}#hm_subtab_315 ul{list-style-type:none;margin:0;padding:8px 0 0 5px;}#hm_subtab_315 li{color:#000;display:inline;height:21px;text-decoration:none;margin:0 5px;}#hm_subtab_315 a{color:#03C;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:700;}#hm_subtab_315 li.hm_current{background:transparent url(http://www.ndtv.com/news/images/subtab_left.gif) no-repeat scroll left top;padding:0 10px 7px;}#hm_subtab_315 li.hm_current span{background-image:url(http://www.ndtv.com/news/images/subtab_right.gif);background-position:right top;background-repeat:no-repeat;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-size:11px;height:30px;line-height:22px;padding:4px 10px 8px 0;}div#in_services{overflow:hidden;}.box_serv{border:#dedede 1px solid;padding:10px 5px;}.bg_serv{background-image:url(http://www.ndtv.com/news/images/inside_bg.jpg);background-repeat:repeat-x;background-position:left bottom;}#in_services .in_header{padding-bottom:5px;border-bottom-width:1px;border-bottom-style:dotted;border-bottom-color:#666;font-family:Georgia, "Times New Roman", Times, serif;font-size:16px;font-weight:700;margin:0 0 5px;}#in_services ul{list-style-type:none;margin:0;padding:0 0 5px;}#in_services li{background-image:url(http://www.ndtv.com/news/images/bullet_dash.jpg);background-repeat:no-repeat;background-position:left 10px;padding-left:8px;line-height:18px;}#in_services a{font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#03c;text-decoration:none;}#in_services .more{text-align:right;margin-top:2px;margin-right:5px;margin-bottom:2px;font-weight:700;font-size:11px;}.but_img_pos_7{margin-bottom:-7px;border-style:none;}.pdb10{padding-bottom:10px;}.pdt10{padding-top:10px;}div#services_big{overflow:hidden;width:440px;border:1px solid #bdbcbd;margin:0 0 .5em;padding:10px;}#services_big .header{font-family:Georgia, "Times New Roman", Times, serif;font-size:24px;color:#000;margin-bottom:10px;padding-bottom:10px;border-bottom-width:1px;border-bottom-style:dotted;border-bottom-color:#333;}#services_big .close{float:right;margin-top:10px;margin-right:5px;}#quick_best ul{list-style-type:none;margin:0;padding:0;}#quick_best li{zoom:1;display:inline;}#quick_best .quick_links{width:180px;float:left;}#quick_best .quick_links .head,#quick_best .best_deals .head{font-family:Arial, Helvetica, sans-serif;font-size:12px;font-weight:700;color:#000;margin-top:5px;margin-bottom:5px;}#quick_best .quick_links a{background-image:url(http://www.ndtv.com/news/images/bullet_arrow.gif);background-repeat:no-repeat;background-position:left 5px;padding-left:10px;font-family:Arial, Helvetica, sans-serif;font-size:12px;text-decoration:none;line-height:20px;}#quick_best .best_deals{width:235px;padding-left:10px;border-left:1px dotted #666;}#quick_best .best_deals p{margin-top:5px;margin-bottom:5px;width:100%;float:left;}#quick_best .best_deals img{margin-right:10px;}#quick_best .best_deals a{font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#06c;text-decoration:none;}*{margin:0;padding:0;}img{border:0;}.auto{width:779px;margin:0 auto;}.maincontainer{width:296px;position:relative;overflow:hidden;font-family:Arial, Helvetica, sans-serif;font-size:12px;background:#FFF;color:#231f20;margin:0 auto;}.fleft{float:left;}.margin-left-5{margin-left:5px;}.padding-top-5{padding:5px 0 0;}.margin-left-10{margin-left:10px;}.width-985{width:985px;}.font-17{font-size:17px;}.width-380{width:380px;}.padding-bottom-3{padding:0 0 3px;}.red{color:#c00;font-weight:700;}.pointer{cursor:pointer;}.travel-widget{float:left;width:294px;height:156px;position:relative;overflow:hidden;}.travel-widget select,.travel-widget input{font-size:9px;font-style:normal;font-family:arial;}.travel-widget p{font-size:11px;}.travel-widget span{float:left;position:relative;overflow:hidden;background:#fff;}.travel-widget h4{color:#000;float:left;width:90px;smargin:3px 0 0 0;font-size:12px;padding:0 0 3px 10px;}.travel-widget .grey-strip{background:#e9eef4;width:360px;float:left;padding:0;}.travel-widget .grey-strip span{float:left;background:#e9eef4;padding:4px 0 0;}.travel-widget .grey-strip dfn{float:left;padding:2px 0 0;}.travel-widget .grey-strip i{float:left;padding:3px 3px 0 0;}.travel-widget p a{color:#2849ad;text-decoration:none;}.travel-widget p a:hover{color:#000;text-decoration:underline;}.padding-top-10{padding:10px 0 0;}.padding-top-bottom-6{padding:6px 0;}.padding-top-3{padding:3px 0 0;}.width-170{width:170px;}.width-180{width:180px;}.width-185{width:185px;}.width-190{width:190px;}.width-195{width:195px;}.width-130{width:130px;}.width-88{width:88px;}.width-50{width:50px;}.width-40{width:40px;}.width-112{width:112px;}.bold{font-weight:700;}.width-125{width:125px;}.width-360{width:360px;}.fright{float:right;}.width-60{width:60px;}.width-80{width:80px;}.width-90{width:90px;}.padding-left-2{padding-left:2px;}.padding-left-3{padding-left:3px;}.width-365{width:365px;}.padding-bottom-6{padding-bottom:6px;}.width-110{width:110px;}.width-350{width:350px;}.width-200{width:200px;}.width-230{width:230px;}.width-270{width:270px;}.margin-top-10{margin:10px 0 0;}.margin-top-5{margin-top:5px;}.padding-left-5{padding-left:5px;}.padding-left-10{padding-left:10px;}.width-150{width:150px;}.width-155{width:155px;}.width-120{width:120px;}.width-100{width:100px;}.yui-calcontainer{position:relative;background-color:#F7F9FB;border:1px solid #7B9EBD;float:left;overflow:hidden;padding:5px;}.yui-calcontainer iframe{position:absolute;border:none;left:-1px;top:-1px;z-index:0;width:50em;height:50em;margin:0;padding:0;}.yui-calcontainer.multi{padding:0;}.yui-calcontainer.multi .groupcal{background-color:transparent;z-index:1;float:left;position:relative;border:none;padding:5px;}.yui-calcontainer .title{font:100% sans-serif;color:#000;font-weight:700;margin-bottom:5px;height:25px;position:absolute;top:3px;left:5px;z-index:1;}.yui-calcontainer .close-icon{position:absolute;right:3px;top:3px;border:none;z-index:1;}.yui-calendar{font:100% sans-serif;text-align:center;border-spacing:0;border-collapse:separate;position:relative;}.yui-calcontainer.withtitle{padding-top:1.5em;}.yui-calendar .calnavleft{position:absolute;background-repeat:no-repeat;cursor:pointer;top:2px;bottom:0;width:9px;height:12px;left:2px;z-index:1;}.yui-calendar .calnavright{position:absolute;background-repeat:no-repeat;cursor:pointer;top:2px;bottom:0;width:9px;height:12px;right:2px;z-index:1;}.yui-calendar td.calcell{border:1px solid #E0E0E0;text-align:center;padding:.1em .2em;}.yui-calendar td.calcell a{color:#003DB8;text-decoration:none;}.yui-calendar td.calcell.today{border:1px solid #000;}.yui-calendar td.calcell.oom{cursor:default;color:#999;background-color:#EEE;border:1px solid #E0E0E0;}.yui-calendar td.calcell.selected{color:#003DB8;background-color:#FFF19F;border:1px solid #F90;}.yui-calendar td.calcell.calcellhover{cursor:pointer;color:#FFF;background-color:#EC1F27;border:1px solid #EC1F27;}.yui-calendar td.calcell.calcellhover a{color:#FFF;}.yui-calendar td.calcell.restricted{text-decoration:line-through;}.yui-calendar td.calcell.previous{color:#ccc;}.yui-calendar td.calcell.highlight2{background-color:#9CF;}.yui-calendar td.calcell.highlight3{background-color:#FCC;}.yui-calendar .calhead{border:1px solid #E0E0E0;vertical-align:middle;background-color:#FFF;}.yui-calendar .calheader{position:relative;width:100%;text-align:center;}.yui-calendar .calheader img{border:none;}.yui-calendar .calweekdaycell{color:#666;font-weight:400;text-align:center;width:1.5em;}.yui-calendar .calfoot{background-color:#EEE;}.yui-calendar .calrowhead,.yui-calendar .calrowfoot{color:#666;font-size:9px;font-style:italic;font-weight:400;width:15px;}.yui-calendar .calrowhead{border-right-width:2px;}.yui-calendar a:hover{background:inherit;}.margin-top-1{margin-top:1px;}.width-298{width:298px;}.width-37{width:37px;}.width-115{width:115px;}.padding-right-2{padding-right:2px;}.anchor-color{color:#2849ad;}.propertybox{width:298px;font-family:arial;font-size:11px;}.propfrm{padding-left:7px;}.propfrm form{padding-top:15px;margin:0;}.propfrm form label,.propfrm form input{padding-right:25px;float:left;}.propfrm form label{padding-top:2px;}.formDiv{overflow:hidden;clear:both;}.propfrm form .formDiv label{width:80px;float:left;text-align:right;margin:0;padding:0 5px 0 0;}.propertybox select{width:150px;height:22px;border:1px solid #7e9db9;font-size:11px;font-family:arial;}.propfrm form .formDiv input{float:none;margin:0;padding:0;}.optionbg{background-color:#F6F6F6;font-size:12px;font-weight:700;color:#009C4F;}#r_services p,#services_big p{margin:0;}#r_coursal .coursal_l img,#r_coursal .coursal_r img{border:none;padding:0;}.inp_box,select{border:#7c9eb9 1px solid;width:100px;font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#999;margin:0 5px;padding:2px;}.padding-top-bottom-3,.padding-top-bottom-10{padding:10px 0;}.yui-calendar td.calcell.highlight1,.yui-calendar td.calcell.highlight4{background-color:#CF9;}
+/*white_homepage.css*/
+.clr{clear:both;}.clrl{clear:left;}#masthead{background-image:url(http://www.ndtv.com/news/images/mast_bg.jpg);background-repeat:repeat-x;height:95px;border-bottom-width:0;border-bottom-style:solid;border-bottom-color:#a80329;}#hm_rightcontainer,.hm_header,.hm_midcont_650_topn,.hm_midcont_650,.hm_midcont_650_top,.hm_top_650,.hm_mid_650,.hm_bot_650,.hm_midcont_315,.hm_midcont_315_top,.hm_midcont_315_scroll,.hm_top_315,.hm_mid_315,.hm_bot_315,#hm_globalnav,.hm_globalicon,.hm_globaliconcont,.hm_globalicontext,#hm_masthead,.hm_logo,#hm_topnavigation,.hm_navcategory,#hm_topnavnews,.hm_topnavmore_new,#hm_topnavsublink,#hm_topnavtext,#hm_topnavtext li,#hm_contentcontainer,#hm_leftcontainer,#hm_left315container,#hm_right315container,.hm_left315container,.hm_right315container,.hm_header,.hm_midcont_650_topn,.hm_midcont_650,.hm_midcont_650_top,.hm_top_650,.hm_mid_650,.hm_bot_650,.hm_midcont_315,.hm_midcont_315_top,.hm_midcont_315_scroll,.hm_top_315,.hm_mid_315,.hm_bot_315,.hm_flash,.hm_bigstorypic,.hm_bigstoryintro,.hm_ad650,.hm_leftscroll,.hm_rightscroll,.hm_centerscroll,#hm_subtab_315 li,#hm_subtab_315 li.hm_current,#hm_subtab_315 li.hm_current span,#hm_other .hm_otherbullet,#hm_other .hm_othercont,.hm_shoplist,#hm_subtab_650 li,#hm_subtab_650 li.hm_current,#hm_subtab_650 li.hm_current span,#hm_tooltip,#hm_tooltip li,.hm_tooltiplist{float:left;}.hm_search,.hm_logo,.hm_navcategory,#hm_topnavnews a,.hm_topnavmore_new a,#hm_topnavtext a,#hm_subtab_315 li,#hm_subtab_315 a,#hm_other,#hm_subtab_650 a,#hm_interactive{font-family:Arial, Helvetica, sans-serif;}.hm_header,.hm_sponsor,.hm_bigstorypic,#hm_related li,#hm_rlink li,#hm_rlink li a,.hm_more,.hm_more_left,#hm_other a,#hm_interactive li,#hm_interactive a{font-family:Georgia, "Times New Roman", Times, serif;}.hm_topnavmore_new a,.hm_header,#hm_related li,#hm_rlink li,#hm_rlink li a,.hm_more,.hm_more_left,#hm_subtab_315 li,#hm_subtab_315 a,#hm_other,#hm_other a,#hm_subtab_650 a,#hm_interactive,#hm_interactive li,#hm_interactive a{font-size:12px;}.hm_search,.hm_logo,#hm_topnavnews a,#hm_topnavtext a,.hm_bigstorypic,#hm_interactive li{font-size:11px;}.hm_navcategory,#hm_topnavnews a,.hm_topnavmore_new a,#hm_topnavtext a,#hm_topnavtext a:hover,.hm_header,#hm_related li,#hm_subtab_315 li,#hm_subtab_315 a,#hm_subtab_650 a{font-weight:700;}.hm_search,.hm_logo,#hm_topnavnews a,#hm_topnavtext a{color:#FFF;}.hm_header{font-size:14px;color:#000;text-decoration:none;width:150px;display:block;padding:5px 0 0 10px;}#hm_globalnav{background:url(http://www.ndtv.com/news/images/global_icon/global_nav_bg.gif) repeat-x;height:55px;width:100%;}.hm_globalcont{width:985px;clear:left;margin:0 auto;}.hm_globalicon{width:35px;margin:0 5px 0 0;}.hm_globaliconcont{width:645px;padding:1px 0 0;}.hm_globalicontext{width:40px;padding:18px 0 0;}.hm_search{width:270px;float:right;vertical-align:text-top;padding:15px 0 0;}.hm_mastheadcont{width:985px;margin:10px auto 0;}.hm_logo{width:250px;}.hm_ad728_90{float:right;border:1px solid #FFF;}#hm_topnavigation{width:100%;margin-top:10px;}.hm_topnavlinks{width:985px;clear:both;margin:0 auto;}.hm_topnavnewsbg{background:url(http://www.ndtv.com/news/images/topnav_news_bg.png) no-repeat left center;height:27px;width:985px;}.hm_navcategory{width:95px;font-size:14px;color:#ffbb5d;margin:4px 30px 0 10px;}#hm_topnavnews{width:780px;}#hm_topnavnews ul{list-style-type:none;margin:0;padding:0 0 0 5px;}#hm_topnavnews a{text-decoration:none;color:#FFF;}#hm_topnavnews li{display:inline;margin-right:22px;}#hm_topnavnews .hm_navcategory{margin-right:80px;}#hm_topnavnews .hm_navcategory a{color:#ffbb5d;font-size:16px;}.hm_topnavmore_new{width:50px;vertical-align:bottom;padding-top:2px;}.hm_topnavmore_new a{color:#ffbb5d;text-decoration:none;}.hm_topnavleisurebg{background:url(http://www.ndtv.com/news/images/topnav_leisure_bg.png) no-repeat left top;height:28px;width:985px;}.hm_topnavutilitiesbg{background:url(http://www.ndtv.com/news/images/topnav_utilities_bg.png) no-repeat left top;height:28px;width:985px;}#hm_topnavsublink{width:985px;background-color:#7b7b7b;}#hm_topnavtext{width:100%;background:url(http://www.ndtv.com/news/images/topnavtxt_bg.gif) repeat-x left bottom;padding-top:3px 0 5px 0;}#hm_topnavtext ul{list-style-type:none;padding-top:0 0 0 15px;margin:0;}#hm_topnavtext li{width:130px;height:25px;}#hm_topnavtext a{text-decoration:none;padding:4px;}#hm_topnavtext a:hover{background-color:#333;padding:4px;}#hm_contentcontainer{width:100%;padding-bottom:15px;}#hm_container{width:985px;margin-right:auto;margin-left:auto;}#hm_leftcontainer{width:650px;margin-right:18px;}.hm_midcont_650_topn,.hm_midcont_650,.hm_midcont_650_top{width:630px;padding:10px;}.hm_collapselink{width:90%;cursor:pointer;margin:0 auto;}.hm_midcont_315,.hm_midcont_315_top{width:295px;padding:10px;}.hm_midcont_315_scroll{width:315px;padding-bottom:10px;padding-top:8px;}.hm_midcont_315_botn{padding-bottom:0;}#hm_bottom{width:100%;border-top:1px solid #bdbdbd;background-color:#f0f0f0;clear:both;margin:0 auto;}.hm_botlinks{text-align:center;height:35px;clear:left;}.hm_bdrb1{border-bottom:1px solid #d3d3d3;}.hm_flash{width:650px;}.hm_bigstoryspons{float:right;width:300px;}.hm_sponsor{float:right;width:300px;font-size:10px;color:#000;text-align:right;margin:3px 15px 0 0;}.hm_bigstorypic{width:295px;margin-right:15px;}.hm_bigstoryintro{width:305px;}.hm_ad650{text-align:center;padding-top:5px;}#hm_related li{list-style-type:none;background:url(http://www.ndtv.com/news/images/bullet_arrow.png) no-repeat left;line-height:22px;color:#000;text-decoration:none;padding:0 0 0 15px;}#hm_rlink li{list-style-type:none;background:url(http://www.ndtv.com/news/images/bullet_arrow.png) no-repeat left 7px;line-height:22px;color:#000;text-decoration:none;padding:0 0 0 15px;}.hm_dot1{margin-top:5px 0;border-bottom:1px dotted #ccc;}#hm_rlink li a:hover{color:#c00;text-decoration:underline;}.hm_leftscroll{height:60px;width:8px;background:url(http://www.ndtv.com/news/images/bullet_arrow_left_gry.png) center no-repeat #e7e7e7;margin:0 8px 0 1px;}.hm_leftscroll img{margin:27px 0 0 3px;}.hm_rightscroll{height:60px;width:8px;background-color:#e7e7e7;text-align:center;margin-left:8px;}.hm_rightscroll img{margin-top:25px;}.hm_centerscroll{width:275px;}.hm_img_brd{border:1px solid #e0e0e0;padding:4px;}.hm_arrow{margin:auto 0;}.hm_more,.hm_more_left{border-top:1px solid #e5e5e5;text-align:right;clear:both;margin-right:5px;height:30px;padding:15px 10px 0;}.hm_more_thin{border-top:1px solid #E5E5E5;clear:both;height:15px;margin-right:5px;text-align:right;padding:10px 10px 0;}.hm_more_left{text-align:left;}.hm_tab_bg{margin-right:6px;height:30px;background-image:url(http://www.ndtv.com/news/images/tabs_gradient_new.gif);background-repeat:repeat-x;margin-left:1px;}#hm_subtab_315{width:100%;height:26px;}#hm_subtab_315 li{display:inline;height:21px;color:#000;text-decoration:none;margin:0 10px;}#hm_subtab_315 li.hm_current span{height:30px;background-image:url(http://www.ndtv.com/news/images/subtab_right.gif);background-repeat:no-repeat;background-position:right top;font-size:11px;line-height:22px;padding:0 10px 0 0;}#hm_other a{color:#03c;line-height:18px;}#hm_other a:hover{color:#C00;}#hm_other .hm_otherbullet{width:9px;margin-right:5px;}#hm_other .hm_othercont{width:277px;padding-bottom:5px;}.hm_advertisment{background-color:#f1f1f1;width:315px;text-align:center;}.hm_bluestrip{background-color:#4b6ca3;height:25px;margin-right:5px;}.hm_shopping{text-align:center;width:140px;margin-right:auto;margin-left:auto;}.hm_shoplist{width:80px;}#hm_subtab_650{width:620px;height:26px;}#hm_subtab_650 li{display:inline;height:21px;margin:0 10px;}#hm_subtab_650 li.hm_current span{background:url(http://www.ndtv.com/news/images/subtab_right.gif) no-repeat right top;height:33px;padding:0 10px 0 0;}#hm_tooltip ul{margin:0;padding:0;}#hm_tooltip li{list-style-type:none;display:inline;padding-bottom:10px;margin:0 15px;}.hm_tooltiplistimg{float:left;width:120px;margin:10px 15px;}#hm_interactive li{background:url(http://www.ndtv.com/news/images/bullet_arrow.png) no-repeat left 8px;padding-left:12px;list-style-type:none;line-height:22px;}#hm_interactive a{line-height:22px;}.hm_dot2{margin-bottom:5px;border-top:1px dotted #ccc;}#hm_masthead,#hm_footer,#hm_related,#hm_tooltip,.hm_tooltiplist{width:100%;}#hm_left315container,#hm_right315container,.hm_left315container,.hm_right315container{width:315px;margin-right:18px;}#hm_right315container,.hm_right315container{margin-right:0;}.hm_midcont_650_top,.hm_midcont_315_top{padding-top:5px;}.hm_midcont_650_topn,.hm_midcont_315_topn{padding-top:0;}#hm_box_650,.hm_box_650{width:650px;clear:left;float:left;}#hm_box_315,.hm_box_315{width:315px;clear:left;}#hm_subtab_315 li.hm_current,#hm_subtab_650 li.hm_current{background:url(http://www.ndtv.com/news/images/subtab_left.gif) no-repeat left top;padding-left:10px;padding-bottom:3px;}#hm_other,#hm_interactive{line-height:18px;color:#333;}#hm_other ul,#hm_interactive ul{padding-left:0;list-style-type:none;margin:0;}#bottom{width:100%;margin-right:auto;margin-left:auto;border-top-width:1px;border-top-style:solid;border-top-color:#bdbdbd;background-color:#f0f0f0;}.fcr{color:#be0062;}.dot_v{border-right-width:1px;border-right-style:dotted;border-right-color:#CCC;}#video_wall li{width:130px;margin-bottom:5px;display:inline;float:left;margin-right:5px;margin-left:8px;height:145px;}#Photo_wall ul{list-style-type:none;margin:0;padding:0 0 0 8px;}#Photo_wall li{font-family:Arial, Helvetica, sans-serif;float:left;margin-bottom:5px;margin-right:16px;width:130px;height:145px;}#hm_rlink li a,#hm_subtab_315 a,#hm_subtab_650 a{color:#03c;text-decoration:none;}#hm_subtab_315 ul,#hm_subtab_650 ul{list-style-type:none;margin:0;padding:6px 0 0 5px;}#hm_subtab_315 a,#hm_subtab_650 a{font-size:11px;line-height:22px;}#hm_related ul,#hm_rlink ul,#video_wall ul{list-style-type:none;margin:0;padding:0;}#bottom #botlinks,#bottom #search{width:985px;margin-right:auto;margin-left:auto;text-align:center;height:40px;}#video_wall,#Photo_wall{float:left;width:100%;}#video_wall li img,#Photo_wall li img{border:1px solid #CCC;padding:5px;}#video_wall li a,#Photo_wall a{font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#03c;text-decoration:none;}
+.photos_strip {background-color:#000000;background-image:url("http://www.ndtv.com/news/images/photo_icon_sm.png");background-position:5px 3px;background-repeat:no-repeat;bottom:68px;color:#FFFFFF;cursor:pointer;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:normal;height:15px;left:6px;margin-bottom:0;margin-left:0;margin-top:0;opacity:0.65;padding-right:5px;position:absolute;text-align:right;top:81px;width:115px;}
+
+.hm_top_cric {
+    background-image: url(http://data.ndtv.com/images/topround_650_all_01.gif);
+    background-repeat: no-repeat;
+    height:39px;
+    float:left;
+    width:650px;
+}
+.sponsor {
+    float: right;
+    font-family: arial;
+    font-size: 11px;
+    color: #6e6c6c;
+    margin-top: 17px;
+    margin-right: 17px;
+    *-margin-right: 7px;
+}
+.sponsor p {
+    margin-top:0;
+    float:left;
+    margin-right:2px;
+}
+.cric_cont_623 {
+    margin: 0px;
+    float: left;
+    width: 615px;
+    border: 1px solid #e0e0e0;
+    padding-top: 4px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    margin-left: 4px;
+    padding-right: 2px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+}
+.cric_306 {
+    color: #FFFFFF;
+    margin-right: 2px;
+    width: 305px;
+    padding: 0px;
+    float: left;
+    position:relative;
+}
+.cric_306 a{
+    text-decoration:none;
+}
+.cric_207 {
+    color: #FFFFFF;
+    width: 207px;
+    padding: 0px;
+    float: left;
+    position:relative;
+}
+.cric_207 a {
+    text-decoration:none;
+}
+.cric_caption_208{
+    background-color: #000000;
+    position: absolute;
+    width: 197px;
+    filter:alpha(opacity=80);
+    -moz-opacity:0.80;
+    opacity:0.80;
+    padding:5px;
+    text-decoration: none;
+    cursor:hand;
+    left: 0px;
+    bottom: 0px;
+    *-bottom:4px;
+}
+.cric_cont_624 {
+    margin-bottom: 8px;
+    float: left;
+    width: 624px;
+}
+.marr1{margin-right:1px;}
+.cric_caption{
+    background-color: #000000;
+    margin-top: 0px;
+    position: absolute;
+    width: 286px;
+    bottom: 0px;
+    filter:alpha(opacity=80);
+    -moz-opacity:0.80;
+    opacity:0.80;
+    left: 0px;
+    padding:10px;
+    text-decoration: none;
+    cursor:hand;
+}
+.cric_links {
+    padding: 0px;
+    float: left;
+    width: 623px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.cric_links p{
+    width:145px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    float: left;
+}
+.cric_brdr{border-right:dotted 1px #cccccc;}
+.cric_links a{
+    color: #0033CC;
+    text-decoration:none;
+}
+.cric_links span{color:#cc0000;}
+.cric_links a:hover{
+    color: #cc0000;
+}
+.cric_613 {
+    color: #FFFFFF;
+    margin-right: 2px;
+    padding: 0px;
+    float: left;
+    position:relative;
+    width: 612px;
+}
+.cric_613 a{
+    text-decoration:none;
+}
+.margin-right-5 {
+    margin-right:5px;
+}
+.cric_caption613{
+    background-color: #000000;
+    margin-top: 0px;
+    position: absolute;
+    width: 593px;
+    bottom: 0px;
+    *bottom: 4px;
+    filter:alpha(opacity=80);
+    -moz-opacity:0.80;
+    opacity:0.80;
+    left: 0px;
+    padding:10px;
+    text-decoration: none;
+    cursor:hand;
+}
+.sponsors {
+    color: #808080;
+    float: left;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 11px;
+    margin-left: 5px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+.logoplace {
+    background-image: url(http://www.ndtv.com/convergence/ndtv/images/spnsrbg.jpg);
+    background-repeat: repeat-x;
+    border: 1px solid #BDBCBD;
+    float: left;
+    height: 48px;
+    padding: 0;
+    text-align: center;
+    width: 133px;
+}
+.sponsors ul {
+    float: left;
+    list-style-type: none;
+    margin-left: 0px;
+    padding: 0;
+}
+.sponsors li {
+    border-right: 1px dotted #CCCCCC;
+    float: left;
+    height: 48px;
+    margin-top: 5px;
+    width: 146px;
+}
+.marl10 {
+    margin-left: 10px;
+}
+.seprator {
+    border-top: 1px dashed Gray;
+    margin: 5px;
+}
+#other_stories {
+    float: left;
+    width: 623px;
+    margin-bottom: 0px;
+}
+#os_tab {
+    float: left;
+    width: 623px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #CCCCCC;
+}
+#os_tab li {
+    float: left;
+    list-style-type: none;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 12px;
+    font-weight: bold;
+    width: 100px;
+    height: 20px;
+    position: relative;
+}
+#os_tab span {
+    background-image: url(http://www.ndtv.com/news/images/pointer.gif);
+    background-repeat: no-repeat;
+    background-position: left top;
+    height: 6px;
+    width: 12px;
+    position: absolute;
+    left: 35%;
+    bottom: -1px;
+}
+#os_tab .select {
+    background-image: url(http://www.ndtv.com/news/images/pointer.gif);
+    background-repeat: no-repeat;
+    background-position: 30px 15px;
+}
+#os_tab ul {
+    list-style-type: none;
+    margin: 0;
+}
+.otherstories_new {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    float: left;
+    width: 618px;
+    background-color: #efefef;
+}
+.otherstories_new p {
+    float: left;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 145px;
+}
+.style1 {
+    font-family: Arial,Georgia, "Times New Roman", Times, serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-align:left;
+    margin-left:15px;
+    color:#000000;
+}
+
+.vid_playbutton {
+    background-color:#000000;
+    background-image:url("http://www.ndtv.com/static/images/video_icon.gif");
+    background-position:5px 3px;
+    background-repeat:no-repeat;
+    bottom:68px;
+    color:#FFFFFF;
+    cursor:pointer;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:10px;
+    font-weight:normal;
+    height:15px;
+    left:6px;
+    margin-bottom:0;
+    margin-left:0;
+    margin-top:0;
+    opacity:0.65;
+    padding-right:5px;
+    position:absolute;
+    text-align:right;
+    top:81px;
+    width:114px;
+}
+.img_bg {
+    -moz-background-clip:border;
+    -moz-background-origin:padding;
+    -moz-background-size:auto auto;
+    background-attachment:scroll;
+    background-color:transparent;
+    background-image:url("http://www.ndtv.com/static/images/snap_bg.png");
+    background-repeat:no-repeat;
+}
+
+.wall_button_photo {
+    -moz-border-radius:5px 5px 5px 5px;
+    background-image:url(http://www.ndtv.com/news/images/photos_icon_1.png);
+    *background-image: none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.ndtv.com/news/images/photos_icon_1.png', sizingMethod='crop');zoom:1;
+    background-repeat:no-repeat;
+    height:35px;
+    left:85px;
+    margin:0;
+    position:absolute;
+    top:68px;
+    width:35px;
+    opacity:0.9;
+    cursor:pointer;
+}
+.vid_playbutton1 {
+    background-color:#000000;
+    background-position:5px 3px;
+    background-repeat:no-repeat;
+    bottom:68px;
+    color:#FFFFFF;
+    cursor:pointer;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:10px;
+    font-weight:normal;
+    height:15px;
+    left:0px;
+    margin-bottom:0;
+    margin-left:0;
+    margin-top:0;
+    opacity:0.65;
+    padding-right:5px;
+    position:absolute;
+    text-align:right;
+    top:90px;
+    width:114px;
+}
+
+.wall_playbutton {
+    -moz-border-radius:5px 5px 5px 5px;
+    background-image:url(http://www.ndtv.com/news/images/video-play_icon_1.png);
+    *background-image: none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.ndtv.com/news/images/video-play_icon_1.png', sizingMethod='crop');zoom:1;
+    background-repeat:no-repeat;
+    height:35px;
+    left:85px;
+    margin:0;
+    position:absolute;
+    top:68px;
+    width:35px;
+    opacity:0.9;
+    cursor:pointer;
+}
+
+#popular-widget {
+    height:98px;
+    overflow:hidden;
+    position:relative;
+    width:650px;
+}
+#popular-widget .items{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 9999em;
+    width: 650px;
+}
+#popular-widget .item{
+    clear:none;
+}
+.hm_mid_650_trend {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    background:transparent url(http://www.ndtv.com/news/images/midbg_650_red.gif) repeat-y scroll left top;
+    float:left;
+    width:650px;
+    margin: 0px;
+    padding: 0px;
+}
+.clearall{
+    clear:both;
+}
+.fcg2{
+    color:#e0e0e0;
+}
+.gr_box{
+    height: 30px;
+
+    background-color: #CCC;
+}
+#boxcontent{
+    clear: both;
+    float: left;
+    width: 100%;
+    padding-bottom:10px;
+    margin-top:2px;
+    padding-top:0px;
+    padding-left:10px;
+}
+#boxcontent ul{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+#boxcontent li{
+    float: left;
+}
+#boxcontent .counter{
+    border-radius: 7px;
+    -moz-border-radius:7px;
+    -webkit-border-top-radius:7px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#333333;
+    text-align:center;
+    background-image: url(http://www.ndtv.com/news/images/counter_bg.jpg);
+    background-repeat: repeat-x;
+   border: 1px solid #c4c5a6;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-bottom: 0;
+    padding-top: 5px;
+    padding-right: 12px;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    position: relative;
+}
+#boxcontent .headline{
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #cccccc;
+}
+#boxcontent .share{
+    margin-left:10px;
+    padding:0px 5px 5px 5px;
+    font-family:Georgia, "Times New Roman", Times, serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#666666;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: #cccccc;
+}
+.arrow_down {
+    position: absolute;
+    left: 15px;
+    bottom: -10px;
+    overflow: visible;
+    visibility: visible;
+}
+
+.hm_sponsor_topS {
+    color:#000000;
+    float:right;
+    font-size:10px;
+    margin:3px 8px 0 0;
+    text-align:right;
+}
+
+.pos_rel {
+    position:relative;
+}
+.carousel {
+    width: 295px;
+    left:10px;
+    height:1px;
+    position: absolute;
+    margin-top:75px;
+}
+
+#slide-prev, #slide-next{
+    overflow: hidden;
+}
+#slide-prev{
+    float: left;
+}
+#slide-next{
+    float: right;
+}
+.imagescrollable {
+    float:left;
+    font-size:0.8em;
+    height:210px;
+    line-height:1;
+    overflow:hidden;
+    position:relative;
+    width:295px;
+}
+
+.imagescrollable .items {
+    position:absolute;
+    width:2000em;
+}
+.imagescrollable .items div {
+    float:left;
+    width:300px;
+}
+
+.imagescrollable .items div a {
+    width:300px;
+    padding:0;
+}
+.imagescrollable .items div img {
+    padding:0;
+}
+
+.slide_prev {
+    background-image: url(http://www.ndtv.com/static/images/gallery_photo_lt.png);
+    background-repeat: no-repeat;
+    height:62px;
+    width:24px;
+    z-index: 9;
+}
+
+.slide_next {
+    background-image: url(http://www.ndtv.com/static/images/gallery_photo_rt.png);
+    background-repeat: no-repeat;
+    height:62px;
+    width:24px;
+    z-index: 9;
+}
+
+.slide_prev_dim {
+    background-image: url(http://www.ndtv.com/static/images/gallery_photo_lt_dim.png);
+    background-repeat: no-repeat;
+    height:62px;
+    width:24px;
+    z-index: 9;
+}
+
+.slide_next_dim {
+    background-image: url(http://www.ndtv.com/static/images/gallery_photo_rt_dim.png);
+    background-repeat: no-repeat;
+    height:62px;
+    width:24px;
+    z-index: 9;
+}
+.button{border:0; background:#f57b0e;width:46px; color:#FFFFFF; font-weight:bold; font-size:12px; cursor:hand; margin:0px; padding:3px 0; padding:2px 0px 1px 0;}
+.textbox{border:solid 1px #e4e4e6; color:#625D5D; font-size:12px; width:113px; padding:3px 2px 4px 2px;}
+#dvOptions{padding:5px; margin:0; background-color:#f2f2f2;color:Navy;font-size:9pt;text-align:center;}
+.lblText{font-Size:13pt; font-weight:bold; font-family:calibri; color:#666666; margin:0px; padding:0px;}
+.link{font-Size:9pt;font-weight:bold;color:Navy;}
+.divclass{width:300px; height:50px; padding:5px;color:Navy;}
+
+@font-face {
+                font-family: 'RupeeForadianRegular';
+                src: url('http://cdn.ndtv.com/static/fonts/rupee_foradian.eot');
+                src: local('☺'), url('http://cdn.ndtv.com/static/fonts/rupee_foradian.ttf') format('truetype'), url('http://cdn.ndtv.com/static/fonts/rupeeforadian-webfont.svg#webfontR5hylf0C') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+.rupee {font-family: 'RupeeForadianRegular';}
+.rupee span {position:absolute;text-indent: -9999em;left:-9999em;}
+
+.hm_sponsor_topS {
+    color:#000000;
+    float:right;
+    font-size:10px;
+    margin:3px 8px 0 0;
+    text-align:right;
+}
+.photos_strip  {
+    background-color:#000000;
+    bottom:68px;
+    color:#FFFFFF;
+    cursor:pointer;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:10px;
+    font-weight:normal;
+    height:15px;
+    left:6px;
+    margin-bottom:0;
+    margin-left:0;
+    margin-top:0;
+    opacity:0.65;
+    padding-right:5px;
+    position:absolute;
+    text-align:right;
+    top:81px;
+    width:115px;
+}
+
+/* Trends widget css start*/
+    #popular-widget {
+        height:98px;
+        overflow:hidden;
+        position:relative;
+        width:650px;
+    }
+    #popular-widget .items{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 9999em;
+        width: 650px;
+    }
+    #popular-widget .item{
+        clear:none;
+    }
+    .hm_mid_650_trend {
+        -moz-background-clip:border;
+        -moz-background-inline-policy:continuous;
+        background:transparent url(http://www.ndtv.com/news/images/midbg_650_red.gif) repeat-y scroll left top;
+        float:left;
+        width:650px;
+        margin: 0px;
+        padding: 0px;
+    }
+    .clearall{
+        clear:both;
+    }
+    .fcg2{
+        color:#e0e0e0;
+    }
+    .gr_box{
+        height: 30px;
+
+        background-color: #CCC;
+    }
+    #boxcontent{
+        clear: both;
+        float: left;
+        width: 100%;
+        padding-bottom:10px;
+        margin-top:2px;
+        padding-top:0px;
+        padding-left:10px;
+    }
+    #boxcontent ul{
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+    }
+    #boxcontent li{
+        float: left;
+    }
+    #boxcontent .counter{
+        border-radius: 7px;
+        -moz-border-radius:7px;
+        -webkit-border-top-radius:7px;
+        font-family:Arial, Helvetica, sans-serif;
+        color:#333333;
+        text-align:center;
+        background-image: url(http://www.ndtv.com/news/images/counter_bg.jpg);
+        background-repeat: repeat-x;
+        border: 1px solid #c4c5a6;
+        margin-top: 0;
+        margin-right: 10px;
+        margin-bottom: 0;
+        padding-top: 5px;
+        padding-right: 12px;
+        padding-bottom: 10px;
+        padding-left: 12px;
+        position: relative;
+    }
+    #boxcontent .headline{
+        border-right-width: 1px;
+        border-right-style: solid;
+        border-right-color: #cccccc;
+    }
+    #boxcontent .share{
+        margin-left:10px;
+        padding:0px 5px 5px 5px;
+        font-family:Georgia, "Times New Roman", Times, serif;
+        font-size:14px;
+        font-weight:bold;
+        color:#666666;
+        border-bottom-width: 1px;
+        border-bottom-style: dashed;
+        border-bottom-color: #cccccc;
+    }
+    .arrow_down {
+        position: absolute;
+        left: 15px;
+        bottom: -10px;
+        overflow: visible;
+        visibility: visible;
+    }
+/* Trends widget css end*/
+
+/* BigPicture css starts */
+
+.pos_rel {
+    position:relative;
+}
+.carousel {
+    width: 295px;
+    left:10px;
+    height:1px;
+    position: absolute;
+    margin-top:75px;
+}
+
+#slide-prev, #slide-next{
+    overflow: hidden;
+}
+#slide-prev{
+    float: left;
+}
+#slide-next{
+    float: right;
+}
+.imagescrollable {
+    float:left;
+    font-size:0.8em;
+    height:210px;
+    line-height:1;
+    overflow:hidden;
+    position:relative;
+    width:295px;
+}
+
+.imagescrollable .items {
+    position:absolute;
+    width:2000em;
+}
+.imagescrollable .items div {
+    float:left;
+    width:300px;
+}
+
+.imagescrollable .items div a {
+    width:300px;
+    padding:0;
+}
+.imagescrollable .items div img {
+    padding:0;
+}
+
+.slide_prev {
+    background-image: url(http://www.ndtv.com/static/images/gallery_photo_lt.png);
+    background-repeat: no-repeat;
+    height:62px;
+    width:24px;
+    z-index: 9;
+}
+
+.slide_next {
+    background-image: url(http://www.ndtv.com/static/images/gallery_photo_rt.png);
+    background-repeat: no-repeat;
+    height:62px;
+    width:24px;
+    z-index: 9;
+}
+
+.slide_prev_dim {
+    background-image: url(http://www.ndtv.com/static/images/gallery_photo_lt_dim.png);
+    background-repeat: no-repeat;
+    height:62px;
+    width:24px;
+    z-index: 9;
+}
+
+.slide_next_dim {
+    background-image: url(http://www.ndtv.com/static/images/gallery_photo_rt_dim.png);
+    background-repeat: no-repeat;
+    height:62px;
+    width:24px;
+    z-index: 9;
+}
+
+/* BigPicture css ends */
+.live_butt {
+    background-color: #F8F8F8;
+    border: 1px solid #999999;
+    border-radius: 3px 3px 3px 3px;
+    float: right;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    margin-right: 10px;
+    padding: 1px 5px;
+    text-align: center;
+}
+/* featured video widget live button */
+    .newsline{
+    }
+    .newsline ul{
+        float:left;
+        margin:0;
+        padding:0;
+        list-style-type: none;
+    }
+    .newsline li{
+        float:left;
+        padding:0;
+        list-style-type: none;
+        width: 100%;
+    }
+    .newsline p{padding-bottom:3px;}
+    .newsline p, .topnews{
+        background-repeat:no-repeat;
+        background-image: url(http://www.ndtv.com/news/images/sprite.jpg?new);
+        padding-left:23px;
+    }
+    .pos1{background-position: left 1px;}
+    .pos2{background-position: left -21px;}
+    .pos3{ background-position: left -47px;}
+    .pos4{background-position: left -69px;}
+    .pos5{background-position: left -90px;}
+    .pos6{background-position: left -125px;}
+    .pos7{background-position: left -111px;}
+    .pos8{background-position: left -147px;}

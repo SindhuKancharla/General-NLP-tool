@@ -1,0 +1,11 @@
+Phase: getConcepts
+Input: SENTENCE1 Token SpaceToken FEATURE_SENTENCE Noun Verb Adjective Concepts1 ENTITY FEATURE
+Options: control = appelt
+ 
+Rule: rule1
+(
+{Concepts1,Concepts1.length>7}
+):rule
+-->
+:rule.ValidConcepts={string=:rule@string}
+ 

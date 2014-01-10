@@ -1,0 +1,63 @@
+__ADTECH_CODE__ = "";
+__theDocument = document;
+__theWindow = window;
+__bCodeFlushed = false;
+
+function __flushCode() {
+	if (!__bCodeFlushed) {
+		var span = parent.document.createElement("SPAN");
+		span.innerHTML = __ADTECH_CODE__;
+		window.frameElement.parentNode.appendChild(span);
+		__bCodeFlushed = true;
+	}
+}
+
+if (typeof inFIF != "undefined") {
+	document.write = function(str) {
+		__ADTECH_CODE__ += str;
+	};
+	document.writeln = function(str) {
+		document.write(str + "\n");
+	};
+	__theDocument = parent.document;
+	__theWindow = parent;
+}
+document.write("<a href=\"http://jt.india.com/adlink/1191/4922309/0/529/AdId=9918401;BnId=6;itime=929171201;nodecode=yes;link=http://www.narendramodi.in/categories/rally\" target=\"_blank\"><img src=\"http://aka-cdn-ns.adtech.de/apps/449/Ad9918401St3Sz529Sq105405367V1Id6/New_300.jpg\" border=\"0\" alt=\"Click here..\" title=\"Click here..\"></a>\n");
+function cleanUp() {
+ if (typeof __parent.swappedRefs4922309 == "undefined") {
+   __parent.swappedRefs4922309 = new Array();
+ }
+   
+ while (__parent.swappedRefs4922309.length > 0) {
+   var ref = __parent.swappedRefs4922309.pop();
+   if (ref != "swappedRefs4922309") {
+     __parent[ref] = null;
+   }
+ }
+}
+
+if (typeof inFIF != "undefined" && inFIF == true) {
+ __parent = window.parent;
+ window.onunload = cleanUp;
+ cleanUp();
+
+ for (var ref in window) {
+   if ((typeof __parent[ref] == "undefined" || __parent[ref] == null) 
+         && ref != "frameElement" && ref != "event" && ref != "swappedRefs4922309" && ref != "onunload") {
+     try {__parent[ref] = window[ref]; __parent.swappedRefs4922309.push(ref);} catch (e) {}
+  } 
+ }  
+}
+
+
+if (typeof inFIF != "undefined" && inFIF) {
+	__flushCode();
+}
+
+if (typeof inFIF != "undefined" && inFIF == true) {
+try {parent.write = write;
+} catch (e) {}try {parent.writeln = writeln;
+} catch (e) {}try {parent.__flushCode = __flushCode;
+} catch (e) {}}
+
+

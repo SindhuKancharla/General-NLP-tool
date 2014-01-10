@@ -1,0 +1,191 @@
+Phase: LupediaTags
+Input:  AdministrativeRegion AdultActor Band Book Broadcast ComicsCharacter Airline Artist Cricketer
+PrimeMinister Settlement TelevisionShow
+Company Country Film Magazine MusicalArtist Organisation River Software Person OfficeHolder Actor City
+Options: control = appelt
+
+Rule: rule
+(  
+{AdultActor}
+)
+:r1
+-->  
+:r1.ENTITY={tag="AdultActor",string=:r1@string,type="DBPedia",inst=:r1.AdultActor.inst}
+
+Rule: rule
+(  
+{Actor}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Actor",string=:r1@string,type="DBPedia",inst=:r1.Actor.inst}
+
+
+Rule: rule
+(  
+{TelevisionShow}
+)
+:r1
+-->  
+:r1.ENTITY={tag="TelevisionShow",string=:r1@string,type="DBPedia",inst=:r1.TelevisionShow.inst}
+
+
+Rule: rule
+(  
+{Cricketer}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Cricketer",string=:r1@string,type="DBPedia",inst=:r1.Cricketer.inst}
+
+Rule: rule
+(  
+{Settlement}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Settlement",string=:r1@string,type="DBPedia",inst=:r1.Settlement.inst}
+
+Rule: rule
+(  
+{PrimeMinister}
+)
+:r1
+-->  
+:r1.ENTITY={tag="PrimeMinister",string=:r1@string,type="DBPedia",inst=:r1.PrimeMinister.inst}
+
+Rule: rule
+(  
+{Airline}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Airline",string=:r1@string,type="DBPedia",inst=:r1.Airline.inst}
+
+Rule: rule
+(  
+{Artist}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Artist",string=:r1@string,type="DBPedia",inst=:r1.Artist.inst}
+
+Rule: rule
+(  
+{OfficeHolder}
+)
+:r1
+-->  
+:r1.ENTITY={tag="OfficeHolder",string=:r1@string,type="DBPedia",inst=:r1.OfficeHolder.inst}
+
+Rule: rule
+(  
+{AdministrativeRegion}
+)
+:r1
+-->  
+:r1.ENTITY={tag="AdministrativeRegion",string=:r1@string,type="DBPedia",inst=:r1.AdministrativeRegion.inst}
+
+Rule: rule
+(  
+{Band}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Band",string=:r1@string,type="DBPedia",inst=:r1.Band.inst}
+
+Rule: rule
+(  
+{Book}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Book",string=:r1@string,type="DBPedia",inst=:r1.Book.inst}
+
+Rule: rule
+(  
+{Broadcast}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Broadcast",string=:r1@string,type="DBPedia",inst=:r1.Broadcast.inst}
+
+Rule: rule
+(  
+{ComicsCharacter}
+)
+:r1
+-->  
+:r1.ENTITY={tag="ComicsCharacter",string=:r1@string,type="DBPedia",inst=:r1.ComicsCharacter.inst}
+
+Rule: rule
+(  
+{Company}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Company",string=:r1@string,type="DBPedia",inst=:r1.Company.inst}
+
+Rule: rule
+(  
+{City}
+)
+:r1
+-->  
+:r1.ENTITY={tag="City",string=:r1@string,type="DBPedia",inst=:r1.City.inst}
+
+Rule: rule
+(  
+{Country}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Country",string=:r1@string,type="DBPedia",inst=:r1.Country.inst}
+
+Rule: rule
+(  
+{Film}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Film",string=:r1@string,type="DBPedia",inst=:r1.Film.inst}
+
+Rule: rule
+(  
+{Magazine}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Magazine",string=:r1@string,type="DBPedia",inst=:r1.Magazine.inst}
+
+Rule: rule
+(  
+{MusicalArtist}
+)
+:r1
+-->  
+:r1.ENTITY={tag="MusicalArtist",string=:r1@string,type="DBPedia",inst=:r1.MusicalArtist.inst}
+
+Rule: rule
+(  
+{Organisation}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Organisation",string=:r1@string,type="DBPedia",inst=:r1.Organisation.inst}
+
+Rule: rule
+(  
+{River}
+)
+:r1
+-->  
+:r1.ENTITY={tag="River",string=:r1@string,type="DBPedia",inst=:r1.River.inst}
+
+Rule: rule
+(  
+{Software}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Software",string=:r1@string,type="DBPedia",inst=:r1.Software.inst}

@@ -1,0 +1,11 @@
+Phase: getNouns
+Input: SENTENCE1 NounChunk Token SpaceToken FEATURE ENTITY
+Options: control = appelt
+ 
+ Rule: rule1
+(
+ {Token,Token.orth==upperInitial}|{Token,Token.orth==mixedCaps}|{Token,Token.orth==allCaps}
+):rule
+-->
+:rule.Imp={text=:rule.Token@string}
+ 

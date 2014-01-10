@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0136)http://social.ndtv.com/static/Comment/List/?&key=movies-1f7fe5c4de8ca29e922e5612901d8ceb&&page=1&identifier=story-464827&size=15&reply=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>NDTV Social: Comments</title>
+        
+        <link href="css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" async="" src="ga.js"></script><script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+        <script language="javascript" type="text/javascript">
+            var BASE_URL = "http://social.ndtv.com";
+            var CDN_URL = "http://static.social.ndtv.com";
+        </script>
+        <link href="comment_combined(1).css" rel="stylesheet" type="text/css">
+        <script language="javascript" type="text/javascript" src="jquery.min(1).js"></script>
+        <script language="javascript" type="text/javascript" src="jquery.cookie.min(1).js"></script>
+        <script type="text/javascript">
+            $().ready(function(){
+                setTimeout(function(){
+                    document.domain = "ndtv.com";
+
+                    $('#loading').hide();
+                    $('#comments_box').show();
+                    
+                    var height = $('#comments_box').outerHeight(true);
+                    $('#comments-list',parent.document).height(height+250);
+                },3 * 1000);
+
+                //self.scrollTo(0, 0);//scroll to top                  
+            });
+            
+            function setIframeHeight(divid, iframeid, iframeCurrentHeight) {                
+                var height = $('#' + divid).outerHeight(true);               
+                height = height + iframeCurrentHeight + 18;             
+                //height = height + iframeCurrentHeight + 150;
+                $('#'+ iframeid, parent.document).height(height);
+            }
+            
+            function getSortUrl(commentUrl, sortedby) {
+                var reply = '&reply=1';
+                window.location.href = commentUrl + '&sorted_by=' + sortedby + reply;
+            }
+            
+            function reportAbuse(url, cid, uid){ 
+                
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: { cid: cid},
+                    success: function(){                        
+                        $.cookie('report-abuse-' + cid, cid , {expires:30,path:'/'});
+                        $('#ra-' + cid).css('display', 'block');
+                        $('#ra-' + cid).html("Thanks for flagging this comment. It's being investigated.");
+                        if (uid != '272928') {
+                            $('#report-abuse-link-' + cid).html(" | ");
+                        } else {
+                            $('#report-abuse-link-' + cid).css('display', 'none');
+                        } 
+                        setTimeout(function(){$('#ra-' + cid).slideUp("slow")},3*1000);
+                    }
+                })
+            }
+            function seLike(url, cid){ 
+                
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: { cid: cid},
+                    success: function(){
+                        $('#likes-link-' + cid).html('<b>Liked</b>');
+                        $('#unlikes-link-' + cid).hide();
+                    }
+                })
+            } 
+            
+            function setUnlike(url, cid){ 
+                
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: { cid: cid},
+                    success: function(){
+                        $('#unlikes-link-' + cid).html('<b>Unliked</b>');
+                        $('#likes-link-' + cid).hide();
+                    }
+                })
+            } 
+            
+            function getReportAbuseLink(cid, uid) {
+                var racookie;
+                racookie = parseInt($.cookie('report-abuse-' + cid));
+                reportAbuselink = "<a href='javascript:void(0);' onclick='javascript:reportAbuse(\"http://social.ndtv.com/ajax/reportAbuse.php\", " + cid + ", " + uid + ");return false;'>Report Abuse</a> | ";
+                
+                if (uid != '272928') {                    
+                    reportAbuselink =  ' | ' + reportAbuselink;
+                }
+                if (isNaN(racookie)) {
+                    $("#report-abuse-link-" + cid).append(reportAbuselink);
+                } else if (uid != '272928') {
+                    $("#report-abuse-link-" + cid).append(" | ");
+                } 
+            }
+            function addReply(commentid, userName) {
+                if (typeof(window.top.ndtvSocialCommentForm) != 'undefined') {                    
+                    
+                    setCommentReplyText(commentid, userName); 
+                    $.cookie('parentcid-'+'story-464827', commentid, {expires:0.025,path:'/', domain: 'ndtv.com'});                    
+                }
+            }
+            
+            function setCommentReplyText(commentid, userName) {  
+                if (typeof(window.top.ndtvSocialCommentForm) != 'undefined' && window.top.ndtvSocialCommentForm != null) { 
+                    clearCommentReply();
+                    
+                    if ($('#comment-text-' + commentid)) {
+                        var commentText = $('#comment-text-' + commentid).html();
+                        window.top.ndtvSocialCommentForm.$("#parentid").val(commentid); 
+                        window.top.ndtvSocialCommentForm.$("#comment").focus();
+                        if (typeof(userName) != 'undefined' ) {
+                            window.top.ndtvSocialCommentForm.$("#comment").val('@' + userName + ': ');
+                        }    
+
+                        if (typeof(commentText) != null && commentText != '') {
+                            commentText = commentText + '<div style="color: #474747;float: left;font-size: 12px;line-height: 1.5em;width: 100%;">';
+                            commentText = commentText +  'You are replying to the above comment';
+                            commentText = commentText +  '<a style="float:right;padding-right:10px;" href="javascript:void(0);" onclick="javascript:clearCommentReply();">Cancel</a>';
+                            commentText = commentText +  '</div>';
+                            window.top.ndtvSocialCommentForm.$("#comment-reply").html(commentText);
+                            var formHight = $("#ndtvSocialCommentForm",top.document).height();
+                            setIframeHeight('comment-text-' + commentid, "ndtvSocialCommentForm", formHight);
+
+                            var currentTopPosition = ($("#ndtvSocialCommentForm",top.document).position().top);
+                            window.parent.scroll(10, currentTopPosition + 10);
+                            window.top.ndtvSocialCommentForm.$("#comment").css('background-color', '#fafbc6');                            
+                        } else {
+                          clearCommentReply();  
+                        }
+                    }
+                }
+
+            }
+            
+            function clearCommentReply(){                
+                var replyHeight = window.top.ndtvSocialCommentForm.$('#comment-reply').height();
+                var formHight = $('#ndtvSocialCommentForm', parent.document).height();
+                $('#ndtvSocialCommentForm', parent.document).height(formHight - replyHeight);
+                $('#comment-reply').html('');
+                $.cookie('parentcid-'+'story-464827', null, {expires:-0.025,path:'/', domain: 'ndtv.com'});
+                $('#parentid').val(0);
+                $('#comment').val('');
+                return false;
+            }  
+            
+            function getLikeLink(cid, uid) {
+                likedlink = "<a href='javascript:void(0);' onclick='javascript:seLike(\"http://social.ndtv.com/ajax/mostLike.php\", " + cid + ");return false;'>Like</a>";
+                $("#likes-link-" + cid).prepend(likedlink);               
+            }
+            
+            function getUnlikeLink(cid, uid) {
+                unlikedlink = "<a href='javascript:void(0);' onclick='javascript:setUnlike(\"http://social.ndtv.com/ajax/mostUnlike.php\", " + cid + ");return false;'>Unlike</a>";
+                $("#unlikes-link-" + cid).prepend(unlikedlink);               
+            }
+            
+        </script>
+        
+        <style>a, a:visited{color:#3B5998;cursor:pointer;text-decoration:none;}a:hover{text-decoration:underline;}
+        div, span, p, body, li,label {font-family: roboto !important;}</style>
+            <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-11243047-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    </head>
+    <body>
+        <div style="font-size: 12px; display: none;" id="loading">Loading...</div>
+
+        <div id="comments_box" style="padding:5px;float:left;">
+                            <div class="comment-toolbar" style="font-size: 12px; color: #000;margin-bottom: 20px;">
+                                        <span class="comment_count"><strong> Showing 1-4 out of 4 comments</strong></span>
+                    <span style="float:right;">
+                        <select name="comment_sort" class="comment_sort" onchange="javascript:getSortUrl( &#39;http://social.ndtv.com/static/Comment/List/?key=movies-1f7fe5c4de8ca29e922e5612901d8ceb&amp;page=1&amp;identifier=story-464827&amp;size=15&#39;, this.value)">
+                            <option value="newest">Sort by Latest First</option>
+                            <option value="oldest">Sort by Oldest First</option>
+                            <option value="likes" selected="selected">Sort by Most Liked</option>
+                        </select>
+                    </span>
+                </div>
+                
+          <div id="comment-text-1513203" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=477035"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=477035">Anonymous</a></span>
+                                <span class="date_line">20 hours ago</span><span class="date_line" style="float:right">
+                                    Posted via <a target="_blank" href="http://www.ndtv.com/page/iphone-web">NDTV iPhone App</a>
+                    </span></div><div class="post_text">
+                Please give them their privacy.our country has bigger issues than this.
+            </div></div>
+                <div id="ra-1513203" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1513203&#39;, &#39;Anonymous&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=477035&comment-permalink=1513203">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=477035&comment-permalink=1513203">Share</a>
+                <span id="report-abuse-link-1513203"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1513203, 477035);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1513203", "477035");
+                </script>
+                <span id="likes-link-1513203"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1513203);return false;">Like</a><span>(36)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1513203", "477035");
+                    </script> 
+                    
+                <span id="unlikes-link-1513203"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1513203);return false;">Unlike</a></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1513203", "477035");
+                    </script> 
+                </div>
+          <div id="comment-text-1513481" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=468984"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=468984">Anonymous</a></span>
+                                <span class="date_line">17 hours ago</span><span class="date_line" style="float:right">
+                                    Posted via <a target="_blank" href="http://www.ndtv.com/page/iphone-web">NDTV iPhone App</a>
+                    </span></div><div class="post_text">
+                Why do media covers others personal life rather than burning issues,it's time the media houses focus on the country's welfare
+            </div></div>
+                <div id="ra-1513481" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1513481&#39;, &#39;Anonymous&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=468984&comment-permalink=1513481">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=468984&comment-permalink=1513481">Share</a>
+                <span id="report-abuse-link-1513481"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1513481, 468984);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1513481", "468984");
+                </script>
+                <span id="likes-link-1513481"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1513481);return false;">Like</a><span>(15)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1513481", "468984");
+                    </script> 
+                    
+                <span id="unlikes-link-1513481"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1513481);return false;">Unlike</a></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1513481", "468984");
+                    </script> 
+                </div>&nbsp;
+          <div id="comment-text-1513912" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=412956"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=412956">Supriya Mehra</a></span>
+                                <span class="date_line">12 hours ago</span></div><div class="post_text">
+                i knew it she will never demand such things don;t know why media has to interfere too much and add too much rubbish leave them alone for sometime
+            </div></div>
+                <div id="ra-1513912" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1513912&#39;, &#39;Supriya Mehra&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=412956&comment-permalink=1513912">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=412956&comment-permalink=1513912">Share</a>
+                <span id="report-abuse-link-1513912"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1513912, 412956);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1513912", "412956");
+                </script>
+                <span id="likes-link-1513912"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1513912);return false;">Like</a><span>(6)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1513912", "412956");
+                    </script> 
+                    
+                <span id="unlikes-link-1513912"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1513912);return false;">Unlike</a><span> (2)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1513912", "412956");
+                    </script> 
+                </div>&nbsp;
+          <div id="comment-text-1513915" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=412956"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=412956">Supriya Mehra</a></span>
+                                <span class="date_line">12 hours ago</span></div><div class="post_text">
+                I knew it she will never demand why this media interfering in there life give them there space and stop adding rubbish please
+            </div></div>
+                <div id="ra-1513915" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1513915&#39;, &#39;Supriya Mehra&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=412956&comment-permalink=1513915">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=412956&comment-permalink=1513915">Share</a>
+                <span id="report-abuse-link-1513915"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1513915, 412956);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1513915", "412956");
+                </script>
+                <span id="likes-link-1513915"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1513915);return false;">Like</a><span>(2)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1513915", "412956");
+                    </script> 
+                    
+                <span id="unlikes-link-1513915"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1513915);return false;">Unlike</a><span> (1)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1513915", "412956");
+                    </script> 
+                </div>        </div>
+
+        <div style="display:none;">
+                    </div>
+    
+
+
+    </body></html>

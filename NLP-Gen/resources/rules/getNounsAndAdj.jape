@@ -1,0 +1,20 @@
+Phase: getNouns
+Input: FEATURE_SENTENCE Token
+Options: control = appelt
+ 
+ Rule: rule1
+(
+   {Token.category==NN,Token within{FEATURE_SENTENCE}}|{Token.category==NNS,Token within{FEATURE_SENTENCE}}|
+   {Token.category==NNP,Token within{FEATURE_SENTENCE}}|{Token.category==NNPS,Token within{FEATURE_SENTENCE}}
+):rule
+-->
+:rule.Nouns = {text = :rule.Token@string}
+ 
+ Rule: rule2
+(
+   {Token.category==JJ,Token within{FEATURE_SENTENCE}}|{Token.category==JJS,Token within{FEATURE_SENTENCE}}|
+   {Token.category==JJR,Token within{FEATURE_SENTENCE}}
+):rule
+-->
+:rule.Adj = {text = :rule.Token@string}
+ 

@@ -1,0 +1,65 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C4Sd_PLTKUu6FOIGBiAeXqYGABNeF-KAEx6Lu5H-KpPzVPBABIKih1AkoBFCv69CH_f____8BYOXK5YO0DqAB7_eg8QPIAQGpAheZURR1O1E-qAMBqgS7AU_Q7VWIn_9qW30y6kHpVEfq1c_ganTeLd7A7J8sd0xlrShdIy3Hc78FDVJlzVT3ZwGBUgGFp-Y5bGdvuEiuP1R19Nwe1DrA7dhp1YcNtytal839qjozQqhRqJbGPlqWGPXKCJcjbY_ODoVXqmcbjgkFB68T1zurL0c9Ge7pvMDIG2kKBQRoHbkqRL-_v3Rk25ZCUiwsZcEf8dO9wxUmjCX9SLRSyUwdxiJknTb2Kd9OsTXfqdMClsRI1UmIBgGAB_mH3w4&amp;num=2&amp;cid=5GjeB25O1QkFLpdtOp9NyRS_&amp;sig=AOD64_2TmoZXsSCMTSGGILzSO3OeC5U99g&amp;client=ca-ibnlive_site_js&amp;adurl=http://www.proptiger.com/google_page_4.php%3FprojectId%3D142535%26utm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_campaign%3DBangalore%2520Display%26utm_term%3D%26utm_content%3D34305823935%26Network%3DContent%26SiteTarget%3Dibnlive.in.com%26localityId%3D161"; 
+google_ad.visible_url = "proptiger.com/21_Lacs_Only"; 
+google_ad.line1 = "Skylark Ithaca Pre Launch"; 
+google_ad.line2 = "1/2/3 BHK @ Rs. 3933 Per Sq.Ft Only"; 
+google_ad.line3 = "Lowest Price Guaranteed Whitefield"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_ad = {}; 
+google_ad.n = 2; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=Cdq1pPLTKUu6FOIGBiAeXqYGABP2BjpUGtYXJ0I4B79-Az7sBEAIgqKHUCSgEUNS_4BVg5crlg7QOoAHr7sndA8gBAakCF5lRFHU7UT6oAwGqBLUBT9C9fc2c_2lbfTLqQelUR-rVz-BqdN4t3sDsnyx3TGWtKF0jLcdzvwUNUmXNVPdnAYFSAYWn5jlsZ2-4SK4_VHX03B7UOsDt2GnVhw23K1qXzf2qOjNCqFGolsY-WpYY9coIlyNtj84OhVeqZxuOCQUHrxPXO6svRz0Z7um8wMgbaQoFBGhluioMv3uT6Cr7l0ulWRUAwXnZK1ZNFTuMNR1Ls1LJfDXGJ2SdBtcp3lu0uCg88ogGAYAH_ZC2Ig&amp;num=1&amp;cid=5GjeB25O1QkFLpdtOp9NyRS_&amp;sig=AOD64_3SUDJkxZLvlmvb3PHtTY1ZjlRW3g&amp;client=ca-ibnlive_site_js&amp;adurl=http://divinedevelopers.co.in/farmland-projects/153-divine-hamlet-farmland-near-bangalore"; 
+google_ad.visible_url = "www.divinedevelopers.co.in"; 
+google_ad.line1 = "Own Cottage in Bangalore"; 
+google_ad.line2 = "Near Kanakapura Just Rs.122/sqft"; 
+google_ad.line3 = "with all amenities, Birds \x26amp; Animals"; 
+google_ad.regionname = ""; 
+google_ads[1] = google_ad; 
+google_ad = {}; 
+google_ad.n = 3; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CRIsIPLTKUu6FOIGBiAeXqYGABOWRnJ8EldyG9XikpMaNKRADIKih1AkoBFDH9tSiAmDlyuWDtA6gAYOYp90DyAEBqQIXmVEUdTtRPqgDAaoEuAFP0M0C_5P_bFt9MupB6VRH6tXP4Gp03i3ewOyfLHdMZa0oXSMtx3O_BQ1SZc1U92cBgVIBhafmOWxnb7hIrj9UdfTcHtQ6wO3YadWHDbcrWpfN_ao6M0KoUaiWxj5alhj1ygiXI22Pzg6FV6pnG44JBQevE9c7qy9HPRnu6bzAyBtpCgUEaB25KgS_uLd0j6xa6GaymKYqklc4Vk0GJow24Ei3r8pI4MUWsZ4HIyreurI1Pq9-TEhkiAYBgAfl59gi&amp;num=4&amp;cid=5GjeB25O1QkFLpdtOp9NyRS_&amp;sig=AOD64_2WFe42nTesVZEVAbVRSIHYgCd5dw&amp;client=ca-ibnlive_site_js&amp;adurl=http://www.terminsuranceindia.co.in/lic-term-insurance.html%3Futm_source%3Dgoogle%26utm_medium%3Dppc_content%26utm_term%3D%26utm_campaign%3Dsatellite_terinsuranceindia.co.in"; 
+google_ad.visible_url = "life.terminsuranceindia.co.in"; 
+google_ad.line1 = "1 Crore Life Cover@16/day"; 
+google_ad.line2 = "Cover Upto 1 Cr. @ Lowest Premium!"; 
+google_ad.line3 = "Cheapest Life Insurance. Visit Now"; 
+google_ad.regionname = ""; 
+google_ads[2] = google_ad; 
+google_ad = {}; 
+google_ad.n = 4; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C83ljPLTKUu6FOIGBiAeXqYGABPyst40E7KCCz2q8xcXQywEQBCCoodQJKARQrcDKyPr_____AWDlyuWDtA6gAbzs0NsDyAEBqQIXmVEUdTtRPqgDAaoEuAFP0I1NtJv_a1t9MupB6VRH6tXP4Gp03i3ewOyfLHdMZa0oXSMtx3O_BQ1SZc1U92cBgVIBhafmOWxnb7hIrj9UdfTcHtQ6wO3YadWHDbcrWpfN_ao6M0KoUaiWxj5alhj1ygiXI22Pzg6FV6pnG44JBQevE9c7qy9HPRnu6bzAyBtpCgUEaGW6KgS_u7d0rpNe_GaymKYqklc4Vk0GJow24Ei3r8pI4MUWsZ4HIyreurI1Pq8nTRpiiAYBgAesk68k&amp;num=3&amp;cid=5GjeB25O1QkFLpdtOp9NyRS_&amp;sig=AOD64_3gzF5MaR-CNYY0fGbkJzg9LnMwWA&amp;client=ca-ibnlive_site_js&amp;adurl=http://www.ethoswatches.com/rolex.html"; 
+google_ad.visible_url = "www.ethoswatches.com"; 
+google_ad.line1 = "Luxury Watches in India"; 
+google_ad.line2 = "Get Great Offers On Luxury Watches"; 
+google_ad.line3 = "From India\x26#39;s Largest Watch Shop"; 
+google_ad.regionname = ""; 
+google_ads[3] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://ibnlive.in.com/news/goa-building-collapse-14-people-dead-over-60-feared-trapped/443456-3-253.html%26gl%3DIN%26hl%3Den%26client%3Dca-ibnlive_site_js%26hideleadgen%3D1%26ai0%3DC4Sd_PLTKUu6FOIGBiAeXqYGABNeF-KAEx6Lu5H-KpPzVPBABIKih1AkoBFCv69CH_f____8BYOXK5YO0DqAB7_eg8QPIAQGpAheZURR1O1E-qAMBqgS7AU_Q7VWIn_9qW30y6kHpVEfq1c_ganTeLd7A7J8sd0xlrShdIy3Hc78FDVJlzVT3ZwGBUgGFp-Y5bGdvuEiuP1R19Nwe1DrA7dhp1YcNtytal839qjozQqhRqJbGPlqWGPXKCJcjbY_ODoVXqmcbjgkFB68T1zurL0c9Ge7pvMDIG2kKBQRoHbkqRL-_v3Rk25ZCUiwsZcEf8dO9wxUmjCX9SLRSyUwdxiJknTb2Kd9OsTXfqdMClsRI1UmIBgGAB_mH3w4%26ai1%3DCdq1pPLTKUu6FOIGBiAeXqYGABP2BjpUGtYXJ0I4B79-Az7sBEAIgqKHUCSgEUNS_4BVg5crlg7QOoAHr7sndA8gBAakCF5lRFHU7UT6oAwGqBLUBT9C9fc2c_2lbfTLqQelUR-rVz-BqdN4t3sDsnyx3TGWtKF0jLcdzvwUNUmXNVPdnAYFSAYWn5jlsZ2-4SK4_VHX03B7UOsDt2GnVhw23K1qXzf2qOjNCqFGolsY-WpYY9coIlyNtj84OhVeqZxuOCQUHrxPXO6svRz0Z7um8wMgbaQoFBGhluioMv3uT6Cr7l0ulWRUAwXnZK1ZNFTuMNR1Ls1LJfDXGJ2SdBtcp3lu0uCg88ogGAYAH_ZC2Ig%26ai2%3DCRIsIPLTKUu6FOIGBiAeXqYGABOWRnJ8EldyG9XikpMaNKRADIKih1AkoBFDH9tSiAmDlyuWDtA6gAYOYp90DyAEBqQIXmVEUdTtRPqgDAaoEuAFP0M0C_5P_bFt9MupB6VRH6tXP4Gp03i3ewOyfLHdMZa0oXSMtx3O_BQ1SZc1U92cBgVIBhafmOWxnb7hIrj9UdfTcHtQ6wO3YadWHDbcrWpfN_ao6M0KoUaiWxj5alhj1ygiXI22Pzg6FV6pnG44JBQevE9c7qy9HPRnu6bzAyBtpCgUEaB25KgS_uLd0j6xa6GaymKYqklc4Vk0GJow24Ei3r8pI4MUWsZ4HIyreurI1Pq9-TEhkiAYBgAfl59gi%26ai3%3DC83ljPLTKUu6FOIGBiAeXqYGABPyst40E7KCCz2q8xcXQywEQBCCoodQJKARQrcDKyPr_____AWDlyuWDtA6gAbzs0NsDyAEBqQIXmVEUdTtRPqgDAaoEuAFP0I1NtJv_a1t9MupB6VRH6tXP4Gp03i3ewOyfLHdMZa0oXSMtx3O_BQ1SZc1U92cBgVIBhafmOWxnb7hIrj9UdfTcHtQ6wO3YadWHDbcrWpfN_ao6M0KoUaiWxj5alhj1ygiXI22Pzg6FV6pnG44JBQevE9c7qy9HPRnu6bzAyBtpCgUEaGW6KgS_u7d0rpNe_GaymKYqklc4Vk0GJow24Ei3r8pI4MUWsZ4HIyreurI1Pq8nTRpiiAYBgAesk68k\x26usg\x3dAFQjCNFg493ZByLtbh3aO14QAR2N8x3yBw";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

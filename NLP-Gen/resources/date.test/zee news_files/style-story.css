@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+.flst-paging{background:#000;  font-weight:bold; display:block; margin:0px; padding:0px; min-height:30px}
+.flst-paging ul{display:block; float:left; margin:0px; width:100%; text-align:center}
+.flst-paging li{float:left; padding:4px 3% 0px 3%; list-style-type:none; font-size:15px; color:#fff; }
+
+
+.flst-related{border:1px solid #e8e6e6;padding:4px; background:#f4f4f4;border-radius:5px; width:250px; height:aauto;}
+.flst-related ul{padding:0px; margin:0px}
+.flst-related li{list-style-type:none; padding:8px 5px 8px 5px; border-bottom:1px solid #e3e3e3; text-indent: -.7em; margin-left:8px;}
+.flst-related li:before {    content: "• ";    color: red; text-indent: -.7em;}	
+.flst-related li a{color:#282828; font-size:13px;}
+.flst-related-hed{color:#a60000; font-size:14px; text-transform:uppercase}
+
+.flst-pag{border:1px solid #d2d2d2; border-radius:5px; padding:2px 5px;}
+.flst-pag a{font-size:11px; color:#4e4e4e; background:url(http://znn.india.com/images/plusicon.jpg) repeat-y; padding-left:18px}
+
+
+
+.flst-pge-pag{border:1px solid #d2d2d2; border-radius:5px; padding:2px 5px;}
+.flst-pag-pag a{font-size:11px; color:#4e4e4e; padding-left:18px}
+
+.flst-pag-nxt{border:1px solid #d2d2d2; border-radius:5px; padding:2px 5px;}
+.flst-pag-nxt a{font-size:11px; color:#4e4e4e; background:url(http://znn.india.com/images/nexticon.jpg) repeat-y right; padding-right:18px}
+
+.flst-pag-prez{border:1px solid #d2d2d2; border-radius:5px; padding:2px 5px;}
+.flst-pag-prez a{font-size:11px; color:#4e4e4e; background:url(http://znn.india.com/images/previcon.jpg) repeat-y; padding-left:18px}
+
+.flst-tagbx{ border:1px solid #dddddd; background:#f9f9f9; padding:5px 5px; font-weight:bold; color:#282828; font-weight:13px; margin:6px 0px}
+.flst-tagbx a{ color:#174f82; padding:0px 5px}
+
+.flst-tagbxfld{width:70%; margin-left:15px; padding:25px}
+
+
+.flstnwst{border-bottom:2px solid #cdd4d8;  padding:3px 5px; min-height:27px; margin-bottom:15px;}
+.flstnwst ul{list-style-type:none; margin:0px; padding:0px}
+.flstnwst li{list-style-type:none; margin:0px; padding:0px 0px; float:left}
+.flstnwst li a{color:#a1a1a1; font-weight:bold; font-size:13px; padding:0px 0px; margin:0px 14px}
+
+
+.flstnwstactv{border-bottom:2px solid #174f82}
+
+.flstcmnta{background:#bdc5c9; color:#fff; font-weight:bold; font-size:11px;}
+.flstcmntb{color:#174f82; font-weight:bold; font-size:13px;}
+.flstcmntc{color:000;  font-size:14px;}
+.flstcmntd{color:#909da4;  font-size:11px; font-weight:normal}
+.flstcmnte{color:#aab4b9; font-size:10px;}
+
+
+.flst-lftbx{background:#f1f1f1;}
+
+
+.flst-lftbx-rd {border-bottom:1px solid #a60000; min-height:35px}
+.flst-lftbx-rd ul{margin:0px; padding:4px 0px;  font-size:15px; list-style-type:none; }
+.flst-lftbx-rd li{margin:0px 3px; padding:5px 4px; background:#a60000; color:#fff; list-style-type:none; float:left;  font-size:12px}
+.flst-lftbx-rd li a{color:#000; font-size:12px}
+
+.flst-lftbx-gry {height:auto}
+.flst-lftbx-gry ul{margin:0px; padding:9px 0px;  font-size:15px; list-style-type:none; }
+.flst-lftbx-gry li{margin:4px 0px; padding:9px 2px; list-style-type:none; border-bottom:1px solid #cbcbcb; color:#165080;}
+.flst-lftbx-gry li a{color:#165080; font-size:15px;}
+
+.flst-lftbx-blk {height:auto}
+.flst-lftbx-blk ul{margin:0px; padding:9px 0px;  font-size:15px; list-style-type:none; }
+.flst-lftbx-blk li{margin:4px 0px; padding:9px 2px; list-style-type:none; border-bottom:1px solid #cbcbcb; color:#000;}
+.flst-lftbx-blk li a{color:#000; font-size:15px;}
+.flst-lftbx-blk li span{color:#165080; font-size:12px;}

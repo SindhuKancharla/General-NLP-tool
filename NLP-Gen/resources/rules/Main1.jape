@@ -1,0 +1,10 @@
+MultiPhase: SentenceExtraction
+
+Phases:
+
+getSentences
+gets2
+gets3
+gets4
+gets4_1
+gets5

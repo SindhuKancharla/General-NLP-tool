@@ -1,0 +1,206 @@
+
+<!-- saved from url=(0059)http://www.news18.com/json/widget_300x250.html?t=1388757515 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><script async="" src="beacon.js"></script><script type="text/javascript" async="" src="ga.js"></script><script src="jquery-1.8.min.js"></script>
+        <script>
+           jQuery(function($){
+                 var total_height = 0;
+                $('#downarr').on('click',function(e){
+                     e.stopPropagation();
+                    $('.wdgtn18-sts-psn').slideDown('slow');
+                });
+                
+                // close div on body click
+                    $(document).on('click', 'body', function(){
+                          $('.wdgtn18-sts-psn').slideUp();
+                    });
+                    
+                $('#nav a').on('click',function(e){
+                    e.preventDefault();
+                    var mythis=$(this);
+                    var slug= mythis.data('slug');
+                    $('#statename').html(mythis.text());
+                    get_widget_records(slug);
+                   //console.log(mythis.data('slug'));
+                });     
+                
+                    function get_widget_records(slug){
+                              $('#storylist').html('<div><img style=\'position: absolute;top:50px; left:124px;\' width=\'30\' src=\'http://static.news18.com/pix/web/ajax-loader.gif\'></div>');
+                              $.ajax({
+                                url: '/wp-ajax-update.php',
+                                type: 'get',
+                                cache: false,
+                                timeout: 60000,
+                                data: 'func=get_state_widget_stories_display&state='+slug+'&ajax=1',
+                                success:function(data){
+                               $('#storylist').animate({
+                                             marginTop: 0
+                                            }, 500);
+                                $('#storylist').html(data).hide().fadeIn('slow');
+                                   $('ul#storylist li').each(function() {
+                                        total_height +=  $(this).height();
+                                    });
+                                  }
+                                  });
+
+                          }
+                          
+                // for sub navigation
+                
+                $(document).on('click', '.topics a',function(e){
+                    e.preventDefault();
+                    var mythis=$(this);
+                    var slug= mythis.data('slug');
+                    get_widget_section(slug);
+                   //console.log(mythis.data('slug'));
+                });     
+                
+               function get_widget_section(slug){
+                          $('#storylist').html('<div><img style=\'position: absolute;top:50px; left:124px;\'  width=\'30\' src=\'http://static.news18.com/pix/web/ajax-loader.gif\'></div>');   
+                          $.ajax({
+                                url: '/wp-ajax-update.php',
+                                type: 'get',
+                                cache: false,
+                                timeout: 60000,
+                                data: 'func=get_iblive_widget_display&state='+slug+'&ajax=1',
+                                success:function(data){
+                                $('#storylist').animate({
+                                             marginTop: 0
+                                            }, 500);
+                                $('#storylist').html(data).hide().fadeIn('slow');
+                                
+                                    $('ul#storylist li').each(function() {
+                                        total_height +=  $(this).height();
+                                    });
+                                  }
+                                  });
+
+                          }
+                          
+                            $(document).on('click', '.wdgtn18-navigation a', function(e){
+                            e.preventDefault();
+                            mythis = $(this);
+                            $('.wdgtn18-navigation a').each(function(i){
+                            $(this).css('color', '#FFFFFF');
+                            });
+                            mythis.css('color', '#D5D3D3');
+                            });
+
+                          
+                 
+                 var scrolling=false;
+                  
+                   $('.scroll').on('mouseenter',function(){
+                    scrolling=true; 
+                    var direction=$(this).data('dir');
+                    scrollContent(direction);  
+                   });
+                   
+                   $('.scroll').on('mouseout',function(){
+                   scrolling=false;  
+                    var direction=$(this).data('dir');
+                    scrollContent(direction); 
+                   });
+                   
+                  
+                    $('ul#storylist li').each(function() {
+                        total_height +=  $(this).height();
+                    });
+                
+                    var counter=0;
+                    function scrollContent(direction) {
+                      //  console.log( Math.floor( counter/(total_height/20) ) );
+                      var maxc = Math.floor(counter/(total_height/20))
+                      if( maxc < 20) {
+                        var amount = (direction === 'up' ? '-=1px' : '+=1px');
+                      
+                        if(direction === 'up'){
+                           counter+=1; 
+                        }else{
+                         counter-=1;    
+                        }
+                        if(counter<0){ counter=0;}
+                        
+                        if(counter > 0 || maxc == 20){
+                            $('#storylist').animate({
+                            marginTop: amount
+                            }, 1, function () {
+                            if (scrolling) {
+                            scrollContent(direction);
+                            }
+                            });
+                        }  
+                        // console.log(counter);
+                      }
+                    }
+                    
+            });
+            
+            
+            
+        </script><!--googleon: index-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36197329-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- Begin comScore Tag -->
+<script>
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: '2', c2: '6683813' });
+  (function() {
+    var s = document.createElement('script'), el = document.getElementsByTagName('script')[0]; s.async = true;
+    s.src = (document.location.protocol == 'https:' ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  &lt;img src='http://b.scorecardresearch.com/p?c1=2&amp;c2=6683813&amp;cv=2.0&amp;cj=1' /&gt;
+</noscript><style>
+body{ margin:auto; font-family:Arial, Helvetica, sans-serif; color:#fff;}
+a{ text-decoration:none; color:#fff;}
+a:hover{ color:#d5d3d3 !important;}
+a img{ border:none;}
+ul, h1, h2, h3, p{ margin:0px; padding:0px;}
+li{ list-style:none;}
+.clr{clear:both;}
+.vspacer5{ padding-top:5px;}
+.wdgtn18-sts{position:relative; z-index:999999;}
+.wdgtn18-sts h2{ font-size:10px;}
+.wdgtn18-sts-psn{position:absolute; display:none; padding:5px; background:#ededee;  border:1px solid #ee7665; z-index:2000;}
+.wdgtn18-sts-psn li{ margin-bottom:4px; font-size:8px; color:#626161;}
+.wdgtn18-sts-psn li a{color:#626161;}
+.wdgtn18-navigation{ background: #ea1f23;padding: 0px 2px;height: 20px;line-height: 16px;}
+.wdgtn18-navigation a{ font-size:11px;}
+.wdgt-180-300{width:296px; height:236px; overflow:hidden; background:#231f20; border:2px solid #ea1f23; border-radius:0px 30px 0px 0px; -webkit-border-radius:0px 30px 0px 0px; -moz-border-radius:0px 30px 0px 0px; position:relative; }
+.wdgt-180-300-in{padding:10px 8px;}
+.wdgtn18-story{ overflow:hidden; height:200px; position:relative;}
+.wdgtn18-story li{padding:4px 0px; border-bottom:1px dotted #848484; font-size:8px; line-height:14px; color:#adacad; font-family:tahoma; clear:both;}
+.wdgtn18-story li a{font-size:11px; color:#fff; font-weight:normal;}
+.wdgtn18-story li img{ float:left; margin-right:8px;}
+.txtrgt{ text-align:right; padding-top:0px !important;}
+#storylist{ position:absolute !important; height:200px; top:0px; left:0px; padding-right:8px;}
+</style></head><body><div class="wdgt-180-300"><div class="wdgt-180-300-in">
+<a href="http://www.news18.com/" target="_blank"><img src="news18-logo.png"></a>
+<div class="clr vspacer5"></div>
+<div class="wdgtn18-sts">
+<h2><a href="javascript:void(0)" id="downarr"><span id="statename">Bihar</span> <img src="dnar.png" align="absmiddle"></a></h2>
+<div class="wdgtn18-sts-psn">
+<ul id="nav"><li><a href="http://www.news18.com/json/widget_300x250.html?t=1388757515#" data-slug="bihar">BIHAR</a></li><li><a href="http://www.news18.com/json/widget_300x250.html?t=1388757515#" data-slug="chhattisgarh">CHHATTISGARH</a></li><li><a href="http://www.news18.com/json/widget_300x250.html?t=1388757515#" data-slug="jharkhand">JHARKHAND</a></li><li><a href="http://www.news18.com/json/widget_300x250.html?t=1388757515#" data-slug="madhya-pradesh">MADHYA PRADESH</a></li><li><a href="http://www.news18.com/json/widget_300x250.html?t=1388757515#" data-slug="rajasthan">RAJASTHAN</a></li><li><a href="http://www.news18.com/json/widget_300x250.html?t=1388757515#" data-slug="uttar-pradesh">UTTAR PRADESH</a></li><li><a href="http://www.news18.com/json/widget_300x250.html?t=1388757515#" data-slug="uttarakhand">UTTARAKHAND</a></li></ul>
+</div>
+</div>
+<div class="clr vspacer5"></div>
+<div class="wdgtn18-navigation topics">
+<a href="javascript:void(0)" data-slug="india">nation |</a> <a href="javascript:void(0)" data-slug="politics">politics |</a> <a href="javascript:void(0)" data-slug="cricket">cricket |</a> <a href="javascript:void(0)" data-slug="movies">movies |</a> <a href="javascript:void(0)" data-slug="business">business | </a> <a href="javascript:void(0)" data-slug="tech">tech</a>
+</div>
+<div class="clr vspacer5"></div>
+<div id="statenews" class="wdgtn18-story"><ul id="storylist"><li class="txtrgt">03 Jan, 2014</li><li><a href="http://www.news18.com/videos/court-rejects-all-the-writ-petitions-filed-against-bpscs-written-exam-316388.html" target="_blank"><img width="58" height="45" src="bpsc_exam_03-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/court-rejects-all-the-writ-petitions-filed-against-bpscs-written-exam-316388.html" target="_blank">Court rejects all the writ petitions filed against BPSC's written exam</a></h2>44 minutes ago </li><li><a href="http://www.news18.com/videos/bihar-congress-president-slams-modi-says-people-know-his-reality-316386.html" target="_blank"><img width="58" height="45" src="congress_on_namo_03-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/bihar-congress-president-slams-modi-says-people-know-his-reality-316386.html" target="_blank">Bihar Congress President slams Modi, says people know his reality</a></h2>49 minutes ago </li><li><a href="http://www.news18.com/news/police-arrest-suspected-maoist-316324.html" target="_blank"><img width="58" height="45" src="aurangabad-76x50.jpg"></a><h2><a href="http://www.news18.com/news/police-arrest-suspected-maoist-316324.html" target="_blank">Police arrest suspected Maoist</a></h2>1 hour ago </li><li><a href="http://www.news18.com/news/police-raid-mining-department-officials-house-seize-rs-1-crore-316306.html" target="_blank"><img width="58" height="45" src="patna6-76x50.jpg"></a><h2><a href="http://www.news18.com/news/police-raid-mining-department-officials-house-seize-rs-1-crore-316306.html" target="_blank">Police raid mining department official's house, seize Rs 1 crore</a></h2>2 hours ago </li><li><a href="http://www.news18.com/news/political-parties-urge-finance-commission-to-provide-higher-tax-revenue-316294.html" target="_blank"><img width="58" height="45" src="BIHAR-MAP-76x50.jpg"></a><h2><a href="http://www.news18.com/news/political-parties-urge-finance-commission-to-provide-higher-tax-revenue-316294.html" target="_blank">Political parties urge Finance Commission to provide higher tax revenue</a></h2>2 hours ago </li><li><a href="http://www.news18.com/videos/people-of-koshi-paying-tribute-to-late-lalitnarayan-mishra-in-hindi-316190.html" target="_blank"><img width="58" height="45" src="lalit_03-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/people-of-koshi-paying-tribute-to-late-lalitnarayan-mishra-in-hindi-316190.html" target="_blank">कोशी के लोगों ने स्व. ललित नारायण मिश्र को दी श्रद्धांजलि</a></h2>4 hours ago </li><li><a href="http://www.news18.com/videos/eow-conducts-raids-at-10-places-in-the-capital-316202.html" target="_blank"><img width="58" height="45" src="eou_chapa_wlk_03-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/eow-conducts-raids-at-10-places-in-the-capital-316202.html" target="_blank">EOW conducts raids at 10 places in the capital</a></h2>4 hours ago </li><li><a href="http://www.news18.com/videos/agressive-protest-in-bihar-for-justice-in-bengal-gangrape-case-in-hindi-316160.html" target="_blank"><img width="58" height="45" src="bihar_mange_insaf_pkg-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/agressive-protest-in-bihar-for-justice-in-bengal-gangrape-case-in-hindi-316160.html" target="_blank">पश्चिम बंगाल दोहरे गैंगरेप में न्याय के लिए सड़क पर उतरा बिहार</a></h2>5 hours ago </li><li><a href="http://www.news18.com/videos/jdu-generel-secretry-abrar-says-minorities-is-only-for-use-in-party-in-hindi-316076.html" target="_blank"><img width="58" height="45" src="minority_jdu_leader_03-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/jdu-generel-secretry-abrar-says-minorities-is-only-for-use-in-party-in-hindi-316076.html" target="_blank">जदयू के महासचिव बोले, पार्टी में अकलियतों का बस इस्तेमाल होता है</a></h2>6 hours ago </li><li><a href="http://www.news18.com/videos/without-certificate-int-bhattas-could-be-shut-down-in-munger-in-hindi-316010.html" target="_blank"><img width="58" height="45" src="int_bhatta-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/without-certificate-int-bhattas-could-be-shut-down-in-munger-in-hindi-316010.html" target="_blank">जरूरी सर्टिफिकेट नहीं दिखाए तो बंद होंगे मुंगेर के ईंट भट्टेः एसडीओ</a></h2>7 hours ago </li><li><a href="http://www.news18.com/videos/bagaha-river-canal-coasts-face-massive-erosion-due-to-sand-mining-315842.html" target="_blank"><img width="58" height="45" src="balu_khanan_pkg_new-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/bagaha-river-canal-coasts-face-massive-erosion-due-to-sand-mining-315842.html" target="_blank">Bagaha: River, canal coasts face massive erosion due to sand mining</a></h2>10 hours ago </li><li><a href="http://www.news18.com/videos/missing-navrunas-father-to-sit-on-indefinite-fast-slams-nitish-over-inaction-315732.html" target="_blank"><img width="58" height="45" src="navruna_anshan_jari-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/missing-navrunas-father-to-sit-on-indefinite-fast-slams-nitish-over-inaction-315732.html" target="_blank">Missing Navruna's father to sit on indefinite fast, slams Nitish over inaction</a></h2>19 hours ago </li><li><a href="http://www.news18.com/videos/nitish-sends-bihar-ig-police-to-meet-rape-victims-family-315694.html" target="_blank"><img width="58" height="45" src="cm_on_kolkata-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/nitish-sends-bihar-ig-police-to-meet-rape-victims-family-315694.html" target="_blank">Nitish sends Bihar IG (Police) to meet rape victim's family</a></h2>20 hours ago </li><li><a href="http://www.news18.com/videos/aap-protest-against-samastipurs-girl-rape-demand-capital-punishment-for-culprits-315688.html" target="_blank"><img width="58" height="45" src="bengal_candle_march-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/aap-protest-against-samastipurs-girl-rape-demand-capital-punishment-for-culprits-315688.html" target="_blank">AAP protest against Samastipur's girl rape, demand capital punishment for culprits</a></h2>20 hours ago </li><li><a href="http://www.news18.com/videos/cp-thakur-says-government-must-give-resign-in-hindi-315546.html" target="_blank"><img width="58" height="45" src="thakur_on_vaishali_02-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/cp-thakur-says-government-must-give-resign-in-hindi-315546.html" target="_blank">सरकार अपने थानेदार नहीं बचा सकती तो इस्तीफा देः सी पी �&nbsp;ाकुर</a></h2>24 hours ago </li><li><a href="http://www.news18.com/videos/cpim-l-demands-cbi-proble-into-samastipur-girls-rape-in-kolkata-315516.html" target="_blank"><img width="58" height="45" src="dipankar_navaruna-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/cpim-l-demands-cbi-proble-into-samastipur-girls-rape-in-kolkata-315516.html" target="_blank">CPI(M-L) demands CBI probe into Samastipur girl's rape in Kolkata</a></h2>1 day ago </li><li><a href="http://www.news18.com/videos/cpim-l-blasts-mamata-government-over-samastipur-girls-rape-in-kolkata-315362.html" target="_blank"><img width="58" height="45" src="dipankar_on_damini_02-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/cpim-l-blasts-mamata-government-over-samastipur-girls-rape-in-kolkata-315362.html" target="_blank">CPI(M-L) blasts Mamata government over Samastipur girl's rape in Kolkata</a></h2>1 day ago </li><li><a href="http://www.news18.com/videos/ig-bihar-police-would-meet-today-with-victim-family-in-bengal-rape-case-in-hindi-315350.html" target="_blank"><img width="58" height="45" src="bangal_mamla-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/ig-bihar-police-would-meet-today-with-victim-family-in-bengal-rape-case-in-hindi-315350.html" target="_blank">बंगाल रेप केस में आज पीड़ित परिवार से मिलेंगे बिहार पुलिस के आईजी</a></h2>1 day ago </li><li><a href="http://www.news18.com/videos/nitish-kumar-not-talk-with-mamta-in-rape-incident-giriraj-singh-in-hindi-315240.html" target="_blank"><img width="58" height="45" src="reaction_on_gangrape-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/nitish-kumar-not-talk-with-mamta-in-rape-incident-giriraj-singh-in-hindi-315240.html" target="_blank">रेप घटना में नीतीश ने अबतक ममता से बात नहीं की: गिरिराज सिंह</a></h2>1 day ago </li><li><a href="http://www.news18.com/videos/judawanpur-police-officers-murder-jdu-brings-back-jungle-raj-in-bihar-315264.html" target="_blank"><img width="58" height="45" src="giriraj_on_cop_shot_02-76x50.jpg"></a><h2><a href="http://www.news18.com/videos/judawanpur-police-officers-murder-jdu-brings-back-jungle-raj-in-bihar-315264.html" target="_blank">Judawanpur murder: 'JD(U) brings back jungle raj in Bihar'</a></h2>1 day ago </li></ul></div>
+<a href="javascript:void(0)" class="scroll" data-dir="up"><img src="dnarred.png" style="position:absolute; bottom:8px; right:4px;"></a>
+<a href="javascript:void(0)" class="scroll" data-dir="down"><img src="upar.png" style="position:absolute; bottom:18px; right:4px;"></a>
+</div></div></body></html>

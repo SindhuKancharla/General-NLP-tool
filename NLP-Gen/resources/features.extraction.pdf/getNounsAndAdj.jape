@@ -1,0 +1,20 @@
+Phase: getNouns
+Input:SENTENCE1 Token
+Options: control = appelt
+ 
+ Rule: rule1
+(
+   {Token.category==NN,Token within{SENTENCE1}}|{Token.category==NNS,Token within{SENTENCE1}}|
+   {Token.category==NNP,Token within{SENTENCE1}}|{Token.category==NNPS,Token within{SENTENCE1}}
+):rule
+-->
+:rule.Nouns={text=:rule.Token@string}
+ 
+ Rule: rule2
+(
+   {Token.category==JJ,Token within{SENTENCE1}}|{Token.category==JJS,Token within{SENTENCE1}}|
+   {Token.category==JJR,Token within{SENTENCE1}}
+):rule
+-->
+:rule.Adj={text=:rule.Token@string}
+ 

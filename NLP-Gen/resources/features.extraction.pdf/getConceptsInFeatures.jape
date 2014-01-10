@@ -1,0 +1,84 @@
+Phase: getConcepts
+Input: SENTENCE1 Token SpaceToken FEATURE_SENTENCE noscript
+Options: control = appelt 
+ 
+
+Macro: Noun
+(
+   {Token.category==NN,Token notWithin{noscript},Token within{FEATURE_SENTENCE}}|
+   {Token.category==NNS,Token notWithin{noscript},Token within{FEATURE_SENTENCE}}|
+   {Token.category==NNP,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}|
+   {Token.category==NNPS,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}
+)
+
+
+Macro: Verb
+(
+   {Token.category==VBN,Token within{FEATURE_SENTENCE},Token notWithin{noscript}
+   }|{Token.category==VBG,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}|
+   {Token.category==VB,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}|
+   {Token.category==VBZ,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}|
+   {Token.category==VBD,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}
+
+)
+
+Macro: NEWLINE
+(
+  {SpaceToken.string == "\n"} |
+  {SpaceToken.string=="\n\r"} |
+  ({SpaceToken.string=="\n"}{SpaceToken.string=="\r"}) |
+  {SpaceToken.string=="\r\n"} |
+  ({SpaceToken.string=="\r"}{SpaceToken.string=="\n"})
+)
+
+Macro: Adjective
+(
+   {Token.category==JJ,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}|
+   {Token.category==JJS,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}|
+   {Token.category==JJR,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}|
+   {Token.category==RB,Token within{FEATURE_SENTENCE},Token notWithin{noscript}}
+)
+
+Macro: imp
+(
+((Noun({SpaceToken})?)*
+(Adjective({SpaceToken})?)*
+(Verb({SpaceToken})?)*
+({Token.string==","}({SpaceToken})?)*
+({Token.category==IN,Token within{FEATURE_SENTENCE}}({SpaceToken})?)*
+({Token.category==CD,Token within{FEATURE_SENTENCE}}({SpaceToken})?)*
+({Token.category==RP,Token within{FEATURE_SENTENCE}}({SpaceToken})?)*
+({Token.category==TO,Token within{FEATURE_SENTENCE}}({SpaceToken})?)*
+({Token.category==DT,Token within{FEATURE_SENTENCE}}({SpaceToken})?)*
+({Token.kind==number,Token within{FEATURE_SENTENCE}}({Token.string=="."})?({SpaceToken})?)*
+)+
+)
+
+Rule: rule1
+(
+imp
+(NEWLINE)[0]
+):rule
+-->
+:rule.Concepts1={rule="1",string=:rule@string,length=:rule@length}
+
+Rule: ruleQuotes
+(
+{Token.category=="\""}({SpaceToken})?
+({Token}({SpaceToken})?)+
+{Token.category=="\""}
+):rule
+-->
+:rule.Concepts1={rule="1",string=:rule@string,length=:rule@length}
+
+
+ Rule: rule1
+(
+(imp
+NEWLINE
+{Token.orth==lowercase}
+({SpaceToken})?(imp({SpaceToken})?)*(NEWLINE)[0])+
+):rule
+-->
+:rule.Concepts1={rule="2",string=:rule@string,length=:rule@length}
+ 

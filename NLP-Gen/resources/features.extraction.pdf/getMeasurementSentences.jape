@@ -1,0 +1,12 @@
+Phase: getMeasures
+Input: SENTENCE1 NounChunk Token SpaceToken FEATURE ENTITY Lookup
+Options: control = appelt
+ 
+
+Rule: rule1
+(
+{SENTENCE1 contains{Lookup.majorType==measure}}
+):rule
+-->
+:rule.Measurements_Sentence={text=:rule.SENTENCE1@string}
+ 

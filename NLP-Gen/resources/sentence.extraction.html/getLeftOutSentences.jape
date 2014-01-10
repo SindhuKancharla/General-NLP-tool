@@ -1,0 +1,11 @@
+Phase: GetActualSentences
+Input:  keySentence Token SpaceToken
+Options: control = appelt
+
+Rule: div
+(  
+({Token,Token notWithin{keySentence}}({SpaceToken})?)+
+)
+:form
+-->  
+:form.keySentence={tag="random",string=:form@string}

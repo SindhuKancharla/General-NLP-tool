@@ -1,0 +1,36 @@
+Phase: getConcepts 
+Input: SENTENCE1 Token SpaceToken Concepts1 FEATURE ENTITY1 Money
+Options: control = appelt
+ 
+ 
+Macro: NEWLINE
+(
+  {SpaceToken.string == "\n"} |
+  {SpaceToken.string=="\n\r"} |
+  ({SpaceToken.string=="\n"}{SpaceToken.string=="\r"}) |
+  {SpaceToken.string=="\r\n"} |
+  ({SpaceToken.string=="\r"}{SpaceToken.string=="\n"})
+)
+
+Rule: rule1
+(
+({Concepts1 contains{Token.orth==upperInitial}}|
+{Concepts1 contains{Token.orth==allCaps}}|{Concepts1 contains{Token.orth==mixedCaps}})
+({SpaceToken})?
+):rule
+-->
+:rule.ConceptsImp={rule="3",string=:rule.SENTENCE1@string}
+
+Rule: rule1
+(
+({Token.string==".",Token notWithin{Money}})
+(({Token.string==","})
+(((({SpaceToken,SpaceToken.kind!=control})?({Token,Token.string!=".",Token.string!=","})?)*
+({FEATURE,FEATURE.type!="Money"}|{ENTITY1})
+(({SpaceToken,SpaceToken.kind!=control})?({Token,Token.string!=".",Token.string!=","})?)*)+
+):r
+({Token.string==","}))+
+({Token.string==".",Token notWithin{Money}})
+):rule
+-->
+:rule.CN={rule="1",string=:r@string}

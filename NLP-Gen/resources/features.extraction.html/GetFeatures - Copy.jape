@@ -1,0 +1,202 @@
+Phase: Phase1
+Input: Token Lookup title Percent Unknown Date SpaceToken noscript Company Organization Money ENTITY
+Options: control = appelt
+
+
+Macro:NUMBER
+(
+{Token.category == CD}({Token.string == "."}{Token.category == CD})?
+)
+
+Macro:TM
+(
+{Token.string == "™"}|{Token.string == "®"}
+)
+
+Macro:MODEL
+(
+(({Token.string==~ "[A-Z]"}|{Token.orth == allCaps})({Token.string==~ "[A-Z]"}|
+{Token.kind == number}|{Token.orth == allCaps}|{Token.string == "-"})+)
+|({Token.orth == allCaps})
+)
+
+Macro:DOTS
+(
+({Token.string == "."})[5]({Token.string == "."})+
+)
+
+Macro:MEASUREMENT
+(
+{Token.string == "mL"}|{Token.string == "nL"}|{Token.string == "cm"}|({Token.string == "in"}{Token.string == "."})
+|{Token.string == "µL"}|{Token.string ==~ "[Vv]"}|{Token.string == "Hz"}|{Token.string ==~ "[Kk]g"}|{Token.string == "MPa"}|
+{Token.string == "psi"}|{Token.string == "bar"}|{Token.string == "µm"}|{Token.string == "nm"}|{Token.string == "mm"}|
+{Token.string == "h"}|{Token.string == "mg"}|{Token.string == "µg"}|{Token.string == "L"}|{Token.string == "min"}|
+{Token.string == "mmol"}|{Token.string == "minutes"}
+)
+
+
+Macro:MEASUREMENTS
+(
+(MEASUREMENT)|
+((MEASUREMENT){Token.string == "/"}(MEASUREMENT))
+)
+
+
+Macro:VALUE
+(
+({Token.string=="up"}{SpaceToken}{Token.string=="to"})?({SpaceToken})?
+({Token.string ==~ "[<>]"})?{Token.kind == number,Token notWithin{ENTITY}}({Token.string == "."}{Token.kind == number})*
+({Token.string == "%"})?({SpaceToken})?({Percent})?({SpaceToken})?({Token.string==increase}|{Token.string==decrease})?|
+({SpaceToken})?{Percent}({SpaceToken})?({Token.string==increase}|{Token.string==decrease})?|
+((NUMBER){Token.string == "°"}{Token.string == "C"})|
+((NUMBER)(MEASUREMENTS))|
+((NUMBER){Token.string == "/"}(NUMBER))
+
+)
+
+Macro:DIMENSIONS
+(
+((NUMBER)(MEASUREMENT)?({Token.string ==~ "[Xx×]"})(((NUMBER)(MEASUREMENT)?)|{Token.string ==~ "[Xx×]"})+)(MEASUREMENTS)?
+)
+
+
+Macro:PHONE
+(
+({Token.kind == number})[10](({Token.kind == number})+)?
+)
+
+
+Macro:FEATURE_STRING
+(
+{Token.orth == upperInitial, Token.category ==~ "NN.*"}({Token.string == "and"}|{Token.string == "/"})?
+({Token.orth == upperInitial, Token.category ==~ "NN.*"}|({Token.string == "."}{Token.category ==~ "NN.*"}
+{Token.string == "."}))+(({Token.string == "I"}|({Token.string == "("}{Token.orth == allCaps}{Token.string == ")"}))+
+)?
+)
+
+
+Rule:tm
+(
+{Money}
+):catName
+-->
+:catName.FEATURE = {tag =  "Money",string = :catName@string,type="Annie",length=:catName@length}
+
+
+Rule:Values
+(
+(VALUE)+
+):catName
+-->
+:catName.FEATURE=  {type = "Values", string = :catName@string,length=:catName@length}
+
+Rule:Dimensions
+(
+(DIMENSIONS)
+
+):catName
+-->
+:catName.FEATURE=  {type = "Dimension",string = :catName@string,length=:catName@length}
+
+Rule:RANGES
+(
+(NUMBER){Token.string == "–",Token notWithin{noscript}}(VALUE)
+):catName
+-->
+:catName.FEATURE=  {type = "Values",string = :catName@string,length=:catName@length}
+
+
+Rule:Features
+(
+(FEATURE_STRING)({Token.string ==~ "system(s?)"}|{Token.string ==~ "software(s?)"})?
+):catName
+-->
+:catName.FEATURE = {type = "Feature",string = :catName@string,length=:catName@length}
+
+
+Rule:Features1
+(
+{Token.orth== allCaps,Token notWithin{noscript}}({Token.orth == upperInitial,Token notWithin{noscript}}|
+{Token.orth == mixedCaps,Token notWithin{noscript}})+({Token.string ==~ "[:]",Token notWithin{noscript}})
+):catName
+-->
+:catName.FEATURE = {type = "feature",string = :catName@string,length=:catName@length}
+
+
+Rule:Features2
+(
+(({Token.orth== allCaps,Token notWithin{noscript}}|{Token.orth== upperInitial,Token notWithin{noscript}})
+({Token.string=="&",Token notWithin{noscript}})?)+(VALUE)+
+):catName
+-->
+:catName.FEATURE = {type = "feature_values",string = :catName@string,length=:catName@length}
+
+Rule:Features2
+(
+({Token.kind==number,Token notWithin{noscript}}({Token.string==".",Token notWithin{noscript}})?)+
+({Token.kind==punctuation})?
+{Lookup.majorType==measure}
+):catName
+-->
+:catName.FEATURE = {type = "Measurement",string = :catName@string,length=:catName@length}
+
+
+Rule:Features2
+(
+(({Token.orth==upperInitial}|{Token.orth==mixedCaps}|{Token.orth==allCaps})?
+({Token.string=="&"})?)+({SpaceToken})?
+({Token.kind==number,Token notWithin{noscript},Token notWithin{Money},Token notContains{Date},Token notWithin{Date}}
+({Token.string==".",Token notWithin{noscript}})?)+
+({SpaceToken})?({Token.orth==upperInitial}|{Token.orth==mixedCaps}|{Token.orth==allCaps})?({SpaceToken})?
+({Token.string=="update"})?
+):catName
+-->
+:catName.FEATURE = {type = "Version",string = :catName@string,length=:catName@length}
+
+Rule:Features2
+(
+({Token.string=="Rs"}({Token.string=="."})?({SpaceToken})?({Token.kind==number}({Token.string==","}|{Token.string=="."})?)+)
+):catName
+-->
+:catName.FEATURE = {type = "Money",string = :catName@string,length=:catName@length}
+
+
+Rule:Value_Ranges
+(
+{Token.category == CD}({Token.category == CD}|{Token.string == ","}|{Token.string == "and"})+(VALUE)+
+):catName
+-->
+:catName.FEATURE ={type = "Values",string = :catName@string,length=:catName@length}
+
+
+Rule:Feature
+(
+({Token.orth == upperInitial})+{Token.string == "%"}
+):catName
+-->
+:catName.FEATURE=  {type = "feature", string = :catName@string,length=:catName@length}
+
+
+Rule:Feature
+(
+({Token.orth == upperInitial})+{Token.string == "#"}(VALUE)
+):catName
+-->
+:catName.FEATURE=  {type = "feature_values", string = :catName@string,length=:catName@length}
+
+
+Rule:Time
+(
+{Token.kind == number}{Token.string == ":"}{Token.kind == number}({SpaceToken})?
+({Token.string ==~ "[Aa][Mm]"}|{Token.string ==~ "[Pp][Mm]"})
+):catName
+-->
+:catName.FEATURE = {type = "TIME",string = :catName@string,length=:catName@length}
+
+
+Rule:feature
+(
+({Token.orth == upperInitial,Token.length>15})
+):catName
+-->
+:catName.FEATURE = {type = "feature",string = :catName@string,length=:catName@length}

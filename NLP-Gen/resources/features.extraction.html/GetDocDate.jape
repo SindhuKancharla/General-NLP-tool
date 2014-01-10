@@ -1,0 +1,65 @@
+Phase: getDate
+Input: Date Token SpaceToken p Location li span
+Options: control = appelt
+ 
+Macro: NEWLINE
+(
+  {SpaceToken.string == "\n"} |
+  {SpaceToken.string=="\n\r"} |
+  ({SpaceToken.string=="\n"}{SpaceToken.string=="\r"}) |
+  {SpaceToken.string=="\r\n"} |
+  ({SpaceToken.string=="\r"}{SpaceToken.string=="\n"})
+)
+
+
+Rule: rule1
+(
+(NEWLINE|{Token.kind==symbol}|{Token.orth==allCaps})
+({SpaceToken})?
+({Date,Date notContains{Token.string=="ago"},Date.kind!=time,Date.rule2!=YearOnlyFinal, Date notWithin{li}}
+({SpaceToken})?
+({Token.string==","}|{Token.string=="Last"}{SpaceToken}{Token.string=="updated"})?
+({SpaceToken})?
+({Token.string=="at"}|{Token.string=="on"})?
+({SpaceToken})?
+({Date, Date notWithin{p}})?
+({Token.string=="am"}|{Token.string=="pm"}|{Token.string=="Am"}|{Token.string=="Pm"}|{Token.string=="AM"}|{Token.string=="PM"})?
+({SpaceToken})?
+({Token.string=="IST"}|{Token.string=="ET"}|{Token.string=="GMT"})?
+({SpaceToken})?
+({Token.string=="("})?
+({Location})?
+({Token.string==")"})?):r
+({SpaceToken})?
+(NEWLINE|{Token.kind==symbol})
+):rule
+-->
+:rule.DocDate={rule ="1",string=:r@string}
+ 
+Rule: rule2
+(
+(({Token.string=="last"}|{Token.string=="Last"}|{Token.string=="first"}|{Token.string=="First"})?
+({SpaceToken})?
+({Token.string=="Updated"}|{Token.string=="Published"}|{Token.string=="updated"}|{Token.string=="published"})
+({SpaceToken})?
+({Token.string=="On"}|{Token.string=="on"})?
+({Token.string==":"})?
+({SpaceToken})?
+{Date, Date notContains{Token.string=="ago"}}
+({Token.string==","})?( {SpaceToken})? ({Date})?
+({SpaceToken})?
+({Token.string=="IST"}|{Token.string=="ET"}|{Token.string=="GMT"})?
+):r
+):rule
+-->
+:rule.DocDate={rule="2",string=:r@string}
+ 
+Rule: rule3
+(
+(
+{Date,Date notContains{Token.string=="ago"},Date.kind!=time,Date.rule2!=YearOnlyFinal, Date notWithin{li},Date contains{span}}
+):r
+):rule
+-->
+:rule.DocDate={rule="3",string=:r@string}
+ 

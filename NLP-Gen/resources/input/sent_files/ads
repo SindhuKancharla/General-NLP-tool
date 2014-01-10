@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=Cl7F1P1LKUqvcMeKlmQWByICoD4mWpowG6dCriIsBrcmh6QEQASDsm4kGUPOYm9z9_____wFg5crlg7QOoAH_7KTkA8gBAakCipBZLq5EUT6oAwGqBK0BT9DJm1-hB61qqTmU2cA4-ptbRMfEevJuI9na-Tvf0sxX0cWrMv4PBUWDBYMSjXU00hukbyvdvat4X_KWJO2sZfjcZD8zul__AW5d-FGwnnIjGJf3yv1Alfee5WSEmEjlzsjAenEnwb6v3GN-oCkemWtmLckPo0jf7u8hlA-DiNz299kLi9EQJnYp5KKuAvGrlpM6HigCL9v1CLva-qdaH5fHJEkyccuLsvBjAV2IBgGAB-mS2xs&amp;num=1&amp;cid=5GjiS-WxgjVPsIlVufRN6TPR&amp;sig=AOD64_3nczVe5nZZOMV0eO8qZzhF8pdPiA&amp;client=ca-pub-7641565019577886&amp;adurl=http://www.policybazaar.com/life-insurance/termlife_landingpage_v82.aspx%3Futm_source%3Dgoogle%26utm_medium%3Dppc_content%26utm_term%3Dinvestor%2520in%2520india%26utm_campaign%3DTerm_Display"; 
+google_ad.visible_url = "www.policybazaar.com/Tax_Saving"; 
+google_ad.line1 = "Save 50%On Life Insurance"; 
+google_ad.line2 = "1 Cr Life Cover @ Rs 448* pm Only"; 
+google_ad.line3 = "Compare Online, Save Premium \x26amp; Tax"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ndtv.com/article/india/pre-marital-sex-immoral-not-always-rape-says-judge-467097%253Fndtv_rhs%26gl%3DIN%26hl%3Den%26client%3Dca-pub-7641565019577886%26ai0%3DCl7F1P1LKUqvcMeKlmQWByICoD4mWpowG6dCriIsBrcmh6QEQASDsm4kGUPOYm9z9_____wFg5crlg7QOoAH_7KTkA8gBAakCipBZLq5EUT6oAwGqBK0BT9DJm1-hB61qqTmU2cA4-ptbRMfEevJuI9na-Tvf0sxX0cWrMv4PBUWDBYMSjXU00hukbyvdvat4X_KWJO2sZfjcZD8zul__AW5d-FGwnnIjGJf3yv1Alfee5WSEmEjlzsjAenEnwb6v3GN-oCkemWtmLckPo0jf7u8hlA-DiNz299kLi9EQJnYp5KKuAvGrlpM6HigCL9v1CLva-qdaH5fHJEkyccuLsvBjAV2IBgGAB-mS2xs\x26usg\x3dAFQjCNHci9wxd03XskMPC5cDsTzaqOQHDw";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

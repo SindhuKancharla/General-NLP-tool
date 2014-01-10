@@ -1,0 +1,65 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CVPtiD8LGUrjBGaW9igfvoIGYD7vbsrYEk9213lbAjbcBEAEgqKHUCSgEUI-a4sD8_____wFg5crlg7QOoAG1g6DeA8gBAakCWUHWTRpGUT6oAwGqBLEBT9BAySOjlYlqgNHSkntiGIo0GLjevWh8Tikv_x_p3Vv1-9F2a8oGXeUJ67XnuLiKufW-5WpmhbskB6XoqU9uYu0dilshgxPLiQp38lKbPvDcoJAhDdLLqXZKrdcTB0vz_P1X4uU4hjEA4CWmwILrtWDw5eKFIk0yudBKt18r6NKQ1IAxEQF4yoQy2qAGaWRutlzLPc72Y6Ss5EbMLW6QPQh1zSoDLI4Mk5IoHdw-QR1CiAYBgAez_N8h&amp;num=2&amp;cid=5GinNSVQeiJOsuqHTC6lQYlm&amp;sig=AOD64_0E5s85z0rhmUsZo0_FQvKhxZSmxQ&amp;client=ca-ibnlive_site_js&amp;adurl=https://apply.standardchartered.co.in/credit-card%3FselectedCardId%3D4%26se%3Dgoogle%26cp%3DContent_top/key%26ag%3Dapply_manhattan_credit_card%26kd%3D"; 
+google_ad.visible_url = "apply.standardchartered.co.in"; 
+google_ad.line1 = "Credit Card: Apply Online"; 
+google_ad.line2 = "Discounts, EMI Offers, Loan on Card"; 
+google_ad.line3 = "Bonus Points, Cashbacks* \x26amp; More!"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_ad = {}; 
+google_ad.n = 2; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CrWluD8LGUrjBGaW9igfvoIGYD5aPjNUFxsiyoIIB2tkeEAIgqKHUCSgEUJ6puo8DYOXK5YO0DqABkuq41gPIAQGpAllB1k0aRlE-qAMBqgSuAU_QYMNzpZWKaoDR0pJ7YhiKNBi43r1ofE4pL_8f6d1b9fvRdmvKBl3lCeu157i4irn1vuVqZoW7JAel6KlPbmLtHYpbIYMTy4kKd_JSmz7w3KCQIQ3Sy6l2Sq3XEwdL8_z9V-LlOIYxAOAlpsCC67Vg8OXihSJNMrnQSrdfK-jSkNSAMREBeMr8MdroBrYnxXM2ZPUkHYilrOT9JdvVkcALcTApJ9mNLHOU1n15j4gGAYAH1pXHKQ&amp;num=1&amp;cid=5GinNSVQeiJOsuqHTC6lQYlm&amp;sig=AOD64_3dsixCHJ1PMWeG3OAUq12kp89XBA&amp;client=ca-ibnlive_site_js&amp;adurl=http://www.himalaiiasclasses.com/"; 
+google_ad.visible_url = "www.himalaiiasclasses.com"; 
+google_ad.line1 = "IAS-IPS classes Bangalore"; 
+google_ad.line2 = "We will help U2 Become IAS IPS KAS,"; 
+google_ad.line3 = "officer Since 1998 No.1 Results cal"; 
+google_ad.regionname = ""; 
+google_ads[1] = google_ad; 
+google_ad = {}; 
+google_ad.n = 3; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CxGAtD8LGUrjBGaW9igfvoIGYD4DVwpMEuPeC5mDAjbcBEAMgqKHUCSgEUOKo5Hlg5crlg7QOoAGW-oT5A8gBAakCWUHWTRpGUT6oAwGqBLEBT9BQ2EihlY9qgNHSkntiGIo0GLjevWh8Tikv_x_p3Vv1-9F2a8oGXeUJ67XnuLiKufW-5WpmhbskB6XoqU9uYu0dilshgxPLiQp38lKbPvDcoJAhDdLLqXZKrdcTB0vz_P1X4uU4hjEA4CWmwILrtWDw5eKFIk0yudBKt18r6NKQ1IAxEQF4yoQy2qAGaWRurRboOM72Y6Ss5EbMLW6QPQh1zSoDLI4Mk5IoHdxHeVFoiAYBgAfShfsG&amp;num=4&amp;cid=5GinNSVQeiJOsuqHTC6lQYlm&amp;sig=AOD64_2qM6HyGMhFZOT9w5lDfC0fS8y38g&amp;client=ca-ibnlive_site_js&amp;adurl=http://www.healthcare-tataaig.com%3Fse%3DGE%26cl%3DTata-AIG-Health%26cp%3DContent_Familyinsurance%26ag%3DFamily_Insurance%26st%3DMT%26kd%3D"; 
+google_ad.visible_url = "healthcare-tataaig.com/Health-Cover"; 
+google_ad.line1 = "Tata AIG Health Insurance"; 
+google_ad.line2 = "Daily Cash Benefit upto 180 days"; 
+google_ad.line3 = "No Limit on hospitals.Buy Now !"; 
+google_ad.regionname = ""; 
+google_ads[2] = google_ad; 
+google_ad = {}; 
+google_ad.n = 4; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CK1xiD8LGUrjBGaW9igfvoIGYD8nq5ZUCicykix_AjbcBEAQgqKHUCSgEUPjyo6D-_____wFg5crlg7QOoAHXwbjvA8gBAagDAaoErQFP0FC-6L6Os1IyYt31cG4ajysL85m6KDFCK5gkdOvBW_GxxHYtwQpf4Bb4_qC_-Me19_ykYXSB52YT8aC1U3g8rQneEz2fBZXNECmrTpIrqZDs1Twf0IPge0Kh1RINArH9vgrg_iiePgXqaejLhfS3c-K7qYolRDCujVG3WSrv1Y7BlncNGHkmfjITIvWnIkCl3Y8fzvaITkdfRNEt1pnID4DGCgfZjcyVc_xc04gGAYAHkb7HEA&amp;num=3&amp;cid=5GinNSVQeiJOsuqHTC6lQYlm&amp;sig=AOD64_1I-morXfTAfUr1EQ5FbOCDzLJsRQ&amp;client=ca-ibnlive_site_js&amp;adurl=http://www.slideshare.net/about/workatslideshare"; 
+google_ad.visible_url = "www.slideshare.net"; 
+google_ad.line1 = "HTML5 devs at SlideShare"; 
+google_ad.line2 = "Javascript / HTML5 hacker? Want to"; 
+google_ad.line3 = "build a global product? Apply Now!"; 
+google_ad.regionname = ""; 
+google_ads[3] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://ibnlive.in.com/news/my-eyes-my-eyes-is-that-a-huge-diamond-on-priyanka-chopras-finger/442343-8.html%26gl%3DIN%26hl%3Den%26client%3Dca-ibnlive_site_js%26hideleadgen%3D1%26ai0%3DCVPtiD8LGUrjBGaW9igfvoIGYD7vbsrYEk9213lbAjbcBEAEgqKHUCSgEUI-a4sD8_____wFg5crlg7QOoAG1g6DeA8gBAakCWUHWTRpGUT6oAwGqBLEBT9BAySOjlYlqgNHSkntiGIo0GLjevWh8Tikv_x_p3Vv1-9F2a8oGXeUJ67XnuLiKufW-5WpmhbskB6XoqU9uYu0dilshgxPLiQp38lKbPvDcoJAhDdLLqXZKrdcTB0vz_P1X4uU4hjEA4CWmwILrtWDw5eKFIk0yudBKt18r6NKQ1IAxEQF4yoQy2qAGaWRutlzLPc72Y6Ss5EbMLW6QPQh1zSoDLI4Mk5IoHdw-QR1CiAYBgAez_N8h%26ai1%3DCrWluD8LGUrjBGaW9igfvoIGYD5aPjNUFxsiyoIIB2tkeEAIgqKHUCSgEUJ6puo8DYOXK5YO0DqABkuq41gPIAQGpAllB1k0aRlE-qAMBqgSuAU_QYMNzpZWKaoDR0pJ7YhiKNBi43r1ofE4pL_8f6d1b9fvRdmvKBl3lCeu157i4irn1vuVqZoW7JAel6KlPbmLtHYpbIYMTy4kKd_JSmz7w3KCQIQ3Sy6l2Sq3XEwdL8_z9V-LlOIYxAOAlpsCC67Vg8OXihSJNMrnQSrdfK-jSkNSAMREBeMr8MdroBrYnxXM2ZPUkHYilrOT9JdvVkcALcTApJ9mNLHOU1n15j4gGAYAH1pXHKQ%26ai2%3DCxGAtD8LGUrjBGaW9igfvoIGYD4DVwpMEuPeC5mDAjbcBEAMgqKHUCSgEUOKo5Hlg5crlg7QOoAGW-oT5A8gBAakCWUHWTRpGUT6oAwGqBLEBT9BQ2EihlY9qgNHSkntiGIo0GLjevWh8Tikv_x_p3Vv1-9F2a8oGXeUJ67XnuLiKufW-5WpmhbskB6XoqU9uYu0dilshgxPLiQp38lKbPvDcoJAhDdLLqXZKrdcTB0vz_P1X4uU4hjEA4CWmwILrtWDw5eKFIk0yudBKt18r6NKQ1IAxEQF4yoQy2qAGaWRurRboOM72Y6Ss5EbMLW6QPQh1zSoDLI4Mk5IoHdxHeVFoiAYBgAfShfsG%26ai3%3DCK1xiD8LGUrjBGaW9igfvoIGYD8nq5ZUCicykix_AjbcBEAQgqKHUCSgEUPjyo6D-_____wFg5crlg7QOoAHXwbjvA8gBAagDAaoErQFP0FC-6L6Os1IyYt31cG4ajysL85m6KDFCK5gkdOvBW_GxxHYtwQpf4Bb4_qC_-Me19_ykYXSB52YT8aC1U3g8rQneEz2fBZXNECmrTpIrqZDs1Twf0IPge0Kh1RINArH9vgrg_iiePgXqaejLhfS3c-K7qYolRDCujVG3WSrv1Y7BlncNGHkmfjITIvWnIkCl3Y8fzvaITkdfRNEt1pnID4DGCgfZjcyVc_xc04gGAYAHkb7HEA\x26usg\x3dAFQjCNHhGuvmocTlEmJcyNu8Dk-Jkl3MQw";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

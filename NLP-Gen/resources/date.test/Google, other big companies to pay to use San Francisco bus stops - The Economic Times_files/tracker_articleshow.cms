@@ -1,0 +1,42 @@
+
+function evtCap(ee) {
+	try {
+		if (window.event && window.event.srcElement) {
+			if (window.event.srcElement.getAttribute("data-track") != null) {
+				pgtrack(window.event.srcElement.getAttribute("data-track"));
+			}
+		} else if (ee && ee.stopPropagation && !window.opera) {
+			if (ee.target.getAttribute("data-track") != null) {
+				pgtrack(ee.target.getAttribute("data-track"));
+			}
+		}
+	} catch (ex) {}
+}
+
+try {
+	document.onclick = evtCap;
+	document.addEventListener("click", evtCap, true);
+} catch (ee) {}
+
+var pgid = {};
+var myIds = ['newComment', 'newPostComment', 'newSharem', 'newEmail', 'newSave', 'newReduceFS', 'newIncreaseFS', 'newPrn', 'newReadmoreon1', 'newReadmoreon2', 'newReadmoreon3', 'newReadmoreon4', 'newReadmoreon5', 'newReadmoreon6', 'newReadmoreon7', 'newCompname', 'newPrices', 'newFinancial', 'newCompanyinfo', 'newReports', 'newETspl1', 'newBSEup', 'newBSEdown', 'newRecommend', 'newSend', 'newreadmoreon21', 'newreadmoreon22', 'newreadmoreon23', 'newreadmoreon24', 'newreadmoreon25', 'newreadmoreon26', 'newreadmoreon27', 'newS1mainpic', 'newS1pic', 'newS1link1', 'newS1link2', 'newS1link3', 'newS1link4', 'newS1link5', 'newS2mainpic', 'newS2pic', 'newS2link1', 'newS2link2', 'newS2link3', 'newS2link4', 'newS2link5', 'newS3mainpic', 'newS3pic', 'newS3link1', 'newS3link2', 'newS3link3', 'newS3link4', 'newS3link5', 'newS4mainpic', 'newS4pic', 'newS4link1', 'newS4link2', 'newS4link3', 'newS4link4', 'newS4link5', 'newS5mainpic', 'newS5pic', 'newS5link1', 'newS5link2', 'newS5link3', 'newS5link4', 'newS5link5', 'newS6mainpic', 'newS6pic', 'newS6link1', 'newS6link2', 'newS6link3', 'newS6link5', 'newS7mainpic', 'newS7pic', 'newS7link1', 'newS7link2', 'newS7link3', 'newS7link4', 'newS7link5', 'newSplleft', 'newSplright', 'newPrevLink', 'newPrevLinkS', 'newNextLink', 'newNextLinkS', 'newETapps', 'newMostRead', 'newRead1', 'newRead2', 'newRead3', 'newRead4', 'newRead5', 'newReadMore', 'newmostComm', 'newComm1', 'newComm2', 'newComm3', 'newComm4', 'newComm5', 'newCommMore', 'newShared', 'newShared1', 'newShared2', 'newShared3', 'newShared4', 'newShared5', 'newSharedMore', 'newNipTitle', 'newNippic1', 'newNiplink1', 'newNippic2', 'newNiplink2', 'newNippic3', 'newNiplink3', 'newNippic4', 'newNiplink4', 'newNippic5', 'newNiplink5', 'newNiplink6', 'newNippic6', 'newNipleft', 'newNipright', 'newNipmore', 'newQnEpic1', 'newQnEpic2', 'newQnEpic3', 'newQnEpic4', 'newQnEpic5', 'newQnEpic6', 'newQnEpic7', 'newQnEpic8', 'newQnEpic9', 'newNewest', 'newOldest', 'newRecomm', 'newMdiscusted', 'newAgree', 'newDisagree', 'newLoggedinc', 'newmwvidmain', 'newmwvid1', 'newmwvid2', 'newmwvid3', 'newmwvidmor', 'newSh1art', 'newSh1pic', 'newSh2art', 'newSh2pic', 'newSh3art', 'newSh3pic', 'newShshowmore', 'newTopsP1', 'newTopsL1', 'newTopsP2', 'newTopsL2', 'newTopsP3', 'newTopsL3', 'newTopsP4', 'newTopsL4', 'newTopsP5','newTopsP1','newTopsL1','newTopsP2','newTopsL2'];
+
+for (var i = 0; i < myIds.length; i++) {
+	pgid[myIds[i]] = 'ArtShow';
+}
+
+function pgtrack(pgatt) { //alert(pgid);
+	if (pgatt != null) {
+		var pgat = pgatt.split('#');
+		var trcode = null;
+		if (pgat.length == 1) {
+			trcode = "_gaq.push(['_trackEvent','" + pgid[pgat[0]] + "','select','" + pgat[0] + "'])";
+		} else {
+			trcode = "_gaq.push(['_trackEvent','" + pgid[pgat[0]] + "','select','" + pgat[0] + pgat[1] + "'])";
+		}
+		eval(trcode);
+	}
+}
+
+	
+		

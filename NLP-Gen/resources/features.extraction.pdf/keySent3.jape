@@ -1,0 +1,13 @@
+Phase:GetSentences3
+Input: Token SpaceToken keySent
+Options: control = first
+
+Rule: splits4
+(
+	(({Token,Token notWithin{keySent}}({SpaceToken})*)+):s
+	({Token within{keySent}}|{SpaceToken within{keySent}})
+)
+:rule
+-->
+:s.keySent={type=3,string=:s@string}
+

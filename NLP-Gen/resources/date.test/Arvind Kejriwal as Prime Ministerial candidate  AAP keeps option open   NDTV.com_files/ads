@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CC6kyj5rLUvn7C8XHigebp4CYB-uI7vsD-5eQoH36mYbjCBABIOybiQZQqObBeGDlyuWDtA6gAZ20-98DyAEBqQIXmVEUdTtRPqgDAaoEyAFP0OPsHf_xpSHr9pp1mCnrhA9a1UuoIYtEs_jBYBe0-hvVGgVUmSM5xT9X-WpJbOpjrYxvhArcABFLksam-rshzm5P3nMK-CJY4x3xwnDPQUeqGMgTOC8mJBxljyeBUTwpGGhmEQ7rSlHz6M7Fg22m2831L63oelHdMCdDDLLZCnZtjXnBq-a_bClOjLACtWj_1FbaBXtIiRG38864jTPB1C3L695hxehxOAmPAcbW5mK49VFUuylmGL4kwHyR_K3CHt1fs9rK2YgGAYAHy8uEIA&amp;num=1&amp;cid=5GjjMUWcOCc8JB2NOR_J_neE&amp;sig=AOD64_1dqfWJAFamdi4A8ykqf8Gx-Bv_RQ&amp;client=ca-pub-7641565019577886&amp;adurl=http://www.puravankara.com/lms/westend/%3FPrimarysource%3Ddigital%26secondarysource%3DSEM%26tertiarysource%3Dgoogle%26adunit%3Dtextad%26banner%3Dwestend%26Campaign%3Dwestend"; 
+google_ad.visible_url = "puravankara.com/Pre-Launch-Offer"; 
+google_ad.line1 = "Purva Westend Premium"; 
+google_ad.line2 = "2/3 BHK Apts, Live. Entertainment."; 
+google_ad.line3 = "Like Nowhere Else. Enquire Now!"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ndtv.com/article/india/arvind-kejriwal-as-prime-ministerial-candidate-aap-keeps-option-open-467837%26gl%3DIN%26hl%3Den%26client%3Dca-pub-7641565019577886%26ai0%3DCC6kyj5rLUvn7C8XHigebp4CYB-uI7vsD-5eQoH36mYbjCBABIOybiQZQqObBeGDlyuWDtA6gAZ20-98DyAEBqQIXmVEUdTtRPqgDAaoEyAFP0OPsHf_xpSHr9pp1mCnrhA9a1UuoIYtEs_jBYBe0-hvVGgVUmSM5xT9X-WpJbOpjrYxvhArcABFLksam-rshzm5P3nMK-CJY4x3xwnDPQUeqGMgTOC8mJBxljyeBUTwpGGhmEQ7rSlHz6M7Fg22m2831L63oelHdMCdDDLLZCnZtjXnBq-a_bClOjLACtWj_1FbaBXtIiRG38864jTPB1C3L695hxehxOAmPAcbW5mK49VFUuylmGL4kwHyR_K3CHt1fs9rK2YgGAYAHy8uEIA\x26usg\x3dAFQjCNHrbn29dkTYx1eIyLO32zWqp2T2kQ";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

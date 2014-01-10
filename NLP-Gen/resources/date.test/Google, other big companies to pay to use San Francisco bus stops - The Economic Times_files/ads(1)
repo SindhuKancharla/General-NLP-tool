@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "site"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CXPeB5KzLUrypCuO5igex0YCQB9udwrsE84WkzHvV06HpARABILC0pAZQ6e_AgwJg5crlg7QOoAG9up7UA8gBAakCcIUNy4E2UT6oAwGqBPkBT9BYaOPtkhOeSBjx32jQpRgvyQTR9ppV7T8sw6rsfgjS_Ivi5DtQ_VHk2dRB3G0Q8eQghWwITjm8ZK5DdfvV4_CsWC0QdRtbam9YffXs2Rhap2B7MkDH4BaOd8AjHGE-ftagKl6TYxKcd2n-EIrTGOFgQjVL5JRETUY5UNJ-nXs-AaCiRtk4VbMpC7xzjYShpMsSU09obAtFPmEG0xydDqUYIgzrDXgve_lL6wYfoDAMVmIZywMASPuOwp6RjbmhnVr3svZ8KtSAiQ96XZdGl472LL-05w4W5g2BQ2OYhED9LNtWcGK3jBz4ADUy5Wypm-qdHthIlbJNiAYBgAerxeEr&amp;num=1&amp;cid=5GiOtsBWgQ8J-8qnH2f2lPN1&amp;sig=AOD64_3hYrLM6Vo1khYd9Hj0HO1bSH8pMQ&amp;client=ca-economictimes_site_js&amp;adurl=https://old.religareonline.com/Campaign/zero-account-fee.aspx%3Futm_source%3Dgoogledisplaybanner%26utm_campaign%3DIPC2_Content_Placements%26utm_adgroup%3DIndiatimes%26utm_keyword%3Dindiatimes.com"; 
+google_ad.visible_url = "religareonline.com/Demat_Account"; 
+google_ad.line1 = "Free Demat Account"; 
+google_ad.line2 = "With Money Back Guarantee*. Trade"; 
+google_ad.line3 = "Across Multiple Devices. Open Now!"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://economictimes.indiatimes.com/news/international/business/google-other-big-companies-to-pay-to-use-san-francisco-bus-stops/articleshow/28501369.cms%26gl%3DIN%26hl%3Den%26client%3Dca-economictimes_site_js%26hideleadgen%3D1%26ai0%3DCXPeB5KzLUrypCuO5igex0YCQB9udwrsE84WkzHvV06HpARABILC0pAZQ6e_AgwJg5crlg7QOoAG9up7UA8gBAakCcIUNy4E2UT6oAwGqBPkBT9BYaOPtkhOeSBjx32jQpRgvyQTR9ppV7T8sw6rsfgjS_Ivi5DtQ_VHk2dRB3G0Q8eQghWwITjm8ZK5DdfvV4_CsWC0QdRtbam9YffXs2Rhap2B7MkDH4BaOd8AjHGE-ftagKl6TYxKcd2n-EIrTGOFgQjVL5JRETUY5UNJ-nXs-AaCiRtk4VbMpC7xzjYShpMsSU09obAtFPmEG0xydDqUYIgzrDXgve_lL6wYfoDAMVmIZywMASPuOwp6RjbmhnVr3svZ8KtSAiQ96XZdGl472LL-05w4W5g2BQ2OYhED9LNtWcGK3jBz4ADUy5Wypm-qdHthIlbJNiAYBgAerxeEr\x26usg\x3dAFQjCNHKNQkZc4iwmaPMDiVnj4DMxv31qw";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

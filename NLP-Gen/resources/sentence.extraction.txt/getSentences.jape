@@ -1,0 +1,11 @@
+Phase:GetSentences
+Input: Sentence 
+Options: control = first
+
+Rule: splits4
+(
+{Sentence}
+):s
+-->
+:s.keySentence={string=:s@string}
+

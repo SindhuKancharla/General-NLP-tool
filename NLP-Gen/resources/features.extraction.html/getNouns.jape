@@ -1,0 +1,12 @@
+Phase: getNouns
+Input: SENTENCE1 NounChunk Token SpaceToken  ENTITY
+Options: control = appelt
+ 
+ Rule: rule1
+(
+   {NounChunk,NounChunk within{SENTENCE1},NounChunk notWithin{FEATURE},NounChunk notWithin{ENTITY},
+   NounChunk notContains{FEATURE},NounChunk notContains{ENTITY}}
+):rule
+-->
+:rule.Chunks={text=:rule.NounChunk@string}
+ 

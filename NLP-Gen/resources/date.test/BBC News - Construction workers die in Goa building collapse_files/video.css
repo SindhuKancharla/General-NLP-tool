@@ -1,0 +1,20 @@
+#js-holepunched #media-asset-page-video div.HTML5figure {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border: none;
+    background: none;
+}
+#js-holepunched #media-asset-page-video div.HTML5figure.responsive-player {
+    height: 100%}
+#js-holepunched #media-asset-page-video div.HTML5figure video {
+    width: 100%;
+    height: 100%}
+#js-holepunched #media-asset-page-video div.HTML5figure .media-container {
+    padding-bottom: 0;
+    width: 100%;
+    height: 100%}
+#js-holepunched .media-feed .more-wrapper {
+    clear: both;
+    padding: 8px 0;
+}

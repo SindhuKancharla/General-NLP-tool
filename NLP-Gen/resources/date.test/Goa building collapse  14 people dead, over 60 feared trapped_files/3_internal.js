@@ -1,0 +1,3 @@
+var zflag_nid_728_90="1656"; var zflag_cid_728_90="178/55"; var zflag_sid_728_90="7"; var zflag_width_728_90="728"; var zflag_height_728_90="90"; var zflag_sz_728_90="14";
+var zflag_nid_300_250="1656"; var zflag_cid_300_250="178/55"; var zflag_sid_300_250="7"; var zflag_width_300_250="300"; var zflag_height_300_250="250"; var zflag_sz_300_250="9";
+var zflag_nid_300_600="1656"; var zflag_cid_300_600="178/55"; var zflag_sid_300_600="7"; var zflag_width_300_600="300"; var zflag_height_300_600="600"; var zflag_sz_300_600="20"; 

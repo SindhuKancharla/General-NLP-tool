@@ -1,0 +1,11 @@
+Phase: getConcepts
+Input: SENTENCE1 Token SpaceToken Concepts
+Options: control = appelt
+ 
+ 
+Rule: rule1
+(
+{SENTENCE1 within{Concepts}}
+):rule
+-->
+:rule.ConceptsNEW={rule="3",text=:rule.SENTENCE1@string}

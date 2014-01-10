@@ -1,0 +1,153 @@
+Date  :  2005
+
+
+Date  :  Dec. 12
+
+
+Date  :  Jan. 13
+
+
+Date  :  Jan. 16
+
+
+Date  :  Last week
+
+
+Date  :  Monday
+
+
+Date  :  Wednesday
+
+
+Date  :  late Monday
+
+
+Date  :  next week
+
+
+JobTitle  :  deputy consul
+
+
+JobTitle  :  diplomat
+
+
+JobTitle  :  domestic
+
+
+JobTitle  :  judge
+
+
+JobTitle  :  maid
+
+
+JobTitle  :  president
+
+
+Location  :  China
+
+
+Location  :  India
+
+
+Location  :  NEW DELHI
+
+
+Location  :  NEW DELHI
+
+
+Location  :  New Delhi
+
+
+Location  :  New Delhi
+
+
+Location  :  New York
+
+
+Location  :  North Korea
+
+
+Location  :  Southern District
+
+
+Location  :  Washington
+
+
+Organization  :  American Community Support Association
+
+
+Organization  :  American Embassy School
+
+
+Organization  :  State Department
+
+
+Organization  :  U.S. Olympians
+
+
+Out_Of_Dictionary  :  Cokes
+
+
+Out_Of_Dictionary  :  Country
+
+
+Out_Of_Dictionary  :  E-
+
+
+Out_Of_Dictionary  :  Peace
+
+
+Out_Of_Dictionary  :  TWP
+
+
+Person  :  Chico Harlan
+
+
+Person  :  George W. Bush
+
+
+Person  :  Inspector General
+
+
+Person  :  Jen Psaki
+
+
+Person  :  K.C. Singh
+
+
+Person  :  President Hamid Karzai
+
+
+Person  :  Singh
+
+
+Person  :  Till
+
+
+Person  :  U.S. Embassy
+
+
+miscellaneous  :  Ashley Tellis
+
+
+miscellaneous  :  Associated Press
+
+
+miscellaneous  :  Carnegie Endowment
+
+
+miscellaneous  :  Devyani Khobragade
+
+
+miscellaneous  :  Foreign Ministry official
+
+
+miscellaneous  :  Preet Bharara
+
+
+miscellaneous  :  U.S. Energy Secretary Ernest Moniz
+
+
+miscellaneous  :  William Wan
+
+

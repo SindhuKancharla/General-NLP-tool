@@ -1,0 +1,11 @@
+Phase: GetActualSentences
+Input:  SENTENCE1 Token SpaceToken
+Options: control = appelt
+
+Rule: div
+(  
+({Token,Token notWithin{SENTENCE1}}({SpaceToken})?)+
+)
+:form
+-->  
+:form.SENTENCE1={tag="random",string=:form@string}

@@ -1,0 +1,11 @@
+Phase: GetContent
+Input: html 
+Options: control = appelt
+
+Rule:content
+(
+{html}
+)
+:r
+-->
+:r.Content={string=:r@string}

@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0334)http://social.ndtv.com/static/Comment/Form/?&key=ae42a4f016dd1fdd208110a097b061a4&link=http%3A%2F%2Fwww.ndtv.com%2Farticle%2Findia%2Findian-tailor-wins-luxury-cars-100-000-dirhams-in-dubai-467507&title=Indian+tailor+wins+luxury+cars%2C+100%2C000+dirhams+in+Dubai+&ctype=story&identifier=story-467507&enableCommentsSubscription=1&ver=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>NDTV Social: Comment Form</title>
+        
+        <script src="cb=gapi(1).loaded_1" async=""></script><script src="cb=gapi(2).loaded_0" async=""></script><script type="text/javascript" async="" src="ga.js"></script><script type="text/javascript" async="" src="client-plusone.js" gapi_processed="true"></script><script language="javascript" type="text/javascript">
+            var BASE_URL = "http://social.ndtv.com";
+            var CDN_URL = "http://static.social.ndtv.com";
+            var cookie_name = 'http://www.ndtv.com/article/india/indian-tailor-wins-luxury-cars-100-000-dirhams-in-dubai-467507';
+        </script>
+        <link href="comment_combined.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+        <script language="javascript" type="text/javascript" src="jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="jquery.cookie.min.js"></script>
+        <script language="javascript" type="text/javascript" src="comment_combined.js"></script>
+        <script type="text/javascript">
+            function ns_rediruri(obj) {
+                var o = {cache:false};
+                $.extend(o,obj);
+                params = '';
+                params += '&key=' + 'ae42a4f016dd1fdd208110a097b061a4';
+                params += '&link=' + 'http://www.ndtv.com/article/india/indian-tailor-wins-luxury-cars-100-000-dirhams-in-dubai-467507';
+                params += '&title=' + 'Indian tailor wins luxury cars, 100,000 dirhams in Dubai ';
+                params += '&identifier=' + 'story-467507';
+                params += '&ctype=' + 'story';
+                params += '&site=' + 'ndtv';
+                params += '&enableCommentsSubscription=' + '1';
+
+                if(!o.cache){
+                    params += '&rm=' + Math.random();
+                    params += '&tt=' + (new Date).getTime();
+                }
+                $.cookie('rediruri','http://social.ndtv.com/static/Comment/Form/?' + params, {expires:0.002,path:'/'});
+            }
+            window.onbeforeunload = unloadPage;
+
+            var sbl = 'Login & Comment';            
+            var anon_btn_txt = 'Login & Comment';
+            var cve = 'Please enter a comment';
+            var followcov = '+ Follow this conversation';
+            var unfollowcov = 'Unfollow this conversation';
+            function toggleAnonymousUser(){                
+                var isAnonumousUser = $('#isAnonumousUser').val();
+                if (isAnonumousUser == 1) {
+                    $('#btn').val('Login & Comment');
+                    $('#isAnonumousUser').val(0);
+                } else {
+                    $('#btn').val('Post your comment');
+                    $('#isAnonumousUser').val(1);
+                }
+            }
+            $().ready(function(){                   
+                document.domain = "ndtv.com";
+                if ($.cookie('anonymous-name') != null) {
+                    $('#name').val($.cookie('anonymous-name'));
+                }
+                if($.cookie('anonymous-email')!= null) {
+                    $('#email').val($.cookie('anonymous-email'));
+                }
+                if ($.cookie('parentcid-' + 'story-467507') != null) {                     
+                    setTimeout('setCommentReplyText($.cookie("parentcid-story-467507"))', 1000);
+                }    
+                var userLoggedin = '';   
+                var enabledEmailOnComments = '1'; 
+                if (userLoggedin > 0 && enabledEmailOnComments == 1) {
+                    var formHight = $("#ndtvSocialCommentForm",top.document).height();
+                    $('#ndtvSocialCommentForm', parent.document).height(formHight + 25);
+                }
+            })
+             
+           function clearCommentReply(){                
+                var replyHeight = $('#comment-reply').height();
+                if (typeof($('#ndtvSocialCommentForm')) != undefined) {
+                    var formHight = $('#ndtvSocialCommentForm', parent.document).height();
+                    $('#ndtvSocialCommentForm', parent.document).height(formHight - replyHeight);
+                    $('#comment-reply').html('');
+                    $.cookie('parentcid-'+'story-467507', null, {expires:-0.025,path:'/', domain: 'ndtv.com'});
+                    $('#parentid').val(0);
+                    $('#comment').val('');
+                }    
+            }    
+            
+            function clearReply() {
+                var replyHeight = $('#comment-reply').height();
+                if (typeof($('#ndtvSocialCommentForm')) != undefined) {
+                    var formHight = $('#ndtvSocialCommentForm', parent.document).height();
+                    $('#ndtvSocialCommentForm', parent.document).height(formHight - replyHeight);  
+                    $('#comment-reply').html('');
+                }    
+            }
+            
+            function setCommentReplyText(commentid, userName) {
+                if (window.top.ndtvSocialCommentsList != null) {
+                    if (window.top.ndtvSocialCommentsList.$('#comment-text-' + commentid)) {
+                        var commentText = window.top.ndtvSocialCommentsList.$('#comment-text-' + commentid).html();                   
+                        $("#parentid").val(commentid);                         
+
+                        if (commentText != null  && commentText != '') {
+                            commentText = commentText + '<div style="color: #474747;float: left;font-size: 12px;line-height: 1.5em;width: 100%;">';
+                            commentText = commentText +  'You are replying to the above comment';
+                            commentText = commentText +  '<a style="float:right;padding-right:10px;" href="javascript:void(0);" onclick="javascript:clearCommentReply();">Cancel</a>';
+                            commentText = commentText +  '</div>';
+                            $("#comment-reply").html(commentText);
+                            var formHight = $("#ndtvSocialCommentForm",top.document).height();
+                            $('#ndtvSocialCommentForm', parent.document).height(formHight + $("#comment-reply").height());
+
+                            $("#comment").css('background-color', '#fafbc6');
+                            $("#comment").focus();
+                        } else {
+                            clearCommentReply();
+                        }
+                    }    
+                }    
+            }
+                
+        function unSubscribed(url, identifier) {
+            $.ajax({
+                type: "POST",
+                url: url + 'comment-unsubscribe.php',
+                data: { identifier: identifier },
+                success: function(data){                        
+                    if (data == 1) {
+                        $('#subscription').html('<a href="javascript:void(0);" id="subscribe_to_story" onclick="javascript:subscribed(\'' + url + '\',  \'' + identifier + '\');return false;" >'+ followcov +'</a>');
+                    } else {
+                        $('#subscription').hide();
+                        user_name_stripbar("hide");
+                        $("#social_links").show();
+                    }     
+                }
+            });
+        }
+        
+        function subscribed(url, identifier) {
+          
+                $.ajax({
+                    type: "POST",
+                    url: url + 'comment-subscribe.php',
+                    data: { identifier: identifier },
+                    success: function(data){                        
+                        if (data ==1) {
+                          $('#subscription').html('<a href="javascript:void(0);" id="subscribe_to_story" onclick="javascript:unSubscribed(\'' + url + '\',  \'' + identifier + '\');return false;" >'+ unfollowcov +'</a>');
+                        } else {
+                         $('#subscription').hide();
+                         user_name_stripbar("hide");
+                         $("#social_links").show();
+                       } 
+                   }
+                }); 
+
+        }
+        
+        function checkSubscription(url, identifier) {            
+                        
+                    $.ajax({
+                        type: "POST",
+                        url: url + 'comment-check-subscription.php',
+                        data: { identifier: identifier},
+                        success: function(res){  
+                            data = JSON.parse(res);
+                            if (data.loggedIn == 0) {
+                                $.cookie("userloggedIn",null,{path:"/"});
+                                 user_name_stripbar("hide");
+                                 $("#social_links").show();
+                                 return false;                               
+                            } else if (data.subscribed == 2) {
+                                $("#confirm-email").show();
+                            } else if (data.subscribed == 1) {
+                                $('#subscription').show();
+                                $('#subscription').html('<a href="javascript:void(0);" id="subscribe_to_story" onclick="javascript:unSubscribed(\'' + url + '\',  \'' + identifier + '\');return false;" >'+ unfollowcov +'</a>'); 
+                            } else {                                
+                                 $('#subscription').show();
+                                $('#subscription').html('<a href="javascript:void(0);" id="subscribe_to_story" onclick="javascript:subscribed(\'' + url + '\',  \'' + identifier + '\');return false;" >'+ followcov +'</a>');
+                            }
+                            
+                        }
+                    });            
+
+        }
+        
+        function sendVerificationEmail(url, verified, page_url, identifier) {            
+            
+            $('.loading-img').show();
+            var email = $('#confirmEmail').val();
+            $.ajax({
+                    type: "POST",
+                    url: url + 'comment-email-verify.php',
+                    data: { email: email, verified: verified, page_url:page_url, identifier:identifier},
+                    success: function(res){ 
+                        if (res.length > 1) {
+                             res = JSON.parse(res);
+                        } else {
+                            res = '';
+                        }
+                        
+                        if(typeof res.error != 'undefined' ){
+                            $('.loading-img').hide();
+                            $('#response').show();
+                            $('#response').addClass('error');                           
+                            $('#response').html('<ul><li>' + res.error + '</li></ul>');                           
+                            setTimeout('$("#response").hide("slow");', 5000);
+                        } else {
+                            //$("#subscription").show(); 
+                            $('#response').show();
+                            $('#response').removeClass('error');
+                            $('#response').html('<span class="success">Thank you. A verification email has been sent to your email address. Please follow the instructions in the email to complete the process.</span>');
+                            setTimeout('$("#response").hide("slow");', 8000);
+                            $("#confirm-email").hide();
+                            $('.loading-img').hide();
+                        }    
+                    }
+            });            
+        }
+        function cancelVerification() {   
+            $("#subscription").show();
+            $("#confirm-email").hide();    
+        }
+        
+                        
+        </script>
+        
+        <script type="text/javascript">
+            (function() {
+                var po = document.createElement('script');
+                po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/client:plusone.js?onload=render';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(po, s);
+            })();
+            
+            function render() {
+                gapi.signin.render('customBtn', {
+                    'callback': 'onSignInCallback',                    
+                    'apppackagename': 'com.july.ndtv',
+                    'clientid': '72129834489-uk4o358ag2ievntn375ab6a4spltimn3.apps.googleusercontent.com',
+                    'cookiepolicy': 'http://social.ndtv.com',
+                    'requestvisibleactions': 'http://schemas.google.com/AddActivity',
+                    'scope': 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.login'
+                });                                       
+            }
+            
+            var authResult = undefined;
+            
+            function onSignInCallback(authResult) { 
+                
+                if (authResult['code'] && authResult['g-oauth-window']) {
+                    $('#so_loading').toggle();
+                    var code = authResult['code'];
+                    $.ajax({
+                            type: 'POST',
+                            url: 'http://social.ndtv.com/ajax/login-google-plus.php',
+                            data: { code: code},  
+                            async: true,
+                            success: function(result) {                                
+                               if (result > 0){
+                                    window.location.href= window.location; 
+                               }  
+                            }
+                            
+                        });
+                } 
+            }
+            
+            function disconnectUser() {
+                var access_token = '';
+                var revokeUrl = 'https://accounts.google.com/o/oauth2/revoke?token=' +
+                    access_token;
+
+                // Perform an asynchronous GET request.
+                $.ajax({
+                    type: 'GET',
+                    url: revokeUrl,
+                    async: false,
+                    contentType: "application/json",
+                    dataType: 'jsonp',
+                    success: function(nullResponse) {
+                        // Do something now that user is disconnected
+                        // The response is always undefined.
+                    },
+                    error: function(e) {
+                        // Handle the error
+                        // console.log(e);
+                        // You could point users to manually disconnect if unsuccessful
+                        // https://plus.google.com/apps
+                    }
+                });
+            }
+
+            
+            function disconnectUser() {                
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://social.ndtv.com/ajax/login-google-plus.php',
+                    data: { action: 'logout'},                    
+                    success: function(Response) {
+                     
+                    }                    
+                });               
+                
+             }
+
+        </script>
+        
+        <link href="css" rel="stylesheet" type="text/css">
+        <style type="text/css">#comments_box #social_links li {float:left;width:92px;}
+       a, a:visited { color: #3B5998; cursor: pointer;text-decoration: none;}
+        div,span,p,li,label,input {font-family: roboto !important;}
+        #comments_box .sub_button .but {padding: 4px 8px;}</style>       
+       
+           
+        <style type="text/css">
+            #customBtn {
+                display: inline-block;
+                background: #cc3732;
+                color: white;
+                width: 87px;
+                padding-left: 3px;
+                cursor:pointer;
+            }
+            #customBtn:hover {
+                background: #e74b37;
+                cursor: hand;
+            }
+            span.label {
+                font-weight: bold;
+            }
+            span.icon {
+                background: url('http://static.social.ndtv.com/images//btn_icons_sprite.png') transparent 0 0px no-repeat;
+                display: inline-block;
+                vertical-align: middle;
+                width: 20px;
+                height: 23px;
+
+            }
+            span.buttonText {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 12px;
+                font-family:'Roboto', sans-serif; 
+                font-weight:500 !important;
+            }
+            
+        </style>
+        
+            <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-11243047-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    </head>
+    <body style="font-family:roboto !important;">
+        <div id="so_loading" style="display: none;">Loading...</div>
+        
+        <div id="comments_box" style="padding:5px;float:left;">
+                            <div id="social_links" style="">                    
+                    <ul>
+                        <li class="req_login" style="width:80px;padding-top: 5px;">Sign in using:</li>
+                        <li><a href="javascript:void(0);" onclick="clearReply();window.open(&#39;http://social.ndtv.com/ajax/login-facebook.php&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=830,height=530&#39;);$(&#39;#anonymous-login&#39;).hide();"><img src="facebook1.jpg" border="0"></a></li>
+                        <li><a href="javascript:void(0);" onclick="clearReply();window.open(&#39;http://social.ndtv.com/ajax/login-twitter.php&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=830,height=530&#39;);$(&#39;#anonymous-login&#39;).hide();"><img src="twitter1.jpg" border="0"></a></li>
+<!--                        <li><a href="javascript:void(0);"  onclick="clearReply();window.open('http://social.ndtv.com/ajax/login-google.php','sharer','toolbar=0,status=0,width=830,height=530');$('#anonymous-login').hide();"><img src="http://static.social.ndtv.com/images/google1.jpg" border="0" /></a></li>-->
+                        <li>
+                            
+                                <div id="customBtn" class="customGPlusSignIn" data-gapiattached="true">
+                                    <span class="icon"></span>
+                                    <span class="buttonText">Sign in</span>
+                                 </div>
+  
+                            
+                        </li>
+                        <li><a href="javascript:void(0);" onclick="clearReply();window.open(&#39;http://social.ndtv.com/ajax/login-yahoo.php&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=830,height=530&#39;);$(&#39;#anonymous-login&#39;).hide();"><img src="yahoo1.jpg" border="0"></a></li>                        
+                        <li class="req_login" style="width:35px;text-align: center; padding-top: 5px;">OR</li>
+                        <li><a href="javascript:void(0);" onclick="$(&#39;#anonymous-login&#39;).toggle();toggleAnonymousUser();return false;"><img src="anonymous.jpg" border="0"></a></li>                        
+                    </ul>
+                </div>
+                <div id="userdetails_container" class="comment_post" style="display:none;">
+                    <span id="userdetails_name" class="member"></span>
+                    <span id="userdetails_signout">
+                        <span style="float:right;">
+                                                            <a style="float:left;" href="javascript:void(0);" title="Notifications" onclick="javascript:checkSubscription(&#39;http://social.ndtv.com/ajax/&#39;, &#39;story-467507&#39;);return false;"><img src="email.png" style="margin-top:-4px;"></a>
+                              
+                            <a href="javascript:void(0);" class="member logout" onclick="disconnectUser();clearReply();logout();">Sign out</a>
+                        </span>                       
+                    </span>
+                </div>
+                      
+            <div class="inst" id="response" style="display:none;"></div>            
+            <div class="saperator" style="border:0;"></div>
+            <div id="comment-reply" style="width:100%;float: left;"></div>
+            <div style="clear:both;"></div>
+            <form action="" id="comment-form" method="post" onsubmit=" checkSubscription(&#39;http://social.ndtv.com/ajax/&#39;, &#39;story-467507&#39;); return doValidation();">
+                <div style="display:none;">
+                    <input type="hidden" name="page_title" value="Indian tailor wins luxury cars, 100,000 dirhams in Dubai "><br>
+                    <input type="hidden" name="page_url" value="http://www.ndtv.com/article/india/indian-tailor-wins-luxury-cars-100-000-dirhams-in-dubai-467507"><br>
+                    <input type="hidden" name="identifier" value="story-467507"><br>
+                    <input type="hidden" name="ctype" value="story"><br>
+                    <input type="hidden" name="parent-site" value="ndtv"><br>
+                    <input type="hidden" name="submit" value="Post">
+                </div>
+                
+                                    <div id="subscription" style="padding-top:3px;float: left; display:none;">                         
+                      
+                    </div>
+                               
+                <div style="display:none;clear:both;padding-top: 5px;color: #474747;float: left; width: 98%;" id="confirm-email">
+                    <div style="float:left;margin-bottom: 5px;"><label>To subscribe to email notification for comments, please add your email address.</label></div>
+                    <div style="clear:both;"></div>
+                    <label>Email </label>
+                    <input type="text" name="confirmEmail" id="confirmEmail" value="">
+                    <input type="button" name="confirm" value="Verify" onclick="javascript:sendVerificationEmail(&#39;http://social.ndtv.com/ajax/&#39;, &#39;&#39;, &#39;http://www.ndtv.com/article/india/indian-tailor-wins-luxury-cars-100-000-dirhams-in-dubai-467507&#39;, &#39;story-467507&#39;);">
+                    <input type="button" name="cancel" value="Cancel" onclick="javascript:cancelVerification();">
+                    <span class="loading-img" style="display:none;padding-right:158px;float:right;"><img src="loading.gif"></span>
+                </div>
+                
+                <div class="text_field">                    
+                         
+                        <div id="anonymous-login" style="display: none;">
+                            <input type="hidden" name="isAnonumousUser" id="isAnonumousUser" value="0">                                
+                            <input type="text" name="anonumousCheck" id="anonumousCheck" value="" style="display: none;"> 
+                            <label>Name </label><input type="text" id="name" name="name" value="" class="">
+                            <label> Email</label> <input type="text" id="email" name="email" value="" class="">
+                        </div>
+                                
+                    <input type="hidden" name="parentid" id="parentid" value="0">
+                    <textarea name="comment" cols="150" rows="6" class="text_area" id="comment" style="resize:none;"></textarea>
+                </div>
+                <div style="clear:both;"><br></div>
+                <div class="text_field">
+                    <div class="share_links">
+                        <input type="checkbox" id="post_to_facebook" value="1" checked="1"> <label for="post_to_facebook">Post to Facebook</label>
+                        <input type="checkbox" id="post_to_twitter" value="1" checked="1"> <label for="post_to_twitter">Post to Twitter</label>
+                    </div>                    
+                    <div class="sub_button">
+                        <input name="submit" id="btn" class="but" type="submit" value="Login &amp; Comment">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div style="display:none;"></div>
+            
+<iframe name="oauth2relay549963001" id="oauth2relay549963001" src="postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe src="auth.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

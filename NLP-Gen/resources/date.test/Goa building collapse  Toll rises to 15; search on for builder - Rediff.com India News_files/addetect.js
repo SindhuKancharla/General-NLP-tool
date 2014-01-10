@@ -1,0 +1,1 @@
+var glb_ad_detect = "" ;

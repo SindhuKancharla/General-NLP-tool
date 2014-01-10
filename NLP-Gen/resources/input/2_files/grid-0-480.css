@@ -1,0 +1,114 @@
+/*----------------------------------------------------------------------------- 
+    Span 1:    7.41666666667%
+    Span 2:    15.8333333333%
+    Span 3:    24.25%
+    Span 4:    32.6666666667%
+    Span 5:    41.0833333333%
+    Span 6:    49.5%
+    Span 7:    57.9166666667%
+    Span 8:    66.3333333333%
+    Span 9:    74.75%
+    Span 10:    83.1666666667%
+    Span 11:    91.5833333333%
+    Span 12:    100%
+-----------------------------------------------------------------------------*/
+
+.col {
+    background1:#f0f0f0;
+    border:0px solid rgba(0,0,0,0);
+    border:0px dotted blue;
+    float:left;
+    margin-bottom:0.5rem;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    -moz-background-clip:padding-box !important;
+    -webkit-background-clip:padding-box !important;
+    background-clip:padding-box !important;
+}
+
+@media screen and (min-width: 0px) and (max-width: 480px) {
+        .col {
+            margin-left:1%;
+        	padding:0 0.5%;
+        }
+        .row .col:first-child {
+            margin-left:0;
+        }
+        .span_1 {
+            width:7.41666666667%;
+        }
+        .span_2 {
+            width:15.8333333333%;
+        }
+        .span_3 {
+            width:24.25%;
+        }
+        .span_4 {
+            width:32.6666666667%;
+        }
+        .span_5 {
+            width:41.0833333333%;
+        }
+        .span_6 {
+            width:49.5%;
+        }
+        .span_7 {
+            width:57.9166666667%;
+        }
+        .span_8 {
+            width:66.3333333333%;
+        }
+        .span_9 {
+            width:74.75%;
+        }
+        .span_10 {
+            width:83.1666666667%;
+        }
+        .span_11 {
+            width:91.5833333333%;
+        }
+        .span_12,.indiarib,.widget1,.widget2,.right1,.top3,.top3last {
+            margin-left:0;
+            width:100%;
+        }
+
+        .blog{
+            font-size:2rem;
+        }
+
+        .special{
+            font-size:2rem;
+        }
+        .prevnext tr td .headline{
+            display:none;
+        }
+
+        .header-row {
+        height: 4em;
+        margin-bottom: 0;
+        }
+
+        .logo img {
+        margin-top: 0;
+        }
+
+        .nav-dna2 {
+        top: 0;
+        }
+
+        .header {
+        height: 4rem;
+        }
+        
+	.reportright {
+	width: auto;
+	float: none;
+	padding: 0px;
+	}
+	.bx-caption{
+	font-size:.8rem;
+	 line-height:110%;
+	}
+	.widget1,.widget2{text-align:center;}
+}

@@ -1,0 +1,1 @@
+var proximicTargets = "121100"

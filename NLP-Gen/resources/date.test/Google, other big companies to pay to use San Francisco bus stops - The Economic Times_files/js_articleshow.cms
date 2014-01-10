@@ -1,0 +1,1798 @@
+
+var is_interval_running = false,polNationInterval;
+function setCompanyData(){
+	$.ajax({
+        url : "http://json.bselivefeeds.indiatimes.com/ET_Community/bsensejson?companyid=" + page.compId + "&callback=?",
+        crossDomain : true,
+        dataType : 'jsonp',
+        success: function(data){
+            if($.isArray(data.NewDataSet)){
+                $("h3 a", "#stockInfo")
+                    .text(data.NewDataSet[0].CompanyName2)
+                    .attr({"href":"/" + data.NewDataSet[0].seoname + "/stocks/companyid-" + data.NewDataSet[0].companyid + ".cms","data-track":"newCompname"});
+                
+				$.each(data.NewDataSet, function(c, obj){
+                    var segment = $(">div", "#stockInfo").eq(c),
+                        dayStat = obj.ClosePrice < obj.LastTradedPrice ? "up" : "down",
+                        currentStat = obj.ClosePrice < obj.LastTradedPrice ? "green" : "red";
+                    
+                    segment.show();
+                    segment.find(".stockType").text(obj.Segment);
+                    segment.find(".currentPrice b").eq(0).text(obj.LastTradedPrice).addClass(currentStat);
+                    segment.find(".currentPrice b").eq(1).attr("class", "arrow " + dayStat);
+                    segment.find(".change span").eq(0).text(obj.NetChange);
+                    segment.find(".change span").eq(1).text(obj.PercentChange + "%");
+                    segment.find(".change span").removeClass().addClass(dayStat);
+                    segment.find(".vol span").text(obj.Volume);
+					
+					setTimeout(function(){
+						segment.find(".currentPrice b").eq(0).removeClass();
+					}, 2e3);
+                });
+                
+                $(".links a").eq(0).attr({"href":"/" + data.NewDataSet[0].seoname + "/prices/companyid-" + data.NewDataSet[0].companyid + ".cms","data-track":"newPrices"});
+                $(".links a").eq(1).attr({"href":"/indica/profitandlose/companyid-" + data.NewDataSet[0].companyid + ".cms","data-track":"newFinancial"});
+                $(".links a").eq(2).attr({"href":"/indica/infocompanymanagement/companyid-" + data.NewDataSet[0].companyid + ".cms","data-track":"newCompanyinfo"});
+                $(".links a").eq(3).attr({"href":"/indica/directorsreport/companyid-" + data.NewDataSet[0].companyid + ".cms","data-track":"newReports"});
+				
+				if($("#stockInfo").is(":hidden")){
+					$("#stockInfo").slideDown();
+				}
+            }
+        }
+    });
+}
+
+var etArt = {
+	openPopup : function(target){
+		if(target){
+		
+			if(!$(target).hasClass("popup")){
+				$(target).addClass("popup");
+			}
+			
+			if(!$(".close", target).length){
+				$(target).append("<div class='close' />");
+			}
+			
+			// While Saving the Article
+			if(target == "#saveArt"){
+				if(_tp_data.isLogged){
+					$("> .hidden", target).hide();
+					$("iframe", target).attr("src", "/insertclipping_new.cms?msid=" + page.msid + "&random=" + new Date().getTime().toString().substring(0, 5)).parent().show();
+				} else {
+					$("> .hidden", target).show();					
+					$("iframe", target).parent().hide();
+					$("button", target).bind("click", function(){
+						$(target).fadeOut(200);
+					});
+				}
+			} else if(target == "#shareEmail"){
+				$("iframe", target).attr("src", "/mail.cms?msid=" + page.msid);
+			}
+			
+			$("#backgroundPopup").fadeTo(500, 0.7);
+			$(target).css({top:110}).fadeTo(500, 1, function(){
+				$(target).animate({
+					top : 100
+				}, 300);
+			});
+			
+			$(".close", target).die("click").live("click", function(){
+				$('#backgroundPopup,' + target).fadeOut(200);
+			});
+		}
+	},
+	fontSize : function(way){
+		var target = $(".articleImg", "article").length ? $(".articleImg", "article").last().next() : $("article"),
+		currentSize = parseInt(target.css('font-size'));
+		if(way == "-"){
+			if(currentSize > 12){
+				target.css('font-size', currentSize-1+"px");
+			}
+		} else {
+			if(currentSize < 18){
+				target.css('font-size', currentSize+1+"px");
+			}
+		}
+	},
+	
+	setSharer : function(){
+        if(skinningExist){
+			$("#shareHorz").show();
+			$("#shareVertHolder").hide();
+		} else {
+			if($(window).width() > 1153){
+				$("#shareVertHolder").show(function(){
+					$("#shareHorz").slideUp();
+				});
+			} else {
+				$("#shareVertHolder").hide(function(){
+					$("#shareHorz").slideDown();
+				});
+			}
+		}
+    },
+	showVideo : function(videoId){
+		$(".videoHolder", ".artVideo").show(500);
+		$(".close", ".artVideo .videoHolder").unbind("click").bind("click", function(){
+			$(".videoHolder", ".artVideo").hide(500, function(){
+				$("#player").empty();
+			});
+		});
+		if(hasReqestedVersion){
+			$("#player").load("/liveblogvideo/" + videoId + ".cms?&hasversion=true");
+		} else {
+			var kalturaid;
+			$.ajax({
+				url : "/liveblogvideo/" + videoId + ".cms?&hasversion=false",
+				success : function(data){
+					kalturaid = data;
+					var tmpjs = document.createElement("script");
+					tmpjs.type = "text/javascript";
+					tmpjs.src = "/js_kalturaapi.cms?width=320&height=250";
+					document.getElementsByTagName("head")[0].appendChild(tmpjs);
+					tmpjs.onreadystatechange = function () {
+						getklSource('303932', kalturaid);
+					}
+					tmpjs.onload = function () {
+						getklSource('303932', kalturaid);
+					}
+				}
+			});
+		}
+	},
+	showCmtBox : function(){
+		$("#postCmtBox").show(500);
+		$(".close", "#postCmtBox").unbind("click").bind("click", function(){
+			$("#postCmtBox")
+				.hide(500)
+				.find("form > .hidden").hide()
+				.end()
+				.find("textarea").height(40)
+				.end()
+				.find(".cmtMsg").hide().empty()
+				.end()
+				.find("form").show();
+		});
+		$("#similarNews").stop().animate({right : -450});
+		putMathQ(1);
+	}
+}
+
+// Vars
+var _tp_async_data;
+var mytimes = {
+	_M_mode:1,
+	_M_url : window.location.href,	
+	_M_baseEntityType : "ARTICLE",	
+	_M_objType:"B",
+	_M_isLoggedIn : function(){
+		var _m_getlogCook= $.cookie("MSCSAuth");
+		if(_m_getlogCook == null || _m_getlogCook == "" || _m_getlogCook ==undefined){
+			return 0;
+		}else{			
+			return 1;
+		}
+	},
+	_M_actType:function(actT){		
+		switch(actT){
+			case "100" : actT = "Agreed";this._M_objType="A";this._M_url="";break;
+			case "101" : actT = "Disagreed";this._M_objType="A";this._M_url="";break;
+			case "102" : actT = "Reccomended";this._M_objType="A";this._M_url="";break;		
+		}
+		return actT;
+	},
+	_M_act:function(activityType,_m_msid,_m_msg){
+		if(this._M_mode==1 && (this._M_isLoggedIn() == 1 || (activityType == 100 || activityType == 101 || activityType == 102)) && (_m_msid != undefined || _m_msid != null)){			
+			var src = et.mytUrl + "/mytimes/addActivity?";
+			src += "activityType="+this._M_actType(activityType);
+			src += "&appKey=ET";
+			if(activityType == "100" || activityType == "101" || activityType == "102"){
+				src += "&parentCommentId="+_m_msid;
+			}else{
+				src += "&uniqueAppID="+_m_msid;
+			}
+			src += "&baseEntityType="+this._M_baseEntityType;
+			src += "&objectType="+this._M_objType;
+			src += "&url="+this._M_url;
+			if(_m_msg != null && _m_msg != undefined && _m_msg != ""){	
+				src += "&via="+_m_msg;
+			}					
+			var img = new Image(1,1);					
+			img.src=src;
+		}
+	},
+	_M_done:function(){
+	}
+};
+
+function logonmyt(m_activity,m_msid,m_msg){
+	mytimes._M_act(m_activity,m_msid,m_msg);
+}
+
+function logLinkedShare(){
+	// loggin on MyTimes on Linkedin Share
+	if(_tp_data.isLogged){
+		logonmyt("Shared", page.msid, "Linkedin");
+	}
+}
+
+var fbReader = {
+	offset : 0,
+	offsetPrev : 0,
+	offsetNext : 0,
+	fbToken : null,
+	invoke : function(){
+		fbReader.fbToken = $.cookie("Fbsecuritykey");						
+		if(fbReader.fbToken != null){
+			_tp_data.fbId = $.cookie("Fboauthid");
+			_tp_data.fbName = $.cookie("fbookname");
+			_tp_data.fbEmail = $.cookie("FaceBookEmail");
+
+			if (_tp_data.fbId != null && _tp_data.fbId != undefined){
+				$(".profilePic", "#fbReaderImg").attr("src", "https://graph.facebook.com/" + _tp_data.fbId + "/picture");
+				$(".fbIcon", "#fbReaderImg").show();
+			}
+			$("p.name", "#fbReaderAction")
+				.text(_tp_data.fbName.replace(/\"/gi, ""))
+				.next().text("You are logged in to Facebook")
+				.next().show();
+			$("#fbReaderContent")
+				.removeClass()
+				.find(".logger").hide();
+
+			if(_tp_data.fbEmail != undefined){
+				_tp_data.fbReaderSetting = $.cookie("usrsetting");
+
+				if(_tp_data.fbReaderSetting != undefined){
+					if(_tp_data.fbReaderSetting){
+						$.cookie("usrsetting", "1", {domain : ".indiatimes.com"});
+					} else {
+						$.cookie("usrsetting", "0", {domain : ".indiatimes.com"});
+					}
+				} else {
+					_tp_data.fbReaderSetting = 1;
+					$.cookie("usrsetting", "1", {domain : ".indiatimes.com"});
+				}
+				
+				// Getting Friends Activities
+				setTimeout(function(){
+					fbReader.getUserActivity();
+				}, 3000);
+				
+				// Sending Read Activity on FB
+				if(_tp_data.fbReaderSetting == "1"){
+					setTimeout(function() {
+						$.ajax({
+							url : "https://graph.facebook.com/me/news.reads",
+							method : "POST",
+							data : {
+								article : unescape(page.url),
+								access_token : fbReader.fbToken
+							},
+							success : function(data){
+								//console.log(data);
+							}
+						});
+						/*
+							var frmpostSrc = "/fbpostaction.cms?article=" + unescape(page.url) + "&access_token=" + fbReader.fbToken;
+							$("<iframe />").attr("src", frmpostSrc).css({"display" : "none"}).appendTo(document.body);
+						*/
+					}, 4000);
+				}
+
+				// Opening Box
+				$(">a", "#fbReaderAction .actionBtns").click(function(event){
+					event.preventDefault();
+					$(this).siblings(".dialogbox").hide().eq($(this).index()).show();
+				});
+
+				$(".button", "#fbReaderAction .actionBtns .dialogbox").click(function(){
+					$(this).parent().siblings(".dialogbox").andSelf().hide();
+				});
+
+				$(">a", "#fbReaderAction .actionBtns").first().click(function(){
+					fbReader.showSelfActivity(0);
+				});
+				
+				$(">a", "#fbReaderAction .dialogbox:eq(1)").click(function(event){												
+					event.preventDefault();
+					fbReader.turnSocial();
+				});
+				
+				$(">a", "#fbReaderAction .dialogbox:eq(2)").last().click(function(event){
+					event.preventDefault();
+					signOut();
+				}).prev().click(function(event){
+					FB.ui({
+						method: 'apprequests',
+						message: 'Read The Economic Times with friends. Discover news, videos and much more based on what your friends are reading and watching. Publish your own activity and retain full control.'
+					}, function(response){
+						// Handle callback here
+					});
+					$(this).prev().trigger("click");
+				});
+				
+				// closing boxes on outside click
+				$(document).bind("click.hideMenu", function (event) {
+					if(! $(event.target).isChildOf(".actionBtns")){
+						$(".dialogbox").hide();
+					}
+				});
+
+			} else if(_tp_data.fbEmail == null){
+				
+				$.post("/fbpermsget.cms", {channel : "toi", email : _tp_data.fbEmail}, function (data) {
+					var dataval = $("input", data).val();
+					if (dataval == 2) {
+						$.post("/fbpermsupd.cms", {channel : "toi", email : _tp_data.fbEmail, permissionstatus : 1}, function (data) {
+							var Isdataon = $("input", data).val();
+							if (Isdataon != null && Isdataon == 1) {
+								$.cookie("usrsetting", "1", {domain : ".indiatimes.com"});
+							}
+						});
+					} else if (dataval == 1) {
+						$.cookie("usrsetting", "1", {domain : ".indiatimes.com"});
+					} else if (dataval == 0) {
+						$.cookie("usrsetting", "0", {domain : ".indiatimes.com"});
+					} else if (dataval == -2) {
+						$.error('FB Reader: Unknown exception error on turning social ON or OFF. Please retry!');
+					}
+				});										
+			}
+		}
+	},
+	showSelfActivity : function(from, fromnav){
+		var $box = $(".dialogbox", "#fbReaderAction .actionBtns").first(),
+			$jsonUrl = "https://graph.facebook.com/me/news.reads?access_token=" + fbReader.fbToken + "&offset=" + from + "&limit=5";
+
+		$(".loading", $box).show();
+		$(".profile img", $box)
+			.attr("src", "https://graph.facebook.com/" + _tp_data.fbId + "/picture")
+			.siblings("a").text(_tp_data.fbName).attr("href", "http://www.facebook.com/profile.php?id=" + _tp_data.fbId)
+			.parent().show();
+
+		$("#fbr_content").empty();
+
+		if ($jsonUrl.indexOf("fb_xd_fragment") == -1){
+			$.getJSON($jsonUrl, function(data){
+			
+				var count = 0;
+				$(".loading", $box).hide().prev().show();
+				$(".nav", "#activityList").show();
+				
+				$.each(data.data, function(c, obj){
+					var link = obj.data.article.url,
+						title = obj.data.article.title,
+						pTime = fbReader.setTime(obj.publish_time),
+						postid = obj.id,
+						_html;
+					
+					if (title.indexOf("The Economic Times") != -1) {
+						count++;
+						$(".profile p span", $box).text(count).parent().show();
+						
+						//title = "[ET] " + title.replace("- The Economic Times", " ");
+						
+						_html = "<div class='actList'><img src='/photo/12380407.cms' align='right' alt='' onmouseover='fbReader.changetoRed(this)' onmouseout='fbReader.changetoGray(this)' onclick='fbReader.removeStory(this)' data-id='" + postid + "' />";
+						_html += "<a target='_blank' href='" + link + "'>" + title + "</a><span>" + pTime + "</span></div>";
+						
+						$(_html).appendTo("#fbr_content");
+					}
+				});
+
+				if(count == 0){
+					$(".nav", "#activityList").hide()
+					.next().text("You have no recent read activity!");
+
+					if(fromnav != "undefined"){
+						$("#fbr_content").text("You have no further recent read activity!");
+						$("#fbR_next").removeClass().attr("src", "/photo/12505250.cms").prev().addClass("active").attr("src", "/photo/12505252.cms");
+					}
+				}
+				
+				fbReader.offset = from;
+				
+				if(data.paging.next != null){
+					fbReader.offsetNext = parseInt(data.paging.next.split('offset=')[1].split('&')[0]);
+					$("#fbR_next").addClass("active").attr("src", "/photo/12505258.cms");
+				} else {
+					$("#fbR_next").removeClass().attr("src", "/photo/12505250.cms");
+				}
+				
+				if(data.paging.previous != null){
+					fbReader.offsetPrev = parseInt(data.paging.previous.split('offset=')[1].split('&')[0]);
+					$("#fbR_prev").addClass("active").attr("src", "/photo/12505252.cms");
+				} else {
+					$("#fbR_prev").removeClass().attr("src", "/photo/12505221.cms");
+				}
+				
+				// Binding Next / Prev
+				$("#fbR_next, #fbR_prev").unbind("click");
+				if($("#fbR_prev").hasClass("active")){
+					$("#fbR_prev").bind("click", function(){
+						fbReader.showSelfActivity(fbReader.offsetPrev, true);
+					});
+				}
+				if($("#fbR_next").hasClass("active")){
+					$("#fbR_next").bind("click", function(){
+						fbReader.showSelfActivity(fbReader.offsetNext, true);
+					});
+				}
+			});
+		}
+	},
+	setTime : function (Gmttime) {
+		var ago = '';
+		var dateCurrent = new Date();
+		var l = get_time_difference(Gmttime, dateCurrent);
+		//alert(l.days+"_"+l.hours+"_"+l.minutes+"_"+l.seconds);
+
+		if (l.status != null && l.status == 0) {
+			ago = 'few seconds ago';
+			return ago;
+		} else {
+			if (l.days < 1) {
+				if (l.hours > 0 && l.hours < 24) {
+					ago = l.hours + ' hours ago';
+					return ago;
+				} else if (l.hours < 1) {
+					if (l.minutes < 59 && l.minutes > 0) {
+						ago = l.minutes + ' minutes ago';
+						return ago;
+					} else {
+						ago = l.seconds + ' seconds ago';
+						return ago;
+					}
+				}
+			} else if (l.days > 0) {
+				ago = fbReader.GetIst(Gmttime);
+				return ago;
+			}
+		}
+		
+		function get_time_difference(earlierDate, laterDate) {
+			var oDiff = new Object();
+			var date = new Date(earlierDate);
+			if (date == 'Invalid Date') {
+				oDiff.days = 1;
+				return oDiff;
+			}
+			if (laterDate.getTime() > date.getTime()) {
+				var nTotalDiff = laterDate.getTime() - date.getTime();
+
+				oDiff.days = Math.floor(nTotalDiff / 1000 / 60 / 60 / 24);
+				nTotalDiff -= oDiff.days * 1000 * 60 * 60 * 24;
+
+				oDiff.hours = Math.floor(nTotalDiff / 1000 / 60 / 60);
+				nTotalDiff -= oDiff.hours * 1000 * 60 * 60;
+
+				oDiff.minutes = Math.floor(nTotalDiff / 1000 / 60);
+				nTotalDiff -= oDiff.minutes * 1000 * 60;
+
+				oDiff.seconds = Math.floor(nTotalDiff / 1000);
+				return oDiff;
+			} else {
+
+				oDiff.status = 0;
+				return oDiff;
+			}
+		}
+	},
+	GetIst : function (dt) {
+		var weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+			months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+		var datetime = dt;
+		if (document.all)
+			datetime = datetime.replace(/-/gi, '/');
+
+		var date = new Date(datetime);
+		var datepath = date.toLocaleString();
+		var rvalue = weekday[date.getDay()] + ", " + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes() + " IST";
+		return rvalue;
+	},
+	changetoRed : function(img){
+		$(img).attr("src", "/photo/12380414.cms");
+	},
+	changetoGray : function(img){
+		$(img).attr("src", "/photo/12380407.cms");
+	},
+	removeStory : function(img){
+		var articleId = $(img).attr('data-id'),
+			postUrl = "/fbdeletepost.cms";
+
+		$.post(postUrl, {
+			postid : articleId,
+			access_token : fbReader.fbToken
+			}, function (data) { {
+				$(img).hide()
+				.siblings("span").text('Post removed').css({'color' : 'red'})
+				.siblings("a").removeAttr("href").css({'color' : '#CCC'});
+			}
+		});
+	},
+	turnSocial : function(){
+		if(_tp_data.fbReaderSetting == 1){
+			$.post("/fbpermsupd.cms", {channel : "et", email : _tp_data.fbEmail, permissionstatus : 0}, function (data) {
+				var dataval = $("input", data).val();
+				if (dataval == 0) {
+					$.cookie("usrsetting", "0", {domain : ".indiatimes.com"});
+					$("span", "#fbReaderAction .actionBtns > a:eq(1)").text("OFF").removeClass().addClass("off");
+					$("span", "#fbReaderAction .dialogbox:eq(1) > div")
+						.text("OFF").removeClass().addClass("off")
+						.parent().trigger("click")
+						.next().find("span").text("ON");
+						
+					_tp_data.fbReaderSetting = 0;
+				}
+			});
+		}
+		if(_tp_data.fbReaderSetting == 0){
+			$.post("/fbpermsupd.cms", {channel : "toi", email : _tp_data.fbEmail, permissionstatus : 1}, function (data) {
+				var dataval = $("input", data).val();
+				if (dataval == 1) {
+					$.cookie("usrsetting", "1", {domain : ".indiatimes.com"});
+					$("span", "#fbReaderAction .actionBtns > a:eq(1)").text("ON").removeClass().addClass("on");
+					$("span", "#fbReaderAction .dialogbox:eq(1) > div")
+						.text("ON").removeClass().addClass("on")
+						.parent().trigger("click")
+						.next().find("span").text("OFF");
+						
+					_tp_data.fbReaderSetting = 1;
+				}
+			});
+		}
+	},
+	getUserActivity : function(){
+		var url = "";
+		if($.browser.msie){
+			url = '/me/friends?limit=350&access_token=' + fbReader.fbToken;
+			if (url.indexOf("fb_xd_fragment") == -1) {
+				FB.api(url, {
+					fields : 'news.reads.limit(1)'
+				}, function (response) {
+					fbReader.parseActivityJSON(response);
+				});
+			}
+		} else {
+			url = "https://graph.facebook.com/me/friends?limit=350&fields=news.reads.limit(1)&access_token=" + fbReader.fbToken;
+			if (url.indexOf("fb_xd_fragment") == -1) {
+				$.getJSON(url, function (data) {
+					fbReader.parseActivityJSON(data);
+				});
+			}
+		}
+	},
+	parseActivityJSON : function(resp){
+		var count = 0;
+		
+		$.each(resp.data, function (c, obj) {
+			try {
+				if (obj["news.reads"].data[0] != 'undefined') {
+					if (count <= 14) {
+						var UserId = obj["news.reads"].data[0].from.id,
+							userName = obj["news.reads"].data[0].from.name,
+							articleId = obj["news.reads"].data[0].data.article.id,
+							articleTitle = obj["news.reads"].data[0].data.article.title,
+							articleUrl = obj["news.reads"].data[0].data.article.url;
+						
+						articleTitle = articleTitle.replace("- The Times of India", " ");
+						
+						if(count < 15){
+							var htmlstr = "<div class='activityDataList'>";
+							htmlstr += "<div class='flt'><img height='40' alt='' src='https://graph.facebook.com/" + UserId + "/picture' /></div>";
+							htmlstr += "<span>" + userName + "</span> read ";
+							htmlstr += "<a target='_blank' pg='YFAL" + count + "' href='" + articleUrl + "'>" + articleTitle + "</a>";
+							htmlstr += "<div class='clr' /></div>";
+							
+							if(count%3 == 0){
+								$("<div class='actListBlock' />").appendTo("#fbReaderContent .activityContent");
+							}
+							
+							$(".actListBlock", "#fbReaderContent .activityContent").last().append(htmlstr);
+						}
+						count++;
+					} else {}
+				}
+			} catch (exx) {}
+		});
+		
+		if (count <= 3) {
+			$("span", "#fbReaderContent .navs").text("1 of 1").parent().hide();
+		}
+		if (count > 0) {
+			$("span", "#fbReaderContent .navs").html("<b>1</b> of " + Math.ceil(count/3));
+			$(".actListBlock", "#fbReaderContent .activityContent").first().siblings().hide();
+			$(".activityContent, .barhead", "#fbReaderContent").slideDown();
+			
+			var $div = $(".actListBlock", "#fbReaderContent"),
+				$currentIndex = parseInt($("b", "#fbReaderContent .navs span").text()),
+				$total = $div.length;
+			
+			$(".next", "#fbReaderContent .navs").click(function(){
+				$currentIndex = parseInt($("b", "#fbReaderContent .navs span").text());
+					
+				if($currentIndex < $total){
+					$div.eq($currentIndex).stop().slideDown().siblings().slideUp();
+					$("b", "#fbReaderContent .navs span").text($currentIndex+1);
+				}
+			})
+			.siblings(".prev").click(function(){
+				$currentIndex = parseInt($("b", "#fbReaderContent .navs span").text());
+					
+				if($currentIndex > 1){
+					$div.eq($currentIndex-2).stop().slideDown().siblings().slideUp();
+					$("b", "#fbReaderContent .navs span").text($currentIndex - 1);
+				}
+			});
+		}
+	}
+}
+
+var skinningExist = false;
+/***** ADOPTED *****/
+function df(sd) {
+	sd = sd.replace(/-/g, ' ');
+	var timeStamp = "",
+	cd = new Date();
+
+	if (sd == "" || sd == null)
+		return;
+	sd = new Date(sd);
+	if (cd.getTime() < sd.getTime())
+		return;
+	var chk = 0;
+	var diff = Math.abs(cd.getTime() - sd.getTime());
+	diff = ((diff / 1000) / 60);
+	chk = diff % 60;
+	if (diff <= 28800) {
+		if (diff < 60) {
+			if (diff < 2) {
+				timeStamp = parseInt(diff) + " Minute ago";
+			} else {
+				timeStamp = parseInt(diff) + " Minutes ago";
+			}
+		} else if (diff < 1440) {
+			if (diff < 119) {
+				timeStamp = Math.floor(diff / 60) + " Hour ago";
+			} else {
+				timeStamp = Math.floor(diff / 60) + " Hours ago";
+			}
+		} else if (diff <= 28800) {
+			if (diff < 2880) {
+				timeStamp = Math.floor(diff / (60 * 24)) + " Day ago";
+			} else {
+				timeStamp = Math.floor(diff / (60 * 24)) + " Days ago";
+			}
+		}
+	} else {
+		timeStamp = sd.toString().split("GMT")[0];
+	}
+	return timeStamp;
+}
+function remainingChar(a, b) {
+	var c = a.value.length;
+	if (eval("1500-" + c) < 0)
+		return a.value = a.value.substring(0, 1500), alert("You have entered more than 1500 characters"), $("#"+b).text(eval("0")), !1;
+	$("#"+b).html(eval("1500-" + c))
+}
+function putMathQ(a) {
+	var num1 = Math.floor(Math.random() * 10),
+		num2 = Math.floor(Math.random() * 6),
+		ques = num1 + " + " + num2 + " = ";
+	
+	$("#mathans" + a).val(num1 + num2);
+	$("#mathq" + a).text(ques);
+}
+
+function tagThisComment(a, b, c, d, n) {
+	var alertText = "";
+	if ($(n).attr("tpointaddress") == _tp_data.email) {
+		switch (b) {
+		case "100":
+			alertText = "You can't agree with your own comment!";
+			break;
+		case "101":
+			alertText = "You can't disagree with your own comment!";
+			break;
+		case "102":
+			alertText = "You can't recommend your own comment!";
+			break;
+		case "103":
+			alertText = "You can't mark your own comment as offensive!";
+			break;
+		}
+	} else {
+		var e = $.cookie("msgid" + a),
+		cmtId = a;
+		e == null && (e = "");
+		if ((e.indexOf("100") != -1 || e.indexOf("101") != -1) && (b == "100" || b == "101")) {
+			alertText = "You've already voted!";
+		} else if ((e.indexOf("103") != -1 && b == "103")) {
+			alertText = "You've already marked this comment as Abusive!";
+		} else if ((e.indexOf("102") != -1 || e.indexOf("103") != -1) && (b == "102" || b == "103")) {
+			alertText = "You just Recommended this comment!";
+		} else if (e.indexOf("102") == -1 && b == "103") {
+			showOffBox(a, page.msid);
+		} else {
+			var f = "/ratecomment.cms?opinionid=" + a + "&typeid=" + b + "&rateid=1";
+			e != null && $.cookie("msgid" + a, e + "_" + b);
+			
+			var className = $("#"+c).attr('class');
+			$("#"+c).removeClass().addClass(className + "done");
+			
+			if(! $("#result").length){
+				$("<div id='result' class='hidden' />").appendTo(document.body);
+			}
+			
+			$("#result").load(f, function(){
+				tagingDone(" + c + "," + b + "," + d + ");
+			})
+			try {
+				if (_tp_data.isLogged) {
+					_tp_async_data = {
+						host : "ET",
+						channel : 'ET-News',
+						URL : window.location.href,
+						userId : $(n).attr("tpointaddress"),
+						oid : "",
+						email : $(n).attr("tpointaddress")
+					};
+					if (window.log) {
+						if (b == "100") {
+							//log('agree', page.msid);
+						} else if (b == "102") {
+							log('like', page.msid);
+						}
+					}
+					_tp_async_data.userId = _tp_data.email;
+					_tp_async_data.email = _tp_data.email;
+				}
+			} catch (ex) {}
+			tagingDone(c, b, d, a);
+		}
+	}
+	if (alertText != "" && !$('#' + c).siblings(".alertText").length) {
+		$('#' + c).parent().append("<div class='alertText' />");
+		$('#' + c).siblings(".alertText")
+		.text(alertText)
+		.css({
+			'background' : '#FFF',
+			'border' : '1px solid #080',
+			'color' : '#000',
+			'font-size' : '11px',
+			'font-weight' : 700,
+			'margin-top' : '-50px',
+			'margin-left' : '-55px',
+			'padding' : '5px',
+			'position' : 'absolute',
+			'z-index' : 200,
+			'width' : '160px'
+		});
+		setTimeout(function () {
+			$('#' + c).siblings(".alertText").fadeOut('medium', function () {
+				$('#' + c).siblings(".alertText").remove();
+			});
+		}, 3000)
+	}
+}
+
+function showOffBox(a, b) {
+	$(".formElms", "#abuseForm").show();
+	$(".msg", "#abuseForm").hide();
+	etArt.openPopup("#reportAbuseDiv");
+	$("#ofusername, #ofreason").val("");
+	$("#ofcommenteroid").val(a);
+	$("#ofcommentid").val(b);
+	if(_tp_data.isLogged){
+		$("#ofusername").val(_tp_data.fullName).hide().prev().hide();
+		$("#ofuseremail").val(_tp_data.email);
+	}
+}
+
+function SubmitAbuse(formName){
+	var reqData = {
+		ofusername : $("#ofusername").val(),
+		ofreason : $("#ofreason").val(),
+		ofcommenteroid : $("#ofcommenteroid").val(),
+		ofcommenthostid : $("#ofcommenthostid").val(),
+		ofcommentchannelid : $("#ofcommentchannelid").val(),
+		ofcommentid : $("#ofcommentid").val()
+	}
+	
+	if(_tp_data.isLogged){
+		reqData.ofuserisloggedin = 1;
+		reqData.ofuseremail = _tp_data.email;
+		reqData.ofuserssoid = _tp_data.email;
+	}
+	
+	if(reqData.ofusername == ""){
+		alert("Please enter your name.");
+	} else if(reqData.ofreason == ""){
+		alert("Please select your Reason");
+	}
+	
+	if(reqData.ofreason == "Others"){
+		if($("textarea", "#abuseForm").val() == ""){
+			alert("Please Enter your Other Reason");
+		} else {
+			reqData.ofreason = "Others: " + $("textarea", "#abuseForm").val();
+		}
+	}
+	
+	if(reqData.ofusername != "" && reqData.ofreason != "" && reqData.ofreason != "Others"){
+		$.ajax({
+			url: "/Offencive.cms",
+			data : reqData,
+			success : function(data){
+				$(".formElms", "#abuseForm").slideUp();
+				$(".msg", "#abuseForm").slideDown();
+				$("#op1_"+reqData.ofcommenteroid).parent().html("<img src='/photo/5878111.cms' alt='' />");
+				if(_tp_data.isLogged){
+					logonmyt('Offensive', page.msid, '');
+				}
+				setTimeout(function(){
+					if($("#abuseForm").is(":visible")){
+						$(".closeBtn", "#abuseForm").last().click();
+					}
+				}, 1e4);
+			}
+		});
+	}
+}
+
+
+function tagingDone(a, b, c, cmtID) {
+	a = GE(a);
+	switch (b) {
+	case "100":
+		a.innerHTML = "Agree (" + (c + 1) + ")";
+		logonmyt('100', cmtID, '');
+		break;
+	case "101":
+		a.innerHTML = "Disagree (" + (c + 1) + ")";
+		logonmyt('101', cmtID, '');
+		break;
+	case "102":
+		a.innerHTML = "Recommend (" + (c + 1) + ")";
+		logonmyt('102', cmtID, '');
+	}
+}
+
+function showradiolayer(status) {
+	if (status == 0) {
+		$('#offensiveotherdiv').hide();
+	} else {
+		document.abuseForm.offensiveother.value = "";
+		$('#offensiveotherdiv').show();
+	}
+}
+function radioclear() {
+	document.abuseForm.ofreasonradio[0].checked = false;
+	document.abuseForm.ofreasonradio[1].checked = false;
+	document.abuseForm.ofreasonradio[2].checked = false;
+	document.abuseForm.ofreasonradio[3].checked = false;
+	document.abuseForm.offensiveother.style.display = "none";
+}
+// Retrieves Comments
+var disableCmtLoading = true,
+	totalCmtPg = 86,
+	pgno = 2,
+	loadflg = 1;
+	
+function enableCmtload(){
+	disableCmtLoading = true;
+	$('#seeallcomment').hide();
+	loadComment();
+}
+function disableCmtload(){
+	if (pgno < totlalPage) {
+		disableCmtLoading = false;
+		$('#seeallcomment').show();
+	}
+}
+
+function loadComment() {
+	if (disableCmtLoading == true) {
+		loadflg = 0;
+		$(".cmtBox", "#populatecomment").last().after("<div class='loading'>Loading...</div>");
+		$(".loading", "#populatecomment").slideDown(800, function(){
+			$.ajax({
+				url : "/cmt_new1.cms",
+				data : {
+					msid : page.msid,
+					curpg : pgno
+				},
+				success : function (data) {
+					$(".loading", "#populatecomment").animate({
+						height : 0,
+						opacity : 'hide'
+					}, 300, function(){
+						$(".loading", "#populatecomment").remove();
+						$(".cmtBox", "#populatecomment").last().after(data);
+						
+						$("div:first", ".userDetails").css({'padding-bottom' : '3px'});
+						
+						$.each($("span[id^=dtfrmt]"), function(){
+							var t = $(this).attr('rodate');
+							$(this).text(df(t));
+						});
+
+						logtimespoint(pgno-1);
+						//putMathQ(1);
+						loadflg = 1;
+					});
+				}
+			});
+			pgno += 1;
+		});
+	}
+}
+	
+function getComments(){
+	$.ajax({
+		url : "/cmt_new1.cms",
+		data : {
+			msid : page.msid
+		},
+		dataType : "html",
+		cache : false,
+		success : function (data) {
+			$("#populatecomment").html(data);
+			
+			var commentsCount = 0;
+			if($("#cmtcount2").text().length){
+				commentsCount = parseInt($("#cmtcount2").text());
+			}
+			$("#commentCount")
+				.text(commentsCount + " comments")
+				.after("<span> |</span>")
+				.parent().width(190);
+				
+			$("#commentCountBtn").text(commentsCount).slideDown();
+			
+			if(!commentsCount){
+				$("form[id^=commentOnArticle] > h5").html('There are no comments on this article yet. <b>Be first to post one!</b>');
+			} else {
+				$("form[id^=commentOnArticle] > h5").html('Have something to say? <b>Post your comment</b>');
+			}
+
+			$("div:first", ".userDetails").css({'padding-bottom' : '3px'});
+			
+			// tw-fb checkbox
+			if($.cookie('fbcheck') == "1"){
+				$("input[name=chkfb]").prop('checked', true);
+			}
+			if($.cookie('twtcheck') == "1"){
+				$("input[name=chktwt]").prop('checked', true);
+			}
+
+			// Show Comment Date-Time
+			$.each($("span[id^=dtfrmt]"), function(){
+				var t = $(this).attr('rodate');
+				$(this).text(df(t));
+			});
+			
+			logtimespoint(1);
+			//putMathQ(1);
+			
+			// Binding on SCROLL load comments
+			totalCmtPg = parseInt($("#cmtcount2").text());
+			totalCmtPg = (totalCmtPg % 25) == 0 ? (totalCmtPg / 25) : (totalCmtPg / 25) + 1;
+
+			$(window).bind("scroll", function () {
+				if (($(document).height() - $(document).scrollTop()) < 1100 && loadflg == 1 && pgno < totalCmtPg) {
+					loadComment();
+				}
+			});
+			
+			// Loading inFocus
+			if(commentsCount < 8){
+				$.ajax({
+					url : "/articleshow_infocus.cms",
+					success : function(data){
+						$("#inFocus", "#pageContent").html(data).slideDown(500, function(){
+							$(".etSlider", "#inFocus").etSlider();
+						});
+					}
+				});
+			}
+		}
+	});
+}
+
+// New Function
+function submitComment(currentBtn, pageType){
+	
+	var curForm = $(currentBtn).parents('form');
+	
+	var inputs = {
+		fromname : $(":input[name=fromname]", curForm[0]),
+		fromaddress : $(":input[name=fromaddress]", curForm[0]),
+		location: $(":input[name=location]", curForm[0]),
+		cmtMsg : $(":input[name=cmtMsg]", curForm[0]),
+		mathans : $(":input[name=mathans]", curForm[0]),
+		mathuserans : $(":input[name=mathuserans]", curForm[0]),
+		chkfb : $(":input[name=chkfb]", curForm[0]),
+		chktwt : $(":input[name=chktwt]", curForm[0])
+	}
+	
+	//Setting Data to hit the service
+	var cmtData = {
+		fromname : "",
+		fromaddress : "",
+		location : "",
+		message : (inputs.cmtMsg.val() != "Your comment") ? $.trim(inputs.cmtMsg.val()) : "",
+		roaltdetails : $("#roaltdetails").val(),
+		ArticleID : $("#id").val(),
+		msid : $("#id").val(),
+		userid : "qrst",
+		parentid : $("#parentid").val(),
+		rootid : $("#rootid").val(),
+		loggedstatus : _tp_data.isLogged ? 1 : 0
+	}
+	
+	if(_tp_data.isLogged){
+		cmtData.fromname = _tp_data.fullName;
+		cmtData.fromaddress = _tp_data.email;
+		cmtData.location = _tp_data.city;
+		cmtData.userid = _tp_data.email;
+		
+		if(typeof isMarket != "undefined"){
+			cmtData.isMarket = isMarket;
+		}
+	} else {
+		cmtData.fromname = inputs.fromname.val() != "Name" ? $.trim(inputs.fromname.val()) : "";
+		cmtData.fromaddress = inputs.fromaddress.val() != "Email" ? $.trim(inputs.fromaddress.val()) : "";
+	}
+	
+	cmtData.location = inputs.location.val() != "Location" ? $.trim(inputs.location.val()) : "";
+	
+	if ($.cookie('FaceBookEmail') != null) {
+		cmtData.fbemailid = $.cookie('FaceBookEmail');
+	}
+	
+	// Validations
+	if(cmtData.message.length == 0){
+		alert("Please Enter Your Comment.");
+		inputs.cmtMsg.focus();
+	} else if(!_tp_data.isLogged && !cmtData.fromname.length){
+		alert("Please Enter Your name.");
+		inputs.fromname.focus();
+	} else if(!_tp_data.isLogged && !cmtData.fromaddress.length){
+		alert("Please Enter Your Email.");
+		inputs.fromaddress.focus();
+	} else if(!_tp_data.isLogged && !validateEmail($.trim(inputs.fromaddress.val()))){
+		alert("Please Enter A Valid Email.");
+		inputs.fromaddress.focus();
+	} else if(! cmtData.location.length){
+		alert("Please Enter Your Location.");
+		inputs.location.focus();
+	} else if($.trim(inputs.mathuserans.val()) != inputs.mathans.val()){
+		alert("Please Enter Correct Answer.");
+		inputs.mathuserans.focus();
+	} else {
+		
+		// Posting Comment
+		$.ajax({
+			type: "POST",
+			url: "/postro.cms",
+			data : cmtData,
+			success: function(data){
+				
+				// If Facebook is checked
+				if(inputs.chkfb.is(":checked")){
+					shareFB(cmtData.message);
+					$.cookie("fbcheck", "1", {expires : 7});
+				}
+				
+				// If Twitter is checked
+				if(inputs.chktwt.is(":checked")){
+					shareTW(cmtData.message);
+					$.cookie("twtcheck", "1", {expires : 7});
+				}
+				
+				// Showing Message
+				var pgType = (pageType != undefined) ? pageType : 'article';
+				curForm.next(".cmtMsg")
+					.html("<h6 class='thankText'>Thank you!</h6>")
+					.append("<p class='thankText'>We appreciate you taking time to post your opinion on this " + pgType + ".</p>")
+					.append("<p class='thankText'>You might also like to read <a href='/opinions/" + cmtData.msid + ".cms'>what others have to say</a> on this " + pgType + ".</p>")
+				.slideDown()
+				.siblings("form").slideUp();
+				
+				// Making Comment Box Empty
+				$("[id^=postCmtBox] textarea").val("");
+				$("[id^=atrcharcount]").text(1500);
+				
+				// Closing Comment Box
+				setTimeout(function(){
+					if($("#postCmtBox").is(":visible")){
+						$(".close", "#postCmtBox").click();
+					}
+				}, 3000);
+				
+				// Saving Location, Name of user
+				if(_tp_data.isLogged && _tp_data.city == ""){
+					var locationData = {
+						emailid : cmtData.fromaddress,
+						city : cmtData.location,
+						firstname : _tp_data.fname
+					}
+					
+					if(_tp_data.fullName.split(" ")[1].length){
+						locationData.lastname = _tp_data.fullName.split(" ")[1];
+					}
+					
+					$.ajax({
+						type : "POST",
+						url : "http://timesofindia.indiatimes.com/fbssoupdate.cms?",
+						data : locationData,
+						success: function(data){
+							//_debug(data);
+						}
+					});
+				}
+			}
+		});
+	}
+}
+
+// Reply Comment
+function cmtReply(cmtId, rootId, level, obj){
+	var formHolder = $(obj).siblings('.cmtReplier');
+	
+	if($("#replyForm form").length){
+		$(".cmtReplier", ".cmtBox").empty();
+		$("#replyForm form").appendTo(formHolder);
+	} else {
+		$(".cmtReplier form").appendTo(formHolder);
+	}
+	
+	formHolder.find("form .msg").hide().siblings().show();	
+	putMathQ("2");
+	
+	// Filling Details
+	$("#parentid2").val(cmtId);
+	$("#rootid2").val(rootId);
+	if(_tp_data.isLogged){
+		formHolder.find("input[name=fromaddress]").val(_tp_data.email).parent().hide();
+		if(_tp_data.fullName != ""){
+			formHolder.find("input[name=fromname]").val(_tp_data.fullName).parent().hide();
+		}
+		if(_tp_data.city != ""){
+			formHolder.find("input[name=location]").val(_tp_data.city).parent().parent().hide().next().css({'margin-left' : 0});;
+		}
+	}
+	
+	// Close Button Click
+	formHolder.find(".closeBtn").unbind("click").bind("click", function(){
+		formHolder.find("form")[0].reset();
+		formHolder.find("form").appendTo("#replyForm");
+	});
+}
+
+function submitReply(pageType){
+
+	//Setting Data to hit the service
+	var cmtData = {
+		fromname : "",
+		fromaddress : "",
+		location : ($.trim($("#location1").val()) != "Location") ? $.trim($("#location1").val()) : "",
+		message : $("#message").val() != "Your reply" ? $.trim($("#message").val()) : "",
+		roaltdetails : $("#roaltdetails2").val(),
+		ArticleID : $("#id").val(),
+		msid : $("#id").val(),
+		userid : "qrst",
+		parentid : $("#parentid2").val(),
+		rootid : $("#rootid2").val(),
+		loggedstatus : _tp_data.isLogged ? 1 : 0
+	}
+	
+	if(_tp_data.isLogged){
+		cmtData.fromname = _tp_data.fullName;
+		cmtData.fromaddress = _tp_data.email;
+		cmtData.userid = _tp_data.email;
+		cmtData.imageurl = $.cookie("fbook_image");
+		
+		if(typeof isMarket != "undefined"){
+			cmtData.isMarket = isMarket;
+		}
+	} else {
+		cmtData.fromname = $("#fromname1").val() != "Name" ? $.trim($("#fromname1").val()) : "";
+		cmtData.fromaddress = $("#fromaddress1").val() != "Email" ? $.trim($("#fromaddress1").val()) : "";
+	}
+	
+	if ($.cookie('FaceBookEmail') != null) {
+		cmtData.fbemailid = $.cookie('FaceBookEmail');
+	}
+	
+	if(! cmtData.message.length){
+		alert("Please Enter Your Comment.");
+		$("#message").focus();
+	} else if(!_tp_data.isLogged && !cmtData.fromname.length){
+		alert("Please Enter Your name.");
+		$("#fromname1").focus();
+	} else if(!_tp_data.isLogged && !cmtData.fromaddress.length){
+		alert("Please Enter Your Email.");
+		$("#fromaddress1").focus();
+	} else if(!_tp_data.isLogged && !validateEmail($.trim($("#fromaddress1").val()))){
+		alert("Please Enter A Valid Email.");
+		$("#fromaddress1").focus();
+	} else if(! cmtData.location.length){
+		alert("Please Enter Your Location.");
+		$("#location1").focus();
+	} else if($.trim($("#mathuserans2").val()) != $("#mathans2").val()){
+		alert("Please Enter Correct Answer.");
+		$("#mathuserans2").focus();
+	} else {
+		$.ajax({
+			type: "POST",
+			url: "/postro.cms",
+			data : cmtData,
+			success: function(data){
+				
+				// If Facebook is checked
+				if($("#chkfb1").is(":checked")){
+					shareFB(cmtData.message);
+					$.cookie("fbcheck", "1", {expires : 7});
+				}
+				
+				// If Twitter is checked
+				if($("#chktwt1").is(":checked")){
+					shareTW(cmtData.message);
+					$.cookie("twtcheck", "1", {expires : 7});
+				}
+				
+				// Showing Message
+				var pgType = (pageType != undefined) ? pageType : 'article',
+					targetForm = $("#fromname1").parents("form"),
+					messageDiv = targetForm.find("> .msg");
+				
+				messageDiv.html("<h6 class='thankText'>Thank you!</h6>");
+				messageDiv.append("<p class='thankText'>We appreciate you taking time to post your opinion on this " + pgType + ".</p>");
+				messageDiv.append("<p class='thankText'>You might also like to read <a href='/opinions/" + cmtData.msid + ".cms'>what others have to say</a> on this " + pgType + ".</p>")
+				.slideDown()
+				.siblings(".elms").slideUp();
+				
+				targetForm[0].reset();
+				
+				// Saving Location, Name of user
+				if(_tp_data.isLogged && _tp_data.city == ""){
+					var locationData = {
+						emailid : cmtData.fromaddress,
+						city : cmtData.location,
+						firstname : _tp_data.fname
+					}
+					
+					if(_tp_data.fullName.split(" ")[1].length){
+						locationData.lastname = _tp_data.fullName.split(" ")[1];
+					}
+					
+					$.ajax({
+						type : "POST",
+						url : "http://timesofindia.indiatimes.com/fbssoupdate.cms?",
+						data : locationData,
+						success: function(data){
+							//_debug(data);
+						}
+					});
+				}
+			}
+		});
+	}
+}
+
+function shareFB(msg){
+	$(":input[name=link]", "#fbPost").val(document.location.href);
+	$(":input[name=message ]", "#fbPost").val(document.title);
+    if(msg && $.trim(msg).length){		
+		$(":input[name=message ]", "#fbPost").val(msg);
+	}
+	$("#fbPost").submit();
+	$(":input[name=message ]", "#fbPost").val(document.title);
+}
+
+function shareTW(msg){
+	$(":input[name=link]", "#twPost").val(document.location.href);
+	$(":input[name=message ]", "#twPost").val(document.title);
+    if(msg && $.trim(msg).length){		
+		$(":input[name=message ]", "#twPost").val(msg);
+	}
+	$("#twPost").submit();
+	$(":input[name=message ]", "#twPost").val(document.title);
+}
+
+function logaction(action) {
+	if(typeof iBeatPgTrend != "undefined"){
+		iBeatPgTrend.logaction(action);
+	}
+}
+
+// Sharing Tools
+var txtVersion = "1.1";
+var addtoInterval = null;
+var popupWin = "";
+var AddOthers1 = "en&urlaffiliate=43017&encoding=UTF-8";
+var addtoLayout='';
+var AddOthers;
+
+function addto(addsite) {
+	AddOthers = $("meta[name=description]").attr("content");
+	switch (addsite) {
+	case 1:
+		var AddSite = "http://del.icio.us/post?";
+		var AddUrlVar = "url";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 2:
+		var AddSite = "http://www.facebook.com/sharer.php?";
+		var AddUrlVar = "u";
+		var AddTitleVar = "t";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 3:
+		var AddSite = "http://www.stumbleupon.com/submit?";
+		var AddUrlVar = "url";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 4:
+		var AddSite = "http://www.newsvine.com/_tools/user/login?redirect";
+		var AddUrlVar = "url";
+		var AddTitleVar = "t";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 5:
+		var AddSite = "http://technorati.com/signup/?f=favorites";
+		var AddUrlVar = "url";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 6:
+		var AddSite = "http://e.my.yahoo.com/config/edit_bookmark?.src=bookmarks&.folder=1&.name=";
+		var AddUrlVar = "url";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 7:
+		var AddSite = "http://www.google.com/bookmarks/mark?op=add&";
+		var AddUrlVar = "bkmk";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 8:
+		var AddSite = "http://digg.com/submit?phase=2&";
+		var AddUrlVar = "url";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 9:
+		var AddSite = "http://reddit.com/submit?url=";
+		var AddUrlVar = "url";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 10:
+		var AddSite = "http://favorites.live.com/quickadd.aspx?url=";
+		var AddUrlVar = "url";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 11:
+		var AddSite = "http://blogmarks.net/my/new.php?mini=1&simple=1&title=";
+		var AddUrlVar = "url";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 12:
+		var AddSite = "http://hotklix.com/?ref=share_this&";
+		var AddUrlVar = "addurl";
+		var AddTitleVar = "title";
+		var AddNoteVar = "";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "";
+		break;
+	case 13:
+		var AddSite = "http://www.apnacircle.com/shareit/share/?";
+		var AddUrlVar = "url";
+		var AddTitleVar = "title";
+		var AddNoteVar = "overview";
+		var AddReturnVar = "";
+		var AddOtherVars = "";
+		var AddOtherVars1 = "urllanguage";
+		break;
+	default:
+	}
+	var addtoFullURL = AddSite + AddUrlVar + "=" + encodeURIComponent(document.location.href) + "&" + AddTitleVar + "=" + encodeURIComponent(document.title);
+	if (AddOtherVars != "")
+		addtoFullURL = addtoFullURL + "&" + AddOtherVars + "=" + AddOthers;
+	if (AddOtherVars1 != "")
+		addtoFullURL = addtoFullURL + "&" + AddOtherVars1 + "=" + AddOthers1;
+	if (AddNoteVar != "")
+		var addtoFullURL = addtoFullURL + "&" + AddNoteVar + "=" + encodeURIComponent(document.title);
+	if (AddReturnVar != "")
+		var addtoFullURL = addtoFullURL + "&" + AddReturnVar + "=" + encodeURIComponent(document.location.href);
+	
+	addtoWin(addtoFullURL, addsite);
+	
+}
+function addtoWin(addtoFullURL, addsite) {
+	if(addsite == 2){
+		window.open(addtoFullURL, 'FB', 'height=350,width=550,left=400,top=200');
+	} else if (!popupWin.closed && popupWin.location) {
+		popupWin.location.href = addtoFullURL;
+		intervalMgr()
+	} else {
+		popupWin = window.open(addtoFullURL);
+		if (!popupWin.opener)
+			popupWin.opener = self;
+		intervalMgr()
+	}
+	if (window.focus)
+		popupWin.focus();
+	return false
+}
+function intervalMgr() {
+	if (/Safari/i.test(navigator.userAgent))
+		var addtoInterval = setInterval(function () {
+				if (/loaded|complete/.test(document.readyState)) {
+					clearInterval(addtoInterval);
+					closeAddTo()
+				}
+			}, 1E3);
+	else
+		var addtoInterval = setInterval("closeAddTo();", 1E3)
+}
+function closeAddTo() {
+	if (!popupWin.closed && popupWin.location) {
+		if (popupWin.location.href == AddURL)
+			popupWin.close()
+	} else {
+		clearInterval(addtoInterval);
+		return true
+	}
+}
+
+/***** ADOPTED *****/
+
+// on DOM Ready
+$(document).ready(function(){
+
+	var userId = _tp_data.email;
+	if(_tp_data.isLogged){
+		if(!userId){
+			userId = $.cookie("MSCSAuthDetails").split("=")[1];
+		}
+		userId = (userId.indexOf("@indiatimes.com") != -1) ? userId.split("@indiatimes.com")[0] : userId;
+	}
+
+	// Showing Company Data inside the article
+	if($("#stockInfo").length){
+		setCompanyData();
+		if(_mkt.isOpen){
+			setInterval(function(){
+				setCompanyData();
+			}, 3e4);
+		}
+	}
+	
+	//Opening ShareMore Popup
+	$(".shareMore", ".sharingBox").bind("click", function(){
+		etArt.openPopup("#shareIcons");
+	});
+	
+	$("#mf_follow .email, .articleBtns .email").bind("click", function(event){
+		etArt.openPopup("#shareEmail");
+		event.preventDefault();
+	});
+	
+	// Resetting Sharing Bar Position	
+	etArt.setSharer();
+	var sharebarTopPos = $("#shareVertHolder").offset().top + parseInt($("#shareVert").css('top')) - parseInt($("#shareVert").css('margin-top')),
+		preventSlideAd = false,
+		slideAdExist = false;
+	
+	$(window).bind("scroll", function(){
+		var topPos = $(window).scrollTop();
+		
+		// Slide Similar Ad
+		if(! preventSlideAd && $("#postCmtBox").is(":hidden")){
+			var slidePos = $("article").offset().top + $("article").height() - $(window).height() + 200;
+			if(topPos > slidePos){
+				if(slideAdExist){
+					$("#similarNews").stop().animate({right : 0});
+				} else {
+					slideAdExist = true;
+					$.ajax({
+						url : "/rec_arts_slide.cms",
+						data : {msid : page.msid},
+						success : function(data){
+							if(data == "Not found"){
+								//slideAdExist = false;
+								$("#similarNews").hide();
+							} else {
+								$("#similarNews")
+									.empty()
+									.append("<div class='close' pg='ashowRecEng4'/>" + data)
+									.stop()
+									.animate({right : 0});
+							}
+						},
+						error : function(){
+							slideAdExist = false;
+						}
+					});
+				}
+				
+				$(".close", "#similarNews").unbind("click").bind("click", function(){
+					$("#similarNews").stop().animate({right : -450});
+					preventSlideAd = true;
+				});
+			} else {
+				$("#similarNews").stop().animate({right : -450});
+			}
+		}
+		
+		// ShareBar
+		if(topPos > sharebarTopPos){
+			$("#shareVert").css({
+				position:'fixed',
+				top : 0
+			});
+			if($.browser.msie && $.browser.version < 8){
+				$("#shareVert").css({left:($(window).width()-1003)/2});
+			}
+		} else {
+			$("#shareVert").removeAttr('style');
+		}
+		
+		// Spotlight instance
+		var spHeight = $("#splightMain").height();
+		if((topPos > $("#sideBar").offset().top + $("#sideBar").height()) && (topPos < $(".bottomBar").offset().top - spHeight - 30)){
+			$("#spPlaceholder").height(spHeight);
+			$("#splightMain").appendTo("#spFixed");
+		} else {
+			$("#spPlaceholder").height(0).after($("#splightMain"));
+		}
+	});
+	$(window).resize(function(){
+		etArt.setSharer();
+	});
+	
+	$(".save", ".articleBtns").bind("click", function(){
+		etArt.openPopup("#saveArt");
+		logonmyt("Saved", page.msid, '');
+	});
+	$(".fontSmall", ".articleBtns").bind("click", function(){
+		etArt.fontSize("-");
+	});
+	$(".fontLarge", ".articleBtns").bind("click", function(){
+		etArt.fontSize("+");
+	});
+	
+	// Offensive Box
+	$("input[type=radio]", "#abuseForm").bind("change", function () {
+		if ($(this).val() == "Others") {
+			$("textarea", "#abuseForm").show();
+		} else {
+			$("textarea", "#abuseForm").hide();
+		}
+		$("#ofreason").val($(this).val());
+	});
+	$(".closeBtn", "#abuseForm").bind("click", function(){
+	   $('#backgroundPopup, #reportAbuseDiv').fadeOut(200);
+	});
+	
+	// New Comment Box
+	$(".postComment, #commentCountBtn").live("click", function(event){
+		event.preventDefault();
+		etArt.showCmtBox();
+	});
+	$("textarea", "form.cmtForm").bind("keyup", function(){
+		var thisForm = $(this).parents("form");
+		if($(this).val().length > 2){
+			if($(this).val().length == 3){
+				$(this).animate({height:70});
+			}
+			if(_tp_data.isLogged){
+				$(".hidden", thisForm).not(".nonLogged").slideDown();
+				$(".shareCmt", thisForm).css({margin : "15px 0 0 0"});
+			} else {
+				$(".hidden", thisForm).slideDown();
+			}
+		}
+	});
+	
+	if(_tp_data.isLogged){
+		$("input[name=chkfb]").prop('checked', true);
+		$(".nonLogged").hide();
+		setTimeout(function(){
+			if(_tp_data.city != ""){
+				$("form.cmtForm .shareCmt").css({padding : 0});
+				$("form.cmtForm input[name=location]").val(_tp_data.city).parent().parent().addClass("nonLogged").hide();
+			} else {
+				$("form.cmtForm input[name=location]").parent().css({margin : 0});
+			}
+		}, 3000);
+	}
+	
+	putMathQ(0);
+	putMathQ(1);
+	
+	if($(".artVideo", "article").length){
+		$(".playVideo").bind("click", function(){
+			etArt.showVideo($(this).attr("data-videoId"));
+		});
+	}
+	
+	// Reward Points
+	try {
+		if (_tp_data.isLogged) {
+			_tp_async_data = {
+				host : "ET",
+				channel : 'ET-News',
+				URL : window.location.href,
+				userId : _tp_data.email,
+				oid : "",
+				email : _tp_data.email
+			};
+			if ($.cookie("rw_default") != "true") {
+				log('visit', '');
+				setTimeout(function () {
+					log(lp_read_act, page.msid);
+				}, 10000);
+			}
+		}
+	} catch (ex) {}
+	
+	// MyTimes
+	if(_tp_data.isLogged){
+		if($.cookie("myt_read_"+page.msid) != "READ"){
+			$.cookie("myt_read_"+page.msid, "READ", {expires :1});
+			setTimeout(function(){
+				logonmyt("Read",page.msid,"");
+			},5000);
+		}
+	}
+	
+	$(".hotlix", "#shareIcons").bind("click", function(){
+		if(_tp_data.isLogged){
+			log("sh_hk", page.msid);
+		}
+	});
+	
+	$.removeCookie("rw_default");
+	
+	// Auto Refresh : ajax hit checks if INTERNET connection is enabled	
+	setInterval(function(){
+		$.ajax({
+			url : "http://economictimes.indiatimes.com/configspace/internetcheck.txt",
+			cache : false,
+			success : function(data, status){
+				var d = new Date(),
+					expiryTime = d.setTime(d.getTime() + 2 * 60 * 1000);// 2minutes
+					
+				$.cookie("rw_default",'true', {expires: expiryTime});
+				window.location.reload();
+			}
+		});
+	},9e5); // 15 Minutes : refresh time-9E5
+	
+	// Fb Social Reader
+	fbReader.invoke();
+	
+	// Twitter Share
+	page.url = escape(location.href.substring(0,location.href.indexOf('.cms'))+".cms");
+	page.title = (document.title.length <= 110)? escape(document.title) : escape(document.title.substring(0,107)+"...");
+	page.shortenUrl = "";
+	
+	$.getJSON('http://urls.api.twitter.com/1/urls/count.json?url=' + page.url + '&callback=?', function(data){																   	
+		 $(".count", '.twitterShareBtn').text(data.count);
+	});
+	$.getJSON('https://api.facebook.com/method/fql.query?query=select total_count,like_count,comment_count,share_count,click_count from link_stat where url="'+page.url+'"&format=json&callback=?',function(data){
+		 $('#fbcount').html(data[0].total_count);
+    });
+	
+	$("a.share", '.twitterShareBtn')
+		.attr('href','https://twitter.com/intent/tweet?text=' + page.title + '&url=' + page.url + '&counturl=' + page.url)
+		.bind("click", function(event){
+			//window.open($(this).attr("href"), "Twitter", "menubar=no,width=550,height=350,top=50,left=200");
+			log('sh_tw',page.msid);
+			logonmyt("Shared", page.msid, "Twitter");
+			event.preventDefault();
+		});
+	
+	$(".twitterShareBtn").bind("mouseenter", function(){
+		if(page.shortenUrl == ""){
+			$.getJSON('http://tinyurl.economictimes.indiatimes.com/etspeeds/tiny.ep?outputtype=json&url=' + page.url + '&callback=?', function(data){
+				page.shortenUrl = data.output;
+				$("a.share", '.twitterShareBtn').attr('href','https://twitter.com/intent/tweet?text=' + page.title + '&url=' + data.output + '&counturl=' + page.url);
+			});
+		}
+	});	
+	
+	//Twitter Share : Reward Points Events
+	if(typeof twttr != "undefined"){
+		twttr.ready(function (twttr){
+			twttr.events.bind('tweet', function(event) {
+				log('sh_tw',page.msid);
+				logonmyt("Shared", page.msid, "Twitter");
+			});
+		});
+	}
+	
+	$.ajax({
+	  url: "http://mfapps.economictimes.indiatimes.com/Election/getMostTalked?outputtype=json&type=party",
+	  dataType: 'jsonp',
+	  type : 'POST',
+	  crossDomain : true,
+	  success: function( resp ) {	 
+			//console.log(resp.searchResult.length);
+			var data=""
+			for (var i = 0; i < resp.searchResult.length; i++) {
+				var obj = resp.searchResult[i];
+				data += "<li><img class='flt' width='50' src='" + obj.logoUrl + "'><div class='flt'>Total No of people talk<br><b>" + obj.peopleTalking + "</b></div><div class='flt'>Positive Sentiment<br><b>" + obj.positive + "</b><br></div></li>";//<span class='flt'>3%</span>
+			};
+			$(".mostTalked ul.parties","#polNation").append(data);			
+		},
+	  error: function( req, status, err ) {
+			//console.log("something went wrong", status, err );
+	  }
+	});
+	$(window).focus(function () {
+        clearInterval(polNationInterval);		
+        if  (!is_interval_running){ //Optional
+            polNationInterval = setInterval(function () {
+				$(".mostTalked ul.parties > li","#polNation").eq(0).slideUp("fast");
+				$(".mostTalked ul.parties > li","#polNation").eq(1).slideDown("fast",function(){
+					var det = $(".mostTalked ul.parties > li","#polNation").eq(0).detach();
+					$(".mostTalked ul.parties","#polNation").append(det);
+				});
+			}, 5000);
+		}
+    }).blur(function () {
+        clearInterval(polNationInterval);
+        is_interval_running = false; //Optional
+    });
+});
+
+
+		

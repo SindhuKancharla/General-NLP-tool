@@ -1,0 +1,38 @@
+Phase:GetSentences
+Input: Sentence p div Lookup Token SpaceToken
+Options: control = appelt
+
+Macro:ks
+(
+{p within {Sentence}, p notContains {div}}
+)
+
+Macro:ks3
+(
+{p notContains {Sentence},p notWithin {Sentence}}
+)
+
+Rule: splits
+(
+ks
+)
+:rule
+-->
+:rule.keySent={type=ks1,string=:rule@string}
+
+Rule: splits2
+(
+ks3
+)
+:rule
+-->
+:rule.keySent={type=ks3,string=:rule@string}
+
+Rule: splits2
+(
+{Lookup.majorType==abbr}
+)
+:rule
+-->
+:rule.abbr={string=:rule@string}
+

@@ -1,0 +1,202 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin:0px; padding:0px; font-family:Arial, Helvetica, sans-serif}
+h1, h2, h3, h4, h5, h6, p, form, ul, li{margin:0; padding:0}
+.fleft{float:left}
+.fright{float:right}
+ul,li{list-style:none}
+* html .clearfix {height: 1%}
+.clearfix:after{content:"."; display:block; clear:both; visibility:hidden; line-height:0; height:0}
+*:first-child+html .clearfix {zoom:1}
+a, a:hover{text-decoration:none}
+.vspacer15{padding-top:15px}
+.vspacer10{padding-top:15px}
+.vspacer5{padding-top:5px}
+.txt10{font-size:10px}
+.txt10 a, #atxt_box #top_news ul li a, .asee-text a, #minw_box .inner_box ul li a, #btbox .blbox a, .tag_box a{color:#235593}
+.txt10 a:hover,#atxt_box #top_news ul li a:hover, .asee-text a:hover, #minw_box .inner_box ul li a:hover, #btbox .blbox a:hover, .tag_box a:hover{color:#000}
+.pl10{padding-left:10px}
+.ml10{margin-left:10px}
+.fwb{font-weight:bold}
+.fwn{font-weight:normal}
+.bnon{border:0 !important}
+.mnon{margin:0 !important}
+.pnon{padding:0 !important}
+#header{background:url(http://static.ibnlive.in.com/ibnlive/pix/ibnhome/articlenew/header_bg.gif) 0px 0px repeat-x; text-align:center; position:relative; z-index:9}
+#amid_box{width:1000px; margin:0 auto; position:relative}
+#bred_crum{font-size:12px; color:#3c3c3c; border-bottom:1px solid #d9d9d9; padding:15px 0 5px 0; font-weight:normal}
+#bred_crum a{color:#3c3c3c; padding:0 2px}
+#bred_crum span{font-weight:bold; padding:0 2px}
+#aleft_box{width:680px; position:relative}
+#aleft_box h1, #aleft_box h1 a{font-24px; color:#010101; font-family:Tahoma, Geneva, sans-serif}
+#pn_story a{color:#fff}
+
+/*google css*/
+.google_ad{font-size:11px; line-height:18px; color:#262626; border-top:1px solid #d9d9d9; border-bottom:1px solid #d9d9d9; padding:8px 0 2px 0; margin-top:15px}
+.google_ad .gibox{width:40%}
+.google_ad .gibox a{color:#235593}
+.ggrtxt{font-size:10px; color:#d9d9d9; text-align:right}
+/*google css*/
+
+/*top news*/
+#top_news{width:138px; background:#f3f2f2; margin-left:15px}
+#top_news h2{font-size:14px; font-weight:bold; color:#fff; padding:5px 0; text-align:center; background:#606060}
+#top_news ul{list-style:none; border:1px solid #d1d0d0}
+#top_news ul li{border-bottom:1px solid #cbcbcb; border-top:1px solid #fff; padding:8px; font-size:11px; font-weight:bold}
+/*top news*/
+
+/*byline and tag box*/
+#btbox{width:140px; height:200px}
+#btbox .blbox{font-size:11px; color:#bcbcbc; line-height:20px}
+#btbox .blbox span {
+    display: block;
+    font: bold 12px arial;
+    padding: 3px 0;
+}
+.tag_box{border:1px solid #ccc; padding:8px; margin-top:10px; font-size:11px; line-height:20px}
+
+
+
+
+/*byline and tag box*/
+
+
+#atxt_box{position:relative; width:518px;}
+#atxt_box p{font-size:14px; color:#3C3D3D; line-height:20px; padding-bottom:15px}
+.asee-text{font-size:14px; font-weight:bold; padding-bottom:10px;}
+#pvb_box{height:42px; position:absolute; left:-124px; bottom:0}
+#pvb_box a{padding-right:8px}
+#pvb_box span{font-size:11px; color:#424242; font-weight:bold; padding:0 15px 0 0px}
+.amimg_box{position:relative; padding-bottom:15px;}
+.pvicon_box{position:absolute; right:0px; border-radius:0 0 0 5px; padding:5px 0px 5px 10px; width:100px; background:#fff}
+.pvicon_box a{margin-right:5px}
+.amimg_box img{width:520px}
+.ami_hline{font-size:12px; font-weight:bold; color:#fff; padding:6px; background:#333; margin-top:1px; width:508px; margin-bottom:15px}
+#minw_box{background:#f4f4f4; border:1px solid #d7d7d7; margin:15px 0;}
+#minw_box .inner_box{width:45%; padding-right:3%; border-right:1px solid #e0dede}
+#minw_box .inner_box ul{padding-left:20px}
+#minw_box .inner_box h2{font-size:18px; padding-bottom:10px}
+#minw_box .inner_box ul li{font-size:12px; line-height:20px; padding-bottom:6px}
+.pvbicon{width:23px; height:23px; opacity:0.6}
+.pvbicon.act{opacity:1}
+.share_lbox{width: 70px; background:#f3f3f3; position:fixed; left:50%; top:-1px; margin-left:-590px; padding-top:171px; z-index: 1; border-left:1px solid #e8e8e7; border-right:1px solid #e8e8e7}
+.share_lbox ul{margin-top:0px; border-top:1px solid #d7d5d5; border-bottom:1px solid #fff; position:relative;z-index:99}
+.share_lbox ul li{list-style:none; text-align:center; font-size:11px; color:#424242; border-bottom:1px solid #d7d5d5; border-top:1px solid #fff; padding:8px 0; font-weight:bold; position:relative}
+.shar_icon{width:22px; height:22px; margin-bottom:5px}
+.shar_icon.act, .shar_icon:hover{opacity:0.6}
+
+/*poll*/
+#poll_box{background:#f6f5f5; padding:10px 15px; border:1px solid #dfdddd; margin-top:8px}
+#poll_box h2{font-size:20px; color:#282828; font-weight:normal}
+#poll_box h3{font-size:14px; color:#282828; font-weight:normal; padding:8px 0 0 0}
+#poll_box p{font-size:12px; color:#282828; font-weight:normal; padding:8px 0 0 0}
+#poll_box p img{margin:0 6px}
+/*poll*/
+
+
+.publisher-anchor-color a {
+    color: #288CE4 !important;
+}
+
+/*prv and nxt story*/
+#pn_story{background:#105676; border:1px solid #0c4560; position:fixed; bottom:0; right:0; width:380px; font-size:12px; color:#fff;}
+#pn_story .pn_ibox{border-bottom:1px solid #15688e; border-top:1px solid #0f4b66; padding:10px; width:85%}
+#pn_story .pn_ibox img{float:left; margin-right:8px; border:1px solid #d1d1d1}
+#pn_story .pn_ibox span.tbox iframe{width:90px !important}
+#pn_story .pn_ibox span.fbox iframe{width:90px !important; height:20px !important}
+#pn_story .pn_ibox span.gbox iframe{width:66px !important}
+#pns_cls{background:#105676; border:1px solid #0c4560; position:fixed; bottom:0; right:-40px; width:40px; height:170px}
+/*prv and nxt story*/
+#pn_story {z-index:9999 !important;}
+#pns_cls {z-index:9999 !important;}
+/*more share botton*/
+.mshare_box{position:absolute; left:35px; top:-2px; width:320px; padding:10px; background:#f6f4f4; border:1px solid #ddd; z-index:999; border-left:0; text-align:left; display:none}
+.mshare_box h2{font-size:14px; border-bottom:1px solid #ddd; padding-bottom:5px; color:#000}
+.mshare_box p{font-size:12px; line-height:18px; color:#474747; font-weight:normal; padding-top:10px}
+.mshare_box ul{padding-top:10px; margin:0; border:none !important}
+.mshare_box ul li{float:left; padding-right:20px; text-align:center; border:none !important}
+/*more share botton*/
+
+/*right section*/
+#aright{width:300px}
+.lr_box{padding-top:10px}
+.lr_box.rbox{background:#f3f1f1}
+.lr_box .lr_tbox{background:#3b3b3b; padding:7px 10px 7px; color:#fff; position:relative}
+.lr_box .lr_tbox.rtl_box{background:#105676}
+.lr_box .lr_tbox h2{font-size:12px; font-weight:bold}
+.lr_box .lr_tbox .lf_box{font-size:12px; color:#fff}
+.lr_box .lr_tbox .lf_box a{color:#fff; padding:0 5px}
+.filter_link{position:absolute; top:20px; right:0; background:#3b3b3b; padding:10px 0; display:none; width:90px}
+.filter_link a{display:block; padding:6px; border-bottom:1px solid #474747; border-top:1px solid #2e2e2e; color:#fff; font-size:12px}
+.lr_box .lr_tbox span a{padding:0 5px; color:#fff}
+.lr_box .lr_ibox{border:1px solid #d6d6d6; border-top:none; padding:2px 2px 0 0}
+.lr_box .lr_ibox ul{padding:10px; height:500px; overflow:auto}
+.lr_box .lr_ibox ul li{padding:10px 0; border-bottom:1px dotted #a1a1a1; font-weight:bold; font-size:12px; height:auto;}
+.lr_box .lr_ibox ul li a{color:#6a6a6a}
+.lr_box .lr_ibox ul li a:hover, .lr_box .lr_ibox h5 a:hover{color:#000}
+.lr_box .lr_ibox ul li img{float:left; padding-right:10px}
+.lr_box .lr_ibox ul li span{font-size:10px; color:#bebebe; padding-left:5px}
+.lr_box .lr_ibox ul li h6{font-size:10px; color:#ff8a00; padding-bottom:5px; text-transform:uppercase}
+.lr_box .lr_ibox ul li h6 a{color:#ff8a00}
+.lr_box .lr_ibox h5{font-size:11px; text-align:right; font-weight:normal; padding:5px 10px}
+.lr_box .lr_ibox h5 a{color:#265fb2}
+.lr_box .lr_ibox ul li .img_box{clear:both; padding-bottom:6px}
+.lr_box .lr_ibox ul li .img_box img{padding-right:5px}
+
+/*right section*/
+
+/* election strip  */
+.sprite{ background:url(http://static.ibnlive.in.com/ibnlive/pix/ibnhome/elections2013/images/ele-sprite.png) no-repeat 0 0; display:inline-block}
+.elec_img{background-position:-5px -5px; width:135px; height:18px}
+#ehline{border-bottom: 1px solid #eeeeee; padding-bottom: 10px; margin: 10px 0}
+.nlink{padding-left:15px; display:inline-block; border-left:1px solid #ccc; padding-left:10px; margin-left:20px}
+.nlink a{padding:0 15px; color:#3b3b3b; font-weight:bold; font-size:11px}
+.nlink a.act{background:#4d4d4d; color:#fff; padding:3px 8px; border-radius:5px}
+
+.sprite_img{background:url(http://static.ibnlive.in.com/ibnlive/pix/ibnhome/articlenew/asprite_img_v3.png) 0px 0px no-repeat; display:inline-block}
+.gpicon{background-position: -143px -38px; width:17px; height:16px}
+.like{background-position: -244px -5px; width:22px; height:22px; position:relative; top:6px}
+.dlike{background-position: -277px -5px; width:22px; height:22px; position:relative; top:6px}
+.picon{background-position: -5px -38px}
+.vicon{background-position: -36px -38px}
+.pgicon{background-position: -68px -38px}
+.lbicon{background-position: -104px -38px}
+.exp_img{position:absolute; bottom:0px; background-position: -206px -38px; width:16px; height:14px; right:8px}
+.ficon{background-position: -5px -5px}
+.ticon{background-position: -38px -5px}
+.in_icon{background-position: -75px -5px}
+.gp_icon{background-position: -112px -5px}
+.tb_icon{background-position: -176px -5px}
+.pck_icon{background-position: -213px -5px}
+.more_sicon{background-position: -144px -5px}
+.cml_icon{background-position: -5px -70px}
+.prnt_icon{background-position: -172px -38px; width:22px; height:23px; position:absolute; bottom:130px; left:6px}
+.pn_carrow{background-position: -230px -37px; width:13px; height:11px; position:absolute; right:10px; top:10px}
+.pns_cls{background-position: -255px -37px; width:15px; height:14px; position:absolute; right:10px; top:10px}
+.folow_icon{background-position: -37px -70px; width:58px; height:18px}
+.lr_arrow{background-position: -113px -70px; width:10px; height:5px; position:absolute; bottom:-5px; left:10px}
+.filter_arrow{background-position: -100px -70px; width:10px; height:5px}
+.rlt_arrow{background-position: -128px -70px; width:10px; height:5px; position:absolute; bottom:-5px; left:10px}
+
+
+.shrm_uimg{background-position: -148px -70px; width:58px; height:17px}
+.shrm_dimg{background-position: -210px -70px; width:58px; height:17px}
+.head_article{position:relative; z-index:9}
+
+/* commentry code */
+.cmnt{padding: 10px 0}
+.cmnt h2{font-size: 22px; padding-bottom: 10px}
+.cmnt p{font-size:14px; padding-bottom: 15px}
+.cmnt p span{font-weight:bold; font-size:20px; color:#03a8df} 
+.cmtdiv {border-bottom:1px solid #ccc; line-height:0px; padding-top:5px; margin-bottom:15px; position: relative}
+.mc_arrow{position:absolute; top: -8px; left: 42%}
+.more_cmtry{background:#ccc; font-size:12px; color:#333; border-radius:4px; box-shadow:1px 1px 1px #999; padding:4px 10px } 
+.ref_img{ position: relative; top: 66px; left: 400px; z-index: 9 }
+.cmnty_head{ border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 12px;}
+.cmt_limg{position:relative; top:76px; left:-160px; display: none; opacity:0.7}
+.btext_28{font:28px arial; color:#464545; padding-bottom:18px}
+#footer{z-index:99; position:relative;}
+.picon_a{background-position: -5px -102px ;}
+.vicon_a{background-position: -36px -102px ;}
+.lbicon_a{background-position: -69px -102px;}
+

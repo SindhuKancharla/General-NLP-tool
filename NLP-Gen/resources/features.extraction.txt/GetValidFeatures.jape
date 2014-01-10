@@ -1,0 +1,11 @@
+Phase: getConcepts
+Input: FEATURE
+Options: control = appelt
+ 
+Rule: rule1
+(
+{FEATURE,FEATURE.length>6}
+):rule
+-->
+:rule.ValidFeatures={string=:rule@string,type=:rule.FEATURE.type}
+ 

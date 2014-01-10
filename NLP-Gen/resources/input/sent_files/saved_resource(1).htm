@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0134)http://social.ndtv.com/static/Comment/List/?&key=ae42a4f016dd1fdd208110a097b061a4&page=1&identifier=story-467097&size=15&reply=1&ver=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>NDTV Social: Comments</title>
+        
+        <link href="css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" async="" src="ga.js"></script><script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+        <script language="javascript" type="text/javascript">
+            var BASE_URL = "http://social.ndtv.com";
+            var CDN_URL = "http://static.social.ndtv.com";
+        </script>
+        <link href="comment_combined(1).css" rel="stylesheet" type="text/css">
+        <script language="javascript" type="text/javascript" src="jquery.min(1).js"></script>
+        <script language="javascript" type="text/javascript" src="jquery.cookie.min(1).js"></script>
+        <script type="text/javascript">
+            $().ready(function(){
+                setTimeout(function(){
+                    document.domain = "ndtv.com";
+
+                    $('#loading').hide();
+                    $('#comments_box').show();
+                    
+                    var height = $('#comments_box').outerHeight(true);
+                    $('#comments-list',parent.document).height(height+250);
+                },3 * 1000);
+
+                //self.scrollTo(0, 0);//scroll to top                  
+            });
+            
+            function setIframeHeight(divid, iframeid, iframeCurrentHeight) {                
+                var height = $('#' + divid).outerHeight(true);               
+                height = height + iframeCurrentHeight + 18;             
+                //height = height + iframeCurrentHeight + 150;
+                $('#'+ iframeid, parent.document).height(height);
+            }
+            
+            function getSortUrl(commentUrl, sortedby) {
+                var reply = '&reply=1';
+                window.location.href = commentUrl + '&sorted_by=' + sortedby + reply;
+            }
+            
+            function reportAbuse(url, cid, uid){ 
+                
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: { cid: cid},
+                    success: function(){                        
+                        $.cookie('report-abuse-' + cid, cid , {expires:30,path:'/'});
+                        $('#ra-' + cid).css('display', 'block');
+                        $('#ra-' + cid).html("Thanks for flagging this comment. It's being investigated.");
+                        if (uid != '272928') {
+                            $('#report-abuse-link-' + cid).html(" | ");
+                        } else {
+                            $('#report-abuse-link-' + cid).css('display', 'none');
+                        } 
+                        setTimeout(function(){$('#ra-' + cid).slideUp("slow")},3*1000);
+                    }
+                })
+            }
+            function seLike(url, cid){ 
+                
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: { cid: cid},
+                    success: function(){
+                        $('#likes-link-' + cid).html('<b>Liked</b>');
+                        $('#unlikes-link-' + cid).hide();
+                    }
+                })
+            } 
+            
+            function setUnlike(url, cid){ 
+                
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: { cid: cid},
+                    success: function(){
+                        $('#unlikes-link-' + cid).html('<b>Unliked</b>');
+                        $('#likes-link-' + cid).hide();
+                    }
+                })
+            } 
+            
+            function getReportAbuseLink(cid, uid) {
+                var racookie;
+                racookie = parseInt($.cookie('report-abuse-' + cid));
+                reportAbuselink = "<a href='javascript:void(0);' onclick='javascript:reportAbuse(\"http://social.ndtv.com/ajax/reportAbuse.php\", " + cid + ", " + uid + ");return false;'>Report Abuse</a> | ";
+                
+                if (uid != '272928') {                    
+                    reportAbuselink =  ' | ' + reportAbuselink;
+                }
+                if (isNaN(racookie)) {
+                    $("#report-abuse-link-" + cid).append(reportAbuselink);
+                } else if (uid != '272928') {
+                    $("#report-abuse-link-" + cid).append(" | ");
+                } 
+            }
+            function addReply(commentid, userName) {
+                if (typeof(window.top.ndtvSocialCommentForm) != 'undefined') {                    
+                    
+                    setCommentReplyText(commentid, userName); 
+                    $.cookie('parentcid-'+'story-467097', commentid, {expires:0.025,path:'/', domain: 'ndtv.com'});                    
+                }
+            }
+            
+            function setCommentReplyText(commentid, userName) {  
+                if (typeof(window.top.ndtvSocialCommentForm) != 'undefined' && window.top.ndtvSocialCommentForm != null) { 
+                    clearCommentReply();
+                    
+                    if ($('#comment-text-' + commentid)) {
+                        var commentText = $('#comment-text-' + commentid).html();
+                        window.top.ndtvSocialCommentForm.$("#parentid").val(commentid); 
+                        window.top.ndtvSocialCommentForm.$("#comment").focus();
+                        if (typeof(userName) != 'undefined' ) {
+                            window.top.ndtvSocialCommentForm.$("#comment").val('@' + userName + ': ');
+                        }    
+
+                        if (typeof(commentText) != null && commentText != '') {
+                            commentText = commentText + '<div style="color: #474747;float: left;font-size: 12px;line-height: 1.5em;width: 100%;">';
+                            commentText = commentText +  'You are replying to the above comment';
+                            commentText = commentText +  '<a style="float:right;padding-right:10px;" href="javascript:void(0);" onclick="javascript:clearCommentReply();">Cancel</a>';
+                            commentText = commentText +  '</div>';
+                            window.top.ndtvSocialCommentForm.$("#comment-reply").html(commentText);
+                            var formHight = $("#ndtvSocialCommentForm",top.document).height();
+                            setIframeHeight('comment-text-' + commentid, "ndtvSocialCommentForm", formHight);
+
+                            var currentTopPosition = ($("#ndtvSocialCommentForm",top.document).position().top);
+                            window.parent.scroll(10, currentTopPosition + 10);
+                            window.top.ndtvSocialCommentForm.$("#comment").css('background-color', '#fafbc6');                            
+                        } else {
+                          clearCommentReply();  
+                        }
+                    }
+                }
+
+            }
+            
+            function clearCommentReply(){                
+                var replyHeight = window.top.ndtvSocialCommentForm.$('#comment-reply').height();
+                var formHight = $('#ndtvSocialCommentForm', parent.document).height();
+                $('#ndtvSocialCommentForm', parent.document).height(formHight - replyHeight);
+                $('#comment-reply').html('');
+                $.cookie('parentcid-'+'story-467097', null, {expires:-0.025,path:'/', domain: 'ndtv.com'});
+                $('#parentid').val(0);
+                $('#comment').val('');
+                return false;
+            }  
+            
+            function getLikeLink(cid, uid) {
+                likedlink = "<a href='javascript:void(0);' onclick='javascript:seLike(\"http://social.ndtv.com/ajax/mostLike.php\", " + cid + ");return false;'>Like</a>";
+                $("#likes-link-" + cid).prepend(likedlink);               
+            }
+            
+            function getUnlikeLink(cid, uid) {
+                unlikedlink = "<a href='javascript:void(0);' onclick='javascript:setUnlike(\"http://social.ndtv.com/ajax/mostUnlike.php\", " + cid + ");return false;'>Unlike</a>";
+                $("#unlikes-link-" + cid).prepend(unlikedlink);               
+            }
+            
+        </script>
+        
+        <style>a, a:visited{color:#3B5998;cursor:pointer;text-decoration:none;}a:hover{text-decoration:underline;}
+        div, span, p, body, li,label {font-family: roboto !important;}</style>
+            <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-11243047-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    </head>
+    <body>
+        <div style="font-size: 12px; display: none;" id="loading">Loading...</div>
+
+        <div id="comments_box" style="padding:5px;float:left;">
+                            <div class="comment-toolbar" style="font-size: 12px; color: #000;margin-bottom: 20px;">
+                                        <span class="comment_count"><strong> Showing 1-15 out of 32 comments and 14 replies</strong></span>
+                    <span style="float:right;">
+                        <select name="comment_sort" class="comment_sort" onchange="javascript:getSortUrl( &#39;http://social.ndtv.com/static/Comment/List/?key=ae42a4f016dd1fdd208110a097b061a4&amp;page=1&amp;identifier=story-467097&amp;size=15&#39;, this.value)">
+                            <option value="newest">Sort by Latest First</option>
+                            <option value="oldest">Sort by Oldest First</option>
+                            <option value="likes" selected="selected">Sort by Most Liked</option>
+                        </select>
+                    </span>
+                </div>
+                &nbsp;
+          <div id="comment-text-1525921" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=359900"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=359900">Sp Pramod</a></span>
+                                <span class="date_line">23 hours ago</span></div><div class="post_text">
+                Good Judgement , Men and Women are equal. Balance to everyones right. Now no more discrimination against men.
+            </div></div>
+                <div id="ra-1525921" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1525921&#39;, &#39;Sp Pramod&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=359900&comment-permalink=1525921">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=359900&comment-permalink=1525921">Share</a>
+                <span id="report-abuse-link-1525921"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1525921, 359900);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1525921", "359900");
+                </script>
+                <span id="likes-link-1525921"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1525921);return false;">Like</a><span>(203)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1525921", "359900");
+                    </script> 
+                    
+                <span id="unlikes-link-1525921"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1525921);return false;">Unlike</a><span> (9)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1525921", "359900");
+                    </script> 
+                </div>                            <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1526583" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><img class="avtar" border="0" src="default.png" width="16" height="22"><span class="member" style="color:#000;"><i>Anonymous</i></span>
+                                <span class="date_line">17 hours ago</span></div><div class="post_text">
+                @Sp Pramod: Tell that to the DMK person Kusubu....that pre marital sex is immoral..she wil fight you saying that it is moral, and Karuna will say there is no 2G..
+            </div></div>
+                <div id="ra-1526583" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><span id="report-abuse-link-1526583"><a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526583, 272928);return false;">Report Abuse</a> | </span>
+                    <script type="text/javascript"> 
+                        getReportAbuseLink("1526583", "272928");
+                    </script>
+                    <span id="likes-link-1526583"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526583);return false;">Like</a><span> (14) </span></span>                             
+                    <script type="text/javascript">
+                        getLikeLink("1526583", "272928");
+                    </script>
+                    
+                    <span id="unlikes-link-1526583"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526583);return false;">Unlike</a><span>(19) </span> | </span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526583", "272928");
+                    </script>
+            </div>                            </div> 
+                                                    <div class="thread" style="padding-left: 30px">
+                                &nbsp;
+          <div id="comment-text-1526681" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=19588"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=19588">Kasturi Sundaram</a></span>
+                                <span class="date_line">16 hours ago</span></div><div class="post_text">
+                @Sp Pramod: while a criminal charge of rape cannot be sustained, the woman could still have a right to seek damages in a breach of promise suit.
+            </div></div>
+                <div id="ra-1526681" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=19588&comment-permalink=1526681">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=19588&comment-permalink=1526681">Share</a>
+                <span id="report-abuse-link-1526681"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526681, 19588);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526681", "19588");
+                </script>
+                <span id="likes-link-1526681"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526681);return false;">Like</a><span>(8)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526681", "19588");
+                    </script> 
+                    
+                <span id="unlikes-link-1526681"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526681);return false;">Unlike</a><span> (26)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526681", "19588");
+                    </script> 
+                </div>                            </div> 
+                                                    <div class="thread" style="padding-left: 30px">
+                                &nbsp;
+          <div id="comment-text-1527210" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483420"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483420">Sameer Desai</a></span>
+                                <span class="date_line">12 hours ago</span></div><div class="post_text">
+                @ Kasturi Pramod: There is no proof that he promised. Its not true because she said it. And even if he did he has the right to change his mind.
+            </div></div>
+                <div id="ra-1527210" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483420&comment-permalink=1527210">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=483420&comment-permalink=1527210">Share</a>
+                <span id="report-abuse-link-1527210"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1527210, 483420);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1527210", "483420");
+                </script>
+                <span id="likes-link-1527210"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1527210);return false;">Like</a><span>(8)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1527210", "483420");
+                    </script> 
+                    
+                <span id="unlikes-link-1527210"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1527210);return false;">Unlike</a><span> (1)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1527210", "483420");
+                    </script> 
+                </div>                            </div> 
+                                                    <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1527265" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=437463"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=437463">Sanjay</a></span>
+                                <span class="date_line">12 hours ago</span></div><div class="post_text">
+                @Sp Pramod: I liked better that judgement that you had relations you are married. The judge failed to give judgement according to Hindu laws.
+            </div></div>
+                <div id="ra-1527265" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=437463&comment-permalink=1527265">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=437463&comment-permalink=1527265">Share</a>
+                <span id="report-abuse-link-1527265"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1527265, 437463);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1527265", "437463");
+                </script>
+                <span id="likes-link-1527265"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1527265);return false;">Like</a><span>(1)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1527265", "437463");
+                    </script> 
+                    
+                <span id="unlikes-link-1527265"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1527265);return false;">Unlike</a><span> (6)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1527265", "437463");
+                    </script> 
+                </div>                            </div> 
+                        &nbsp;
+          <div id="comment-text-1525659" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=11341"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=11341">Sundar Raman B</a></span>
+                                <span class="date_line">1 day ago</span></div><div class="post_text">
+                If promises made are not kept and the person has to be punished ,then almost all our NETAS need to have it.!!!!!! An aggression,threat or violence  missing- - - then the case can not stand in the court.
+            </div></div>
+                <div id="ra-1525659" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1525659&#39;, &#39;Sundar Raman B&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=11341&comment-permalink=1525659">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=11341&comment-permalink=1525659">Share</a>
+                <span id="report-abuse-link-1525659"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1525659, 11341);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1525659", "11341");
+                </script>
+                <span id="likes-link-1525659"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1525659);return false;">Like</a><span>(84)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1525659", "11341");
+                    </script> 
+                    
+                <span id="unlikes-link-1525659"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1525659);return false;">Unlike</a><span> (13)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1525659", "11341");
+                    </script> 
+                </div>                            <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1525693" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=428159"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=428159">Sid</a></span>
+                                <span class="date_line">1 day ago</span></div><div class="post_text">
+                @Sundar Raman B: We desperately need to reform our judicial system. These trials and arguments sound like some medieval court. Also we must go to a jury based system whether the jury is chosen carefully from a group of people who believe in reason and do not reference religion in courts.
+            </div></div>
+                <div id="ra-1525693" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=428159&comment-permalink=1525693">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=428159&comment-permalink=1525693">Share</a>
+                <span id="report-abuse-link-1525693"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1525693, 428159);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1525693", "428159");
+                </script>
+                <span id="likes-link-1525693"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1525693);return false;">Like</a><span>(46)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1525693", "428159");
+                    </script> 
+                    
+                <span id="unlikes-link-1525693"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1525693);return false;">Unlike</a><span> (54)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1525693", "428159");
+                    </script> 
+                </div>                            </div> 
+                        
+          <div id="comment-text-1525938" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=482974"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=482974">Karuna</a></span>
+                                <span class="date_line">22 hours ago</span></div><div class="post_text">
+                What if the girl doesnt follow any religion?! Hate religion based judgements!
+            </div></div>
+                <div id="ra-1525938" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1525938&#39;, &#39;Karuna&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=482974&comment-permalink=1525938">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=482974&comment-permalink=1525938">Share</a>
+                <span id="report-abuse-link-1525938"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1525938, 482974);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1525938", "482974");
+                </script>
+                <span id="likes-link-1525938"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1525938);return false;">Like</a><span>(67)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1525938", "482974");
+                    </script> 
+                    
+                <span id="unlikes-link-1525938"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1525938);return false;">Unlike</a><span> (75)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1525938", "482974");
+                    </script> 
+                </div>                            <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1526276" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483065"><img src="8ee47fa29ba106deb184e7a6f43ab9e7_normal.jpeg" width="24" height="22" class="avtar"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483065">Krishna Iyer</a></span>
+                                <span class="date_line">19 hours ago</span></div><div class="post_text">
+                @Karuna: It's not a religious judgement.it's just a comment. If it were a judgement based on religion,the boy would be ordered to marry the girl.
+            </div></div>
+                <div id="ra-1526276" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483065&comment-permalink=1526276">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=483065&comment-permalink=1526276">Share</a>
+                <span id="report-abuse-link-1526276"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526276, 483065);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526276", "483065");
+                </script>
+                <span id="likes-link-1526276"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526276);return false;">Like</a><span>(41)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526276", "483065");
+                    </script> 
+                    
+                <span id="unlikes-link-1526276"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526276);return false;">Unlike</a><span> (4)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526276", "483065");
+                    </script> 
+                </div>                            </div> 
+                                                    <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1526739" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><img class="avtar" border="0" src="default.png" width="16" height="22"><span class="member" style="color:#000;"><i>Anonymous</i></span>
+                                <span class="date_line">16 hours ago</span></div><div class="post_text">
+                @Karuna: Read the judgement carefully. There is no judgement based on any religion. So please comment only once you understand
+            </div></div>
+                <div id="ra-1526739" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><span id="report-abuse-link-1526739"><a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526739, 272928);return false;">Report Abuse</a> | </span>
+                    <script type="text/javascript"> 
+                        getReportAbuseLink("1526739", "272928");
+                    </script>
+                    <span id="likes-link-1526739"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526739);return false;">Like</a><span> (12) </span></span>                             
+                    <script type="text/javascript">
+                        getLikeLink("1526739", "272928");
+                    </script>
+                    
+                    <span id="unlikes-link-1526739"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526739);return false;">Unlike</a><span>(3) </span> | </span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526739", "272928");
+                    </script>
+            </div>                            </div> 
+                        
+          <div id="comment-text-1526072" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><img class="avtar" border="0" src="default.png" width="16" height="22"><span class="member" style="color:#000;"><i>Anonymous</i></span>
+                                <span class="date_line">21 hours ago</span></div><div class="post_text">
+                The woman should not feel and made to look like a victim. She is lucky ..' a man who gave his word in such intimacy and does not keep his word'..is not a man worth fighting in the courts for.
+            </div></div>
+                <div id="ra-1526072" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" target="iFrameCommentForm" onclick="javascript:addReply(&#39;1526072&#39;, &#39;Anonymous&#39;);return false;">Reply</a> | <span id="report-abuse-link-1526072"><a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526072, 272928);return false;">Report Abuse</a> | </span>
+                    <script type="text/javascript"> 
+                        getReportAbuseLink("1526072", "272928");
+                    </script>
+                    <span id="likes-link-1526072"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526072);return false;">Like</a><span> (58) </span></span>                             
+                    <script type="text/javascript">
+                        getLikeLink("1526072", "272928");
+                    </script>
+                    
+                    <span id="unlikes-link-1526072"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526072);return false;">Unlike</a><span>(3) </span> | </span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526072", "272928");
+                    </script>
+            </div>
+          <div id="comment-text-1526024" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=482996"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=482996">rajiv</a></span>
+                                <span class="date_line">21 hours ago</span></div><div class="post_text">
+                He can be booked for cheating not rape.
+            </div></div>
+                <div id="ra-1526024" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1526024&#39;, &#39;rajiv&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=482996&comment-permalink=1526024">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=482996&comment-permalink=1526024">Share</a>
+                <span id="report-abuse-link-1526024"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526024, 482996);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526024", "482996");
+                </script>
+                <span id="likes-link-1526024"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526024);return false;">Like</a><span>(49)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526024", "482996");
+                    </script> 
+                    
+                <span id="unlikes-link-1526024"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526024);return false;">Unlike</a><span> (17)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526024", "482996");
+                    </script> 
+                </div>
+          <div id="comment-text-1526122" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483018"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483018">Aayush</a></span>
+                                <span class="date_line">20 hours ago</span></div><div class="post_text">
+                Although the Judgement by Logic is ABSOLUTELY FAIR BUT since when to judges give their "PERSONAL OPINIONS" as an Addendum in judgements? "No Religion allows Pre-marital Sex"? "Immoral"? Since when do Laws, atleast mature laws, seek Refuge in Religion and have a judgement call on what is "Moral or Immoral"? They are only there to say what is LEGALLY (therefore LOGICALLY) write or wrong and nothing more.
+
+Please check background of people who are made into judges at high court and supreme court level.
+            </div></div>
+                <div id="ra-1526122" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1526122&#39;, &#39;Aayush&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=483018&comment-permalink=1526122">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=483018&comment-permalink=1526122">Share</a>
+                <span id="report-abuse-link-1526122"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526122, 483018);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526122", "483018");
+                </script>
+                <span id="likes-link-1526122"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526122);return false;">Like</a><span>(45)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526122", "483018");
+                    </script> 
+                    
+                <span id="unlikes-link-1526122"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526122);return false;">Unlike</a><span> (13)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526122", "483018");
+                    </script> 
+                </div>&nbsp;
+          <div id="comment-text-1526045" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=364608"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=364608">Shishir Swaroop</a></span>
+                                <span class="date_line">21 hours ago</span></div><div class="post_text">
+                I guess some religions have pedophilia and polygamy also incorporated in their texts..I was wondering what the judge will say to that.
+            </div></div>
+                <div id="ra-1526045" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1526045&#39;, &#39;Shishir Swaroop&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=364608&comment-permalink=1526045">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=364608&comment-permalink=1526045">Share</a>
+                <span id="report-abuse-link-1526045"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526045, 364608);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526045", "364608");
+                </script>
+                <span id="likes-link-1526045"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526045);return false;">Like</a><span>(36)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526045", "364608");
+                    </script> 
+                    
+                <span id="unlikes-link-1526045"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526045);return false;">Unlike</a><span> (31)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526045", "364608");
+                    </script> 
+                </div>                            <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1526569" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483209"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483209">Muralidhar Barkur</a></span>
+                                <span class="date_line">17 hours ago</span></div><div class="post_text">
+                @Shishir Swaroop: As mentioned by another member earlier, the mention of religion was only a comment and not the basis for the judgement. The basis for the judgement was that the woman was educated and had the intercourse due to her own love for him and her passion.
+            </div></div>
+                <div id="ra-1526569" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=483209&comment-permalink=1526569">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=483209&comment-permalink=1526569">Share</a>
+                <span id="report-abuse-link-1526569"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526569, 483209);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526569", "483209");
+                </script>
+                <span id="likes-link-1526569"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526569);return false;">Like</a><span>(10)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526569", "483209");
+                    </script> 
+                    
+                <span id="unlikes-link-1526569"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526569);return false;">Unlike</a><span> (1)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526569", "483209");
+                    </script> 
+                </div>                            </div> 
+                        
+          <div id="comment-text-1526160" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=151757"><img src="clenched_fist_normal.jpg" width="24" height="22" class="avtar"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=151757">Morphogen</a></span>
+                                <span class="date_line">19 hours ago</span></div><div class="post_text">
+                Excellent Judgement. While it is important to have strict laws, what is happening in Delhi is rampant rise in fake cases. False allegation of rape are being made by women who are grudging ex/lovers, or maids who collude with extortion mafia of placement agencies/ngos. This gross misuse of judicial system must be stopped and the people doing so must be punished harshly.
+            </div></div>
+                <div id="ra-1526160" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1526160&#39;, &#39;Morphogen&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=151757&comment-permalink=1526160">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=151757&comment-permalink=1526160">Share</a>
+                <span id="report-abuse-link-1526160"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526160, 151757);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526160", "151757");
+                </script>
+                <span id="likes-link-1526160"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526160);return false;">Like</a><span>(30)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526160", "151757");
+                    </script> 
+                    
+                <span id="unlikes-link-1526160"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526160);return false;">Unlike</a><span> (2)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526160", "151757");
+                    </script> 
+                </div>
+          <div id="comment-text-1526062" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=430672"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=430672">anon</a></span>
+                                <span class="date_line">21 hours ago</span></div><div class="post_text">
+                quoting religion? where are we...
+            </div></div>
+                <div id="ra-1526062" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1526062&#39;, &#39;anon&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=430672&comment-permalink=1526062">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=430672&comment-permalink=1526062">Share</a>
+                <span id="report-abuse-link-1526062"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526062, 430672);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526062", "430672");
+                </script>
+                <span id="likes-link-1526062"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526062);return false;">Like</a><span>(27)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526062", "430672");
+                    </script> 
+                    
+                <span id="unlikes-link-1526062"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526062);return false;">Unlike</a><span> (19)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526062", "430672");
+                    </script> 
+                </div>                            <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1526258" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=427310"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=427310">Manoj</a></span>
+                                <span class="date_line">19 hours ago</span></div><div class="post_text">
+                @anon: Sad to tell you we are in India! :(
+            </div></div>
+                <div id="ra-1526258" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=427310&comment-permalink=1526258">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=427310&comment-permalink=1526258">Share</a>
+                <span id="report-abuse-link-1526258"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526258, 427310);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526258", "427310");
+                </script>
+                <span id="likes-link-1526258"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526258);return false;">Like</a><span>(13)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526258", "427310");
+                    </script> 
+                    
+                <span id="unlikes-link-1526258"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526258);return false;">Unlike</a><span> (9)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526258", "427310");
+                    </script> 
+                </div>                            </div> 
+                                                    <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1526481" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=455725"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=455725">Ramesh</a></span>
+                                <span class="date_line">18 hours ago</span></div><div class="post_text">
+                @anon: we are in Human world, where atheist believe there is superior power...
+            </div></div>
+                <div id="ra-1526481" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=455725&comment-permalink=1526481">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=455725&comment-permalink=1526481">Share</a>
+                <span id="report-abuse-link-1526481"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526481, 455725);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526481", "455725");
+                </script>
+                <span id="likes-link-1526481"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526481);return false;">Like</a><span>(1)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526481", "455725");
+                    </script> 
+                    
+                <span id="unlikes-link-1526481"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526481);return false;">Unlike</a><span> (9)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526481", "455725");
+                    </script> 
+                </div>                            </div> 
+                                                    <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1527436" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=340351"><img src="profile_b192.png" width="24" height="22" class="avtar"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=340351">Vikarna Sharma</a></span>
+                                <span class="date_line">8 hours ago</span></div><div class="post_text">
+                @anon: You can go wherever you want.
+            </div></div>
+                <div id="ra-1527436" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=340351&comment-permalink=1527436">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=340351&comment-permalink=1527436">Share</a>
+                <span id="report-abuse-link-1527436"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1527436, 340351);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1527436", "340351");
+                </script>
+                <span id="likes-link-1527436"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1527436);return false;">Like</a> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1527436", "340351");
+                    </script> 
+                    
+                <span id="unlikes-link-1527436"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1527436);return false;">Unlike</a><span> (1)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1527436", "340351");
+                    </script> 
+                </div>                            </div> 
+                        
+          <div id="comment-text-1526035" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=423438"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=423438">Ind</a></span>
+                                <span class="date_line">21 hours ago</span></div><div class="post_text">
+                Perfect
+            </div></div>
+                <div id="ra-1526035" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1526035&#39;, &#39;Ind&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=423438&comment-permalink=1526035">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=423438&comment-permalink=1526035">Share</a>
+                <span id="report-abuse-link-1526035"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526035, 423438);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526035", "423438");
+                </script>
+                <span id="likes-link-1526035"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526035);return false;">Like</a><span>(24)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526035", "423438");
+                    </script> 
+                    
+                <span id="unlikes-link-1526035"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526035);return false;">Unlike</a><span> (2)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526035", "423438");
+                    </script> 
+                </div>&nbsp;
+          <div id="comment-text-1525911" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=482963"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=482963">Madhana Gopal</a></span>
+                                <span class="date_line">23 hours ago</span></div><div class="post_text">
+                Seriously! It seems like people are taught bigotry as courses in the law colleges?
+            </div></div>
+                <div id="ra-1525911" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1525911&#39;, &#39;Madhana Gopal&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=482963&comment-permalink=1525911">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=482963&comment-permalink=1525911">Share</a>
+                <span id="report-abuse-link-1525911"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1525911, 482963);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1525911", "482963");
+                </script>
+                <span id="likes-link-1525911"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1525911);return false;">Like</a><span>(23)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1525911", "482963");
+                    </script> 
+                    
+                <span id="unlikes-link-1525911"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1525911);return false;">Unlike</a><span> (18)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1525911", "482963");
+                    </script> 
+                </div>&nbsp;
+          <div id="comment-text-1525988" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=405333"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=405333">Anupam Dubey</a></span>
+                                <span class="date_line">22 hours ago</span></div><div class="post_text">
+                Judge sahab ko brahm gyan ki prapti hui.....
+            </div></div>
+                <div id="ra-1525988" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1525988&#39;, &#39;Anupam Dubey&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=405333&comment-permalink=1525988">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=405333&comment-permalink=1525988">Share</a>
+                <span id="report-abuse-link-1525988"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1525988, 405333);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1525988", "405333");
+                </script>
+                <span id="likes-link-1525988"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1525988);return false;">Like</a><span>(22)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1525988", "405333");
+                    </script> 
+                    
+                <span id="unlikes-link-1525988"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1525988);return false;">Unlike</a><span> (11)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1525988", "405333");
+                    </script> 
+                </div>
+          <div id="comment-text-1526178" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=420578"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=420578">siddharth chunduri</a></span>
+                                <span class="date_line">19 hours ago</span></div><div class="post_text">
+                whats so immoral? stupid judge who follows religion than the law he is supposed to follow
+            </div></div>
+                <div id="ra-1526178" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1526178&#39;, &#39;siddharth chunduri&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=420578&comment-permalink=1526178">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=420578&comment-permalink=1526178">Share</a>
+                <span id="report-abuse-link-1526178"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526178, 420578);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526178", "420578");
+                </script>
+                <span id="likes-link-1526178"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526178);return false;">Like</a><span>(18)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526178", "420578");
+                    </script> 
+                    
+                <span id="unlikes-link-1526178"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526178);return false;">Unlike</a><span> (21)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526178", "420578");
+                    </script> 
+                </div>                            <div class="thread" style="padding-left: 30px">
+                                
+          <div id="comment-text-1527437" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=340351"><img src="profile_b192.png" width="24" height="22" class="avtar"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=340351">Vikarna Sharma</a></span>
+                                <span class="date_line">8 hours ago</span></div><div class="post_text">
+                @siddharth chunduri: I am sure you are younger than 30
+            </div></div>
+                <div id="ra-1527437" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=340351&comment-permalink=1527437">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=340351&comment-permalink=1527437">Share</a>
+                <span id="report-abuse-link-1527437"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1527437, 340351);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1527437", "340351");
+                </script>
+                <span id="likes-link-1527437"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1527437);return false;">Like</a><span>(2)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1527437", "340351");
+                    </script> 
+                    
+                <span id="unlikes-link-1527437"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1527437);return false;">Unlike</a><span> (2)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1527437", "340351");
+                    </script> 
+                </div>                            </div> 
+                        
+          <div id="comment-text-1526130" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><img class="avtar" border="0" src="default.png" width="16" height="22"><span class="member" style="color:#000;">dinosaurlogic</span>
+                                <span class="date_line">20 hours ago</span></div><div class="post_text">
+                So something like religion, invented by man to give legitimacy for hatred, is used as logic for legal judgements, supposed to be based on sound logic. No, there is nothing wrong in this.
+            </div></div>
+                <div id="ra-1526130" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" target="iFrameCommentForm" onclick="javascript:addReply(&#39;1526130&#39;, &#39;dinosaurlogic&#39;);return false;">Reply</a> | <span id="report-abuse-link-1526130"><a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526130, 272928);return false;">Report Abuse</a> | </span>
+                    <script type="text/javascript"> 
+                        getReportAbuseLink("1526130", "272928");
+                    </script>
+                    <span id="likes-link-1526130"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526130);return false;">Like</a><span> (17) </span></span>                             
+                    <script type="text/javascript">
+                        getLikeLink("1526130", "272928");
+                    </script>
+                    
+                    <span id="unlikes-link-1526130"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526130);return false;">Unlike</a><span>(12) </span> | </span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526130", "272928");
+                    </script>
+            </div>
+          <div id="comment-text-1526118" style="width:100%;float:left;">
+            <div class="comment_post" style="margin-bottom:0px;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=482036"><img class="avtar" border="0" src="default.png" width="16" height="22"></a><span class="member" style="color:#000;"><a target="_blank" href="http://social.ndtv.com/groups.php?id=482036">NIRMAL SIDHU</a></span>
+                                <span class="date_line">20 hours ago</span><span class="date_line" style="float:right">
+                                    Posted via <a target="_blank" href="http://www.ndtv.com/apps">NDTV Android App</a>
+                    </span></div><div class="post_text">
+                good judjement
+            </div></div>
+                <div id="ra-1526118" style="display:none;background-color: #E8E8E8;border: 1px solid #B2B2B2;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 12px;margin-top: 10px;min-height: 20px;padding: 5px 0 0 10px;width: 98%;"></div>
+                <div class="date_line" style="margin-bottom:20px;float:right;text-align:right;width:100%;padding:0 5px 0 0;"><a href="javascript:void(0);" onclick="javascript:addReply(&#39;1526118&#39;, &#39;NIRMAL SIDHU&#39;);return false;">Reply</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=482036&comment-permalink=1526118">Permalink</a> | <a target="_blank" href="http://social.ndtv.com/groups.php?id=482036&comment-permalink=1526118">Share</a>
+                <span id="report-abuse-link-1526118"> | <a href="javascript:void(0);" onclick="javascript:reportAbuse(&quot;http://social.ndtv.com/ajax/reportAbuse.php&quot;, 1526118, 482036);return false;">Report Abuse</a> | </span>                                
+                <script type="text/javascript"> 
+                    getReportAbuseLink("1526118", "482036");
+                </script>
+                <span id="likes-link-1526118"><a href="javascript:void(0);" onclick="javascript:seLike(&quot;http://social.ndtv.com/ajax/mostLike.php&quot;, 1526118);return false;">Like</a><span>(14)</span> | </span>                                
+                    <script type="text/javascript"> 
+                        getLikeLink("1526118", "482036");
+                    </script> 
+                    
+                <span id="unlikes-link-1526118"><a href="javascript:void(0);" onclick="javascript:setUnlike(&quot;http://social.ndtv.com/ajax/mostUnlike.php&quot;, 1526118);return false;">Unlike</a><span> (4)</span></span>                                
+                    <script type="text/javascript"> 
+                        getUnlikeLink("1526118", "482036");
+                    </script> 
+                </div>                        <div id="pagination">
+                            <ul><li class="selected">1</li> <li><a href="http://social.ndtv.com/static/Comment/List/index.php?page=2&&key=ae42a4f016dd1fdd208110a097b061a4&identifier=story-467097&size=15&reply=1&ver=1">2</a></li> <li><a href="http://social.ndtv.com/static/Comment/List/index.php?page=3&&key=ae42a4f016dd1fdd208110a097b061a4&identifier=story-467097&size=15&reply=1&ver=1">3</a></li> <li><a href="http://social.ndtv.com/static/Comment/List/index.php?page=2&&key=ae42a4f016dd1fdd208110a097b061a4&identifier=story-467097&size=15&reply=1&ver=1">Next »</a></li></ul>
+                        </div>
+                        </div>
+
+        <div style="display:none;">
+                    </div>
+    
+
+
+    </body></html>

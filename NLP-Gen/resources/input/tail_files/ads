@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CEvMYh4fKUqT4EqrJigfbpYGgBfTx5rgEjJ-E22-tyaHpARABIOybiQZQgubC9QFg5crlg7QOoAH05arYA8gBAakC36tFR2U6UT6oAwGqBLcBT9DglKnDM0moiocIwdG0lNgVhPdb7SAkK4rZDxeHawnqCo7yZwIy3hyFdx7_557oKqOXQt4a1kjsP0-WipQn85Vxuh2ou0pyBKReI8AM_G4Cd6bjJDU0NPtYP7xvnqoyDWYFbhvNd5TKb_Sq816QN_a7I-UFZzg-09uSv8fl2qvVMQZdyWd_JXnZ-znk8ldDN4iFgEZb68KAtgisy3BwyjrJKt-EZzPRDgpM2HKUlpWFDfOxov10iAYBgAf0mdUn&amp;num=1&amp;cid=5Gh63usPp9NbyMFj5mEbUVA9&amp;sig=AOD64_1ZMB0HDq6oa5pQp7YkNmCcglir1w&amp;client=ca-pub-7641565019577886&amp;adurl=http://www.nibmglobal.com/%3Fref%3Dgoogle"; 
+google_ad.visible_url = "www.nibmglobal.com/Online-MBA"; 
+google_ad.line1 = "1 Yr Online MBA Rs.7500/-"; 
+google_ad.line2 = "Globally Accredited Online MBA."; 
+google_ad.line3 = "Limited Offer. Join Now"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.ndtv.com/article/india/indian-tailor-wins-luxury-cars-100-000-dirhams-in-dubai-467507%26gl%3DIN%26hl%3Den%26client%3Dca-pub-7641565019577886%26ai0%3DCEvMYh4fKUqT4EqrJigfbpYGgBfTx5rgEjJ-E22-tyaHpARABIOybiQZQgubC9QFg5crlg7QOoAH05arYA8gBAakC36tFR2U6UT6oAwGqBLcBT9DglKnDM0moiocIwdG0lNgVhPdb7SAkK4rZDxeHawnqCo7yZwIy3hyFdx7_557oKqOXQt4a1kjsP0-WipQn85Vxuh2ou0pyBKReI8AM_G4Cd6bjJDU0NPtYP7xvnqoyDWYFbhvNd5TKb_Sq816QN_a7I-UFZzg-09uSv8fl2qvVMQZdyWd_JXnZ-znk8ldDN4iFgEZb68KAtgisy3BwyjrJKt-EZzPRDgpM2HKUlpWFDfOxov10iAYBgAf0mdUn\x26usg\x3dAFQjCNF2-hd4ER7Eqc-kzdFAgL0apH2lgA";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

@@ -1,0 +1,72 @@
+Phase: Phase3
+Input: Token Lookup FEATURE SENTENCE1 DOTS ENTITY MISC POINTS keySent TABLE_ENTRY ENTITY1 FEATURE1
+Options: control = appelt
+
+Rule:FeatureSentence1
+(
+{SENTENCE1, SENTENCE1 contains MISC}
+):catName
+-->
+:catName.FEATURE_SENTENCE = {type = :catName.FEATURE.type,string = :catName@string}
+
+Rule:PointSentence1
+(
+{SENTENCE1, SENTENCE1 contains POINTS}
+):catName
+-->
+:catName.FEATURE_SENTENCE = {type = "Point",string = :catName@string}
+
+Rule:PointSentence1
+(
+{SENTENCE1, SENTENCE1 contains TABLE_ENTRY}
+):catName
+-->
+:catName.FEATURE_SENTENCE = {type = "TABLE_ENTRY",string = :catName@string}
+
+Rule:FeatureSentence
+Priority:10
+(
+{SENTENCE1, FEATURE1 within SENTENCE1, ENTITY1 within SENTENCE1, !ENTITY1 contains{SENTENCE1}, !FEATURE1 contains{SENTENCE1} }
+):catName
+-->
+:catName.FEATURE_SENTENCE = {string = :catName@string,feature_type = :catName.FEATURE1.type, entity_type=:catName.ENTITY1.type, feature = :catName.FEATURE1@string, entity =  :catName.ENTITY1@string}
+
+Rule:FeatureSentence1
+Priority:10
+(
+{SENTENCE1, SENTENCE1 contains FEATURE1, SENTENCE1 contains ENTITY1,!ENTITY1 contains{SENTENCE1} }
+):catName
+-->
+:catName.FEATURE_SENTENCE = {feature_type = "FEATURE", entity_type = "ENTITY",string = :catName@string}
+
+Rule:FeatureSentence
+(
+{SENTENCE1, FEATURE1 within SENTENCE1}
+):catName
+-->
+:catName.FEATURE_SENTENCE = {feature_type = :catName.FEATURE1.type,string = :catName@string}
+
+
+Rule:FeatureSentence1
+(
+{SENTENCE1, SENTENCE1 contains FEATURE1}
+):catName
+-->
+:catName.FEATURE_SENTENCE = {feature_type = "FEATURE",string = :catName@string}
+
+Rule:EntitySentence
+(
+({SENTENCE1, SENTENCE1 contains ENTITY1, !SENTENCE1 contains{Token.string=="»"}, !SENTENCE1 contains{Token.string=="|"},
+!ENTITY1 contains{SENTENCE1} })
+):catName
+-->
+:catName.FEATURE_SENTENCE = {entity_type = "ENTITY",string = :catName@string}
+
+
+
+Rule:EntitySentence
+(
+{SENTENCE1, ENTITY1 within SENTENCE1}
+):catName
+-->
+:catName.FEATURE_SENTENCE = {entity_type = :catName.ENTITY1.type,string = :catName@string}

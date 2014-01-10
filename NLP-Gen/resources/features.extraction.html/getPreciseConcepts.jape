@@ -1,0 +1,11 @@
+Phase: getConcepts
+Input: SENTENCE1 ValidConcepts
+Options: control = appelt
+ 
+ 
+Rule: rule1
+(
+{SENTENCE1 within{ValidConcepts}}|{ValidConcepts within SENTENCE1}
+):rule
+-->
+:rule.ConceptsSent={text=:rule@string}

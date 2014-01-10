@@ -1,0 +1,1951 @@
+
+
+function _debug(data) {
+	if (window.console && window.console.log) {
+		window.console.log(data);
+	}
+}
+
+function GE(ID) {
+	return document.getElementById(ID)
+}
+
+function Set_Ckie(a, b, c, d, e, g) {
+	var f = new Date;
+	f.setTime(f.getTime());
+	c && (c *= 864E5);
+	f = new Date(f.getTime() + c);
+	document.cookie = a + "=" + escape(b) + (c ? ";expires=" + f.toGMTString() : "") + (d ? ";path=" + d : "") + (e ? ";domain=" + e : "") + (g ? ";secure" : "")
+}
+
+function Get_Ckie(name) {
+    var start = document.cookie.indexOf(name + "=");
+    var len = start + name.length + 1;
+    if (!start && name != document.cookie.substring(0, name.length)) return null;
+    if (start == -1) return null;
+    var end = document.cookie.indexOf(";", len);
+    if (end == -1) end = document.cookie.length;
+    return unescape(document.cookie.substring(len, end))
+}
+
+function Delete_Ckie(a, b, c) {
+	try {
+		if (Get_Ckie(a))
+			document.cookie = a + "=" + (b ? ";path=" + b : "") + (c ? ";domain=" + c : "") + ";expires=Thu, 01-Jan-1970 00:00:01 GMT"
+	} catch (d) {}
+}
+
+function getCookievaluetwitt(a) {
+	var e = 'rtype';
+	return getCookievalue(a, e);
+}
+function getCookievalue(a, e) {
+	var b = document.cookie,
+	c = b.indexOf(a),
+	d = b.indexOf(";", c);
+	if (c != -1) {
+		if (d == -1)
+			d = b.length;
+		return unescape(b.substring(c + a.length + 1, d))
+	} else {
+		if (e == undefined || e == null) {
+			return ''
+		} else {
+			return null
+		}
+	}
+}
+
+// jQuery Easing Plugin
+jQuery.easing['jswing']=jQuery.easing['swing'];jQuery.extend(jQuery.easing,{def:'easeOutQuad',swing:function(x,t,b,c,d){return jQuery.easing[jQuery.easing.def](x,t,b,c,d);},easeInQuad:function(x,t,b,c,d){return c*(t/=d)*t+b;},easeOutQuad:function(x,t,b,c,d){return-c*(t/=d)*(t-2)+b;},easeInOutQuad:function(x,t,b,c,d){if((t/=d/2)<1)return c/2*t*t+b;return-c/2*((--t)*(t-2)-1)+b;},easeInCubic:function(x,t,b,c,d){return c*(t/=d)*t*t+b;},easeOutCubic:function(x,t,b,c,d){return c*((t=t/d-1)*t*t+1)+b;},easeInOutCubic:function(x,t,b,c,d){if((t/=d/2)<1)return c/2*t*t*t+b;return c/2*((t-=2)*t*t+2)+b;},easeInQuart:function(x,t,b,c,d){return c*(t/=d)*t*t*t+b;},easeOutQuart:function(x,t,b,c,d){return-c*((t=t/d-1)*t*t*t-1)+b;},easeInOutQuart:function(x,t,b,c,d){if((t/=d/2)<1)return c/2*t*t*t*t+b;return-c/2*((t-=2)*t*t*t-2)+b;},easeInQuint:function(x,t,b,c,d){return c*(t/=d)*t*t*t*t+b;},easeOutQuint:function(x,t,b,c,d){return c*((t=t/d-1)*t*t*t*t+1)+b;},easeInOutQuint:function(x,t,b,c,d){if((t/=d/2)<1)return c/2*t*t*t*t*t+b;return c/2*((t-=2)*t*t*t*t+2)+b;},easeInSine:function(x,t,b,c,d){return-c*Math.cos(t/d*(Math.PI/2))+c+b;},easeOutSine:function(x,t,b,c,d){return c*Math.sin(t/d*(Math.PI/2))+b;},easeInOutSine:function(x,t,b,c,d){return-c/2*(Math.cos(Math.PI*t/d)-1)+b;},easeInExpo:function(x,t,b,c,d){return(t==0)?b:c*Math.pow(2,10*(t/d-1))+b;},easeOutExpo:function(x,t,b,c,d){return(t==d)?b+c:c*(-Math.pow(2,-10*t/d)+1)+b;},easeInOutExpo:function(x,t,b,c,d){if(t==0)return b;if(t==d)return b+c;if((t/=d/2)<1)return c/2*Math.pow(2,10*(t-1))+b;return c/2*(-Math.pow(2,-10*--t)+2)+b;},easeInCirc:function(x,t,b,c,d){return-c*(Math.sqrt(1-(t/=d)*t)-1)+b;},easeOutCirc:function(x,t,b,c,d){return c*Math.sqrt(1-(t=t/d-1)*t)+b;},easeInOutCirc:function(x,t,b,c,d){if((t/=d/2)<1)return-c/2*(Math.sqrt(1-t*t)-1)+b;return c/2*(Math.sqrt(1-(t-=2)*t)+1)+b;},easeInElastic:function(x,t,b,c,d){var s=1.70158;var p=0;var a=c;if(t==0)return b;if((t/=d)==1)return b+c;if(!p)p=d*.3;if(a<Math.abs(c)){a=c;var s=p/4;}
+else var s=p/(2*Math.PI)*Math.asin(c/a);return-(a*Math.pow(2,10*(t-=1))*Math.sin((t*d-s)*(2*Math.PI)/p))+b;},easeOutElastic:function(x,t,b,c,d){var s=1.70158;var p=0;var a=c;if(t==0)return b;if((t/=d)==1)return b+c;if(!p)p=d*.3;if(a<Math.abs(c)){a=c;var s=p/4;}
+else var s=p/(2*Math.PI)*Math.asin(c/a);return a*Math.pow(2,-10*t)*Math.sin((t*d-s)*(2*Math.PI)/p)+c+b;},easeInOutElastic:function(x,t,b,c,d){var s=1.70158;var p=0;var a=c;if(t==0)return b;if((t/=d/2)==2)return b+c;if(!p)p=d*(.3*1.5);if(a<Math.abs(c)){a=c;var s=p/4;}
+else var s=p/(2*Math.PI)*Math.asin(c/a);if(t<1)return-.5*(a*Math.pow(2,10*(t-=1))*Math.sin((t*d-s)*(2*Math.PI)/p))+b;return a*Math.pow(2,-10*(t-=1))*Math.sin((t*d-s)*(2*Math.PI)/p)*.5+c+b;},easeInBack:function(x,t,b,c,d,s){if(s==undefined)s=1.70158;return c*(t/=d)*t*((s+1)*t-s)+b;},easeOutBack:function(x,t,b,c,d,s){if(s==undefined)s=1.70158;return c*((t=t/d-1)*t*((s+1)*t+s)+1)+b;},easeInOutBack:function(x,t,b,c,d,s){if(s==undefined)s=1.70158;if((t/=d/2)<1)return c/2*(t*t*(((s*=(1.525))+1)*t-s))+b;return c/2*((t-=2)*t*(((s*=(1.525))+1)*t+s)+2)+b;},easeInBounce:function(x,t,b,c,d){return c-jQuery.easing.easeOutBounce(x,d-t,0,c,d)+b;},easeOutBounce:function(x,t,b,c,d){if((t/=d)<(1/2.75)){return c*(7.5625*t*t)+b;}else if(t<(2/2.75)){return c*(7.5625*(t-=(1.5/2.75))*t+.75)+b;}else if(t<(2.5/2.75)){return c*(7.5625*(t-=(2.25/2.75))*t+.9375)+b;}else{return c*(7.5625*(t-=(2.625/2.75))*t+.984375)+b;}},easeInOutBounce:function(x,t,b,c,d){if(t<d/2)return jQuery.easing.easeInBounce(x,t*2,0,c,d)*.5+b;return jQuery.easing.easeOutBounce(x,t*2-d,0,c,d)*.5+c*.5+b;}});
+
+// jQuery Cookie Plugin
+(function(factory){if(typeof define==='function'&&define.amd&&define.amd.jQuery){define(['jquery'],factory);}else{factory(jQuery);}}(function($){var pluses=/\+/g;function raw(s){return s;}
+function decoded(s){return decodeURIComponent(s.replace(pluses,' '));}
+function converted(s){if(s.indexOf('"')===0){s=s.slice(1,-1).replace(/\\"/g,'"').replace(/\\\\/g,'\\');}
+return config.json?JSON.parse(s):s;}
+var config=$.cookie=function(key,value,options){if(value!==undefined){options=$.extend({},config.defaults,options);if(typeof options.expires==='number'){var days=options.expires,t=options.expires=new Date();t.setDate(t.getDate()+days);}
+value=config.json?JSON.stringify(value):String(value);return(document.cookie=[encodeURIComponent(key),'=',config.raw?value:encodeURIComponent(value),options.expires?'; expires='+options.expires.toUTCString():'',options.path?'; path='+options.path:'',options.domain?'; domain='+options.domain:'',options.secure?'; secure':''].join(''));}
+var decode=config.raw?raw:decoded;var cookies=document.cookie.split('; ');var result=key?undefined:{};for(var i=0,l=cookies.length;i<l;i++){var parts=cookies[i].split('=');var name=decode(parts.shift());var cookie=decode(parts.join('='));if(key&&key===name){result=converted(cookie);break;}
+if(!key){result[name]=converted(cookie);}}
+return result;};config.defaults={};$.removeCookie=function(key,options){if($.cookie(key)!==undefined){$.cookie(key,'',$.extend(options,{expires:-1}));return true;}
+return false;};}));
+
+// jQuery LazyLoading Plugin
+(function($,window,document,undefined){var $window=$(window);$.fn.lazyload=function(options){var elements=this;var $container;var settings={threshold:0,failure_limit:0,event:"scroll",effect:"show",container:window,data_attribute:"original",skip_invisible:true,appear:null,load:null};function update(){var counter=0;elements.each(function(){var $this=$(this);if(settings.skip_invisible&&!$this.is(":visible")){return;}
+if($.abovethetop(this,settings)||$.leftofbegin(this,settings)){}else if(!$.belowthefold(this,settings)&&!$.rightoffold(this,settings)){$this.trigger("appear");counter=0;}else{if(++counter>settings.failure_limit){return false;}}});}
+if(options){if(undefined!==options.failurelimit){options.failure_limit=options.failurelimit;delete options.failurelimit;}
+if(undefined!==options.effectspeed){options.effect_speed=options.effectspeed;delete options.effectspeed;}
+$.extend(settings,options);}
+$container=(settings.container===undefined||settings.container===window)?$window:$(settings.container);if(0===settings.event.indexOf("scroll")){$container.bind(settings.event,function(event){return update();});}
+this.each(function(){var self=this;var $self=$(self);self.loaded=false;$self.one("appear",function(){if(!this.loaded){if(settings.appear){var elements_left=elements.length;settings.appear.call(self,elements_left,settings);}
+$("<img />").bind("load",function(){$self.hide().attr("src",$self.data(settings.data_attribute))
+[settings.effect](settings.effect_speed);self.loaded=true;var temp=$.grep(elements,function(element){return!element.loaded;});elements=$(temp);if(settings.load){var elements_left=elements.length;settings.load.call(self,elements_left,settings);}}).attr("src",$self.data(settings.data_attribute));}});if(0!==settings.event.indexOf("scroll")){$self.bind(settings.event,function(event){if(!self.loaded){$self.trigger("appear");}});}});$window.bind("resize",function(event){update();});if((/iphone|ipod|ipad.*os 5/gi).test(navigator.appVersion)){$window.bind("pageshow",function(event){if(event.originalEvent.persisted){elements.each(function(){$(this).trigger("appear");});}});}
+$(window).load(function(){update();});return this;};$.belowthefold=function(element,settings){var fold;if(settings.container===undefined||settings.container===window){fold=$window.height()+$window.scrollTop();}else{fold=$(settings.container).offset().top+$(settings.container).height();}
+return fold<=$(element).offset().top-settings.threshold;};$.rightoffold=function(element,settings){var fold;if(settings.container===undefined||settings.container===window){fold=$window.width()+$window.scrollLeft();}else{fold=$(settings.container).offset().left+$(settings.container).width();}
+return fold<=$(element).offset().left-settings.threshold;};$.abovethetop=function(element,settings){var fold;if(settings.container===undefined||settings.container===window){fold=$window.scrollTop();}else{fold=$(settings.container).offset().top;}
+return fold>=$(element).offset().top+settings.threshold+$(element).height();};$.leftofbegin=function(element,settings){var fold;if(settings.container===undefined||settings.container===window){fold=$window.scrollLeft();}else{fold=$(settings.container).offset().left;}
+return fold>=$(element).offset().left+settings.threshold+$(element).width();};$.inviewport=function(element,settings){return!$.rightoffold(element,settings)&&!$.leftofbegin(element,settings)&&!$.belowthefold(element,settings)&&!$.abovethetop(element,settings);};$.extend($.expr[':'],{"below-the-fold":function(a){return $.belowthefold(a,{threshold:0});},"above-the-top":function(a){return!$.belowthefold(a,{threshold:0});},"right-of-screen":function(a){return $.rightoffold(a,{threshold:0});},"left-of-screen":function(a){return!$.rightoffold(a,{threshold:0});},"in-viewport":function(a){return $.inviewport(a,{threshold:0});},"above-the-fold":function(a){return!$.belowthefold(a,{threshold:0});},"right-of-fold":function(a){return $.rightoffold(a,{threshold:0});},"left-of-fold":function(a){return!$.rightoffold(a,{threshold:0});}});})(jQuery,window,document);
+// endof External Plugins
+
+
+(function($){
+	$.fn.isChildOf = function (b) {
+		return (this.parents(b).length > 0);
+	};
+	
+	/* ET SpotLight */
+	$.fn.etSpotlight=function(opts){var settings={speed:500,easing:"easeOutSine",auto:true,interval:5000,thumbEvent:"click",pauseOnHover:true,next:".nav .next",prev:".nav .prev",thumbs:".nav .thumbs ul",display:".display > ul"}
+if(typeof opts!="undefined"){if($.isPlainObject(opts)){$.extend(settings,opts);}}
+if(!$.easing||!$.easing.hasOwnProperty(settings.easing)){settings.easing="linear";}
+return this.each(function(){var o=$(this),nextBtn=$(settings.next,o),prevBtn=$(settings.prev,o),thumbs=$(settings.thumbs,o),display=$(settings.display,o),thumbWidth=thumbs.find("li").first().outerWidth(),displayWidth=display.find(">li").first().outerWidth(),autoInterval,originalImg;thumbs.find("li").first().before(thumbs.find("li").last());nextBtn.bind("click",function(){$(this).unbind("click");goNext();});prevBtn.bind("click",function(){$(this).unbind("click");goPrev();});thumbs.find("li").bind(settings.thumbEvent,function(){var indx=$(this).index();if(!$(this).hasClass("active")){if(indx>1){nextBtn.trigger("click");}else if(indx<1){prevBtn.trigger("click");}}});if(settings.pauseOnHover&&settings.auto){display.parent().bind("mouseenter",function(){clearInterval(autoInterval);}).bind("mouseleave",function(){setAuto();});}
+function goNext(){if(settings.auto){clearInterval(autoInterval);}
+originalImg=display.find(">li").eq(1).find("img");if(typeof originalImg.attr("data-original")!="undefined"){originalImg.attr("src",originalImg.attr("data-original")).removeAttr("data-original");}
+thumbs.find("li").removeClass("active").eq(1).next().addClass("active").parent().stop().animate({"margin-left":thumbWidth*-1},settings.speed,settings.easing,function(){thumbs.css({"margin-left":0}).find("li").last().after(thumbs.find("li").first());});display.stop().animate({"margin-left":displayWidth*-1},settings.speed,settings.easing,function(){display.css({"margin-left":0}).find(">li").last().after(display.find(">li").first());if(settings.auto){setAuto();}
+nextBtn.bind("click",function(){$(this).unbind("click");goNext();});});}
+function goPrev(){if(settings.auto){clearInterval(autoInterval);}
+thumbs.css({"margin-left":thumbWidth*-1}).find("li").first().before(thumbs.find("li").last()).siblings(".active").removeClass("active").prev().addClass("active").parent().stop().animate({"margin-left":0},settings.speed,settings.easing,function(){thumbs.css({"margin-left":0});});originalImg=display.find(">li").last().find("img");if(typeof originalImg.attr("data-original")!="undefined"){originalImg.attr("src",originalImg.attr("data-original")).removeAttr("data-original");}
+display.css({"margin-left":displayWidth*-1}).find(">li").first().before(display.find(">li").last()).parent().stop().animate({"margin-left":0},settings.speed,settings.easing,function(){display.css({"margin-left":0});if(settings.auto){setAuto();}
+prevBtn.bind("click",function(){$(this).unbind("click");goPrev();});});}
+function setAuto(){autoInterval=setInterval(function(){goNext();},settings.interval);}
+if(settings.auto){setAuto();}});}
+	/* endof ET Spotlight*/
+	
+	/* TABS plugin */
+	$.fn.etTabs = function(opts){
+		var settings = {
+			tabs	: ".tabsBtn > ul > li",
+			content	: ".tabsContent > ul > li",
+			activeClass : "active",
+			speed : 500,
+			event : "click",
+			effect : "slide"
+		};
+		
+		if(typeof opts == "object"){
+			if($.isPlainObject(opts)){
+				$.extend(settings, opts);
+			}
+		}
+		
+		// attaching NameSpace in event (optional)
+		settings.event = settings.event + ".etTabs";
+		
+		return this.each(function(){
+			var o = $(this);
+			$(settings.tabs, o).live(settings.event, function(event){
+				var tabIndex = $(this).index(),
+					target = $(settings.content, o).eq(tabIndex);
+				
+				$(this).addClass(settings.activeClass).siblings().removeClass(settings.activeClass);
+				switch(settings.effect){
+					case "slide" :
+						target.slideDown(settings.speed).siblings().slideUp(settings.speed);
+						break;
+					case "fade" :
+						target.stop().fadeTo(settings.speed, 1).siblings().stop().fadeOut(settings.speed/2);
+						event.stopPropagation();
+						break;
+					case "none" :
+						target.show().siblings().hide();
+						break;
+				}
+				event.preventDefault();
+			});
+		});
+	}
+	/* endof TABS plugin */
+	
+	/* GALLERY : News in Pics */
+	$.fn.etGallery = function(opts){
+		var settings = {
+			content	: "> ul > li",
+			countText : ".nav .count",
+			next : ".nav .next",
+			prev : ".nav .prev",
+			play : ".nav .go",
+			speed : 500,
+			auto : true,
+			pauseOnHover : true,
+			interval : 10000,
+			width : 315
+		};
+		
+		if(typeof opts == "object"){
+			if($.isPlainObject(opts)){
+				$.extend(settings, opts);
+			}
+		}
+		
+		return this.each(function(){
+			var o = $(this),
+				totalCount = $(settings.content, o).length,
+				curIndex = $(settings.content, o).parent().find(".default").index(),
+				target;
+			
+			// Setting Class for Play-Pause Btn
+			if(settings.auto){
+				$(settings.play, o).attr("class", "btn go").attr("title", "Stop Auto Play");
+			} else {
+				$(settings.play, o).attr("class", "btn go play").attr("title", "Auto Play");
+			}
+			
+			var autoInterval;
+			
+			function setAuto(){
+				clearInterval(autoInterval);
+				autoInterval = setInterval(function(){
+					goNext();
+				}, settings.interval);
+			}
+			
+			if(settings.auto){
+				setAuto();
+			}
+			
+			if (settings.pauseOnHover && settings.auto) {
+				$(settings.content, o).bind("mouseenter", function () {
+					clearInterval(autoInterval);
+				}).bind("mouseleave", function () {
+					setAuto();
+				});
+			}
+			
+			//Play-Pause
+			$(settings.play, o).live("click", function(event){
+				if(settings.auto){
+					clearInterval(autoInterval);
+					$(settings.play, o).addClass("play").attr("title", "Auto Play");
+					settings.auto = false;
+				} else {
+					setAuto();
+					$(settings.play, o).removeClass("play").attr("title", "Stop Auto Play");
+					settings.auto = true;
+				}
+			});
+			
+			//Next
+			function goNext(){
+				if(settings.auto){
+					clearInterval(autoInterval);
+				}
+				curIndex = (curIndex < totalCount-1) ? curIndex+1 : 0;
+				target = $(settings.content, o).eq(curIndex);
+				$(settings.countText, o).text(curIndex+1 + "/" +  totalCount);
+				if(target.find("img").attr("data-original")){
+					target.find("img").attr("src", target.find("img").attr("data-original")).removeAttr("data-original");
+				}
+				target.animate({opacity: 'show', width: settings.width}, settings.speed, function(){
+					if(settings.auto){
+						setAuto();
+					}
+				}).siblings().animate({opacity: 'hide', width:0}, settings.speed);
+			}
+			$(settings.next, o).live("click", function(event){
+				goNext();
+				event.preventDefault();
+			});
+			
+			//Prev
+			$(settings.prev, o).live("click", function(event){
+				if(settings.auto){
+					clearInterval(autoInterval);
+				}
+				curIndex = (curIndex <= 0) ? totalCount-1 : curIndex-1;
+				target = $(settings.content, o).eq(curIndex);
+				$(settings.countText, o).text(curIndex+1 + "/" +  totalCount);
+				if(target.find("img").attr("data-original")){
+					target.find("img").attr("src", target.find("img").attr("data-original")).removeAttr("data-original");
+				}
+				target.animate({opacity: 'show', width: settings.width}, settings.speed, function(){
+					if(settings.auto){
+						setAuto();
+					}
+				}).siblings().animate({opacity: 'hide', width:0}, settings.speed);				
+				event.preventDefault();
+			});
+			
+			
+			// Fix for Flickering on back from long Focus out of the tab or window
+			$(window).bind("focus.fixFlickering", function(){
+				$(settings.content, o).clearQueue();
+			});
+		});
+	}
+	/* endof GALLERY : News in Pics */
+	
+	/* ET Slider */
+	$.fn.etSlider = function(opts){
+		var settings = {
+			visible : 3,
+			perSlide : 3,
+			speed : 800,
+			auto : true,
+			pauseOnHover : true,
+			interval : 8000,
+			easing : 'swing',
+			pagination : ".pagination",
+			slideContainer : '.slides',
+			slides : '.slides > ul > li'
+		}
+		
+		if(typeof opts == "object"){
+			if($.isPlainObject(opts)){
+				$.extend(settings, opts);
+			}
+		}
+		
+		return this.each(function(){
+			var o = $(this),
+				slide = $(settings.slides, this).last(),
+				slideTarget = slide.parent(),
+				slideWidth = slide.width(),
+				slideMargin = parseInt(slide.css('margin-left')),
+				slidesCount = $(settings.slides, this).length,
+				pagings = $(settings.pagination, this).find("li"),
+				totalPagings = (slidesCount%settings.perSlide == 0) ? slidesCount/settings.perSlide : Math.round(slidesCount/settings.perSlide),
+				animationArea = 0,
+				autoInterval;
+			
+			// Setting Width of container
+			slideWidth = slideWidth + slideMargin;
+			$(settings.slides, this).first().parent().width(slideWidth * slidesCount);
+			
+			// Adjusting Pagings
+			$(settings.pagination, this).find("ul").empty();
+			for(var i = 0; i < totalPagings; i++){
+				if(i == 0){
+					$(settings.pagination, this).find("ul").append("<li class='active'><span>1</span></li>");
+				} else {
+					$(settings.pagination, this).find("ul").append("<li><span>" + (i+1) + "</span></li>");
+				}
+			}
+			
+			// Re-Getting the Pagings
+			pagings = $(settings.pagination, this).find("li");
+			
+			//Loading All Visible Images
+			$.each(
+				$(settings.slides, o).filter(function(){
+					return $(this).index() < settings.visible;
+				}),
+				function(){
+					if($(this).find("img").attr("data-original")){
+						$(this).find("img").attr("src", $(this).find("img").attr("data-original")).removeAttr("data-original");
+					}
+				}
+			);
+			
+			// Pause on MouseOver
+			if (settings.pauseOnHover && settings.auto) {
+				$(settings.slideContainer, o).bind("mouseenter", function () {
+					clearInterval(autoInterval);
+				}).bind("mouseleave", function () {
+					setAuto();
+				});
+			}
+			
+			// Sliding
+			function goSlide(indx){
+				var curIndex = indx;
+				
+				if(settings.auto){
+					clearInterval(autoInterval);
+				}
+				
+				// Setting Animation Area
+				animationArea = slideWidth * (-1);
+				animationArea = animationArea * settings.perSlide * curIndex;
+				
+				// Animation
+				slideTarget.stop().animate({
+					'margin-left' : animationArea
+				}, settings.speed, settings.easing, function(){
+					if(settings.auto){
+						setAuto();
+					}
+				});
+				pagings.eq(indx).addClass("active").siblings().removeClass("active");
+				
+				// Loading Images on being visible
+				var allVisibles = settings.visible * curIndex,
+					targetSlides = $(settings.slides, o).filter(function(){
+						return ($(this).index() > allVisibles-1) && ($(this).index() < allVisibles + settings.perSlide);
+					});
+					
+				$.each(targetSlides, function(){
+					if($(this).find("img").attr("data-original")){
+						$(this).find("img").attr("src", $(this).find("img").attr("data-original")).removeAttr("data-original");
+					}
+				});
+			}
+			
+			//Clicking on Paginations
+			pagings.live("click", function(){
+				goSlide($(this).index());
+			});
+			
+			// Auto
+			function setAuto(){
+				autoInterval = setInterval(function(){
+					var current = pagings.filter('.active');
+					if(current.index() >= current.siblings().length){
+						goSlide(0);
+					} else {
+						goSlide(current.index() + 1);
+					}
+				}, settings.interval);
+			}
+			
+			if(settings.auto){
+				setAuto();
+			}
+		});
+	}
+	/*endof ET Slider */
+		
+	/* ET Search */
+	$.fn.etSearch = function(opts){
+		var settings = {
+			input : "input[type=text]",
+			button : "input[type=submit]",
+			ajax : {
+				url : "/stocksearch.cms",
+				key : "ticker"
+			},
+			buttonAction : "/currentquote.cms?ticker="
+		};
+		
+		if(typeof opts == "object"){
+			if($.isPlainObject(opts)){
+				$.extend(settings, opts);
+			}
+		}
+		
+		return this.each(function(){
+			var o = $(this),
+				input = $(settings.input, o),
+				btn = $(settings.button, o),
+				ajaxData = {},
+				keyword = "",
+				selected = -1;
+				
+			// setting CSS and elements
+			o.css({
+				position: "relative",
+				zIndex : "10"
+			});			
+			$("<ul class='searchList' />")
+				.css({
+					background : '#FFF',
+					display : 'none',
+					position : 'absolute',
+					'min-width' : input.outerWidth(),
+					top : input.position().top + input.outerHeight(),
+					left : input.position().left
+				})
+				.appendTo(o);
+				
+			if($.browser.msie && $.browser.version < 9){
+				$(".searchList", o).addClass("searchListIE");
+			}
+			
+			//Active on mouseover
+			$(".searchList", o).find("li").die("mouseenter").live("mouseenter", function(){
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			
+			//Hiding Results
+			$(document).bind("mousedown.hideResults", function(event){
+				if(event.target != input[0] && event.target!= $(".searchList", o)[0] && !$(event.target).isChildOf(".searchList", o)){
+					$(".searchList", o).slideUp(300, function(){
+						$(".searchList", o).empty();
+					});
+				}
+			});
+			
+			//Retrieve Data
+			input.bind("keyup", function(event){
+				var KeyID = window.event ? event.keyCode : event.which;
+				
+				switch (KeyID){
+					case 13: // Enter
+						btn.trigger("click");
+						break;
+					case 38: // Up
+						selected = $(".searchList", o).find("li.active").index();
+						if(selected <= 0){
+							$(".searchList", o).find("li").last().addClass("active").siblings().removeClass("active");
+							selected = $(".searchList", o).find("li").length-1;
+						} else {
+							$(".searchList", o).find("li").eq(selected).prev().addClass("active").siblings().removeClass("active");
+							selected--;
+						}
+						break;
+					case 40: // Down
+						selected = $(".searchList", o).find("li.active").index();
+						if(selected < 0 || selected >= $(".searchList", o).find("li").length-1){
+							$(".searchList", o).find("li").first().addClass("active").siblings().removeClass("active");
+							selected = 0;
+						} else {
+							$(".searchList", o).find("li").eq(selected).next().addClass("active").siblings().removeClass("active");
+							selected++;
+						}
+						break;
+					default :
+						if($.trim(input.val()) != ""){
+							ajaxData[settings.ajax.key] = $.trim(input.val());				
+							$.ajax({
+								url : settings.ajax.url,
+								dataType : 'html',
+								data : ajaxData,
+								success : function(data){
+									$(".searchList", o).html(data).slideDown();
+									selected = -1;
+								}
+							});
+						}
+						break;
+				}
+			});
+			
+			//Closing Other Open results in the page
+			input.bind("focus", function(){
+				$("ul.searchList").filter(function(){
+					return $(this).not(input.siblings());
+				}).slideUp(300, function(){
+					$(this).empty();
+				});
+			});
+			
+			//Preventing Submit Form
+			if(o.is("form")){
+				o.bind("submit", function(event){
+					event.preventDefault();
+				});
+			}
+			
+			//Button Action
+			btn.bind("click", function(){
+				if($.trim(input.val()) != ""){
+					selected = $(".searchList", o).find("li.active").index();
+					window.open(selected >= 0 ? $(".searchList", o).find("li.active a").attr('href') : settings.buttonAction + input.val());
+				}
+			});
+		});
+	}
+	/* endof ET Search */
+	
+	/* PlaceHolder */
+	$.fn.jqPlaceHolder = function(options){
+		var opts = {
+			mainColor : "#000",
+			fadeColor : "#999"
+		};
+		if(typeof options == "object"){
+			if($.isArray(options)){
+				opts.mainColor = options[0];
+				opts.fadeColor = options[1];
+			} else {
+				$.extend(opts, options);
+			}
+		}
+		return this.each(function(){
+			if('placeholder' in document.createElement('input') == false){
+				var o = $(this);
+				
+				// on Page Load
+				o.val(o.attr("placeholder")).css({color : opts.fadeColor});
+				
+				//on Focus
+				o.focus(function(){
+					if(o.val() == o.attr("placeholder")){
+						o.val("").css({color : opts.mainColor});
+					}
+				});
+				
+				//on Blur
+				o.blur(function(){
+					if($.trim(o.val()) == ""){
+						o.val(o.attr("placeholder")).css({color : opts.fadeColor});
+					}
+				});
+			}
+		});
+		
+		//on Form Submit - Re-setting Values
+		$('form').submit(function(event){
+			if('placeholder' in document.createElement('input') == false){
+				$(':input[placeholder]', this).each(function(){
+					var o = $(this);
+					if(o.val()== o.attr('placeholder')){
+						o.val("");
+					};
+				});
+			}
+		});
+	}
+	/* Endof Placeholder */
+	
+	/* New All Search Script Start Here */
+	$.fn.etSearchAll = function (opts) {
+		var xhr,xhrdef,xhrnews;
+		var settings = {
+			input : "input[type=text]",
+			message : "Search for News, Stock Quotes & NAV\'s",
+			activeClass : "active",
+			effect : "slide"
+		};
+		var records = {
+			compcount : 6,
+			mfcount: 2,
+			cmdtcount : 2,
+			inetcount : 2,
+			defcount : 2
+		}
+		function makeBold(inputText, completeText) {   
+			var matchtext=new RegExp(inputText, "i");
+			if (completeText.toLowerCase().indexOf(inputText.toLowerCase()) >= 0){
+				matched = completeText.substr(completeText.search(matchtext),inputText.length);
+				return completeText.replace(matchtext,"<b>" + matched + "</b>");
+			}
+			else{
+				return completeText;
+			}
+		}
+
+		if (typeof opts == "object") {
+			if ($.isPlainObject(opts)) {
+				$.extend(settings, opts);
+			}
+		}
+
+		return this.each(function () {
+			var obj = $(this),
+			input = $(settings.input, obj);
+			$("<ul class='searchListAll' />")
+			.css({
+				display : 'none',
+				'min-width' : input.outerWidth(),
+				top : input.position().top + input.outerHeight(),
+				left : input.position().left
+			})
+			.appendTo(obj);
+
+			//For set or remove the default text in input box
+			input.bind("focus",function(){
+				if(input.val() == settings.message){
+					input.val("");
+				}
+			});
+			input.bind("blur",function(){
+				if(input.val() == "" || input.val() == null){
+					input.val(settings.message);
+					$("ul.searchListAll",obj).css("display" , "none");
+				}
+			});
+			$(document).click("click",function(event){
+				if($(event.target).hasClass("searchIcon") && $(event.target).parent().is(obj) && input.val() != settings.message){
+					location.href = "/topic/" + escape(input.val()).replace("%20", "-");
+				} else if(input.is(":focus")){
+					return false;
+				} else if(!($(event.target).parent().is(".searchListAll li",obj) || $(event.target).parent().is(".searchListAll",obj))){
+					input.val(settings.message);
+					$("ul.searchListAll",obj).css("display" , "none");
+				}
+			});
+			
+			input.bind("keyup", function (event) {
+				if (input.val().length) {
+					//When press enter key
+					if (event.which == 13) {
+						if ($("ul.searchListAll > li", obj).hasClass("active")) {
+							location.href = $("ul.searchListAll > li.active", obj).attr("data-url");
+							input.val(settings.message);
+						} else {
+							location.href = "/topic/" + escape(input.val()).replace("%20", "-");
+							input.val(settings.message);
+						}
+					}
+					// When Press Down Arrow
+					else if (event.which == 40) {
+						if ($("ul.searchListAll > li", obj).hasClass("active")) {
+							if ($("ul.searchListAll > li.active", obj).next().hasClass("head")) {
+								$("ul.searchListAll > li", obj).eq($("ul.searchListAll > li.active", obj).next().index() + 1).addClass("active").siblings().removeClass("active");
+							} else {
+								if ($("ul.searchListAll > li.active", obj).index() == $("ul.searchListAll > li", obj).length - 1) {
+									$("ul.searchListAll > li", obj).eq(1).addClass("active").siblings().removeClass("active");
+								} else {
+									$("ul.searchListAll > li", obj).eq($("ul.searchListAll > li.active", obj).next().index()).addClass("active").siblings().removeClass("active");
+								}
+							}
+						} else {
+							$("ul.searchListAll > li", obj).eq(1).addClass("active");
+						}
+					}
+					// When Press UP Arrow
+					else if (event.which == 38) {
+						if ($("ul.searchListAll > li", obj).hasClass("active")) {
+							if ($("ul.searchListAll > li.active", obj).prev().hasClass("head")) {
+								$("ul.searchListAll > li", obj).eq($("ul.searchListAll > li.active", obj).prev().index() - 1).addClass("active").siblings().removeClass("active");
+							} else {
+								$("ul.searchListAll > li", obj).eq($("ul.searchListAll > li.active", obj).prev().index()).addClass("active").siblings().removeClass("active");
+							}
+						} else {
+							$("ul.searchListAll > li", obj).eq($("ul.searchListAll > li", obj).last().index()).addClass("active");
+						}
+					}
+					// Loading and assiging data as per relevent search
+					else {
+						$(".searchIcon",obj).css("background", "url(/photo/6288727.cms) no-repeat 0 0");
+						var compcount = mfcount = cmdtcount = inetcount = apidatacount = defcount = newscount = 0;
+						var com = "<li class='head companies'><span class='flt'>COMPANIES</span><a class='flr' target='_blank' href='/currentquote.cms?ticker='>more</a><div class='clr'></div></li>";
+						var mf = "<li class='head mf'><span class='flt'>MUTUAL FUNDS</span><a class='flr' target='_blank' href='/mutual_funds_search/isschemestartwith-true,schemename-.cms'>more</a><div class='clr'></div></li>";
+						var inet = "<li class='head etinside'><span class='flt'>INSIDE ET</span><div class='clr'></div></li>";
+						var cmdt = "<li class='head cmdt'><span class='flt'>COMMODITY</span><a class='flr' target='_blank' href='/commoditysearch.cms?query='>more</a><div class='clr'></div></li>";
+						var def = "<li class='head def'><span class='flt'>DEFINITIONS</span><a class='flr' target='_blank' href='/definition'>more</a><div class='clr'></div></li>";
+						var news = "<li class='head news'><span class='flt'>NEWS</span><a class='flr' target='_blank' href='/topic/home'>more</a><div class='clr'></div></li>";
+						if (xhr){
+							xhr.abort();
+						}
+						xhr = $.ajax({
+							url : (location.port) ? "http://etspeedapitest.indiatimes.com/etspeeds/ethome.ep?matchCompanyName=true&mcx=true&mf=true&insideet=true&detail=true&pagesize=" + records.compcount + "&outputtype=json&ticker=" + escape($(this).val()) :"http://etspeedapi.indiatimes.com/etspeeds/ethome.ep?matchCompanyName=true&mcx=true&mf=true&insideet=true&detail=true&pagesize=" + records.compcount + "&outputtype=json&ticker=" + escape($(this).val()),
+							dataType : "jsonp",
+							success : function (data) {
+								//$(".searchIcon",obj).removeAttr("style");
+								
+								apidatacount = data.length;
+								for (i = 0; i < data.length; i++) {
+									if (data[i].entityType == "company" && compcount < records.compcount) {
+										com = com + "<li data-url='/" + escape(data[i].tagSeoName) + "/stocks/companyid-" + data[i].tagId + ".cms'> <a target='_blank' href='/" + escape(data[i].tagSeoName) + "/stocks/companyid-" + data[i].tagId + ".cms'>" + makeBold(input.val(), data[i].tagName) + "</a></li>";
+										compcount++;
+									} else if (data[i].entityType == "MutualFund" && mfcount < records.mfcount) {
+										mf = mf + "<li data-url='/" + escape(data[i].tagSeoName) + "/mffactsheet/schemeid-" + data[i].tagId + ".cms'> <a target='_blank' href='/" + escape(data[i].tagSeoName) + "/mffactsheet/schemeid-" + data[i].tagId + ".cms'>" + makeBold(input.val(), data[i].tagName) + "</a></li>";
+										mfcount++;
+									} else if (data[i].entityType == "ET" && inetcount < records.inetcount) {
+										inet = inet + "<li data-url='" + data[i].url + "'> <a target='_blank' href='" + data[i].url + "'>" + makeBold(input.val(), data[i].key) + "</a></li>";
+										inetcount++;
+									} else if (data[i].entityType == "commodity" && cmdtcount < records.cmdtcount) {
+										cmdt = cmdt + "<li data-url='/commoditysummary/symbol-" + data[i].fno + ".cms'> <a target='_blank' href='/commoditysummary/symbol-" + data[i].fno + ".cms'>" + makeBold(input.val(), data[i].tagName) + "</a></li>";
+										cmdtcount++;
+									}
+								}
+								// Assiging Data in List
+								(compcount == 0) ? com = "" : com = com;
+								(mfcount == 0) ? mf = "" : mf = mf;
+								(inetcount == 0) ? inet = "" : inet = inet;
+								(cmdtcount == 0) ? cmdt = "" : cmdt = cmdt; //(defcount == 0)? def = "" : def = def;
+								allapisearch = com + mf + inet + cmdt;
+								$("ul.searchListAll", obj).html(com + mf + inet + cmdt);
+
+								// Show Hide Drop Down
+								if (data.length) {
+									$("ul.searchListAll", obj).slideDown(300);
+								}
+								
+								if (xhrdef){
+									xhrdef.abort();
+								}
+								xhrdef = $.ajax({
+									url : "/json_definitionsearch.cms?spellcheck.q=" + escape(input.val()),
+									dataType : "jsonp",
+									success : function (defdata) {
+										$(".searchIcon",obj).removeAttr("style");
+										defcount = defdata.length;
+										for (i = 0; i < defdata.length; i++) {
+											def = def + '<li data-url="/definition/' + defdata[i].seo + '"> <a target="_blank" href="/definition/' + defdata[i].seo + '">' + makeBold(input.val(), defdata[i].name) + '</a></li>';
+										}
+										def = (!defdata.length) ? "" : def;
+										if (defdata.length) {
+											$("ul.searchListAll", obj).html(allapisearch + def);
+											$("ul.searchListAll", obj).slideDown(300);
+										}
+										if((input.val().length > 2) || (apidatacount == 0 && defcount == 0)){
+											if (xhrnews){
+												xhrnews.abort();
+											}
+											xhrnews = $.ajax({
+												url : "/json_newssearch.cms?query=" + escape(input.val()),
+												dataType : "jsonp",
+												success : function (newsdata) {
+													newscount = newsdata.length;
+													for (i = 0; i < (((apidatacount + defcount) == 0) ? newsdata.length : 2); i++) {
+														news = news + "<li data-url='" + newsdata[i].link + "'> <a target='_blank' href='" + newsdata[i].link + "'>" + makeBold(input.val(), newsdata[i].title) + "</a></li>"
+													}
+													news = (!newsdata.length) ? "" : news;
+													if (newsdata.length) {
+														$("ul.searchListAll", obj).html(allapisearch + def + news);
+														$("ul.searchListAll", obj).slideDown(300);
+													} else if (apidatacount == 0 && defcount == 0 && newscount == 0) {						
+														$("ul.searchListAll", obj).html("<div class='no-result'>No results found</div>");
+														$("ul.searchListAll", obj).slideDown(300);
+													} else if(!$("ul.searchListAll", obj).has("li")){
+														$(".searchIcon", obj).removeAttr("style");
+														$("ul.searchListAll",obj).slideUp(300);
+													}
+													//More Links changed on news success data
+													$("ul.searchListAll .companies a.flr", obj).attr("href", "/currentquote.cms?ticker=" + escape(input.val()));
+													$("ul.searchListAll .mf a.flr", obj).attr("href", "/mutual_funds_search/isschemestartwith-true,schemename-" + input.val() + ".cms");
+													$("ul.searchListAll .cmdt a.flr", obj).attr("href", "/commoditysearch.cms?query=" + input.val());
+													$("ul.searchListAll .def a.flr", obj).attr("href", "/definition/search/" + input.val());
+													$("ul.searchListAll .news a.flr", obj).attr("href", "/topic/" + escape(input.val()).replace("%20", "-"));
+												}
+											});
+										}									
+										//More Links on defination data success
+										$("ul.searchListAll .companies a.flr", obj).attr("href", "/currentquote.cms?ticker=" + escape(input.val()));
+										$("ul.searchListAll .mf a.flr", obj).attr("href", "/mutual_funds_search/isschemestartwith-true,schemename-" + input.val() + ".cms");
+										$("ul.searchListAll .cmdt a.flr", obj).attr("href", "/commoditysearch.cms?query=" + input.val());
+										$("ul.searchListAll .def a.flr", obj).attr("href", "/definition/search/" + input.val());
+									}								
+								});
+								//}						
+								
+								//More Links 
+								$("ul.searchListAll .companies a.flr", obj).attr("href", "/currentquote.cms?ticker=" + escape(input.val()));
+								$("ul.searchListAll .mf a.flr", obj).attr("href", "/mutual_funds_search/isschemestartwith-true,schemename-" + input.val() + ".cms");
+								$("ul.searchListAll .cmdt a.flr", obj).attr("href", "/commoditysearch.cms?query=" + input.val());
+							},
+							error : function(data){
+								//console.log(data);
+							}
+						});
+					}
+				} else {
+					if (xhr){
+						xhr.abort();
+					}
+					$(".searchIcon", obj).removeAttr("style");
+					$("ul.searchListAll", obj).slideUp(300, function () {
+						$("ul.searchListAll", obj).empty();
+					});
+				}
+			});
+			//eof: For set or remove the default text in input box
+		});
+	}
+	/* New All Search Script ends Here */	
+	
+})(jQuery);
+
+// User Data
+var _tp_data = {
+	isLogged : false,
+	email : false,
+	city :  "",
+	pic : null,
+	thumb : null,
+	fname : "",
+	fullName : "",
+	badge : "",
+	points : 0,
+	profile : "",
+	uid : null
+};
+
+/* notification code*/
+var triggNotiC = false;
+var myt_timers = {
+	update : (30 * 1000),
+	notification : (1 * 90 * 1000),
+	i_notification : '',
+	i_update : ''
+}
+
+function getMyScript(url, intr, callFlg) {
+	try {
+		notiCook = Get_Ckie('myt_nc');
+		if (notiCook == null || notiCook == undefined || notiCook == '' || callFlg == 0) {
+			notiCook = '';
+			var script1 = document.createElement('script');
+			script1.src = url + '&' + Math.random();
+			document.getElementsByTagName('head')[0].appendChild(script1);
+		} else {
+			processNotifyCountJSON(notiCook);
+		}
+		clearTimeout(myt_timers.i_notification);
+		myt_timers.i_notification = self.setTimeout(function () {
+				getMyScript(url, intr, 0);
+			}, intr);
+	} catch (ex) {}
+}
+
+function processNotifyCountJSON(json) {
+	if (json != null && json != '' && json != '0' && json != 0) {
+		$('#myt_notifyCountBlk').addClass('active');
+		$('#myt_notifyCountBlk').text(json);
+		$.cookie('myt_nc', json, {expires : (1/24/60/60)*90, path : '/', domain: '.indiatimes.com'});
+	} else {
+		$('#myt_notifyCountBlk').removeClass('active');
+		$('#myt_notifyCountBlk').text(0);
+		$.cookie('myt_nc', 0, {expires : (1/24/60/60)*90, path : '/', domain: '.indiatimes.com'});
+	}
+}
+
+function signOut() {
+	var sessionCookies = [
+						"FBOOK_ID", "FBOOK_NAME", "FBOOK_EMAIL", "FBOOK_LOCATION", "FBOOK_IMAGE", 
+						"TWEET_ID", "TWEET_NAME", "TWEET_LOCATION", "TWEET_IMAGE",
+						"articleid", "txtmsg", "tflocation", "tfemail", "setfocus", "fbcheck", "twtcheck",
+						"usercomt", "ifrmval", "frmbtm", "FaceBookEmail", "Fbimage", "Fboauthid", "Fbsecuritykey",
+						"Twimage", "TwitterUserName", "Twoauthid", "Twsecuritykey"
+						];
+	$.each(sessionCookies, function(c, obj){
+		$.removeCookie(obj, { path: '/', domain: '.indiatimes.com' });
+	});
+	
+	FB.logout(function (response) {});
+	var tmpvar = "http://www.facebook.com/logout.php?app_key=6b01f688a268fc70a489a8b444b7d021&session_key=" + usersessionkey + "&next=" + document.location.href;
+	if (usersessionkey != "")
+		$('#imgLogout').attr('src', tmpvar);
+	setTimeout('meLogOut()', 2000);
+}
+
+function meLogOut() {
+	document.location.href = "http://www1.economictimes.indiatimes.com/logout.cms?tfrout=" + document.location.href;
+}
+
+function openSignin(paramChk) {
+	try {
+		var fbtwtUrl = "";
+		if (paramChk == "1") {
+			fbtwtUrl = "http://socialappsintegrator.indiatimes.com/socialsite/OAuth?channel=et";
+			sigintwtfb = window.open(fbtwtUrl, "sigintwtfb", "location=1,status=1,scrollbars=1,width=670,height=380");
+			setTimeout(function () {
+				sigintwtfb.moveTo(315, 250)
+			}, 100);
+		} else {
+			fbtwtUrl = "http://socialappsintegrator.indiatimes.com/socialsite/twitterrequest?channel=et";
+			sigintwtfb = window.open(fbtwtUrl, "sigintwtfb", "location=1,status=1,scrollbars=0,width=755,height=450");
+			setTimeout(function () {
+				sigintwtfb.moveTo(275, 200)
+			}, 100);
+		}
+	} catch (ex) {}
+}
+
+function loadPopup(chk, schemeid, storyid) {
+	try {
+		if (chk == "1") {
+			$('#signupsso').width(580).height(550).attr('src', "/login1.cms?newlook=1");
+		}
+		if (chk == "2") {
+			$('#signupsso').width(580).height(550).attr('src', "/sign_up.cms");
+		}
+		if (chk == "3") {
+			$('#signupsso').width(580).height(550).attr('src', "/login.cms?newlook=1&signin=1");
+		}
+		if (chk == "4") {
+			$('#signupsso').width(580).height(400).attr('src', "/login.cms?newlook=1");
+		}
+		if (chk == "5") {
+			$('#signupsso').attr('src', "/mypreferences1.cms");
+		}
+		if (chk == "6") {
+			$('#signupsso').attr('src', "/mypreferences1.cms?arc=1");
+		}
+		if (chk == "7") {
+			$('#signupsso').attr('src', "/addto.cms?user=etqrst&companyid=6&width=728&height=384,");
+		}
+		if (chk == "8") {
+			$('#signupsso').attr('src', "/followlogin.cms?newlook=1");
+		}
+		if (chk == "9") {
+			$(document).scrollTop(0);
+			$('#signupsso').attr('src', "/follow_login.cms");
+		}
+		if (chk == "10") {
+			$(document).scrollTop(0);
+			$('#signupsso').attr('src', "/followtopic.cms?user=" + glfollow + "&firstname=" + fnfollow + "&lastname=" + lnfollow);
+		}
+		if (chk == '12') {
+			$(document).scrollTop(0);
+			$('#signupsso').attr('src', "/autologin.cms");
+		}
+		if (chk == '13') {
+			$(document).scrollTop(0);
+			$('#signupsso').attr('src', "/autologinregister.cms");
+		}
+		if (chk == "14") {
+			$('#signupsso').attr('src', "/updatepwd.cms?authtoken=" + authtoken + "&emailid=" + tokennemail);
+		}
+		$("#backgroundPopup").fadeTo('fast', 0.5, function () {
+			$('#popupContact').show();
+		});
+		
+		$("#popupContactClose").die("click").live("click", function(){
+			$('#backgroundPopup, #popupContact').fadeOut(500);
+		});
+
+		$("html, body").animate({scrollTop : 0});
+
+	} catch (ex) {}
+}
+
+function setTopBar() {
+	if ($.cookie("MSCSAuth") != null) {
+		try {
+			$("#loginWithFb").hide();
+			$("li.txt a", "header").first().text("My Times").attr({
+				"href": "http://mytimes.indiatimes.com?channel=et",
+				"target" : "_blank"
+			}).attr('onclick','').unbind('click');
+			
+			$("li.txt a", "header").last().text("Log Out").attr({
+				"onclick": "signOut()",
+				"href" : "javascript:signOut()"
+			});
+			
+			// Setting HTML
+			var _html = "";
+			
+			_html = "<div class='flt'>";
+				_html += "<a id='tp_image' href='http://mytimes.indiatimes.com?channel=et' target='_blank' />"; // Image
+				_html += "<b> Hi, <a id='tp_name' href='http://mytimes.indiatimes.com?channel=et' target='_blank' /></b>"; // Name
+			_html += "</div>";
+			_html += "<div id='tp_badge'/><div class='sep' />"; // Badge + ToolTip for Badge Info
+			_html += "<div id='myt_notifyCountBlk' onclick='getNotificationMYTPOP()'>0</div> "; // Notification Box
+			_html += "<div class='clr' />"; // Log out
+			
+			$("#userDetails").html(_html);
+			
+			$(document).bind("mousedown", function (event) {
+				if(event.target != $("#overlayL1")[0]){
+					winCloseNotiFrame();
+				}
+			});
+			
+			$.getJSON("http://rewards.indiatimes.com/bp/api/urs/gps?format=json&uid=" + _tp_data.email + "&callback=?", function (data) {
+				// Level
+				var temp = data.output.userStat;
+				
+				if (temp.levelName != null && temp.levelName != undefined) {
+					_tp_data.badge = temp.levelName;
+				}
+				
+				// Points
+				_tp_data.points = temp.statusPoints;
+
+				//HTML
+				var badgeHtml = "<p>TIMES POINTS</p>";
+
+				if (_tp_data.points >= 5000)
+				{
+					badgeHtml += "<p>You are now a <b>" + _tp_data.badge + " Member</b> on the Times Points program. <a href='http://timespoints.com' target='_blank'>Click here to redeem your points.</a></p>";
+				}
+				else
+				{
+					badgeHtml += "<p>You are now a <b>" + _tp_data.badge + " Member</b> on the Times Points program. <a href='http://timespoints.com' target='_blank'>Click here to know more about Times Points.</a></p>";
+				}
+					
+				if (_tp_data.points > 9999) {
+					_tp_data.points = roundNumber(_tp_data.points, 1) + "K";
+				}
+				
+				var badge_cap ="<div style='cursor:pointer;padding:0 14px;' onclick='window.open(\"http://timespoints.com\",\"_blank\");'>" + _tp_data.badge + ": " + _tp_data.points + "<img src='/photo/12515056.cms' alt='' style='position: absolute;top: 2px;right: 8px;'></div>";
+
+				$("#tp_badge")
+				.html(badge_cap + "<div class='tp_badgeInfo'>" + badgeHtml + "</div>")
+				.addClass("_tp_" + _tp_data.badge);
+			});
+			
+			$.getJSON(et.mytUrl + "/mytimes/profile/info?callback=?", function (data) {
+				if (data.F_N != null && data.F_N != undefined) {
+					_tp_data.fname = data.F_N;
+				}
+				_tp_data.pic = data.tiny;
+				
+				if (data.D_N_U != null && data.D_N_U != undefined) {
+					_tp_data.profile = data.D_N_U;
+				} else {
+					_tp_data.profile = data._id;
+				}
+				
+				_tp_data.uid = data._id;
+				_tp_data.thumb = data.thumb;
+				_tp_data.fullName = data.FL_N;
+				_tp_data.city = data.CITY;
+				
+				$("#tp_image").html("<img src='" + _tp_data.pic + "' alt='' />");
+				$("#tp_name").text(_tp_data.fname).css({
+					'min-width' : _tp_data.fname.length * 6 + 'px'
+				});
+			});
+		} catch (ex) {}
+	}
+}
+
+function getNotificationMYTPOP() {
+	if ($('#overlayL1').length) {
+		winCloseNotiFrame();
+	} else {
+		var oL = $("#myt_notifyCountBlk").offset().left;
+		var oT = $("#myt_notifyCountBlk").offset().top - 2;
+		var oH = $('#myt_notifyCountBlk').outerHeight();
+		var oW = $('#myt_notifyCountBlk').outerWidth();
+		$('body').append('<div id="overlayL1" style="position:absolute;z-index:999999;border:1px solid #ccc;background-color:#fff;width:478px;height:20px;left:' + (oL + oW - 480 + 122) + 'px;top:' + (oT + oH + 10) + 'px;"><iframe src="http://mytimes.indiatimes.com/iframe_notificationoth.cms" width="100%" height="100%" frameborder="0"></iframe></div>');
+	}
+}
+
+/* closing notification iframe function */
+function winCloseNotiFrame() {
+	if ($('#overlayL1').length) {
+		$('#overlayL1').remove();
+	}
+}
+
+function roundNumber(num, dec) {
+	num = num / 1000;
+	var result = Math.floor(num * Math.pow(10, dec)) / Math.pow(10, dec);
+	return result;
+}
+
+/* Times points badge notification pop up */
+function setzindex(pos, totalslide) {
+	for (i = 0; i < totalslide; i++) {
+		$('#slidebadge' + i).css("z-index", 100000);
+	}
+	$('#slidebadge' + pos).css("z-index", 100001);
+}
+function closeitnotification(pos) {
+	$('#slidebadge' + pos).remove();
+}
+function badgenotification() {
+	$.ajax({
+		cache : false,
+		url : et.mytUrl + "/mytimes/notification?size=100&after=true&type=Reward&noteType=BADGE&appKey=ET&callback=?",
+		type : 'GET',
+		crossDomain : true,
+		dataType : 'jsonp',
+		contentType : 'application/json; charset=utf-8',
+		jsonp : true,
+		async : false,
+		success : function (data) {
+			if(typeof data != 'undefined'){
+				if (! data instanceof Array) {
+					data = [data];
+				}
+				
+				var fstbadgestatus = data.length,
+				notificationarea = "",
+				notibadgedesc_newone = "",
+				notificationde2 = "";
+				//alert(fstbadgestatus);
+				//_debug("fstbadgestatus: " + fstbadgestatus)
+				for (i = 0; i < fstbadgestatus; i++) {
+					var levelName = undefined;
+					if (typeof data[i].badgeLevel != "undefined") {
+						if (data[i].badgeLevel != null && data[i].badgeLevel != undefined) {
+							levelName = data[i].badgeLevel.toLowerCase().replace("level ", "");
+						}
+					}
+					notificationde1 = "";
+					notificationde1 = '<div class="notiline1"><b>Congratulations!</b> ' + _tp_data.fname + ' you have just unlocked the <span style="color:#E5B458;"><b>' + data[i].tn;
+					if (typeof data[i].badgeLevel != "undefined") {
+						if (data[i].badgeLevel != null && data[i].badgeLevel != undefined)
+							notificationde1 += " " + data[i].badgeLevel;
+					}
+					notificationde1 += '</b></span> badge.</div>';
+					
+					if (data[i].levelDesc != null && data[i].levelDesc != undefined) {
+						notibadgedescone = data[i].levelDesc;
+						notibadgedesc_newone = "<b>You</b> have " + notibadgedescone.replace("has", "");
+						notificationde2 = '<div class="notiline2">' + notibadgedesc_newone + '</div>';
+					}
+					
+					notificationarea += '<div class="slidebadgenw" id="slidebadge' + i + '" style="width:392px;" onclick="setzindex(' + i + ',' + fstbadgestatus + ')">';
+					notificationarea += '<div class="notificationdiv"><div class="PopUp"><a href="javascript:closeitnotification(' + i + ');" class="closeitnow"></a><div style="display:inline-block;"><img src="/photo/12702058.cms" alt="" title="" align="bottom" style="width:390px;height:9px;margin:0;padding:0;float:left"/><div style="float:left;background:url(/photo/12702067.cms)  repeat-y;width:366px;padding:0 12px;"><div class="topPart"><div class="title">';
+					notificationarea += '</div><div class="midPart"><div class="cont"><div style="width:100%;"><div class="badges" style="margin-right:10px"><div class="badgeimages newsking"><img border="0" style="height:65px; width:auto" src="';
+					//if (data[i].iu != null && data[i].iu != undefined)
+					notificationarea += getBadgeImage(data[i].tn); //notificationarea += data[i].iu;
+					notificationarea += '" /></div></div><div class="badgesDtl">';
+					notificationarea += notificationde1 + notificationde2;
+					notificationarea += '</div></div><div class="clr"></div><div class="notiline3">';
+					if (data[i].nextLevelDesc != null && data[i].nextLevelDesc != undefined)
+						notificationarea += '<div class="notiline3">' + data[i].nextLevelDesc + '</div>';
+					notificationarea += '</div><div class="clr"></div><div class="More"><div class="moreleft"><div style="font: bold 12px Arial,Helvetica,sans-serif; color: #fff;float:left;padding-top:6px;padding-right:2px;">Share this activity on</div><div style="float:left;padding-right:2px;cursor:pointer"><a onclick="fbtwBShare(1,\'' + data[i].tn + '\', ' + levelName + ')">';
+					notificationarea += '<img border="0" src="/photo/12519124.cms"/></a></div><div style="padding-left:5px;float:left;;cursor:pointer"><a onclick="fbtwBShare(2,\'' + data[i].tn + '\', ' + levelName + ')"><img border="0" src="/photo/12519133.cms"/></a></div></div><div class="moreright"><a href="http://timespoints.com" target="_blank">More about Times Points</a></div></div>';
+					notificationarea += '<div class="clr"></div></div></div></div></div></div></div></div></div>';
+					
+					document.getElementById('slidebadgearea').innerHTML = document.getElementById('slidebadgearea').innerHTML + notificationarea;
+					notificationarea = "";
+					$('#slidebadge' + i).show();
+					
+				}
+				for (i = fstbadgestatus; i > -1; i--) {
+					$('#slidebadge' + i).animate({
+						'right' : 460 - (i * 30)
+					}, "fast");
+					$('#slidebadge' + i).animate({
+						'bottom' : (i * 30)
+					}, "fast");
+				}
+			}
+		}
+	});
+}
+
+function loginProcessInit() {
+	
+	// Login Init process
+	getUserNameFromCook();
+	
+	//:: In Logged in Case
+	setTopBar();
+	
+	// Closing top Notification Bar
+	
+	
+	// New Badge Notification Pop-up in bottom
+	if (_tp_data.isLogged) {
+		badgenotification();
+		setInterval(function () {
+			badgenotification();
+		}, 90000);
+	}
+	//notfification count call
+	if (_tp_data.isLogged) {
+		getMyScript(et.mytUrl + '/mytimes/notification/count?callback=processNotifyCountJSON', myt_timers.notification, 1);
+	}
+}
+
+function getUserNameFromCook() {
+	var isLogged1 = '',
+	loginFlag = false,
+	usrnme = '';
+	isLogged1 = $.cookie('MSCSAuth');
+	if (valExists(isLogged1)) {
+		var cookVal = $.cookie('MSCSAuthDetails');
+		if (valExists(cookVal)) {
+			usrnme = cookVal.split('=')[1];
+		} else {
+			cookVal = $.cookie('MSCSAuthDetail');
+			if (valExists(cookVal)) {
+				if (cookVal.indexOf('~') != -1) {
+					var tempArr = cookVal.split('~');
+					for (var x = 0; x < tempArr.length; x++) {
+						if (tempArr[x].indexOf('Email') != -1) {
+							usrnme = tempArr[x].replace('Email=', '');
+							break;
+						}
+					}
+				} else if (cookVal.indexOf('Email') != -1) {
+					usrnme = cookVal.replace('Email=', '');
+				}
+			}
+		}
+	}
+	if (isLogged1 != "" && isLogged1 != null) {
+		loginFlag = true;
+		if (usrnme.indexOf('@') == -1) {
+			usrnme = usrnme + '@indiatimes.com';
+		}
+		
+	}
+	_tp_data.isLogged = loginFlag;
+	_tp_data.email = usrnme;
+}
+function valExists(val) {
+	var ret = false;
+	if (val == null || val == '' || typeof val == 'undefined') {
+		ret = false;
+	} else {
+		ret = true;
+	}
+	return ret;
+}
+
+/***** ADOPTED *****/
+function adjusthgt(){}
+function adjustMySsoHeightNew(){}
+function disablePopup(){}
+var isLoggedSso;
+
+function getBadgeImage(name) {
+	var imagePath = "";
+	switch (name) {
+	case "Biz Influencer":
+		imagePath = 16877441;
+		break;
+	case "BizPundit":
+		imagePath = 16877455;
+		break;
+	case "BizSmith":
+		imagePath = 16877457;
+		break;
+	case "Inboxer":
+		imagePath = 16877459;
+		break;
+	case "Investor":
+		imagePath = 16877460;
+		break;
+	case "Market Buff":
+		imagePath = 16877461;
+		break;
+	case "Market Guru":
+		imagePath = 16877463;
+		break;
+	case "Market Maker":
+		imagePath = 16877464;
+		break;
+	case "Member":
+		imagePath = 16877465;
+		break;
+	case "Poll Star":
+		imagePath = 16877466;
+		break;
+	case "Power Networker":
+		imagePath = 16877471;
+		break;
+	case "Share Czar":
+		imagePath = 16877475;
+		break;
+	case "Super Surfer":
+		imagePath = 16877478;
+		break;
+	}
+	return "/photo/" + imagePath + ".cms";
+}
+
+function validateEmail(a) {
+	var b = 0,
+	c = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	if (a.indexOf(",") != -1) {
+		for (var a = a.split(","), d = 0, d = 0; d < a.length; d += 1)
+			c.test(a[d]) && (b += 1);
+		return d == b ? !0 : !1
+	} else
+		return c.test(a) ? !0 : !1
+}
+
+function getshortenURL(url, badgetext) {
+	try {
+		$.ajax({
+			url : '/getshorturl.cms?url=' + url,
+			dataType : "html",
+			async : false,
+			success : function (data) {
+				pageShortenUrl = data;
+				posttoTwitter(pageShortenUrl, badgetext);
+			}
+		});
+	} catch (ex) {
+		posttoTwitter(url, badgetext);
+	}
+}
+function posttoTwitter(url, badgetext) {
+	try {
+		if (url == "" || url == " ")
+			pageShortenUrl = 'https://twitter.com/intent/tweet?&text=' + badgetext + '&url=' + url;
+		else
+			pageShortenUrl = 'https://twitter.com/intent/tweet?&text=' + badgetext + '&url=' + pageShortenUrl;
+		var newwindow1 = window.open(pageShortenUrl, 'Badgeshare1', 'height=320,width=550,left=400,top=200');
+		if (window.focus) {
+			newwindow1.focus();
+		}
+		//return false;
+	} catch (ex) {}
+}
+var fbData = {
+	link : document.location.href,
+	title : "",
+	syn : "",
+	img : ""
+}
+
+function fbtwBShare(param, fbtwBSharepath, levelname) {
+	switch (fbtwBSharepath) {
+	case "Member":
+		fbData.syn = "This is easy! Register on Economictimes.com and get the member badge.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etmember.png";
+		break;
+	case "Super Surfer":
+		fbData.syn = "Make Economictimes.com your Financial news hotspot. Visit us every day to earn this badge.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/supersurfer.png";
+		break;
+	case "Power Networker":
+		fbData.syn = "Link your Times profile with your FB and Twitter accounts.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etpn.png";
+		break;
+	case "Biz Influencer":
+		fbData.syn = "The community likes your opinions! Get the Biz Influencer badge when other people Recommend or Agree with your comments.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etbizinfluencer.png";
+		break;
+	case "Market Guru":
+		fbData.syn = "Read market articles and watch more videos and slideshows be a Market Guru!";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etmktguru.png";
+		break;
+	case "BizPundit":
+		fbData.syn = "Have business on your mind? Read/watch business articles, videos & slideshows and become a BizPundit.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etbizpundit.png";
+		break;
+	case "Share Czar":
+		fbData.syn = "Share News, Articles, Stock info on Economictimes.com with your friends on Facebook, Twitter or Hotklix and become a Share Czar! 'Recommending' and 'liking' links on our site also qualifies.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etshareczar.png";
+		break;
+	case "Poll Star":
+		fbData.syn = "Be the opinion! Participate in a poll and get this badge.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etpoll.png";
+		break;
+	case "BizSmith":
+		fbData.syn = "Keep the conversation going through your Comments & Replies to win a BizSmith Badge!";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etbizsmith.png";
+		break;
+	case "Market Buff":
+		fbData.syn = "Share your opinions in market through Comments &amp; Replies in the ET market section.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etmarketbuff.png";
+		break;
+	case "Inboxer":
+		fbData.syn = "Subscribe to the Economictimes.com newsletters & guess what! You get additional points for opening the newsletter or clicking on a link.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etinboxer.png";
+		break;
+	case "Market Maker":
+		fbData.syn = "Have your thoughts influence the markets and be followed by people on ET Speed to be a Market Maker.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etmarketmaker.png";
+		break;
+	default:
+		fbData.syn = "Visit Economictimes, read and share articles, watch videos to get Economictimes Reward Points Badges.";
+		fbData.img = "http://static.rewards.indiatimes.com/images/etimg/etmember.png";
+		break;
+	}
+	
+	fbData.title = _tp_data.fname + " has earned the ";
+	fbData.link = "http://economictimes.indiatimes.com/aboutbadges/email-" + _tp_data.profile;
+	
+	if (fbtwBSharepath == "Member" || fbtwBSharepath == "Power Networker" || fbtwBSharepath == "Inboxer") {
+		fbData.link += ",uid-" + _tp_data.fname + ",t-" + fbtwBSharepath + ".cms";
+		fbData.title += fbtwBSharepath + " badge on EconomicTimes.com";
+	} else {
+		fbData.link += ",blevel-" + levelname + ",uid-" + _tp_data.fname + ",t-" + fbtwBSharepath + ".cms";
+		if (fbData.title != "undefined" && fbData.title != null && fbData.title != "") {
+			fbData.title += "Level " + levelname + " " + fbtwBSharepath + " badge on EconomicTimes.com";
+		}
+	}
+	
+	//pageShortenUrl = fbData.link;
+	
+	if (param == 1) {
+		FB.ui({
+			method : 'feed',
+			name : fbData.title,
+			link : fbData.link,
+			caption : 'http://EconomicTimes.com',
+			description : fbData.syn
+		},
+		function (response) {
+			if (response && response.post_id) {
+				_debug('Post was published.');
+			} else {
+				_debug('Post was not published.');
+			}
+		});
+	} else if (param == 2) {
+		fbData.title += ". Know more on ";
+		getshortenURL(fbData.link, fbData.title);
+	}
+}
+
+/***** ADOPTED *****/
+
+var slideshowMenu = {
+	exist : false,
+	show : true,
+	timer : 0,
+	url : "/slideshowmenu.cms"
+}
+ 
+// Market Time Check
+var _mkt = {
+	isOpen : true,
+	status : $.cookie("mkt_onoff_status"),
+	curTime : "", // must be in the format of 6 digits [like HHMMSS]
+	setVal : function(num){
+		return (num < 10) ? "0" + num : num.toString();
+	},
+	checkMkt : function(){
+		if((_mkt.curTime != "") && (_mkt.curTime.length == 6) && !isNaN(_mkt.curTime)){
+			if(_mkt.status == "OFF"){
+				_mkt.isOpen = false;
+			} else {
+				if(_mkt.status == "ERROR"){
+					_mkt.isOpen = true;
+				} else {
+					var startTime = _mkt.status.split("_")[0],
+						endTime = _mkt.status.split("_")[1];
+						
+					//console.log()
+					
+					if(_mkt.curTime > startTime && _mkt.curTime < endTime){
+						_mkt.isOpen = true;
+					} else {
+						_mkt.isOpen = false;
+					}
+				}
+			}
+		}
+	},
+	getMktTime : function(){
+		$.getJSON("http://json.bselivefeeds.indiatimes.com/ET_Community/holidaylist?instrumentid=1&callback=?", function(data){
+			var startTime,
+				endTime,
+				cookieTime = new Date().getTime() + 8 * 60 * 60 * 1000; // 8 Hours from Now
+			
+			if(data.MarketStatus == "ON"){
+				startTime = new Date(data.TradingStartTime);
+				startTime = _mkt.setVal(startTime.getHours()) + _mkt.setVal(startTime.getMinutes()) + _mkt.setVal(startTime.getSeconds());
+				
+				endTime = new Date(data.TradingEndTime);
+				endTime = _mkt.setVal(endTime.getHours()) + _mkt.setVal(endTime.getMinutes()) + _mkt.setVal(endTime.getSeconds());
+				
+				_mkt.status = startTime + "_" + endTime;
+				
+				$.cookie("mkt_onoff_status", _mkt.status, {expires : cookieTime, path : "/"});
+			} else {
+				$.cookie("mkt_onoff_status", "OFF", {expires : cookieTime, path : "/"});
+			}
+			
+			_mkt.checkMkt();
+		});
+	},
+	init : function(){
+		if(_mkt.status == undefined){
+			_mkt.getMktTime();
+		} else {
+			_mkt.checkMkt();
+		}
+	}
+}
+// endof Market Time Check
+
+// Common stuffs will be there within ths variable
+var et = {
+	dateFormat : function(sd) {
+		var originalDate = sd;
+		sd = sd.replace(/-/gi, '/');
+		var timeStamp = "",
+			cd = new Date();
+
+		if (sd == "" || sd == null)
+			return;
+		sd = new Date(sd);
+		if (cd.getTime() < sd.getTime())
+			return;
+		var chk = 0;
+		var diff = Math.abs(cd.getTime() - sd.getTime());
+		diff = ((diff / 1000) / 60);
+		chk = diff % 60;
+		if (diff <= 28800) {
+			if (diff < 60) {
+				if (diff < 2) {
+					timeStamp = parseInt(diff) + " Minute ago";
+				} else {
+					timeStamp = parseInt(diff) + " Minutes ago";
+				}
+			} else if (diff < 1440) {
+				if (diff < 119) {
+					timeStamp = Math.floor(diff / 60) + " Hour ago";
+				} else {
+					timeStamp = Math.floor(diff / 60) + " Hours ago";
+				}
+			} else if (diff <= 28800) {
+				if (diff < 2880) {
+					timeStamp = Math.floor(diff / (60 * 24)) + " Day ago";
+				} else {
+					timeStamp = Math.floor(diff / (60 * 24)) + " Days ago";
+				}
+			}
+		} else {
+			timeStamp = originalDate;
+		}
+		return timeStamp;
+	},
+	getDecimalValue : function(pvalue){
+		var value = parseFloat(pvalue);
+		if (value > 9999999.99 || value < -9999999.99) {
+			value = value / 10000000;
+		} else if ((value > 99999.99 && value < 9999999.99) || (value > -9999999.99 && value < -99999.99)) {
+			value = value / 100000;
+		} else if ((value > 999.99 && value < 99999.99) || (value < -999.99 && value > -99999.99)) {
+			value = value / 1000;
+		} else if (value < 1000) {}
+		if (value < 0) {
+			value = -value;
+		}
+		return value;
+	},
+	getDecimalUnit : function (pvalue) {
+		var value = parseFloat(pvalue);
+		var format = " ";
+		if (value > 9999999.99 || value < -9999999.99) {
+			format = " Cr";
+		} else if ((value > 99999.99 && value < 9999999.99) || (value > -9999999.99 && value < -99999.99)) {
+			format = " Lac";
+		} else if ((value > 999.99 && value < 99999.99) || (value < -999.99 && value > -99999.99)) {
+			format = " K";
+		} else if (value < 1000) {
+			format = "";
+		}
+		return format;
+	},
+	addCommas : function(nStr) {
+			nStr += '';
+			x = nStr.split('.');
+			x1 = x[0];
+			x2 = x.length > 1 ? '.' + x[1] : '';
+			var rgx = /(\d+)(\d{3})/;
+			while (rgx.test(x1)) {
+				x1 = x1.replace(rgx, '$1' + ',' + '$2');
+			}
+			return x1 + x2;
+		}
+}
+
+et.mytUrl = document.location.port.length ? "http://mytest.indiatimes.com" : "http://myt.indiatimes.com";
+
+//
+var usersessionkey = "";
+var loginFbSts = "";
+var fbAutoLoginStatusProceed = false;
+
+// New Search
+var SearchAd = {
+	imgPath : "/photo/21246469.cms", // width - 258
+	caption : "ET Portfolio",
+	link : "http://pubads.g.doubleclick.net/gampad/clk?id=60163419&iu=/7176/Economictimes_Skinning_Clicktracker/ET_HP_Search_ClickTracker1x1"
+}; 
+
+function marketlivedata(data){
+	this.applyData = function(target, obj){
+		var name = obj.IndexName || obj.CommodityName || obj.name,
+			ltp = obj.CurrentIndexValue || obj.LastTradedPrice || obj.bidprice,
+			change = obj.NetChange || obj.netChange,
+			pChange = obj.PercentChange || obj.percentChange,
+			arrowImg = (pChange < 0) ? "/photo/6280776.cms" : "/photo/6280741.cms",
+			colorClass = (pChange < 0) ? "down" : "up",
+			trendClass = "",
+			link = "http://economictimes.indiatimes.com/";
+			
+		if (name == "SENSEX") {
+			link += "indices/sensex_30_companies.cms";
+		} else if (name == "CNX NIFTY") {
+			name = "NIFTY";
+			link += "indices/nifty_50_companies.cms";
+		} else if (name == "Gold") {
+			name = "Gold (MCX) (Rs/10g.)";
+			link += "commoditysummary/symbol-GOLD.cms";
+		} else if (name == "Silver" || name == "USD/INR") {
+			link += "forex_home.cms";
+		}
+
+		if (obj.trend == "positive") {
+			trendClass = "bgGreen";
+		} else if (obj.trend == "negative") {
+			trendClass = "bgRed";
+		}
+		
+		// Markets Bar
+		$("a", target).attr("href", link);
+		$(".name a", target).text(name);
+		$(".dataText", target).addClass(colorClass).find("img").attr("src", arrowImg).siblings("b").text(et.addCommas(ltp)).siblings("span").text(change);
+		
+		if(obj.trend){
+			$(".dataText", target).find("span").css({"background-color" : (obj.trend == "negative") ? "#BF1100" : "#0c8f2b", "color" : "#FFF"});
+		}
+		
+		// Markets Tracker
+		if($("#popoutWidget").length){
+			switch(name){
+				case "SENSEX":
+					$("#popoutWidget .data:eq(0) a span")
+						.html("<b>" + obj.CurrentIndexValue + "</b><img /><b>" + obj.NetChange + "</b>")
+						.find("img").attr("src", (obj.NetChange < 0) ? "/photo/16379386.cms" : "/photo/16379420.cms")
+						.parent().css({"color" : (obj.NetChange < 0) ? "#BF1100" : "#0c8f2b"})
+						.find("b:last").css({"background-color" : (obj.trend == "negative") ? "#BF1100" : "#0c8f2b", "color" : "#FFF"});
+					break;
+				case "NIFTY":
+					$("#popoutWidget .data:eq(1) a span")
+						.html("<b>" + obj.CurrentIndexValue + "</b><img /><b>" + obj.NetChange + "</b>")
+						.find("img").attr("src", (obj.NetChange < 0) ? "/photo/16379386.cms" : "/photo/16379420.cms")
+						.parent().css({"color" : (obj.NetChange < 0) ? "#BF1100" : "#0c8f2b"})
+						.find("b:last").css({"background-color" : (obj.trend == "negative") ? "#BF1100" : "#0c8f2b", "color" : "#FFF"});
+					break;
+				case "Gold (MCX) (Rs/10g.)":
+					$("#popoutWidget .data:eq(2) a span")
+						.html("<b>" + obj.LastTradedPrice + "</b><img /><b>" + obj.NetChange + "</b>")
+						.find("img").attr("src", (obj.NetChange < 0) ? "/photo/16379386.cms" : "/photo/16379420.cms")
+						.parent().css({"color" : (obj.NetChange < 0) ? "#BF1100" : "#0c8f2b"})
+						.find("b:last").css({"background-color" : (obj.trend == "negative") ? "#BF1100" : "#0c8f2b", "color" : "#FFF"});
+					break;
+			}
+		}
+	}
+	
+	$(".data", "#marketWatch").eq(3).width(100);
+	
+	this.applyData($(".data", "#marketWatch").eq(0), data[0].sensex);
+	this.applyData($(".data", "#marketWatch").eq(1), data[0].nifty);
+	this.applyData($(".data", "#marketWatch").eq(2), data[0].gold);
+	this.applyData($(".data", "#marketWatch").eq(3), data[0]['USD/INR']);
+	
+	$("p", "#marketWatch .head").text(data[0].sensex.DateTime.substring(0, 17));
+	
+	// Removing Highlights
+	setTimeout(function(){
+		$("span", "#marketWatch .data .dataText").attr("style", "");
+		$("#popoutWidget .data a span b").attr("style", "");
+	}, 2000);
+	
+	$("#marketWatch").slideDown();
+}
+
+// on DOM Ready
+$(document).ready(function(){
+	$(".searchInputBox").etSearchAll(); // Plugin function call for main search
+
+	/***** ADOPTED FROM OLD *****/
+	/*FB.init({
+		appId : '117787264903013',
+		oauth : true,
+		status : true,
+		cookie : true,
+		xfbml : true
+	});*/
+
+	if (Get_Ckie('autologin') != null) {
+		Delete_Ckie("autologin", "/", ".indiatimes.com");
+	}
+
+	loginProcessInit();
+	
+	var userId = _tp_data.email;
+	if(_tp_data.isLogged){
+		if(!userId){
+			userId = $.cookie("MSCSAuthDetails").split("=")[1];
+		}
+		userId = (userId.indexOf("@indiatimes.com") != -1) ? userId.split("@indiatimes.com")[0] : userId;
+	}
+	
+	// Clearing Ad Cookie which hangs the page
+	var allCookies = document.cookie.split("; ");
+	$.each(allCookies, function (c, obj) {
+		var temp = obj.split("=");
+		//_debug(temp[0] +" : "+ temp[1].length);
+		if(temp.length > 1){
+			if (temp[1].length > 1500) {
+				$.removeCookie(temp[0], { path: '/', domain: '.indiatimes.com' });
+			}
+		}
+	});
+	
+	isLoggedSso = $.cookie("MSCSAuth");
+	
+	/***** ADOPTED FROM OLD *****/	
+	
+	// Top Nav More Link in left
+	$("#topMoreBtn").click(function(event){
+		$("#topMoreContent").slideDown(500);
+		if(typeof $("iframe", "#topMoreContent").attr("src") == "undefined" || !$("iframe", "#topMoreContent").attr("src").length){
+			$("iframe", "#topMoreContent").attr("src", "http://timesofindia.indiatimes.com/glbldata.cms");
+		}
+		event.preventDefault();
+	});
+	
+	$(document).bind("click.hideMenu", function (event) {
+		if(event.target != $("#topMoreContent")[0] && event.target != $("#topMoreBtn")[0]){
+			if(event.target == $("#topMoreBtnClose")[0]){
+				event.preventDefault();
+			}
+			$("#topMoreContent").slideUp(200);
+		}
+	});
+	// endof : Top Nav More Link in left
+	
+	// Search Bar Radio in Header
+	$(":radio", "#searchBar").bind("change", function(){
+	   $("form", "#searchBar").eq($(this).parent().index()).show().siblings("form").hide();
+	});
+	$("form", "#searchBar").eq(1).etSearch();
+	$("form", ".bottomBar").etSearch();
+	$("form", "#searchBar").first().bind("submit", function(event){
+		var topic = $.trim($(this).find("input[type=text]").val());
+		if(topic.length){
+			document.location.href = "/topic/" + topic.replace(/ /gi, "-");
+		} else {
+			alert("Please enter text for search");
+		}
+		event.preventDefault();
+	});
+	// endof : Search Bar Radio in Header
+	
+	// Adding "LAST" class in last navigation
+	$("#mainNav aside.flt li:last").addClass("last");
+	
+	$(".tabsView").etTabs();
+	$("#mostWatchedVideos", "#sideBar").etTabs({
+		tabs	: ".thumbs > li",
+		content	: ".bigFrame > li",
+		event	: "mouseenter",
+		speed	: 300,
+		effect	: "fade"
+	});
+	$("#newsInPics", "#sideBar").etGallery({
+		interval : 20000
+	});
+	
+	$("img.lazy").lazyload({effect : "fadeIn"});
+	$(":input[placeholder]").jqPlaceHolder(["#000", "#666"]);
+	
+	// Slideshow Menu
+	if(slideshowMenu.show){
+		var slideMenu = $("#mainNav > aside.flt > ul > li").filter(function(index){
+			return $(this).text() == "Slideshows";
+		});
+		
+		// Show - Hide Menu
+		slideMenu.bind("mouseenter.slideMenu", function(event){
+			$(this).addClass("current");
+
+			if(slideshowMenu.exist){
+				$("#ssmenu").show();
+			} else {
+				if(! slideMenu.find(">div").length){
+					$("<div id='ssmenu' />").appendTo(slideMenu[0]);
+				}
+				$("#ssmenu").show();
+				$.ajax({
+					url : slideshowMenu.url,
+					dataType : 'html',
+					success : function(data){
+						$("#ssmenu").html(data);
+						slideshowMenu.exist = true;
+						
+						// GA Tracking after fetching menu
+						_gaq.push(['_trackEvent', 'nav1SLsw', 'select', 'mHoveropn', , true]);
+					},
+					error : function(){
+						slideshowMenu.exist = false;
+						slideMenu.find(">div").remove();
+					}
+				});
+			}
+		}).bind("mouseleave.slideMenu", function (event) {
+			$("#ssmenu").hide();
+			if(! (/slideshows\.cms|\/slide\-shows/).test(window.location.pathname)){
+				$(this).removeClass("current");
+			}
+		});
+		
+		//Inside the Menu
+		$("#slideShowMenuL li").live({
+			"mouseenter": function(e){
+				var o = $(this),
+					$index = o.index(),
+					$target = $("#slideShowMenuR .itemDetail").eq($index);
+				
+				if(slideshowMenu.timer){
+					clearTimeout(slideshowMenu.timer);
+				}
+				slideshowMenu.timer = setTimeout(function(){
+					o.addClass("active").siblings().removeClass("active");
+					$target.show().siblings().hide();
+				}, 800);
+			}, "mouseleave":function(e){
+				clearTimeout(slideshowMenu.timer);
+			}
+		});
+	}
+	
+	// Main Spotlight
+	$("#splightMain").etSpotlight({
+		speed : 300,
+		easing : "easeOutQuad",
+		interval : 15000
+	});
+	
+	//
+	_mkt.init();
+	
+	// Fixing Menu on Scroll
+	$(window).bind("scroll", function(){
+		if($(window).scrollTop() > $("#navs").offset().top){
+			$("#mainNav").addClass("fixed").parent().css("paddingTop", $("#mainNav").outerHeight()+"px");
+		} else {
+			$("#mainNav").removeClass("fixed").parent().removeAttr("style");
+		}
+		
+		// Show hide scroll top button
+		if($("#scrollTop").length){
+			if ($(document).height() - ($(document).height() - $(document).scrollTop()) > 800 && !skinningExist && $( window ).width() > 1215) {
+				$(".pageHolder #scrollTop").fadeIn("slow");
+			} else {
+				$(".pageHolder #scrollTop").fadeOut("slow");
+			}
+		}
+	});
+	$(window).resize(function(){
+		if ($(document).height() - ($(document).height() - $(document).scrollTop()) > 800 && !skinningExist && $( window ).width() > 1215) {
+			$(".pageHolder #scrollTop").fadeIn("slow");
+		} else {
+			$(".pageHolder #scrollTop").fadeOut("slow");
+		}
+	});
+	
+	if($("#scrollTop").length){
+		$(".pageHolder #scrollTop").bind("click",function(){
+			$("body, html").animate({
+				scrollTop : 0
+			});
+		});
+	}
+	
+	// Martkets Watch under Header Init
+	if($("#marketWatch").length){
+		$.getScript("http://json.bselivefeeds.indiatimes.com/homepagedatanew.json");
+		
+		if(_mkt.isOpen){
+			setInterval(function(){
+				$.getScript("http://json.bselivefeeds.indiatimes.com/homepagedatanew.json");
+			}, 2e4);
+		}
+		
+		if (_tp_data.isLogged) {
+			$.ajax({
+				url : "http://mobilefeeds.etportfolio.economictimes.indiatimes.com/webservices/snapshotXml.do",
+				data : {
+					event : "getSnapshotXml",
+					user : userId,
+					responseType : "json"
+				},
+				type : "POST",
+				dataType : "jsonp",
+				success : function (data) {
+					var root = data.etportfolio.portfoliosummary.marketinvestment.equity,
+						mktVal = et.getDecimalValue(root.marketvalue).toFixed(2) + et.getDecimalUnit(root.marketvalue),
+						gainLoss = root.todaygainloss;
+						
+					if(parseFloat(root.marketvalue)){
+						$(".name", "#mystocks").last().addClass("dataText").removeClass("name").html("<a href='http://etportfolio.economictimes.indiatimes.com/DashBoard.htm' target='_blank'/>");
+
+						$("a", "#mystocks .dataText").html("<b title='" + root.marketvalue + "'>" + mktVal + "</b><img alt='' width='12' height='11'/><span>" + et.getDecimalValue(gainLoss).toFixed(2) + et.getDecimalUnit(gainLoss) + "</span>");
+
+						if (gainLoss < 0) {
+							$(".dataText", "#mystocks").addClass("down").find("img").attr("src", "/photo/6280776.cms");
+						} else {
+							$(".dataText", "#mystocks").addClass("up").find("img").attr("src", "/photo/6280741.cms");
+						}
+					} else {
+						$("#mystocks").html('<a class="button" href="http://etportfolio.economictimes.indiatimes.com/DashBoard.htm" target="_blank">Add Investment to your Portfolio</a>');
+					}
+				}
+			});
+		} else {
+			$("#mystocks").html('<a class="button" href="http://etportfolio.economictimes.indiatimes.com/DashBoard.htm" target="_blank">Login to Track your Investment</a>');
+		}
+	}
+});
+
+
+		

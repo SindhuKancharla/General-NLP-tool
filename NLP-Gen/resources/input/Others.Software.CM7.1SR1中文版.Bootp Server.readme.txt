@@ -1,0 +1,15 @@
+This directory contains the setup program for the Dionex BOOTP Server.
+
+The Dionex BOOTP Server is not installed by the default CHROMELEON setup program,
+as it is only needed to support a few third-party components.
+
+Please refer to the installation instructions for CHROMELEON device drivers
+to find out whether you need to install this program. Detailed installation
+and configuration procedures can be found in the user help available in the
+CHROMELEON Server Configuration utility.
+
+Please note: The Dionex BOOTP Server is NOT LICENSED to be used on systems
+not running a CHROMELEON server and may NOT be redistributed freely.
+
+This version of the Dionex BOOTP Server supports Windows XP (32 bit) only.
+For other operation systems, please contact Dionex software support.

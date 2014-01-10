@@ -1,0 +1,25 @@
+Phase: getConcepts
+Input: SENTENCE1 Token SpaceToken ConceptsImp FEATURE CN ENTITY1 Verb Adj Nouns
+Options: control = appelt
+ 
+Rule: rule1
+(
+({ENTITY1}({SpaceToken})?)[3,5]
+):rule
+-->
+:rule.AllNew={rule="entities",text=:rule@string}
+
+
+Rule: rule1
+(
+{ENTITY1}
+({Token,Token.string!="."}({SpaceToken,SpaceToken.kind!=control})?)*
+({Verb})*
+({Token,Token.string!="."}({SpaceToken,SpaceToken.kind!=control})?)*
+({Adj})*
+({Token,Token.string!="."}({SpaceToken,SpaceToken.kind!=control})?)*
+({Nouns})*
+({Token,Token.string!="."}({SpaceToken,SpaceToken.kind!=control})?)*
+):rule
+-->
+:rule.AllNew={rule="2",text=:rule@string}

@@ -1,0 +1,116 @@
+Phase: LupediaTags
+Input:  AdministrativeRegion AdultActor Band Book Broadcast ComicsCharacter
+Company Country Film Magazine MusicalArtist Organisation River Software
+Options: control = appelt
+
+Rule: rule
+(  
+{AdultActor}
+)
+:r1
+-->  
+:r1.ENTITY={tag="AdultActor",string=:r1@string}
+
+Rule: rule
+(  
+{AdministrativeRegion}
+)
+:r1
+-->  
+:r1.ENTITY={tag="AdministrativeRegion",string=:r1@string}
+
+Rule: rule
+(  
+{Band}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Band",string=:r1@string}
+
+Rule: rule
+(  
+{Book}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Book",string=:r1@string}
+
+Rule: rule
+(  
+{Broadcast}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Broadcast",string=:r1@string}
+
+Rule: rule
+(  
+{ComicsCharacter}
+)
+:r1
+-->  
+:r1.ENTITY={tag="ComicsCharacter",string=:r1@string}
+
+Rule: rule
+(  
+{Company}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Company",string=:r1@string}
+
+Rule: rule
+(  
+{Country}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Country",string=:r1@string}
+
+Rule: rule
+(  
+{Film}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Film",string=:r1@string}
+
+Rule: rule
+(  
+{Magazine}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Magazine",string=:r1@string}
+
+Rule: rule
+(  
+{MusicalArtist}
+)
+:r1
+-->  
+:r1.ENTITY={tag="MusicalArtist",string=:r1@string}
+
+Rule: rule
+(  
+{Organisation}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Organisation",string=:r1@string}
+
+Rule: rule
+(  
+{River}
+)
+:r1
+-->  
+:r1.ENTITY={tag="River",string=:r1@string}
+
+Rule: rule
+(  
+{Software}
+)
+:r1
+-->  
+:r1.ENTITY={tag="Software",string=:r1@string}

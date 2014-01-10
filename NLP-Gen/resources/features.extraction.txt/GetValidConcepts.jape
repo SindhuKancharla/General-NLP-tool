@@ -1,0 +1,11 @@
+Phase: getConcepts
+Input: Concepts1 SENTENCE1
+Options: control = appelt
+ 
+Rule: rule1
+(
+{Concepts1,Concepts1 within{SENTENCE1}}|{SENTENCE1,SENTENCE1 within{Concepts1}}
+):rule
+-->
+:rule.ValidConcepts={rule="1",string=:rule@string,length=:rule@length}
+ 

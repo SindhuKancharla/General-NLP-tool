@@ -1,0 +1,25 @@
+MultiPhase: EntitiesExtraction
+Phases:
+keySent
+keySent2
+keySent3
+sentence
+sentence1
+sentence2
+sentence3
+sentence3_1
+sentence3_2
+sentence3_3
+sentence4
+1
+2
+3
+getNouns
+getUpperInitials
+getNounsAndAdj
+getConcepts
+getPreciseConcepts
+getConceptsInFeatures
+getImp
+getMeasurementValues
+getMeasurementSentences

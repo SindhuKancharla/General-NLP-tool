@@ -1,0 +1,13 @@
+Phase: GetKeys
+Input: Token Lookup FEATURE SENTENCE1 DOTS ENTITY MISC POINTS keySent ENTITY_TITLE TABLE_ENTRY
+Options: control = appelt
+
+Rule:EntitySentence
+(
+{ENTITY, ENTITY within SENTENCE1,ENTITY.length>1}|{FEATURE, FEATURE within SENTENCE1,FEATURE.length>1}|
+{Token, Token.orth==upperInitial,Token.length>1,Token.category!=DT}|
+{Token,Token.orth==mixedCaps,Token.length>1,Token.category!=DT}|
+{Token,Token.orth==allCaps,Token.length>1,Token.category!=DT}
+):rule
+-->
+:rule.key = {string = :rule@string}

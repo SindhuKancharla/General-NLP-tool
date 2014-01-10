@@ -1,0 +1,12 @@
+
+(function(){var d=document,b=d.body,de=d.documentElement,C=eval("/*@cc_on!@*/false"),_ga_utm='utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst',AE,RE,sp=function(a,b){for(var c in a)
+if(a.hasOwnProperty(c))
+b[c]=a[c]},bo=function(a,b,c){a=d.createElement(a);sp(b,a);sp(c,a.style);return a},tc=function(){var so,st='',reg1=/\w+/ig,linkFlg=false;if(_gaq){_gaq.push(['_trackEvent','cppst','select','cntntcp']);}
+if(d.selection&&d.selection.createRange){so=d.selection.createRange();var st=so.htmlText;if(st.match(reg1).length>4){linkFlg=true;st=st.replace(/(<a([^>]+)>)/ig,"");st=st.replace(/(<([^>]+)a>)/ig,"");st=(st.length>500)?st.substring(0,500)+'&nbsp;..':st;st=st.replace(/\n/ig,"<br />");st+="<br />";}}else{var so=window.getSelection();var st=so.toString();if(st.match(reg1).length>4){if(so.rangeCount){var container=bo('div',{'id':'copiedTextClone'},{'display':'none'});linkFlg=true;var len=so.rangeCount;for(var i=0;i<len;++i){container.appendChild(so.getRangeAt(i).cloneContents());}
+st=container.innerHTML;st=st.replace(/(<a([^>]+)>)/ig,"");st=st.replace(/(<([^>]+)a>)/ig,"");st=(st.length>500)?st.substring(0,500)+'&nbsp;..':st;}}}
+var lnkurl=window.location.href;var indx2=lnkurl.indexOf('/articleshow');lnkurl="http://economictimes.indiatimes.com"+(lnkurl.substring(indx2,lnkurl.length));lnkurl=(lnkurl.indexOf('?')==-1)?(lnkurl+'?'+_ga_utm):((lnkurl.indexOf(_ga_utm)==-1)?(lnkurl+'&'+_ga_utm):lnkurl);if(linkFlg){var lnk="<br /><br /><div style='font-siae:12px;font-family:arial'>Read more at:<br /><a href='"+lnkurl+"'>"+lnkurl+"</a></div>";st=st+" "+lnk;}
+var e=bo('div',{},{'position':'fixed','top':0,'left':'-99999px','background':'#fff'});b.appendChild(e);e.innerHTML=st;if(so.selectAllChildren){so.selectAllChildren(e);}else{var m=b.createTextRange();m.moveToElementText(e);m.select();}
+window.setTimeout(function(){b.removeChild(e);},0);},ca=function(a){SE();d.readyState=="complete"?a():AE(window,"load",function(){setTimeout(function(){if(typeof d.readyState=="undefined"&&!C)
+d.readyState="complete";a();},10)})},SE=function(){if(window.addEventListener){AE=function(a,b,c){a.addEventListener(b,c,false)};RE=function(a,b,c){a.removeEventListener(b,c,false)}}else{AE=function(a,b,c){a.attachEvent("on"+b,c)};RE=function(a,b,c){a.detachEvent("on"+b,c)}}},init=function(){if(window.addEventListener){b.addEventListener("copy",tc);}else{b.attachEvent("oncopy",tc);}}
+return ca(init);})();
+ 

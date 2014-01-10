@@ -1,0 +1,28 @@
+Phase: Phase3
+Input: key FEATURE_SENTENCE
+Options: control = appelt
+
+
+
+Rule: getX
+(
+  {FEATURE_SENTENCE}
+):Ytag
+-->
+{
+  AnnotationSet YtagAS = (AnnotationSet) bindings.get("Ytag");
+
+  // get Xtag info from within Ytag annotation
+  AnnotationSet XtagAS = inputAS.get("key").getContained(YtagAS.firstNode().getOffset(), YtagAS.lastNode().getOffset());
+
+  String sentence = "";
+  for(Annotation key : XtagAS)
+  {
+	sentence += key;
+  }
+
+  // create new annotation              
+  FeatureMap features = Factory.newFeatureMap();       
+	features.put("rule",sentence);
+  outputAS.add(XtagAS.firstNode().getOffset(), XtagAS.lastNode().getOffset(), "keyString", features);
+}

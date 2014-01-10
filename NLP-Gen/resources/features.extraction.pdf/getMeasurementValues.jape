@@ -1,0 +1,23 @@
+Phase: getMeasures
+Input: SENTENCE1 NounChunk Token SpaceToken FEATURE_SENTENCE ENTITY Lookup
+Options: control = appelt
+
+Rule: rule1
+(
+({Token, Token.kind==number,Token within FEATURE_SENTENCE}({Token.kind==symbol})*({SpaceToken})?)*
+({Token,Token within FEATURE_SENTENCE}({SpaceToken})?)
+{Lookup.majorType==measure}({SpaceToken})?
+):rule
+-->
+:rule.Measurements={text=:rule.Lookup@string}
+ 
+ 
+Rule: rule2
+(
+{Lookup.majorType==measure}({SpaceToken})?
+({Token,Token within FEATURE_SENTENCE}({SpaceToken})?)
+({Token, Token.kind==number,Token within FEATURE_SENTENCE}({Token.kind==symbol})*({SpaceToken})?)*
+):rule
+-->
+:rule.Measurements={text=:rule.Lookup@string}
+ 

@@ -1,0 +1,11 @@
+Phase: getConcepts
+Input: Concepts1 SENTENCE1 ValidConcepts Token SpaceToken
+Options: control = appelt
+ 
+Rule: rule1
+(
+({Token within{Concepts1},Token notWithin ValidConcepts}({SpaceToken})?)+
+):rule
+-->
+:rule.ValidConcepts={rule="2",string=:rule@string,length=:rule@length}
+ 

@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "site"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CuKaX5KzLUuShMouNiAeytICYApGch4UEgZHF_ZEBlIW0tAEQASCwtKQGULWf4ob9_____wFg5crlg7QOoAGnvfDXA8gBAagDAaoE-wFP0EC-27EZ60PTJGJ-8bEKPvZlm4VVKKELebvIeLdA_6HFBBc2-qpjDr5g-MpH8lSqsEPLq1codf4pmXbWQi9kBhI0kxqA4ga5Q4lqA1O5ENCBJa5D99TLeYqavWyOgKV-KtG-HSEqXRn7M7JNOHGcg3_FY0oIBfhWl4ttjtEweq-SrsOaWuL6yBEc2qttbILFz4aE84pnMovcVrmaauMy8pcKKQE96e4jtDjiGIUWX32yInGhMFPeBPrvx11_-fkxmL1435aTuIkUKrOZjeGYZnKBS26YUwSQwPYFSpMApPtbSiZnZpbkc7aRRZubG_7LOsOTfHIBbbZj1YgGAYAHwcKPKA&amp;num=1&amp;cid=5GhhIh0qLUUC1JnlT9eIeBTQ&amp;sig=AOD64_32BCoseqYZYRNM3hm011hECbECqg&amp;client=ca-economictimes_site_js&amp;adurl=http://pixel.everesttech.net/2419/cq%3Fev_sid%3D3%26ev_ln%3D%26ev_crx%3D39092984953%26ev_mt%3D%26ev_n%3Dd%26ev_ltx%3D%26ev_pl%3Deconomictimes.indiatimes.com%26ev_pos%3Dnone%26ev_dvc%3Dc%26ev_dvm%3D%26url%3Dhttp%253A//www.quickbooks.in/accountants.jsp%253Futm_source%253DGoogle_V2%2526utm_medium%253DCPC%2526utm_campaign%253DDisplay-Proadvisor-MP%2526utm_content%253DFinance-Sites_new-url"; 
+google_ad.visible_url = "quickbooks.in/accountants"; 
+google_ad.line1 = "Must for CAs"; 
+google_ad.line2 = "Take Your Practice to a Global"; 
+google_ad.line3 = "Level. Better Collaboration!"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://economictimes.indiatimes.com/news/international/business/google-other-big-companies-to-pay-to-use-san-francisco-bus-stops/articleshow/28501369.cms%26gl%3DIN%26hl%3Den%26client%3Dca-economictimes_site_js%26hideleadgen%3D1%26ai0%3DCuKaX5KzLUuShMouNiAeytICYApGch4UEgZHF_ZEBlIW0tAEQASCwtKQGULWf4ob9_____wFg5crlg7QOoAGnvfDXA8gBAagDAaoE-wFP0EC-27EZ60PTJGJ-8bEKPvZlm4VVKKELebvIeLdA_6HFBBc2-qpjDr5g-MpH8lSqsEPLq1codf4pmXbWQi9kBhI0kxqA4ga5Q4lqA1O5ENCBJa5D99TLeYqavWyOgKV-KtG-HSEqXRn7M7JNOHGcg3_FY0oIBfhWl4ttjtEweq-SrsOaWuL6yBEc2qttbILFz4aE84pnMovcVrmaauMy8pcKKQE96e4jtDjiGIUWX32yInGhMFPeBPrvx11_-fkxmL1435aTuIkUKrOZjeGYZnKBS26YUwSQwPYFSpMApPtbSiZnZpbkc7aRRZubG_7LOsOTfHIBbbZj1YgGAYAHwcKPKA\x26usg\x3dAFQjCNFeYi_YhqaumCvoiJGJkJ5l3jPveQ";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

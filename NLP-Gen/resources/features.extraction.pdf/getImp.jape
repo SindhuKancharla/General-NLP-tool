@@ -1,0 +1,12 @@
+Phase: getConcepts
+Input: SENTENCE1 Token SpaceToken Concepts1
+Options: control = appelt
+ 
+ 
+Rule: rule1
+(
+(({Concepts1 contains{Token.orth==upperInitial}}|{Concepts1 contains{Token.orth==allCaps}}|{Concepts1 contains{Token.orth==mixedCaps}})
+({SpaceToken})?)+
+):rule
+-->
+:rule.ConceptsImp={rule="3",text=:rule.SENTENCE1@string}

@@ -1,0 +1,42 @@
+Phase: getNouns
+Input:SENTENCE1 Token ENTITY FEATURE
+Options: control = appelt
+ 
+Rule: rule1
+(
+   {Token.category==NN,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}|
+   {Token.category==NNS,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}|
+   {Token.category==NNP,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}|
+   {Token.category==NNPS,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}
+):rule
+-->
+:rule.Nouns={text=:rule.Token@string}
+ 
+ Rule: rule2
+(
+   {Token.category==JJ,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}
+   |{Token.category==JJS,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}|
+   {Token.category==JJR,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}
+):rule
+-->
+:rule.Adj={text=:rule.Token@string}
+
+ Rule: rule2
+(
+   {Token.category==IN,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE}}
+):rule
+-->
+:rule.In={text=:rule.Token@string}
+ 
+Rule: rule3
+(
+   {Token.category==VBN,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}
+   |{Token.category==VBG,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}|
+   {Token.category==VB,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}
+   |{Token.category==VBZ,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}|
+   {Token.category==RB,Token within{SENTENCE1},Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}|
+   {Token.category==VBD,Token within{SENTENCE1},Token.string!="was",Token notWithin{ENTITY},Token notWithin{FEATURE},Token.length>4}
+):rule
+-->
+:rule.Verb={text=:rule.Token@string}
+ 

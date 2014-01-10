@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "image"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CBSXP47DKUqxzhtyTBdTAgJADutyOuAayucmrkAGi1_LC6wEQASC9g78TUJnCiVhg5crlg7QOoAGOmJrcA8gBA6kCuPebEUY4UT6oAwGqBN4BT9CHkgo7ImXAcF5dS3PtUaxFMtHgY937wxp2qNXK6Mplx9sovm_McwyJorBac1ook_4CzhzA5eGMUdZ2o1D98aR7QZ-TiTvGtNHEyPZnwxgCUX9yd1_iQqzHEm02yzLQfS1hhqR3-4Zg_BQnBNNvUA2urIhgiZb6oEPkXnB_PtlY7EgTv__otYqJRI2ontIq0UVbf0QYktxbWlEhl5Js92kXImLta_3AgSMnuY2M4N5BRAmSqX-efaZTHeIS-PkxVKFOT2QViuLTJTxmOLBBz6DYyFgXFN7Fe2_-SRKNiAYBoAYDgAfa5-Uj&amp;num=1&amp;cid=5GjKbeNjYawrIpFIWySPghun&amp;sig=AOD64_37W2MFjW_0fSnVwCbghZCA5t7noA&amp;client=ca-hindu_site_html&amp;adurl=http://www.lenskart.com/virtualstudio"; 
+google_ad.visible_url = "www.lenskart.com"; 
+google_ad.image_url = "http://pagead2.googlesyndication.com/simgad/13453412147930984103";
+google_ad.image_width = "300";
+google_ad.image_height = "250";
+google_ad.image_alt_text = "";
+google_ads[0] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.thehindu.com/news/national/other-states/goa-building-collapse-possibility-of-finding-survivors-bleak/article5541086.ece%26gl%3DIN%26hl%3Den%26client%3Dca-hindu_site_html%26hideleadgen%3D1%26ai0%3DCBSXP47DKUqxzhtyTBdTAgJADutyOuAayucmrkAGi1_LC6wEQASC9g78TUJnCiVhg5crlg7QOoAGOmJrcA8gBA6kCuPebEUY4UT6oAwGqBN4BT9CHkgo7ImXAcF5dS3PtUaxFMtHgY937wxp2qNXK6Mplx9sovm_McwyJorBac1ook_4CzhzA5eGMUdZ2o1D98aR7QZ-TiTvGtNHEyPZnwxgCUX9yd1_iQqzHEm02yzLQfS1hhqR3-4Zg_BQnBNNvUA2urIhgiZb6oEPkXnB_PtlY7EgTv__otYqJRI2ontIq0UVbf0QYktxbWlEhl5Js92kXImLta_3AgSMnuY2M4N5BRAmSqX-efaZTHeIS-PkxVKFOT2QViuLTJTxmOLBBz6DYyFgXFN7Fe2_-SRKNiAYBoAYDgAfa5-Uj\x26usg\x3dAFQjCNF6qLChz3RSFHaUdEcZup6bCaExFQ";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

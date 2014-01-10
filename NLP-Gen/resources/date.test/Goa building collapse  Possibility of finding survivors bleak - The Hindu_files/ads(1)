@@ -1,0 +1,41 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = {}; 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CuUHQ37DKUsayN8rYlAXSgoHYAv2BjpUGtYXJ0I4B2tkeEAEgvYO_EygCUNS_4BVg5crlg7QOoAHr7sndA8gBAakCuPebEUY4UT6oAwGqBNsBT9B03n4Gn78fPfiGQQvPB_3ges4q_LjakELOhR5zKOQXz2mb3nGUi57nomgOlEW5T3X6vGe4jWnbgYYNzdcfHWeKXQHZ6-jFkXkRdqUaWRf4d0CmkMiCNGrmni4rMihb30JPE2c0FCHLjOvhHLHl3YyXrUyi5Vmwb-KMr9N_GmBvmwGygTcDX2gS5plW7K90KQSt_bmgD_Xikud7OVBg0-73EFSJdG4lTbZbcXkwXj6RYmTUMtzgDohLYVbRbpDnTkDCjYTt5UMJg5Bb4kY6jgoU2gUc5WxcS3jGiAYBgAf9kLYi&amp;num=1&amp;cid=5GhAReXIPqH9wRp-si5Iw4ck&amp;sig=AOD64_0vbeWCYbOX2u-WCU49EFQW009Trw&amp;client=ca-hindu_site_html&amp;adurl=http://divinedevelopers.co.in/farmland-projects/153-divine-hamlet-farmland-near-bangalore"; 
+google_ad.visible_url = "www.divinedevelopers.co.in"; 
+google_ad.line1 = "Own Cottage in Bangalore"; 
+google_ad.line2 = "Near Kanakapura Just Rs.122/sqft"; 
+google_ad.line3 = "with all amenities, Birds \x26amp; Animals"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_ad = {}; 
+google_ad.n = 2; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=CfjCI37DKUsayN8rYlAXSgoHYAuWCsfgD_YLg0V7AjbcBEAIgvYO_EygCUKzRwsv8_____wFg5crlg7QOoAHbxJLrA8gBAakCuPebEUY4UT6oAwGqBNsBT9BUhnIEn7wfPfiGQQvPB_3ges4q_LjakELOhR5zKOQXz2mb3nGUi57nomgOlEW5T3X6vGe4jWnbgYYNzdcfHWeKXQHZ6-jFkXkRdqUaWRf4d0CmkMiCNGrmni4rMihb30JPE2c0FCHLjOvhHLHl3YyXrUyi5Vmwb-KMr9N_GmBvmwGygTcDX2gS5plW7K90KQSt_bmgD_Xikud7OVBg0-73EFSJdG4lTbZbcXFZZliRYmTUMtzgDohLYVbRbpDnTkDCjYTt5UMJg5Bb4kY6jgoU2gUc5WxMOgLyiAYBgAeNu-0U&amp;num=2&amp;cid=5GhAReXIPqH9wRp-si5Iw4ck&amp;sig=AOD64_2s2hUTD2_FDEb_zH9j6dwAKEaefg&amp;client=ca-hindu_site_html&amp;adurl=http://www.commonfloor.com/sem%3Fcity%3DBangalore%26listings_type%3Dproperty%26search_intent%3Dsale%26house_type%5B%5D%3DApartment%26f%3Dsem_Bangalore-PD-Flats-02%26hk%3DNew/ReSale%25201/2/3/4%252B%2520Flats%2520in%2520Bangalore%2520%257C%2520Starting%2520%40%2520Rs%252020%2520Lacs%2520Only!%26srtby%3Dlowtohigh%26t%3D45%26display%3Ddirect"; 
+google_ad.visible_url = "commonfloor.com/Bangalore/Flat/Sale"; 
+google_ad.line1 = "Buy Flats @ Bangalore"; 
+google_ad.line2 = "New/ReSale 1/2/3/4+ BHKs For Sale."; 
+google_ad.line3 = "Starting @ Rs 20 Lacs- Explore Now!"; 
+google_ad.regionname = ""; 
+google_ads[1] = google_ad; 
+google_info.feedback_url = "https://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.thehindu.com/news/national/other-states/goa-building-collapse-possibility-of-finding-survivors-bleak/article5541086.ece%26gl%3DIN%26hl%3Den%26client%3Dca-hindu_site_html%26hideleadgen%3D1%26ai0%3DCuUHQ37DKUsayN8rYlAXSgoHYAv2BjpUGtYXJ0I4B2tkeEAEgvYO_EygCUNS_4BVg5crlg7QOoAHr7sndA8gBAakCuPebEUY4UT6oAwGqBNsBT9B03n4Gn78fPfiGQQvPB_3ges4q_LjakELOhR5zKOQXz2mb3nGUi57nomgOlEW5T3X6vGe4jWnbgYYNzdcfHWeKXQHZ6-jFkXkRdqUaWRf4d0CmkMiCNGrmni4rMihb30JPE2c0FCHLjOvhHLHl3YyXrUyi5Vmwb-KMr9N_GmBvmwGygTcDX2gS5plW7K90KQSt_bmgD_Xikud7OVBg0-73EFSJdG4lTbZbcXkwXj6RYmTUMtzgDohLYVbRbpDnTkDCjYTt5UMJg5Bb4kY6jgoU2gUc5WxcS3jGiAYBgAf9kLYi%26ai1%3DCfjCI37DKUsayN8rYlAXSgoHYAuWCsfgD_YLg0V7AjbcBEAIgvYO_EygCUKzRwsv8_____wFg5crlg7QOoAHbxJLrA8gBAakCuPebEUY4UT6oAwGqBNsBT9BUhnIEn7wfPfiGQQvPB_3ges4q_LjakELOhR5zKOQXz2mb3nGUi57nomgOlEW5T3X6vGe4jWnbgYYNzdcfHWeKXQHZ6-jFkXkRdqUaWRf4d0CmkMiCNGrmni4rMihb30JPE2c0FCHLjOvhHLHl3YyXrUyi5Vmwb-KMr9N_GmBvmwGygTcDX2gS5plW7K90KQSt_bmgD_Xikud7OVBg0-73EFSJdG4lTbZbcXFZZliRYmTUMtzgDohLYVbRbpDnTkDCjYTt5UMJg5Bb4kY6jgoU2gUc5WxMOgLyiAYBgAeNu-0U\x26usg\x3dAFQjCNEzaP4I9bMt6swGIIzatzuNHqXIxA";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

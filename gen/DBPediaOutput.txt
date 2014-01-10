@@ -1,0 +1,30 @@
+AdministrativeRegion  :  New Delhi    ( New_Delhi )
+
+
+AdministrativeRegion  :  New York    ( New_York )
+
+
+AdministrativeRegion  :  Washington    ( Washington )
+
+
+Band  :  Association    ( The_Association )
+
+
+Band  :  Office    ( Office_band )
+
+
+Country  :  India    ( India )
+
+
+Country  :  North Korea    ( North_Korea )
+
+
+OfficeHolder  :  Hamid Karzai    ( Hamid_Karzai )
+
+
+OfficeHolder  :  Preet Bharara    ( Preet_Bharara )
+
+
+TelevisionShow  :  Americana    ( Americana_TV_series )
+
+
